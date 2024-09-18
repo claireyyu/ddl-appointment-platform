@@ -1,3 +1,5 @@
+// placeholder data for reviews section
+
 export const reviews = [
     {
       id: 1,

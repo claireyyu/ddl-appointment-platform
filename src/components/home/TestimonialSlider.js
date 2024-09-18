@@ -2,7 +2,7 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
 import { reviews } from './reviewsData';
 
-const Testimonials = () => {
+export default function Testimonials () {
     return (
       <section className="max-w-screen-md mx-auto flex flex-col justify-center my-10">
         <div className="relative select-none px-4">
@@ -39,5 +39,3 @@ const Testimonials = () => {
       </section>
     );
   };
-  
-  export default Testimonials;
