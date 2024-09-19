@@ -6,7 +6,19 @@ export default function BaziCalculator() {
     
     return (
         <div>
-            <form className="flex gap-6 p-4 m-12 text-slate-900" onSubmit={handleSubmit}>
+            <form className="flex flex-col gap-6 p-4 m-12 text-slate-900" onSubmit={handleSubmit}>
+                <div className="flex gap-2">
+                    <label htmlFor="name" className="p-2">Name</label>
+                    <input type="input" name="name" className="p-2 rounded-3xl" />
+                </div>
+                <div className="flex gap-2">
+                <label for="gender">Gender</label>
+                    <select name="gender" className="p-2 rounded-3xl">
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
                 <div className="flex gap-2">
                     <label htmlFor="birthDate" className="p-2">Birth Date</label>
                     <input type="date" name="birthDate" className="p-2 rounded-3xl" />
