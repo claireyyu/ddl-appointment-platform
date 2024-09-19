@@ -17,6 +17,26 @@
       "static/chunks/main-app.js",
       "static/chunks/app/services/page.js"
     ],
+    "/services/personal-reading/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/personal-reading/page.js"
+    ],
+    "/services/interpretation-year/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/interpretation-year/page.js"
+    ],
+    "/services/interpretation-life/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/interpretation-life/page.js"
+    ],
+    "/services/psychic-reading/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/psychic-reading/page.js"
+    ],
     "/about/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -32,10 +52,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/auth/login/page.js"
     ],
-    "/profile/page": [
+    "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/profile/page.js"
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

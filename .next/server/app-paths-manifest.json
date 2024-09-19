@@ -1,4 +1,10 @@
 {
-  "/profile/page": "app/profile/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/services/personal-reading/page": "app/services/personal-reading/page.js",
+  "/services/interpretation-year/page": "app/services/interpretation-year/page.js",
+  "/about/page": "app/about/page.js",
+  "/services/psychic-reading/page": "app/services/psychic-reading/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/auth/login/page": "app/auth/login/page.js",
   "/page": "app/page.js"
 }
