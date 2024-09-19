@@ -2,6 +2,7 @@ export default function ContactForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Submit');
+        window.alert('Your submission has been received. Thank you!');
     }
     
     return (

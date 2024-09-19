@@ -1,7 +1,4 @@
-import React from 'react'
-import ServiceCard from '@/components/Services/ServiceCard'
-import Button from '@/components/ui/button'
-import Link from 'next/link'
+import ServiceCard from '@/components/ServiceCard/ServiceCard'
 
 export default function page() {
   return (

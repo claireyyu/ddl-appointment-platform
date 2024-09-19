@@ -1,8 +1,8 @@
 "use client";
 import Link from 'next/link';
-import BaziCalculator from '../components/Home/BaziCalculator';
-import ContactForm from '@/components/Home/ContactForm';
-import TestimonialSlider from '@/components/Home/TestimonialSlider';
+import BaziCalculator from '../components/BaziCalculator/BaziCalculator';
+import ContactForm from '@/components/ContactForm/ContactForm';
+import TestimonialSlider from '@/components/TestimonialSlider/TestimonialSlider';
 
 export default function Home() {
   return (
@@ -20,7 +20,7 @@ export default function Home() {
         <div className="flex flex-col gap-8 mx-16" >
           <h1 className="text-3xl font-bold">What is Bazi?</h1>
           <p className="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <Link href="/" className="font-semibold text-xl">Link to Sercice Page</Link>
+          <Link href="/" className="font-semibold text-xl">Link to Service Page</Link>
           <p className="text-lg">Lorem ipsum dolor sit amet, <br/>consectetur adipiscing elit.</p>
         </div>
         <div className="bg-slate-300 border rounded m-4"></div>

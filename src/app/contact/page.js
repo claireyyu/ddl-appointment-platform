@@ -1,6 +1,5 @@
 "use client";
-import Link from 'next/link';
-import ContactForm from '@/components/Home/ContactForm';
+import ContactForm from '@/components/ContactForm/ContactForm';
 
 export default function Home() {
   return (

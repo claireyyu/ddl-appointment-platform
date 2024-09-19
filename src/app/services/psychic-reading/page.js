@@ -1,6 +1,3 @@
-import React from 'react'
-import Link from 'next/link'
-
 export default function page() {
   return (
     <div className="grid grid-cols-2 gap-24 p-8 text-slate-700">
