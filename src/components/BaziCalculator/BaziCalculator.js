@@ -11,8 +11,8 @@ export default function BaziCalculator() {
                     <label htmlFor="name" className="p-2">Name</label>
                     <input type="input" name="name" className="p-2 rounded-3xl" />
                 </div>
-                <div className="flex gap-2">
-                <label for="gender">Gender</label>
+                <div className="flex gap-2 items-center jus">
+                    <label for="gender" className="p-2">Gender</label>
                     <select name="gender" className="p-2 rounded-3xl">
                         <option value="female">Female</option>
                         <option value="male">Male</option>
