@@ -4,11 +4,12 @@ import * as React from "react"
 import { Globe } from 'react-feather';
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuRadioGroup, DropdownMenuRadioItem } from '@/components/ui/dropdown-menu';
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 
 export default function Navbar() {
   const [position, setPosition] = React.useState("english")
-  const isSignedIn = false;
+  const isSignedIn = true;
 
 
   return (
@@ -35,9 +36,19 @@ export default function Navbar() {
             <Link href="/services">Services</Link>
             <Link href="/about">About</Link>
             <Link href="/contact">Contact</Link>
-            <Button className="bg-slate-400 text-white p-2 rounded-xl " variant="outline" asChild>
-                <Link href="auth/login">{isSignedIn ? "Log Out" : "Sign In"}</Link>
-            </Button>
+            
+          {isSignedIn ? 
+            <Link href="/profile">
+              <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+            </Link>
+            : <Button className="bg-slate-400 text-white p-2 rounded-xl " variant="outline" asChild>
+                <Link href="auth/login">Login</Link>
+              </Button>
+            }
+
             </div>
         </nav>
     </div>

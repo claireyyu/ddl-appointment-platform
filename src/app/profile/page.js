@@ -1,3 +1,4 @@
+"use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -9,6 +10,10 @@ export default function UserProfile() {
     email: "claire.yu@example.com",
     avatarUrl: "https://example.com/avatar.png",
   };
+
+  const handleEditProfile = () => {
+    console.log("Edit Profile");
+  }
 
   return (
     <div className="container mx-auto p-4">
@@ -39,8 +44,16 @@ export default function UserProfile() {
               </div>
 
               {/* Action Buttons */}
-              <Button variant="default" className="w-full">Edit Profile</Button>
-              <Button variant="outline" className="w-full">Logout</Button>
+              <Button
+                variant="default"
+                className="w-full"
+                onClick={() => {
+                  // Your edit profile logic here, e.g., navigate to edit profile page
+                  console.log("Edit Profile clicked");
+                }}>
+                Edit Profile
+              </Button>
+              <Button variant="secondary" className="w-full">Logout</Button>
             </div>
           </CardContent>
         </Card>
