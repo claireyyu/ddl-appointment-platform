@@ -4,8 +4,8 @@ import { reviews } from './reviewsData';
 
 export default function Testimonials () {
     return (
-      <section className="max-w-screen-md mx-auto flex flex-col justify-center my-10">
-        <div className="relative select-none px-4">
+      <section className="max-w-screen-lg mx-auto flex flex-col justify-center my-10 px-4 md:px-0">
+        <div className="relative select-none">
           <Splide
             options={{
               perPage: 1,
@@ -16,25 +16,27 @@ export default function Testimonials () {
             }}
           >
             {reviews.map((review) => (
-              <SplideSlide key={review.id} className="flex items-center bg-white p-12 rounded-lg gap-4">
-                <img className="w-36 h-36 rounded-full object-cover mx-auto mb-4" src={review.image} alt="" />
-                <div className="content">
-                  <p className="text-gray-600 mb-4 text-base">{review.text}</p>
-                  <div className="flex items-center gap-2">
+              <SplideSlide key={review.id} className="flex flex-col md:flex-row items-center bg-white p-8 md:p-12 rounded-lg gap-4">
+                <img className="w-24 h-24 md:w-36 md:h-36 rounded-full object-cover mx-auto md:mx-0 mb-4 md:mb-0" src={review.image} alt="" />
+                <div className="content text-center md:text-left">
+                  <p className="text-gray-600 mb-4 text-sm md:text-base">{review.text}</p>
+                  <div className="flex justify-center md:justify-start items-center gap-2">
                     <div className="rating flex">
-                      <span className="text-red-500 text-base">&#9733;</span>
-                      <span className="text-red-500 text-base">&#9733;</span>
-                      <span className="text-red-500 text-base">&#9733;</span>
-                      <span className="text-red-500 text-base">&#9733;</span>
-                      <span className="text-red-500 text-base">&#9734;</span>
+                      <span className="text-red-500 text-sm md:text-base">&#9733;</span>
+                      <span className="text-red-500 text-sm md:text-base">&#9733;</span>
+                      <span className="text-red-500 text-sm md:text-base">&#9733;</span>
+                      <span className="text-red-500 text-sm md:text-base">&#9733;</span>
+                      <span className="text-red-500 text-sm md:text-base">&#9734;</span>
                     </div>
-                    <p className="font-semibold">{review.name}</p>
+                    <p className="font-semibold text-sm md:text-base">{review.name}</p>
                   </div>
                 </div>
               </SplideSlide>
             ))}
             </Splide>
-            <p className="flex my-4 font-semibold justify-center">Rated 4.6/5 based on 121 reviews. Showing our 4 & 5 star reviews.</p>    
+            <p className="flex my-4 font-semibold justify-center text-center text-sm md:text-base">
+              Rated 4.6/5 based on 121 reviews. Showing our 4 & 5 star reviews.
+            </p>    
         </div>
       </section>
     );

@@ -57,7 +57,7 @@ export default function BaziCalculator() {
                 const data = await response.json();
                 setResult(data);
             } else {
-                const errorData = await response.text(); // Use .text() if the server might not return JSON
+                const errorData = await response.text();
                 setResult(`Failed to fetch data: ${errorData}`);
             }
         } catch (error) {
