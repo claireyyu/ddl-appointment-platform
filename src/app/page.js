@@ -56,7 +56,7 @@ import BaziCalculator from '../components/BaziCalculator/BaziCalculator';
 import ContactForm from '@/components/ContactForm/ContactForm';
 import TestimonialSlider from '@/components/TestimonialSlider/TestimonialSlider';
 
-export default function Home() {
+export default function page() {
   return (
     <div>
 
