@@ -3,6 +3,9 @@ import Link from 'next/link';
 import BaziCalculator from '../components/BaziCalculator/BaziCalculator';
 import ContactForm from '@/components/ContactForm/ContactForm';
 import TestimonialSlider from '@/components/TestimonialSlider/TestimonialSlider';
+import Image from 'next/image'
+import homePic from './home-calculator.png'
+
 import { useState } from 'react';
 import BaziResult from '@/components/BaziCalculator/BaziResult';
 
@@ -12,14 +15,21 @@ export default function page() {
     <div>
 
       {/* Home Content */}
-      <section className="flex flex-col p-4 md:p-8 justify-center items-center bg-background mx-4 md:mx-16 text-foreground mt-8 mb-16">
-        <h1 className="text-2xl text-center md:text-3xl font-bold">Discover Your Destiny With Bazi Calculator</h1>
-        <p className="text-center md:text-lg justify-center align-middle mx-2 md:mx-8 my-2 md:my-4">Unlock the secrets of your personality, career path, and future by exploring the ancient Chinese art of Bazi. <br/>Just enter your date of birth below, and get a personalized reading to better understand your life's journey.</p>
-        <BaziCalculator/>
-      </section >
+      <section className="flex flex-col lg:flex-row gap-4 p-4 lg:p-16 text-foreground mb-16">
+        <div className="mx-4 lg:mx-16 w-full lg:w-1/2">
+          <Image
+            src={homePic}
+            alt="Decorative image"
+            className="w-full h-48 sm:h-64 md:h-80 lg:h-auto object-cover"></Image>
+        </div>
+
+        <div className="flex flex-col gap-4 lg:gap-8 mx-4 lg:mx-16 w-full lg:w-1/2">
+          <BaziCalculator />
+        </div>
+      </section>
 
       {/* Services Content */}
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 md:p-16 text-slate-50 mb-16">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 md:p-16 text-foreground mb-16">
         <div className="flex flex-col gap-4 md:gap-8 mx-4 md:mx-16">
           <h1 className="text-2xl md:text-3xl font-bold">WHAT IS BAZI</h1>
           <p className="text-base md:text-lg">
@@ -33,7 +43,7 @@ export default function page() {
 
 
       {/* Contact Content */}
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 md:p-16 text-slate-50 mb-16">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 md:p-16 text-foreground mb-16">
         <div className="flex flex-col gap-4 md:gap-8 mx-4 md:mx-16">
           <h1 className="text-2xl md:text-3xl font-bold">CONTACT US</h1>
           <p className="text-base md:text-lg">

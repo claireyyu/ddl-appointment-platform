@@ -13,6 +13,8 @@ module.exports = {
 				foreground: 'hsl(var(--foreground))',
 				'gradientStart': '#10A8EA',
 				'gradientEnd': '#B21BF9',
+				'borderGradientStart': '#80EBF2',
+				'borderGradientEnd': '#10A8EA',
   			// card: {
   			// 	DEFAULT: 'hsl(var(--card))',
   			// 	foreground: 'hsl(var(--card-foreground))'
