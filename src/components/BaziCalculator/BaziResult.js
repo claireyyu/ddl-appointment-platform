@@ -4,7 +4,7 @@ export default function BaziResult({ result }) {
   const jsonResult = JSON.parse(result);
 
   const { name, gongli } = jsonResult.debug;
-  const { nianzhu, yuezhu, rizhu, shizhu, personality_description } = jsonResult;
+  const { nianzhu, yuezhu, rizhu, shizhu, personality_detail, rizhu_detail } = jsonResult;
 
   // extract birth year, month, day, hour, and minute from gongli
   const birthYear = gongli.split('年')[0];
@@ -60,7 +60,9 @@ export default function BaziResult({ result }) {
         </table>
       </div>
       <div className="m-6">
-        <p className="text-left md:text-center">Bazi Interpretation: {personality_description}</p>
+        <p className="text-left md:text-center">Rizhu Interpretation <br/>{rizhu_detail}</p>
+        <br/>
+        <p className="text-left md:text-center">Bazi Interpretation <br/>{personality_detail}</p>
       </div>
     </div>
   );

@@ -86,7 +86,8 @@ export default function BaziCalculator() {
                     rizhu: data1.original.rizhu,
                     shizhu: data1.original.shizhu,
                     big_start_year: data1.original.big_start_year,
-                    personality_description: data2.original.personality_description
+                    personality_detail: data2.original.personality_detail,
+                    rizhu_detail: data2.original.rizhu_detail,
                 };
     
                 setResult(JSON.stringify(combinedData));
