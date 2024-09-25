@@ -106,7 +106,7 @@ export default function BaziCalculator() {
 
     return (
         <div className="w-full">
-          <form className="flex flex-col gap-4 p-4 md:p-8 bg-white shadow-md rounded-md mx-4 md:mx-16" onSubmit={handleSubmit}>
+          <form className="flex flex-col gap-4 p-4 md:p-8 bg-background shadow-md rounded-md mx-4 md:mx-16" onSubmit={handleSubmit}>
             <div className="flex flex-col md:flex-row gap-4">
               <label htmlFor="name" className="p-2 md:w-1/3">Name</label>
               <input 

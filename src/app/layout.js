@@ -2,6 +2,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 
+
 export const metadata = {
   title: "Bazi",
   description: "A Bazi Web App",
