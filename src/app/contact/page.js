@@ -1,7 +1,7 @@
 "use client";
 import ContactForm from '@/components/ContactForm/ContactForm';
 
-export default function Home() {
+export default function page() {
   return (
     <div>
       {/* Contact Content */}

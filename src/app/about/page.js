@@ -3,7 +3,7 @@ import ServiceCard from '@/components/ServiceCard/ServiceCard'
 import Button from '@/components/ui/button'
 import Link from 'next/link'
 
-export default function BaziPage() {
+export default function page() {
   return (
     <div className="bg-white text-gray-800">
       <div className="flex p-8 justify-center items-center bg-slate-50 mx-16 text-slate-700">
