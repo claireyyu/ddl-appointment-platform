@@ -114,65 +114,65 @@ export default function BaziCalculator() {
           setIsSubmitting(false); // Enable button and change text
       }
     };
-
+  
     return (
       <div className="w-full">
         <h1 className="text-lg text-center p-2 md:text-lg font-bold">Try the Bazi calculator and get your life decoded.</h1>
-        <form className="flex flex-col gap-4 p-2 md:p-8 bg-background shadow-md rounded-md mx-4 md:mx-16" onSubmit={handleSubmit}>
+        <form className="flex flex-col gap-4 md:p-8 bg-background rounded-md mx-4 md:mx-8" onSubmit={handleSubmit}>
           
-            <div className="flex flex-col md:flex-row gap-4">
-              <label htmlFor="name" className="p-2 md:w-1/3">Name</label>
-              <input 
-                type="text" 
-                name="name" 
-                id="name" 
-                className="p-2 rounded-3xl flex-1 border-4 border-borderGradientStart text-black"
-                onChange={handleChange} 
-              />
+          <div className="grid grid-cols-3 gap-4">
+            <label htmlFor="name" className="p-2">Name</label>
+            <input 
+              type="text" 
+              name="name" 
+              id="name" 
+              className="p-2 col-span-2 rounded-3xl border-4 border-bStart text-black text-center"
+              onChange={handleChange} 
+            />
           </div>
           
-          <div className="flex flex-col md:flex-row gap-4">
-              <label htmlFor="sex" className="p-2 md:w-1/3">Gender</label>
-              <select 
-                name="sex" 
-                id="sex" 
-                className="p-2 rounded-3xl flex-1 border-4 border-borderGradientStart text-black" 
-                onChange={handleChange}
-              >
-                <option value="">Select Gender</option>
-                <option value="female">Female</option>
-                <option value="male">Male</option>
-              </select>
+          <div className="grid grid-cols-3 gap-4">
+            <label htmlFor="sex" className="p-2">Gender</label>
+            <select 
+              name="sex" 
+              id="sex" 
+              className="p-2 col-span-2 rounded-3xl border-4 border-bStart text-black text-center" 
+              onChange={handleChange}
+            >
+              <option value="">Select Gender</option>
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+            </select>
           </div>
           
-          <div className="flex flex-col md:flex-row gap-4">
-              <label htmlFor="birthDate" className="p-2 md:w-1/3">Birth Date</label>
-              <input 
-                type="date" 
-                name="birthDate" 
-                id="birthDate" 
-                className="p-2 rounded-3xl flex-1 border-4 border-borderGradientStart text-black" 
-                onChange={handleChange} 
-              />
+          <div className="grid grid-cols-3 gap-4">
+            <label htmlFor="birthDate" className="p-2">Birth Date</label>
+            <input 
+              type="date" 
+              name="birthDate" 
+              id="birthDate" 
+              className="p-2 col-span-2 rounded-3xl border-4 border-bStart text-black text-center" 
+              onChange={handleChange} 
+            />
           </div>
-          
-          <div className="flex flex-col md:flex-row gap-4">
-              <label htmlFor="birthTime" className="p-2 md:w-1/3">Birth Time</label>
-              <input 
-                type="time" 
-                name="birthTime" 
-                id="birthTime" 
-                className="p-2 rounded-3xl flex-1 border-4 border-borderGradientStart text-black" 
-                onChange={handleChange} 
-              />
+    
+          <div className="grid grid-cols-3 gap-4">
+            <label htmlFor="birthTime" className="p-2">Birth Time</label>
+            <input 
+              type="time" 
+              name="birthTime" 
+              id="birthTime" 
+              className="p-2 col-span-2 rounded-3xl border-4 border-bStart text-black text-center" 
+              onChange={handleChange} 
+            />
           </div>
-          
-          <div className="flex flex-col md:flex-row gap-4">
-            <label htmlFor="timezone" className="p-2 md:w-1/3">Timezone</label>
+    
+          <div className="grid grid-cols-3 gap-4">
+            <label htmlFor="timezone" className="p-2">Timezone</label>
             <select 
               name="timezone" 
               id="timezone" 
-              className="p-2 rounded-3xl flex-1 border-4 border-borderGradientStart max-w-full md:max-w-[200px] text-black" 
+              className="p-2 col-span-2 rounded-3xl border-4 border-bStart text-black text-center" 
               onChange={handleChange}
             >
               <option value="">Select Timezone</option>
@@ -183,21 +183,21 @@ export default function BaziCalculator() {
           </div>
           
           <div className="flex flex-col justify-center mt-4">
-              <button 
-                type="submit" 
-                className="cursor-pointer bg-gradient-to-r from-borderGradientStart to-borderGradientEnd text-white px-10 py-2 rounded-2xl font-bold transition-colors hover:bg-sky-500 disabled:bg-gray-400"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? 'Calculating...' : 'Decode'}
+            <button 
+              type="submit" 
+              className="cursor-pointer bg-gradient-to-r from-bStart to-bEnd text-white px-10 py-2 rounded-2xl font-bold transition-colors hover:bg-sky-500 disabled:bg-gray-400"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Calculating...' : 'Decode'}
             </button>
             {error && <p className="text-red-500 mt-2">{error}</p>}
-            </div>
-          </form>
-          {result && (
-            <div className="mt-8 mx-4 md:mx-16">
-              <BaziResult result={result} />
-            </div>
-          )}
-        </div>
-      );
+          </div>
+        </form>
+        {result && (
+          <div className="mt-8 mx-4 md:mx-16">
+            <BaziResult result={result} />
+          </div>
+        )}
+      </div>
+    );
 }

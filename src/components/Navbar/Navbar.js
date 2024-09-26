@@ -17,7 +17,7 @@ export default function Navbar() {
       <nav className="flex justify-between items-center bg-background p-4 text-foreground sticky text-lg">
 
         {/* <h1 className="text-3xl font-bold ml-16 p-2">Lab 8</h1> */}
-        <Link href="/" className="text-3xl font-bold ml-8 p-2 bg-gradient-to-r from-gradientStart to-gradientEnd text-transparent bg-clip-text">Lab 8</Link>
+        <Link href="/" className="text-3xl font-bold ml-8 p-2 bg-gradient-to-r from-bpStart to-bpEnd text-transparent bg-clip-text">Lab 8</Link>
         <div className="hidden md:flex items-center gap-12">
           <Link href="/">Home</Link>
           <Link href="/services">Services</Link>
@@ -33,7 +33,7 @@ export default function Navbar() {
                 </Avatar>
               </Link>
             ) : (
-              <Button className="bg-gradient-to-r from-gradientStart to-gradientEnd border-none text-foreground text-base" variant="default" asChild>
+              <Button className="bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base" variant="default" asChild>
                 <Link href="auth/login">Login</Link>
               </Button>
             )}
@@ -80,7 +80,7 @@ export default function Navbar() {
               </Avatar>
             </Link>
           ) : (
-            <Button className="bg-gradient-to-r from-gradientStart to-gradientEnd border-none text-foreground p-2 rounded-xl" variant="outline" asChild>
+            <Button className="bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground p-2 rounded-xl" variant="outline" asChild>
               <Link href="auth/login" onClick={() => setIsMenuOpen(false)}>Login</Link>
             </Button>
           )}

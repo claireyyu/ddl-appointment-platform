@@ -11,10 +11,12 @@ module.exports = {
 			colors: {
   			background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
-				'gradientStart': '#10A8EA',
-				'gradientEnd': '#B21BF9',
-				'borderGradientStart': '#80EBF2',
-				'borderGradientEnd': '#10A8EA',
+				'bpStart': '#10A8EA',
+				'bpEnd': '#B21BF9',
+				'bStart': '#80EBF2',
+				'bEnd': '#10A8EA',
+				'pStart': '#8316F0',
+				'pEnd': '#4B0D8A',
   			// card: {
   			// 	DEFAULT: 'hsl(var(--card))',
   			// 	foreground: 'hsl(var(--card-foreground))'
