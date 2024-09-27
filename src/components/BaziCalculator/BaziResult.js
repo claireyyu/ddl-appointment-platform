@@ -24,33 +24,38 @@ export default function BaziResult({ result }) {
   const hourBranch = shizhu[1];
 
   return (
-    <div className="flex flex-col p-4 text-slate-900 bg-white w-full text-center">
-      <div className="flex flex-wrap space-y-4 sm:space-y-0 sm:space-x-8 my-4 justify-center">
-        <p className="w-full sm:w-auto">Name: {name}</p>
-        <p className="w-full sm:w-auto">Birthday: {birthYear}/{birthMonth}/{birthDay}</p>
-        <p className="w-full sm:w-auto">Time: {birthHour}:{birthMinute}</p>
+    <div className="flex flex-col items-center text-center rounded-3xl bg-foreground text-background m-8">
+      <div className="flex w-full p-8 text-foreground bg-gradient-to-r from-bpStart to-bpEnd rounded-t-3xl items-center justify-between flex-wrap md:flex-nowrap">
+          <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 w-full md:w-auto">
+            <p className="w-full md:w-auto">Name: {name}</p>
+            <p className="w-full md:w-auto">Birthday: {birthYear}/{birthMonth}/{birthDay}</p>
+            <p className="w-full md:w-auto">Time: {birthHour}:{birthMinute}</p>
+          </div>
+          <div className="flex justify-end text-xl border-2 border-foreground p-2 mt-4 md:mt-0">
+            <p>Lab 8</p>
+          </div>
       </div>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto mt-8">
         <table className="min-w-full border-collapse">
           <thead>
             <tr>
               <th className="border-b py-2"></th>
-              <th className="border-b py-2">Year Pillar</th>
-              <th className="border-b py-2">Month Pillar</th>
-              <th className="border-b py-2">Day Pillar</th>
-              <th className="border-b py-2">Hour Pillar</th>
+              <th className="border-b py-2">Year<br/>Pillar</th>
+              <th className="border-b py-2">Month<br/>Pillar</th>
+              <th className="border-b py-2">Day<br/>Pillar</th>
+              <th className="border-b py-2">Hour<br/>Pillar</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td className="border-t py-2">Stem</td>
+              <td className="border-t py-2">Top Stem</td>
               <td className="border-t py-2">{yearStem}</td>
               <td className="border-t py-2">{monthStem}</td>
               <td className="border-t py-2">{dayStem}</td>
               <td className="border-t py-2">{hourStem}</td>
             </tr>
             <tr>
-              <td className="border-t py-2">Branch</td>
+              <td className="border-t py-2">Bottom Branch</td>
               <td className="border-t py-2">{yearBranch}</td>
               <td className="border-t py-2">{monthBranch}</td>
               <td className="border-t py-2">{dayBranch}</td>
@@ -59,12 +64,13 @@ export default function BaziResult({ result }) {
           </tbody>
         </table>
       </div>
-      <div className="m-6">
-        <p className="text-left md:text-center">Rizhu Interpretation <br/>{rizhu_detail}</p>
+      <div className="m-16">
+        <p className="text-left">Rizhu Interpretation <br/><br/>{rizhu_detail}</p>
         <br/>
-        <p className="text-left md:text-center">Bazi Interpretation <br/>{personality_detail}</p>
+        <p className="text-left">Bazi Interpretation <br/><br/>{personality_detail}</p>
       </div>
     </div>
   );
+  
 }
 
