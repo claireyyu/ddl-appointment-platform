@@ -35,15 +35,19 @@ export default function BaziCalculator() {
         [name]: value,
     }));
 
-    // Clear the error for the field being updated
-    setError('');
+    // // Clear the error for the field being updated
+    // setError('');
   };
+
+  useEffect(() => {
+    setError('');
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Clear error message at the beginning of each submit attempt
-    setError('');
+    // // Clear error message at the beginning of each submit attempt
+    // setError('');
 
     // Validate form fields
     if (!formData.name || !formData.sex || !formData.birthDate || !formData.birthTime || !formData.timezone) {
@@ -195,15 +199,17 @@ export default function BaziCalculator() {
           </button>
           {error && <p className="text-red-500 mt-2">{error}</p>}
         </div>
-      </form>
-      {result && (
+        {result && (
           <Link href={{
             pathname: '/result',
             query: { 
               result: result,
              }
-          }}>View Result</Link>
+        }}
+        className="mt-4 mx-auto text-center bg-gradient-to-r from-bStart to-bpEnd text-white font-semibold py-2 px-4 rounded-full md:text-lg sm:text-base text-sm">View Your Result Report!</Link>
       )}
+      </form>
+
     </div>
   );
 }
