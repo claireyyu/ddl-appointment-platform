@@ -197,7 +197,7 @@ export default function BaziCalculator() {
         <div className="flex flex-col justify-center mt-4">
         <button 
           type="submit" 
-          className={`cursor-pointer  text-white px-10 py-2 rounded-2xl font-bold transition-colors ${
+          className={`cursor-pointer text-white px-10 py-2 rounded-2xl font-bold transition-colors ${
             isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-gradient-to-r from-bStart to-bEnd'
           }`}
           disabled={isSubmitting}
@@ -211,7 +211,13 @@ export default function BaziCalculator() {
           <Link href={{
             pathname: '/result',
             query: { 
-              result: result,
+              inputName: formData.name,
+              birthLocalYear: moment(formData.birthDate).year(),
+              birthLocalMonth: moment(formData.birthDate).month() + 1, // month is zero-indexed
+              birthLocalDay: moment(formData.birthDate).date(),
+              birthLocalHour: formData.birthTime.split(':')[0],
+              birthLocalMinute: formData.birthTime.split(':')[1],
+              result: result
              }
         }}
         className="mt-4 mx-auto text-center bg-gradient-to-r from-bpEnd to-bpStart text-white font-semibold py-2 px-4 rounded-full md:text-lg sm:text-base text-sm">View Your Result Report!</Link>

@@ -1,17 +1,30 @@
-import React from 'react';
+'use client'
+ 
+import { useSearchParams } from 'next/navigation'
 
-export default function BaziResult({ result }) {
+export default function BaziResult() {
+  const searchParams = useSearchParams();
+
+  // get local date and time
+  const name = searchParams.get('inputName');
+  const birthYear = searchParams.get('birthLocalYear');
+  const birthMonth = searchParams.get('birthLocalMonth');
+  const birthDay = searchParams.get('birthLocalDay');
+  const birthHour = searchParams.get('birthLocalHour');
+  const birthMinute = searchParams.get('birthLocalMinute');
+
+  // convert local date to lunar date
+  const { Lunar, Solar } = require('lunar-javascript');
+  const solar = Solar.fromYmd(birthYear, birthMonth, birthDay);
+  const lunar = solar.getLunar();
+  const lunarYear = lunar.getYear();
+  const lunarMonth = lunar.getMonth();
+  const lunarDay = lunar.getDay();
+
+  // get the result from the query string
+  const result = searchParams.get('result');
   const jsonResult = JSON.parse(result);
-
-  const { name, gongli } = jsonResult.debug;
   const { nianzhu, yuezhu, rizhu, shizhu, personality_detail, rizhu_detail } = jsonResult;
-
-  // extract birth year, month, day, hour, and minute from gongli
-  const birthYear = gongli.split('年')[0];
-  const birthMonth = gongli.split('年')[1].split('月')[0];
-  const birthDay = gongli.split('年')[1].split('月')[1].split('日')[0];
-  const birthHour = gongli.split('年')[1].split('月')[1].split('日')[1].split('时')[0];
-  const birthMinute = gongli.split('年')[1].split('月')[1].split('日')[1].split('时')[1].split('分')[0];
 
   // extract the stem and branch for each pillar
   const yearStem = nianzhu[0];
@@ -29,6 +42,7 @@ export default function BaziResult({ result }) {
           <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 w-full md:w-auto">
             <p className="w-full md:w-auto">Name: {name}</p>
             <p className="w-full md:w-auto">Birthday: {birthYear}/{birthMonth}/{birthDay}</p>
+            <p className="w-full md:w-auto">Lunar Birthday: {lunarYear}/{lunarMonth}/{lunarDay}</p>
             <p className="w-full md:w-auto">Time: {birthHour}:{birthMinute}</p>
             <div className="md:hidden flex justify-center text-xl border-2 border-foreground p-2 mt-4 md:mt-0">
               <p>Lab 8</p>
