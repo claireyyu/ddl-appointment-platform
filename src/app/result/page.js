@@ -1,10 +1,11 @@
 import React from 'react'
 
-export default function page({ searchParams }) {
-  console.log(searchParams)
+export default function page(searchParams) {
+  const result = searchParams.result
+  console.log(result)
   return (
     <div>
-      Result
+      <p>{result}</p>
     </div>
   )
 }
