@@ -20,17 +20,6 @@ export default function page() {
           <ServiceCard name="interpretation-life" description="Comprehensive BaZi Interpretation for a Lifetime" pic={service3}/>
           <ServiceCard name="psychic-reading" description="Psychic Reading (Non-BaZi Service)" pic={service4}/>
         </section>
-
-        {/*Categories Section*/}
-        {/* <section className="flex flex-col">
-          <h1 className="text-2xl md:text-3xl font-bold text-foreground mt-10">Categories We Can Interpret</h1>
-          <p className="text-base md:text-lg m-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            <br />
-            <br />
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </section> */}
       </div>
     </div>
   );

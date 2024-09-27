@@ -5,26 +5,24 @@ import Link from 'next/link'
 
 export default function page() {
   return (
-    <div className="bg-white text-gray-800">
-      <div className="flex p-8 justify-center items-center bg-slate-50 mx-16 text-slate-700">
-        <h1 className="text-3xl font-bold">About</h1>
+    <div className="bg-backrground text-foreground text-justify">
+      <div className="flex p-8 justify-center items-end bg-gradient-to-r from-pStart to-pEnd mx-4 md:mx-16 text-foreground">
+        <h1 className="text-2xl md:text-3xl font-bold">ABOUT US</h1>
       </div>
       <div className="flex flex-col m-16">
-        <h2 className="text-3xl font-bold text-slate-600 text-center">Understanding Your Destiny Through Chinese Astrology</h2>
         <p className="text-lg mt-4">
-          Bazi, also known as the "Four Pillars of Destiny," is an ancient Chinese metaphysical system used to understand a person's life path, personality, and destiny. It is rooted in the belief that the universe's energy, expressed through the interaction of the Five Elements (Wood, Fire, Earth, Metal, Water) and the Yin-Yang forces, shapes our experiences from the moment we are born.
+          At Lab 8, the number '8' symbolizes both the "Ba" (八) in BaZi and the infinity symbol (∞), reflecting our belief in the limitless potential within each individual. We are here to guide you through life's possibilities, helping you navigate challenges with clarity and wisdom.
+          <br /><br />We utilize the ancient wisdom of BaZi, or the "Four Pillars of Destiny," to unlock a deeper understanding of your life's path, personality, and potential. BaZi is a Chinese metaphysical system that interprets universal energies through the interaction of the Five Elements (Wood, Fire, Earth, Metal, and Water) and Yin-Yang forces, shaping your life experiences from birth.
+          <br/><br/>Central to BaZi is your birth chart, a unique map based on the date and time of your birth. This chart is made up of four pillars, with each pillar consisting of a Top Stem and a Bottom Branch:
         </p>
-        <h3 className="text-2xl mt-8 mb-4 font-semibold">What is Bazi?</h3>
+        <h3 className="text-xl mt-8 mb-4 font-semibold">Meaning of the Four Pillars</h3>
         <p className="text-lg">
-          At the heart of Bazi is your birth chart, which is based on your date and time of birth. This chart is composed of four pillars, each representing a specific aspect of your life: Year Pillar, Month Pillar, Day Pillar, and Hour Pillar. Each pillar is a combination of a Stem (at the top) and a Branch (at the bottom), which align with the Five Elements. The interaction between these elements reveals valuable insights about your strengths, weaknesses, opportunities, and potential challenges in various aspects of life.
-        </p>
-        <h3 className="text-2xl mt-8 mb-4 font-semibold">How Does Bazi Work?</h3>
-        <p className="text-lg">
-          Bazi is more than just a tool for fortune-telling. It helps you align with the natural flow of the universe, revealing the best times to pursue opportunities and when to be more cautious. The power of Bazi lies in understanding how your personal elemental balance interacts with the cycles of time.
-        </p>
-        <h3 className="text-2xl mt-8 mb-4 font-semibold">Why Choose a Bazi Reading?</h3>
-        <p className="text-lg">
-          A Bazi reading provides deep insight into your destiny and personality. It can help answer important life questions, such as career paths, relationship timings, and financial planning. Whether you're seeking clarity on a specific issue or a comprehensive understanding of your life's journey, we are here to support you with insightful interpretations and practical advice.
+          Year Pillar:<br/>Heavenly Stem:Represents the influence of grandparents or family elders, reflecting a person's family background and early environment.Earthly Branch: Reflects innate constitution and hereditary factors, symbolizing growth and foundations during adolescence.
+          <br /><br />
+          Month Pillar:<br />Heavenly Stem: Represents parents, leaders, or supervisors, symbolizing early career development and social status in adulthood.Earthly Branch: Reflects interactions with family and work environment, as well as life state and interpersonal relationships during middle age.
+Day Pillar:Heavenly Stem: Represents the individual, directly reflecting the person’s character and health based on its elemental attributes.Earthly Branch: Represents the spouse and marriage status, indicating partner relationships and family interactions.
+Hour Pillar:Heavenly Stem: Symbolizes children, reflecting the relationship with them and predicting the state of later life.Earthly Branch: Represents a person's achievements and living environment in later years, reflecting later life fortunes and interactions with descendants.
+In summary, the Year Pillar influences early life, the Month Pillar impacts middle age, the Day Pillar is closely related to the individual and marriage, while the Hour Pillar affects later life fortunes and relationships with children. Together, these four pillars form a person's BaZi chart, helping to interpret their life’s fortunes, character, and significant events.
         </p>
         <h3 className="text-2xl mt-8 mb-4 font-semibold">Our Mission</h3>
         <p className="text-lg">
