@@ -4,8 +4,8 @@ import BaziCalculator from '../components/BaziCalculator/BaziCalculator';
 import ContactForm from '@/components/ContactForm/ContactForm';
 import TestimonialSlider from '@/components/TestimonialSlider/TestimonialSlider';
 import Image from 'next/image'
-import homeCaclPic from './home-calculator.png'
-import homeAboutPic from './home-about.png'
+import homeCaclPic from '../../public/home-calculator.png'
+import homeAboutPic from '../../public/home-about.png'
 
 export default function page() {
 

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import {majorTimezones} from './TimezoneData';
 import moment from 'moment-timezone';
 import BaziResult from './BaziResult';
+import Link from 'next/link';
 
 
 export default function BaziCalculator() {
@@ -42,7 +43,7 @@ export default function BaziCalculator() {
     const handleSubmit = async (e) => {
       e.preventDefault();
       // Validate form fields
-      if (!formData.name || !formData.sex || !formData.birthDate) {
+      if (!formData.name || !formData.sex || !formData.birthDate || !formData.birthTime || !formData.timezone) {
         setError('Please make sure to fill all fields');
         return;
       }
@@ -194,9 +195,12 @@ export default function BaziCalculator() {
           </div>
         </form>
         {result && (
-          <div className="mt-8 mx-4 md:mx-16">
-            <BaziResult result={result} />
-          </div>
+            <Link href={{
+              pathname: '/result',
+              query: { 
+                result: result,
+               }
+            }}>View Result</Link>
         )}
       </div>
     );
