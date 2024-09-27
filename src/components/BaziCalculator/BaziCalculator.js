@@ -133,6 +133,7 @@ export default function BaziCalculator() {
             type="text" 
             name="name" 
             id="name" 
+            value={formData.name}
             className="p-2 col-span-2 rounded-3xl border-4 border-bStart text-black text-center"
             onChange={handleChange} 
           />
@@ -143,6 +144,7 @@ export default function BaziCalculator() {
           <select 
             name="sex" 
             id="sex" 
+            value={formData.sex}
             className="p-2 col-span-2 rounded-3xl border-4 border-bStart text-black text-center" 
             onChange={handleChange}
           >
@@ -158,6 +160,7 @@ export default function BaziCalculator() {
             type="date" 
             name="birthDate" 
             id="birthDate" 
+            value={formData.birthDate}
             className="p-2 col-span-2 rounded-3xl border-4 border-bStart text-black text-center" 
             onChange={handleChange} 
           />
@@ -169,6 +172,7 @@ export default function BaziCalculator() {
             type="time" 
             name="birthTime" 
             id="birthTime" 
+            value={formData.birthTime}
             className="p-2 col-span-2 rounded-3xl border-4 border-bStart text-black text-center" 
             onChange={handleChange} 
           />
@@ -179,6 +183,7 @@ export default function BaziCalculator() {
           <select 
             name="timezone" 
             id="timezone" 
+            value={formData.timezone}
             className="p-2 col-span-2 rounded-3xl border-4 border-bStart text-black text-center" 
             onChange={handleChange}
           >
@@ -190,13 +195,16 @@ export default function BaziCalculator() {
         </div>
         
         <div className="flex flex-col justify-center mt-4">
-          <button 
-            type="submit" 
-            className="cursor-pointer bg-gradient-to-r from-bStart to-bEnd text-white px-10 py-2 rounded-2xl font-bold transition-colors hover:bg-sky-500 disabled:bg-gray-400"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? 'Calculating...' : 'Decode'}
-          </button>
+        <button 
+          type="submit" 
+          className={`cursor-pointer  text-white px-10 py-2 rounded-2xl font-bold transition-colors ${
+            isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-gradient-to-r from-bStart to-bEnd'
+          }`}
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? 'Calculating...' : 'Decode'}
+        </button>
+
           {error && <p className="text-red-500 mt-2">{error}</p>}
         </div>
         {result && (
@@ -206,7 +214,7 @@ export default function BaziCalculator() {
               result: result,
              }
         }}
-        className="mt-4 mx-auto text-center bg-gradient-to-r from-bStart to-bpEnd text-white font-semibold py-2 px-4 rounded-full md:text-lg sm:text-base text-sm">View Your Result Report!</Link>
+        className="mt-4 mx-auto text-center bg-gradient-to-r from-bpEnd to-bpStart text-white font-semibold py-2 px-4 rounded-full md:text-lg sm:text-base text-sm">View Your Result Report!</Link>
       )}
       </form>
 
