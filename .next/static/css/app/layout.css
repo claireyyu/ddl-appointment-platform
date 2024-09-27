@@ -710,6 +710,9 @@ video {
 .mt-8 {
   margin-top: 2rem;
 }
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
 .flex {
   display: flex;
 }
@@ -1533,6 +1536,10 @@ body {
     margin: 5rem;
   }
 
+  .md\:m-10 {
+    margin: 2.5rem;
+  }
+
   .md\:mx-0 {
     margin-left: 0px;
     margin-right: 0px;
@@ -1546,6 +1553,11 @@ body {
   .md\:mx-8 {
     margin-left: 2rem;
     margin-right: 2rem;
+  }
+
+  .md\:mx-20 {
+    margin-left: 5rem;
+    margin-right: 5rem;
   }
 
   .md\:mb-0 {
@@ -1715,8 +1727,22 @@ body {
     gap: 2rem;
   }
 
+  .lg\:gap-24 {
+    gap: 6rem;
+  }
+
   .lg\:p-16 {
     padding: 4rem;
+  }
+
+  .lg\:px-24 {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+
+  .lg\:py-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 }
 
