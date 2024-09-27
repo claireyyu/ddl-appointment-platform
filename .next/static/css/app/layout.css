@@ -713,6 +713,9 @@ video {
 .mb-10 {
   margin-bottom: 2.5rem;
 }
+.mt-12 {
+  margin-top: 3rem;
+}
 .flex {
   display: flex;
 }
@@ -1634,6 +1637,10 @@ body {
 
   .md\:gap-8 {
     gap: 2rem;
+  }
+
+  .md\:gap-12 {
+    gap: 3rem;
   }
 
   .md\:space-x-8 > :not([hidden]) ~ :not([hidden]) {

@@ -7,11 +7,6 @@ import service4 from '../../../public/service-4.png';
 export default function page() {
   return (
     <div>
-      {/* Services Header */}
-      <div className="flex p-8 justify-center items-end bg-gradient-to-r from-pStart to-pEnd mx-4 md:mx-16 text-foreground">
-        <h1 className="text-2xl md:text-3xl font-bold">Services</h1>
-      </div>
-
       {/* Services Content */}
       <div className="flex flex-col m-4 md:mx-16 my-10">
         <p className="text-base md:text-lg mb-10">
