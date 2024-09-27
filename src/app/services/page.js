@@ -9,7 +9,7 @@ export default function page() {
     <div>
       {/* Services Content */}
       <div className="flex flex-col m-4 md:mx-16 my-10">
-        <p className="text-base md:text-lg mb-10">
+        <p className="text-justify md:text-lg mb-10">
         At Lab 8, we offer a variety of services designed to help you gain deep insights into your life's path using the ancient wisdom of BaZi (Chinese Astrology) and psychic guidance. Whether you're seeking clarity, personal growth, or a fresh perspective on your future, our services are tailored to empower you in achieving success and fulfillment.<br/><br/>Explore our services below.
         </p>
 
