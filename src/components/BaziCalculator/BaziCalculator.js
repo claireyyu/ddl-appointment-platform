@@ -223,36 +223,22 @@ export default function BaziCalculator() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div></div>
           <div className="p-2 col-span-2 flex justify-center">
-            {<button
+            <button
               type="submit"
-              className={`w-full md:max-w-xs cursor-pointer text-white px-6 py-2 rounded-custom font-bold transition-colors ${isSubmitting ? 'cursor-not-allowed bg-gradient-to-r from-bStart to-bEnd' : 'bg-gradient-to-r from-bStart to-bEnd'
-                }`}
+              className={`w-full sm:w-2/3 xl:w-1/2 cursor-pointer text-white px-4 py-2 rounded-custom font-bold transition-colors flex items-center justify-center ${
+                isSubmitting ? 'cursor-not-allowed bg-gradient-to-r from-bStart to-bEnd' : 'bg-gradient-to-r from-bStart to-bEnd'
+              }`}
               disabled={isSubmitting}
             >
               {isSubmitting ? (
-                <div className="flex items-center justify-center">
+                <div className="flex items-center justify-center space-x-1 text-sm sm:text-base">
                   <span>Decoding</span>
                   <span className="dot-flashing"></span>
                   <span className="dot-flashing"></span>
                   <span className="dot-flashing"></span>
                 </div>
               ) : 'Decode'}
-            </button>}
-            {/* {result && (
-              <Link href={{
-                pathname: '/result',
-                query: { 
-                  inputName: formData.name,
-                  birthLocalYear: moment(formData.birthDate).year(),
-                  birthLocalMonth: moment(formData.birthDate).month() + 1, // month is zero-indexed
-                  birthLocalDay: moment(formData.birthDate).date(),
-                  birthLocalHour: formData.birthTime.split(':')[0],
-                  birthLocalMinute: formData.birthTime.split(':')[1],
-                  result: result
-                }
-            }}
-            className="w-full md:max-w-xs cursor-pointer text-white px-10 py-2 rounded font-bold transition-colors bg-gradient-to-r from-bStart to-bEnd text-center">View Result</Link>
-          )} */}
+            </button>
           </div>
         </div>
 
