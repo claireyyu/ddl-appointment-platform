@@ -13,7 +13,7 @@ export default function page() {
     <div>
 
       {/* Home Content */}
-      <section className="flex flex-col items-center xl:flex-row gap-4 p-4 xl:p-16 text-foreground mb-16">
+      <section className="flex flex-col items-center xl:flex-row gap-4 p-4 xl:p-22 text-foreground mb-16">
         <div className="mx-4 lg:mx-16 w-full lg:w-1/2">
           <Image
             src={homeCaclPic}
@@ -21,7 +21,7 @@ export default function page() {
             className="w-full h-48 sm:h-64 md:h-80 lg:h-auto object-cover"></Image>
         </div>
 
-        <div className="flex flex-col gap-4 lg:gap-8 mx-4 lg:mx-16 w-full lg:w-1/2">
+        <div className="flex flex-col gap-4 lg:gap-8 mx-4 lg:mx-16 w-full lg:w-1/3">
           <BaziCalculator />
         </div>
       </section>

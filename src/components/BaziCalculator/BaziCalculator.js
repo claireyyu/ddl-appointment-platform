@@ -151,7 +151,7 @@ export default function BaziCalculator() {
   return (
     <div className="w-full">
       <h1 className="text-lg text-center p-2 md:text-lg font-bold">Try the Bazi calculator and get your life decoded.</h1>
-      <form className="flex flex-col gap-4 md:p-8 bg-background mx-4 md:mx-8 2xl:mx-32" onSubmit={handleSubmit}>
+      <form className="flex flex-col gap-4 md:p-8 bg-background mx-4 md:mx-8" onSubmit={handleSubmit}>
         
         <div className="grid grid-cols-3 gap-4">
           <label htmlFor="name" className="p-2">Name</label>
@@ -225,7 +225,7 @@ export default function BaziCalculator() {
           <div className="p-2 col-span-2 flex justify-center">
             <button
               type="submit"
-              className={`w-full sm:w-2/3 xl:w-1/2 cursor-pointer text-white px-4 py-2 rounded-custom font-bold transition-colors flex items-center justify-center ${
+              className={`w-1/3 sm:w-2/3 xl:w-1/2 cursor-pointer text-white px-4 py-2 md:px-8 rounded-custom font-bold transition-colors flex items-center justify-center ${
                 isSubmitting ? 'cursor-not-allowed bg-gradient-to-r from-bStart to-bEnd' : 'bg-gradient-to-r from-bStart to-bEnd'
               }`}
               disabled={isSubmitting}
