@@ -202,20 +202,25 @@ export default function BaziCalculator() {
             ))}
           </select>
         </div>
-        
-        <div className="flex flex-col justify-center mt-4">
-        <button 
-          type="submit" 
-          className={`cursor-pointer text-white px-10 py-2 rounded font-bold transition-colors ${
-            isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-gradient-to-r from-bStart to-bEnd'
-          }`}
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? 'Calculating...' : 'Decode'}
-        </button>
 
-          {error && <p className="text-red-500 mt-2">{error}</p>}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div></div>
+          <div className="p-2 col-span-2 flex justify-center">
+            <button 
+              type="submit" 
+              className={`w-full md:max-w-xs cursor-pointer text-white px-10 py-2 rounded font-bold transition-colors ${
+                isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-gradient-to-r from-bStart to-bEnd'
+              }`}
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Calculating...' : 'Decode'}
+            </button>
+
+            {error && <p className="text-red-500 mt-2">{error}</p>}
+          </div>
         </div>
+
+
         {result && (
           <Link href={{
             pathname: '/result',
