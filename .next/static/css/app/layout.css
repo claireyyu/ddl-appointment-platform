@@ -887,6 +887,9 @@ video {
 .whitespace-nowrap {
   white-space: nowrap;
 }
+.rounded-bazi {
+  border-radius: 0.625rem;
+}
 .rounded {
   border-radius: 0.25rem;
 }
@@ -1058,6 +1061,10 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 .pl-8 {
   padding-left: 2rem;
@@ -1442,6 +1449,21 @@ body {
     margin-right: 2rem;
   }
 
+  .md\:mx-10 {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+  }
+
+  .md\:mx-20 {
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
+
+  .md\:mx-36 {
+    margin-left: 9rem;
+    margin-right: 9rem;
+  }
+
   .md\:mb-0 {
     margin-bottom: 0px;
   }
@@ -1640,6 +1662,24 @@ body {
 
   .xl\:p-16 {
     padding: 4rem;
+  }
+}
+
+@media (min-width: 1536px) {
+
+  .\32xl\:mx-28 {
+    margin-left: 7rem;
+    margin-right: 7rem;
+  }
+
+  .\32xl\:mx-12 {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+
+  .\32xl\:mx-32 {
+    margin-left: 8rem;
+    margin-right: 8rem;
   }
 }
 
