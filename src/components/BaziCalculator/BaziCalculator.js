@@ -12,10 +12,12 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu"
 import "../../app/globals.css";
-
+import { useRouter } from 'next/navigation';
 
 
 export default function BaziCalculator() {
+  const router = useRouter();
+
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -128,10 +130,26 @@ export default function BaziCalculator() {
     } catch (error) {
         setResult(`Error: ${error.message || 'Failed to fetch'}`);
     } finally {
-        setIsSubmitting(false); // Enable button and change text
+      setIsSubmitting(false); // Enable button and change text
     }
   };
 
+  useEffect(() => {
+    if (result) {
+      const query = new URLSearchParams({
+        inputName: formData.name,
+        birthLocalYear: moment(formData.birthDate).year().toString(),
+        birthLocalMonth: (moment(formData.birthDate).month() + 1).toString(),
+        birthLocalDay: moment(formData.birthDate).date().toString(),
+        birthLocalHour: formData.birthTime.split(':')[0],
+        birthLocalMinute: formData.birthTime.split(':')[1],
+        result: result
+      }).toString();
+  
+      const resultUrl = `/result?${query}`;
+      window.open(resultUrl, '_blank');
+    }
+  }, [result, formData]);
   return (
     <div className="w-full">
       <h1 className="text-lg text-center p-2 md:text-lg font-bold">Try the Bazi calculator and get your life decoded.</h1>
@@ -207,7 +225,7 @@ export default function BaziCalculator() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div></div>
           <div className="p-2 col-span-2 flex justify-center">
-            {!result && <button
+            {<button
               type="submit"
               className={`w-full md:max-w-xs cursor-pointer text-white px-6 py-2 rounded-bazi font-bold transition-colors ${isSubmitting ? 'cursor-not-allowed bg-gradient-to-r from-bStart to-bEnd' : 'bg-gradient-to-r from-bStart to-bEnd'
                 }`}
@@ -222,7 +240,7 @@ export default function BaziCalculator() {
                 </div>
               ) : 'Decode'}
             </button>}
-            {result && (
+            {/* {result && (
               <Link href={{
                 pathname: '/result',
                 query: { 
@@ -236,7 +254,7 @@ export default function BaziCalculator() {
                 }
             }}
             className="w-full md:max-w-xs cursor-pointer text-white px-10 py-2 rounded font-bold transition-colors bg-gradient-to-r from-bStart to-bEnd text-center">View Result</Link>
-          )}
+          )} */}
           </div>
         </div>
 
