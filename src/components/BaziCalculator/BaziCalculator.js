@@ -210,24 +210,23 @@ export default function BaziCalculator() {
             <button 
               type="submit" 
               className={`w-full md:max-w-xs cursor-pointer text-white px-10 py-2 rounded font-bold transition-colors ${
-                isSubmitting ? 'cursor-not-allowed' : 'bg-gradient-to-r from-bStart to-bEnd'
+                isSubmitting ? 'cursor-not-allowed bg-gradient-to-r from-bStart to-bEnd' : 'bg-gradient-to-r from-bStart to-bEnd'
               }`}
               disabled={isSubmitting}
             >
-              {isSubmitting ? 'Decoding...' : 'Decode'}
               {isSubmitting ? (
-              <div className="flex items-center justify-center">
-                <span>Calculating</span>
-                <span className="dot-flashing"></span>
-                <span className="dot-flashing"></span>
-                <span className="dot-flashing"></span>
-              </div>
-            ) : 'Decode'}
+                <div className="flex items-center justify-center">
+                  <span>Decoding</span>
+                  <span className="dot-flashing"></span>
+                  <span className="dot-flashing"></span>
+                  <span className="dot-flashing"></span>
+                </div>
+              ) : 'Decode'}
             </button>
-
-            {error && <p className="text-red-500 mt-2">{error}</p>}
           </div>
         </div>
+
+        {error && <p className="text-red-500 mt-2">{error}</p>}
 
 
         {result && (
