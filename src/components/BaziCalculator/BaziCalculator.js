@@ -12,11 +12,9 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu"
 import "../../app/globals.css";
-import { useRouter } from 'next/navigation';
 
 
 export default function BaziCalculator() {
-  const router = useRouter();
 
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -162,7 +160,7 @@ export default function BaziCalculator() {
             name="name" 
             id="name" 
             value={formData.name}
-            className="p-2 col-span-2 rounded-bazi border-4 border-bStart text-black text-center"
+            className="p-2 col-span-2 rounded-custom border-4 border-bStart text-black text-center"
             onChange={handleChange} 
           />
         </div>
@@ -173,7 +171,7 @@ export default function BaziCalculator() {
             name="sex" 
             id="sex" 
             value={formData.sex}
-            className="p-2 col-span-2 rounded-bazi border-4 border-bStart text-black text-center" 
+            className="p-2 col-span-2 rounded-custom border-4 border-bStart text-black text-center" 
             onChange={handleChange}
           >
             <option value="">Select Gender</option>
@@ -189,7 +187,7 @@ export default function BaziCalculator() {
             name="birthDate" 
             id="birthDate" 
             value={formData.birthDate}
-            className="p-2 col-span-2 rounded-bazi border-4 border-bStart text-black text-center" 
+            className="p-2 col-span-2 rounded-custom border-4 border-bStart text-black text-center" 
             onChange={handleChange} 
           />
         </div>
@@ -201,7 +199,7 @@ export default function BaziCalculator() {
             name="birthTime" 
             id="birthTime" 
             value={formData.birthTime}
-            className="p-2 col-span-2 rounded-bazi border-4 border-bStart text-black text-center" 
+            className="p-2 col-span-2 rounded-custom border-4 border-bStart text-black text-center" 
             onChange={handleChange} 
           />
         </div>
@@ -212,7 +210,7 @@ export default function BaziCalculator() {
             name="timezone" 
             id="timezone" 
             value={formData.timezone}
-            className="p-2 col-span-2 rounded-bazi border-4 border-bStart text-black text-center" 
+            className="p-2 col-span-2 rounded-custom border-4 border-bStart text-black text-center" 
             onChange={handleChange}
           >
             <option value="">Select Timezone</option>
@@ -227,7 +225,7 @@ export default function BaziCalculator() {
           <div className="p-2 col-span-2 flex justify-center">
             {<button
               type="submit"
-              className={`w-full md:max-w-xs cursor-pointer text-white px-6 py-2 rounded-bazi font-bold transition-colors ${isSubmitting ? 'cursor-not-allowed bg-gradient-to-r from-bStart to-bEnd' : 'bg-gradient-to-r from-bStart to-bEnd'
+              className={`w-full md:max-w-xs cursor-pointer text-white px-6 py-2 rounded-custom font-bold transition-colors ${isSubmitting ? 'cursor-not-allowed bg-gradient-to-r from-bStart to-bEnd' : 'bg-gradient-to-r from-bStart to-bEnd'
                 }`}
               disabled={isSubmitting}
             >
