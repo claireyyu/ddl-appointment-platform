@@ -764,6 +764,15 @@ video {
 .min-h-\[80px\] {
   min-height: 80px;
 }
+.min-h-screen {
+  min-height: 100vh;
+}
+.min-h-full {
+  min-height: 100%;
+}
+.min-h-svh {
+  min-height: 100svh;
+}
 .w-10 {
   width: 2.5rem;
 }
@@ -996,8 +1005,14 @@ video {
 .to-pEnd {
   --tw-gradient-to: #4B0D8A var(--tw-gradient-to-position);
 }
+.bg-cover {
+  background-size: cover;
+}
 .bg-clip-text {
   background-clip: text;
+}
+.bg-center {
+  background-position: center;
 }
 .fill-current {
   fill: currentColor;

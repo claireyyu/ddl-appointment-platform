@@ -13,15 +13,12 @@ export default function page() {
     <div>
 
       {/* Home Content */}
-      <section className="flex flex-col items-center xl:flex-row gap-4 p-4 xl:p-22 text-foreground mb-16">
-        <div className="mx-4 lg:mx-16 w-full lg:w-1/2">
-          <Image
-            src={homeCaclPic}
-            alt="Decorative image"
-            className="w-full h-48 sm:h-64 md:h-80 lg:h-auto object-cover"></Image>
+      <section className="flex flex-col items-center xl:flex-row gap-4 p-4 xl:p-22 text-foreground bg-cover bg-center min-h-screen" style={{ backgroundImage: 'url(/home-bg-1.png)' }}>
+        <div className="mx-4 lg:mx-16 w-full lg:w-1/2 flex items-center justify-center">
+          {/* You can add content here if needed */}
         </div>
 
-        <div className="flex flex-col gap-4 lg:gap-8 mx-4 lg:mx-16 w-full lg:w-1/3">
+        <div className="flex flex-col gap-4 lg:gap-8 mx-4 lg:mx-16 w-full lg:w-1/3 flex items-center justify-center">
           <BaziCalculator />
         </div>
       </section>

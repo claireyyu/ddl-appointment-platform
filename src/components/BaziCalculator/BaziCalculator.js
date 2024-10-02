@@ -151,7 +151,7 @@ export default function BaziCalculator() {
   return (
     <div className="w-full">
       <h1 className="text-lg text-center p-2 md:text-lg font-bold">Try the Bazi calculator and get your life decoded.</h1>
-      <form className="flex flex-col gap-4 md:p-8 bg-background mx-4 md:mx-8" onSubmit={handleSubmit}>
+      <form className="flex flex-col gap-4 md:p-8  mx-4 md:mx-8" onSubmit={handleSubmit}>
         
         <div className="grid grid-cols-3 gap-4">
           <label htmlFor="name" className="p-2">Name</label>
