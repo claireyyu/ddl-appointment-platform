@@ -37,7 +37,7 @@ export default function BaziResult() {
   const hourBranch = shizhu[1];
 
   return (
-    <div className="flex flex-col items-center text-center rounded-3xl bg-foreground text-background m-8">
+    <div className="flex flex-col items-center text-center rounded-3xl bg-foreground text-background m-8 md:mx-48 lg:mx-96">
       <div className="flex w-full p-8 text-foreground bg-gradient-to-r from-bpStart to-bpEnd rounded-t-3xl items-center justify-between flex-wrap md:flex-nowrap">
           <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 w-full md:w-auto">
             <p className="w-full md:w-auto">Name: {name}</p>

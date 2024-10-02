@@ -677,6 +677,14 @@ video {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+.mx-48 {
+  margin-left: 12rem;
+  margin-right: 12rem;
+}
+.mx-96 {
+  margin-left: 24rem;
+  margin-right: 24rem;
+}
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -1497,6 +1505,11 @@ body {
     margin-right: 2rem;
   }
 
+  .md\:mx-48 {
+    margin-left: 12rem;
+    margin-right: 12rem;
+  }
+
   .md\:mb-0 {
     margin-bottom: 0px;
   }
@@ -1649,6 +1662,11 @@ body {
   .lg\:mx-16 {
     margin-left: 4rem;
     margin-right: 4rem;
+  }
+
+  .lg\:mx-96 {
+    margin-left: 24rem;
+    margin-right: 24rem;
   }
 
   .lg\:mt-48 {
