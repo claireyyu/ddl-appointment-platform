@@ -32,7 +32,8 @@
     "react-hamburger-menu": "^1.2.1",
     "react-router-dom": "^6.26.2",
     "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "three-dots": "^0.3.2"
   },
   "devDependencies": {
     "postcss": "^8",
