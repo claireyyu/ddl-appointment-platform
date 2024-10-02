@@ -135,7 +135,7 @@ export default function BaziCalculator() {
   return (
     <div className="w-full">
       <h1 className="text-lg text-center p-2 md:text-lg font-bold">Try the Bazi calculator and get your life decoded.</h1>
-      <form className="flex flex-col gap-4 md:p-8 bg-background mx-4 md:mx-8" onSubmit={handleSubmit}>
+      <form className="flex flex-col gap-4 md:p-8 bg-background mx-4 md:mx-8 2xl:mx-32" onSubmit={handleSubmit}>
         
         <div className="grid grid-cols-3 gap-4">
           <label htmlFor="name" className="p-2">Name</label>
@@ -144,7 +144,7 @@ export default function BaziCalculator() {
             name="name" 
             id="name" 
             value={formData.name}
-            className="p-2 col-span-2 rounded border-4 border-bStart text-black text-center"
+            className="p-2 col-span-2 rounded-bazi border-4 border-bStart text-black text-center"
             onChange={handleChange} 
           />
         </div>
@@ -155,7 +155,7 @@ export default function BaziCalculator() {
             name="sex" 
             id="sex" 
             value={formData.sex}
-            className="p-2 col-span-2 rounded border-4 border-bStart text-black text-center" 
+            className="p-2 col-span-2 rounded-bazi border-4 border-bStart text-black text-center" 
             onChange={handleChange}
           >
             <option value="">Select Gender</option>
@@ -171,7 +171,7 @@ export default function BaziCalculator() {
             name="birthDate" 
             id="birthDate" 
             value={formData.birthDate}
-            className="p-2 col-span-2 rounded border-4 border-bStart text-black text-center" 
+            className="p-2 col-span-2 rounded-bazi border-4 border-bStart text-black text-center" 
             onChange={handleChange} 
           />
         </div>
@@ -183,7 +183,7 @@ export default function BaziCalculator() {
             name="birthTime" 
             id="birthTime" 
             value={formData.birthTime}
-            className="p-2 col-span-2 rounded border-4 border-bStart text-black text-center" 
+            className="p-2 col-span-2 rounded-bazi border-4 border-bStart text-black text-center" 
             onChange={handleChange} 
           />
         </div>
@@ -194,7 +194,7 @@ export default function BaziCalculator() {
             name="timezone" 
             id="timezone" 
             value={formData.timezone}
-            className="p-2 col-span-2 rounded border-4 border-bStart text-black text-center" 
+            className="p-2 col-span-2 rounded-bazi border-4 border-bStart text-black text-center" 
             onChange={handleChange}
           >
             <option value="">Select Timezone</option>
@@ -209,7 +209,7 @@ export default function BaziCalculator() {
           <div className="p-2 col-span-2 flex justify-center">
             {!result && <button
               type="submit"
-              className={`w-full md:max-w-xs cursor-pointer text-white px-10 py-2 rounded font-bold transition-colors ${isSubmitting ? 'cursor-not-allowed bg-gradient-to-r from-bStart to-bEnd' : 'bg-gradient-to-r from-bStart to-bEnd'
+              className={`w-full md:max-w-xs cursor-pointer text-white px-6 py-2 rounded-bazi font-bold transition-colors ${isSubmitting ? 'cursor-not-allowed bg-gradient-to-r from-bStart to-bEnd' : 'bg-gradient-to-r from-bStart to-bEnd'
                 }`}
               disabled={isSubmitting}
             >
@@ -242,22 +242,6 @@ export default function BaziCalculator() {
 
         {error && <p className="text-red-500 mt-2">{error}</p>}
 
-
-        {/* {result && (
-          <Link href={{
-            pathname: '/result',
-            query: { 
-              inputName: formData.name,
-              birthLocalYear: moment(formData.birthDate).year(),
-              birthLocalMonth: moment(formData.birthDate).month() + 1, // month is zero-indexed
-              birthLocalDay: moment(formData.birthDate).date(),
-              birthLocalHour: formData.birthTime.split(':')[0],
-              birthLocalMinute: formData.birthTime.split(':')[1],
-              result: result
-             }
-        }}
-        className="mt-4 mx-auto text-center bg-gradient-to-r from-bpEnd to-bpStart text-white font-semibold py-2 px-4 rounded-full md:text-lg sm:text-base text-sm">View Your Result Report!</Link>
-      )} */}
       </form>
 
     </div>
