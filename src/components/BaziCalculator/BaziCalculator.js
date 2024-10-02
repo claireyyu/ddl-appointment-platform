@@ -125,7 +125,7 @@ export default function BaziCalculator() {
   return (
     <div className="w-full">
       <h1 className="text-lg text-center p-2 md:text-lg font-bold">Try the Bazi calculator and get your life decoded.</h1>
-      <form className="flex flex-col gap-4 md:p-8 bg-background rounded-md mx-4 md:mx-8" onSubmit={handleSubmit}>
+      <form className="flex flex-col gap-4 md:p-8 bg-background mx-4 md:mx-8" onSubmit={handleSubmit}>
         
         <div className="grid grid-cols-3 gap-4">
           <label htmlFor="name" className="p-2">Name</label>
@@ -134,7 +134,7 @@ export default function BaziCalculator() {
             name="name" 
             id="name" 
             value={formData.name}
-            className="p-2 col-span-2 rounded-3xl border-4 border-bStart text-black text-center"
+            className="p-2 col-span-2 rounded border-4 border-bStart text-black text-center"
             onChange={handleChange} 
           />
         </div>
@@ -145,7 +145,7 @@ export default function BaziCalculator() {
             name="sex" 
             id="sex" 
             value={formData.sex}
-            className="p-2 col-span-2 rounded-3xl border-4 border-bStart text-black text-center" 
+            className="p-2 col-span-2 rounded border-4 border-bStart text-black text-center" 
             onChange={handleChange}
           >
             <option value="">Select Gender</option>
@@ -161,7 +161,7 @@ export default function BaziCalculator() {
             name="birthDate" 
             id="birthDate" 
             value={formData.birthDate}
-            className="p-2 col-span-2 rounded-3xl border-4 border-bStart text-black text-center" 
+            className="p-2 col-span-2 rounded border-4 border-bStart text-black text-center" 
             onChange={handleChange} 
           />
         </div>
@@ -173,7 +173,7 @@ export default function BaziCalculator() {
             name="birthTime" 
             id="birthTime" 
             value={formData.birthTime}
-            className="p-2 col-span-2 rounded-3xl border-4 border-bStart text-black text-center" 
+            className="p-2 col-span-2 rounded border-4 border-bStart text-black text-center" 
             onChange={handleChange} 
           />
         </div>
@@ -184,7 +184,7 @@ export default function BaziCalculator() {
             name="timezone" 
             id="timezone" 
             value={formData.timezone}
-            className="p-2 col-span-2 rounded-3xl border-4 border-bStart text-black text-center" 
+            className="p-2 col-span-2 rounded border-4 border-bStart text-black text-center" 
             onChange={handleChange}
           >
             <option value="">Select Timezone</option>
@@ -197,7 +197,7 @@ export default function BaziCalculator() {
         <div className="flex flex-col justify-center mt-4">
         <button 
           type="submit" 
-          className={`cursor-pointer text-white px-10 py-2 rounded-2xl font-bold transition-colors ${
+          className={`cursor-pointer text-white px-10 py-2 rounded font-bold transition-colors ${
             isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-gradient-to-r from-bStart to-bEnd'
           }`}
           disabled={isSubmitting}
