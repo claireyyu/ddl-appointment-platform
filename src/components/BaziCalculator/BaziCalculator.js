@@ -3,6 +3,15 @@ import {majorTimezones} from './TimezoneData';
 import moment from 'moment-timezone';
 import BaziResult from './BaziResult';
 import Link from 'next/link';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu"
+
 
 
 export default function BaziCalculator() {

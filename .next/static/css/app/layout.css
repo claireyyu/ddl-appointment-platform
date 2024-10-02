@@ -890,9 +890,6 @@ video {
 .rounded {
   border-radius: 0.6rem;
 }
-.rounded-2xl {
-  border-radius: 1rem;
-}
 .rounded-3xl {
   border-radius: 1.5rem;
 }
