@@ -4,8 +4,7 @@ import BaziCalculator from '../components/BaziCalculator/BaziCalculator';
 import ContactForm from '@/components/ContactForm/ContactForm';
 import TestimonialSlider from '@/components/TestimonialSlider/TestimonialSlider';
 import Image from 'next/image'
-import homeCaclPic from '../../public/home-calculator.png'
-import homeAboutPic from '../../public/home-about.png'
+import homeAboutPic from '../../public/home-bg-2.png'
 import Navbar from '@/components/Navbar/Navbar'
 
 export default function page() {
@@ -13,7 +12,7 @@ export default function page() {
   return (
     <div>
       {/* Home Content */}
-      <div className="flex flex-col bg-cover bg-center min-h-screen" style={{ backgroundImage: 'url(/home-bg-1.png)' }}>
+      <div className="flex flex-col bg-cover bg-center min-h-max" style={{ backgroundImage: 'url(/home-bg-1.png)' }}>
         <Navbar/>
         <section className="flex flex-col items-center xl:flex-row gap-4 p-4 xl:p-22 text-foreground">
           <div className="mx-4 lg:mx-16 w-full lg:w-1/2 flex items-center justify-center">
@@ -26,23 +25,23 @@ export default function page() {
       </div>
 
 
-      {/* Services Content */}
-      <section className="grid grid-cols-1 lg:grid-cols-2 gap-4 p-4 lg:p-16 text-foreground mb-16">
-        <div className="flex flex-col gap-4 md:gap-8 mx-4 md:mx-16">
-          <h1 className="text-2xl md:text-3xl font-bold">WHAT IS BAZI?</h1>
-          <p className="text-justify md:text-lg">
-          Bazi, or "Eight Characters," is a traditional Chinese system that analyzes a person's destiny based on their birth date and time. It consists of four pairs of "Top Stems" and "Bottom Branches," which represent the year, month, day, and hour of birth.<br /><br />
-          Rooted in ancient Chinese philosophy and metaphysics, Bazi has origins that trace back over 3,000 years. The system provides insights into various aspects of life, including personality, relationships, career, and health, by examining the interactions of the Five Elements (Wood, Fire, Earth, Metal, Water) and the balance of Yin and Yang.   
-          </p>
-          <Link href="/services" className="font-semibold text-lg md:text-xl hover:underline">Learn More</Link>
-        </div>
-        <div className="mx-4 md:mx-16 h-64 md:h-auto">
-          <Image
-              src={homeAboutPic}
-              alt="Decorative image"
-              className="w-full h-48 sm:h-64 md:h-80 lg:h-auto object-cover"></Image>
-        </div>
-      </section>
+      {/* About Content */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-4 text-foreground mx-4 md:mx-16 lg:mx-24">
+          <div className="flex flex-col gap-4 md:gap-8 mx-4 p-4 mt-8 lg:mt-24 lg:p-16 md:mx-24 lg:mx-36">
+            <h1 className="text-2xl md:text-3xl font-bold">WHAT IS BAZI?</h1>
+            <p className="text-justify md:text-lg tracking-wide leading-loose">
+            Bazi, or "Eight Characters," is a traditional Chinese system that analyzes a person's destiny based on their birth date and time. It consists of four pairs of "Top Stems" and "Bottom Branches," which represent the year, month, day, and hour of birth.<br /><br />
+            Rooted in ancient Chinese philosophy and metaphysics, Bazi has origins that trace back over 3,000 years. The system provides insights into various aspects of life, including personality, relationships, career, and health, by examining the interactions of the Five Elements (Wood, Fire, Earth, Metal, Water) and the balance of Yin and Yang.   
+            </p>
+            <Link href="/services" className="font-semibold text-lg md:text-xl hover:underline">Learn More</Link>
+          </div>
+          <div className="mx-4 md:mx-8 h-64 md:h-auto">
+            <Image
+                src={homeAboutPic}
+                alt="Decorative image"
+                className="w-full h-48 sm:h-64 md:h-80 lg:h-auto object-cover"></Image>
+          </div>
+        </section>
 
 
       {/* Contact Content */}
@@ -52,8 +51,6 @@ export default function page() {
         </div>
         <ContactForm />
       </section>
-
-
 
       {/* Testimonial Content */}
       <TestimonialSlider />
