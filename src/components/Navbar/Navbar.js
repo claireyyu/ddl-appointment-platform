@@ -14,7 +14,7 @@ export default function Navbar() {
   return (
     <div>
       <div className="flex justify-between items-center p-4 text-foreground sticky top-0 z-50 text-lg bg-navbar">
-      <Link href="/" className="text-3xl xl:text-4xl font-bold ml-8 p-2 bg-gradient-to-r from-bpStart to-bpEnd text-transparent bg-clip-text">Bazi</Link>
+      <Link href="/" className="text-3xl xl:text-4xl font-bold ml-8 p-2 bg-gradient-to-r from-bpStart to-bpEnd text-transparent bg-clip-text">Lab 8</Link>
         <div className="hidden md:flex items-center gap-12">
           <Link href="/">Home</Link>
           <Link href="/services">Services</Link>
