@@ -50,16 +50,16 @@ export default function page() {
 
             {/* About Content */}
       <div className="min-h-screen bg-cover bg-center md:bg-[url(/home-bg-2.png)] bg-none">
-        <section className="min-h-screen grid grid-cols-3 gap-4 p-4 xl:p-22 text-foreground">
-          <div className="col-span-3 md:col-span-2 flex flex-col items-center justify-center gap-4 lg:gap-8 mx-4 md:mx-8 my-8 lg:mx-16">
-            <h1 className="text-2xl md:text-3xl font-bold">WHAT IS BAZI?</h1>
+        <section className="min-h-screen grid grid-cols-2 gap-4 p-4 xl:p-22 text-foreground">
+          <div className="col-span-1 flex flex-col items-start justify-center gap-4 lg:gap-8 mx-4 md:mx-8 my-8 lg:mx-16 p-4 md:p-8 lg:p-16">
+            <h1 className="text-2xl md:text-4xl font-bold">WHAT IS BAZI?</h1>
             <p className="text-justify md:text-xl tracking-wide leading-loose">
               Bazi, or "Eight Characters," is a traditional Chinese system that analyzes a person's destiny based on their birth date and time. It consists of four pairs of "Top Stems" and "Bottom Branches," which represent the year, month, day, and hour of birth.<br /><br />
               Rooted in ancient Chinese philosophy and metaphysics, Bazi has origins that trace back over 3,000 years. The system provides insights into various aspects of life, including personality, relationships, career, and health, by examining the interactions of the Five Elements (Wood, Fire, Earth, Metal, Water) and the balance of Yin and Yang.   
             </p>
             <Link href="/services" className="font-semibold text-lg md:text-xl hover:underline">Learn More</Link>
           </div>
-          <div className="hidden md:block col-span-1" /> {/* Placeholder */}
+          <span className="hidden md:block col-span-1" /> {/* Placeholder */}
         </section>
       </div>
 
