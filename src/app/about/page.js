@@ -5,12 +5,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import aboutPic from "../../../public/about.png";
 
-export default function page() {
+export default function Page() {
   return (
-    <div className="bg-backrground text-foreground text-justify">
-      <div className="flex p-8 justify-center items-end bg-gradient-to-r from-pStart to-pEnd mx-4 md:mx-16 text-foreground">
-        <h1 className="text-2xl md:text-3xl font-bold">ABOUT US</h1>
-      </div>
+    <div className="bg-backrground text-foreground text-justify">      
       <div className="flex flex-col m-16">
         <p className="text-lg mt-4">
           At Lab 8, the number '8' symbolizes both the "Ba" (八) in BaZi and the infinity symbol (∞), reflecting our belief in the limitless potential within each individual. We are here to guide you through life's possibilities, helping you navigate challenges with clarity and wisdom.</p>
@@ -41,7 +38,7 @@ export default function page() {
             Heavenly Stem: Symbolizes children, reflecting the relationship with them and predicting the state of later life.Earthly Branch: Represents a person's achievements and living environment in later years, reflecting later life fortunes and interactions with descendants.
           </p>
           <p className="text-lg mt-4 mb-4">
-          In summary, the Year Pillar influences early life, the Month Pillar impacts middle age, the Day Pillar is closely related to the individual and marriage, while the Hour Pillar affects later life fortunes and relationships with children. Together, these four pillars form a person's BaZi chart, helping to interpret their life’s fortunes, character, and significant events.
+            In summary, the Year Pillar influences early life, the Month Pillar impacts middle age, the Day Pillar is closely related to the individual and marriage, while the Hour Pillar affects later life fortunes and relationships with children. Together, these four pillars form a person's BaZi chart, helping to interpret their life’s fortunes, character, and significant events.
           </p><br />
           <p className="text-xl mt-4">Our Mission</p>
           <p className="text-lg mt-4 mb-4">At Lab 8, we are dedicated to helping you uncover your life's potential through personalized BaZi readings. With years of experience and deep knowledge of Chinese metaphysics, we offer clear guidance to help you live in harmony and happiness.</p>

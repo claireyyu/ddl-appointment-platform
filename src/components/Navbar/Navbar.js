@@ -19,7 +19,7 @@ export default function Navbar() {
           <Link href="/">Home</Link>
           <Link href="/services">Services</Link>
           <Link href="/about">About</Link>
-          <Link href="/contact">Contact</Link>
+          <Link href="/#contact" >Contact</Link>
 
           <div className="flex">
             {isSignedIn ? (
@@ -35,20 +35,9 @@ export default function Navbar() {
               </Button>
             )}
 
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="hidden md:flex sticky items-center text-foreground border-none focus bg-transparent">
-                  <Globe className="m-1" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56">
-                <DropdownMenuSeparator />
-                <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
-                  <DropdownMenuRadioItem value="english">English</DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="chinese">Chinese</DropdownMenuRadioItem>
-                </DropdownMenuRadioGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <Button variant="outline" className="hidden md:flex sticky cursor-pointer items-center text-foreground border-none focus bg-transparent">
+              <Globe className="m-1" />
+            </Button>
           </div>
         </div>
 
@@ -66,7 +55,7 @@ export default function Navbar() {
           <Link href="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
           <Link href="/services" onClick={() => setIsMenuOpen(false)}>Services</Link>
           <Link href="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
-          <Link href="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+          <Link href="/#contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
 
           {isSignedIn ? (
             <Link href="/profile" onClick={() => setIsMenuOpen(false)}>
