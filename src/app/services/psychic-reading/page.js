@@ -1,19 +1,18 @@
-import personalReadingPic from "../../../../public/personal-reading.png";
+import personalReadingPic from "../../../../public/service-detail.png";
 import Image from 'next/image'
 
-export default function page() {
+export default function Page() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mx-4 md:mx-16 mt-12 text-foreground">
-      <Image src={personalReadingPic} alt="Service" className="cursor-pointer" />
-
-      <div className="flex flex-col gap-8 mx-4 md:mx-16">
+    <div className="grid grid-cols-1 md:grid-cols-3 mx-4 md:mx-16 mt-12 text-foreground">
+      <Image src={personalReadingPic} alt="Service" className="col-span-1 md:w-2/3 md:h-auto justify-self-center pt-4 md:pt-16" />
+      <div className="flex flex-col col-span-2 px-4 md:px-16 pb-4 md:pb-16">
         <div className="text-justify md:text-lg">
           <p>
             Are you seeking guidance on your career, relationships, or other life challenges? Receive a personalized reading delivered straight to your inbox within one business day. Our service offers quick and insightful answers to your pressing questions, using time-honored Chinese methods.
           </p>
           <br />
           <p>
-            Standard Price: USD 45
+            <s>Standard Price: USD 45</s>
             <br />Promo Price: USD 9.9
             <br /><br />
             Payment Method:
