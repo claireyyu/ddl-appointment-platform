@@ -64,7 +64,8 @@ module.exports = {
   			md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)',
 				'custom': '0.625rem',
-  		}
+				'custom-lg': '1.875rem',
+			}
   	}
   },
 	plugins: [require("tailwindcss-animate")],

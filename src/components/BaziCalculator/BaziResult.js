@@ -37,7 +37,7 @@ export default function BaziResult() {
   const hourBranch = shizhu[1];
 
   return (
-    <div className="flex flex-col items-center text-center rounded-3xl bg-foreground text-background m-8 md:mx-48 lg:mx-96">
+    <div className="flex flex-col items-center text-center rounded-3xl bg-foreground text-background">
       <div className="flex w-full p-8 text-foreground bg-gradient-to-r from-bpStart to-bpEnd rounded-t-3xl items-center justify-between flex-wrap md:flex-nowrap">
           <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 w-full md:w-auto">
             <p className="w-full md:w-auto">Name: {name}</p>
@@ -53,24 +53,26 @@ export default function BaziResult() {
           </div>
       </div>
       <div className="overflow-x-auto mt-8">
-        <div className="hidden md:grid grid-cols-1 md:grid-cols-5 min-w-full gap-4 p-2">
-          <div className="col-span-1 py-2"></div>
-          <div className="col-span-1 py-2 text-center">Year<br/>Pillar</div>
-          <div className="col-span-1 py-2 text-center">Month<br/>Pillar</div>
-          <div className="col-span-1 py-2 text-center">Day<br/>Pillar</div>
-          <div className="col-span-1 py-2 text-center">Hour<br/>Pillar</div>
+        <div className="bg-gradient-to-r from-bpStart to-bpEnd p-0.5 rounded-custom-lg">
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-5 min-w-full gap-4 p-2 bg-foreground rounded-custom-lg">
+              <div className="col-span-1 py-8"></div>
+              <div className="col-span-1 py-8 text-center">Year Pillar</div>
+              <div className="col-span-1 py-8 text-center">Month Pillar</div>
+              <div className="col-span-1 py-8 text-center">Day Pillar</div>
+              <div className="col-span-1 py-8 text-center">Hour Pillar</div>
 
-          <div className="col-span-1 py-2">Top Stem</div>
-          <div className="col-span-1 py-2">{yearStem}</div>
-          <div className="col-span-1 py-2">{monthStem}</div>
-          <div className="col-span-1 py-2">{dayStem}</div>
-          <div className="col-span-1 py-2">{hourStem}</div>
+              <div className="col-span-1 py-8">Top Stem</div>
+              <div className="col-span-1 py-8">{yearStem}</div>
+              <div className="col-span-1 py-8">{monthStem}</div>
+              <div className="col-span-1 py-8">{dayStem}</div>
+              <div className="col-span-1 py-8">{hourStem}</div>
 
-          <div className="col-span-1 py-2">Bottom Branch</div>
-          <div className="col-span-1 py-2">{yearBranch}</div>
-          <div className="col-span-1 py-2">{monthBranch}</div>
-          <div className="col-span-1 py-2">{dayBranch}</div>
-          <div className="col-span-1 py-2">{hourBranch}</div>
+              <div className="col-span-1 py-8">Bottom Branch</div>
+              <div className="col-span-1 py-8">{yearBranch}</div>
+              <div className="col-span-1 py-8">{monthBranch}</div>
+              <div className="col-span-1 py-8">{dayBranch}</div>
+              <div className="col-span-1 py-8">{hourBranch}</div>
+          </div>
         </div>
 
         {/* Mobile View */}

@@ -1,16 +1,6 @@
 import { useState, useEffect } from 'react';
 import {majorTimezones} from './TimezoneData';
 import moment from 'moment-timezone';
-import BaziResult from './BaziResult';
-import Link from 'next/link';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "../ui/dropdown-menu"
 import "../../app/globals.css";
 
 
@@ -148,13 +138,14 @@ export default function BaziCalculator() {
       window.open(resultUrl, '_blank');
     }
   }, [result, formData]);
+  
   return (
     <div className="w-full max-w-xl mx-auto"> {/* Added max-width and center alignment */}
-      <h1 className="text-base sm:text-lg md:text-xl text-center p-2 font-bold">Try the Bazi calculator and get your life decoded.</h1>
+      <h1 className="text-sm md:text-base xl:text-lg text-center p-2 font-bold">Try the Bazi calculator and get your life decoded.</h1>
       <form className="flex flex-col gap-4 p-4 sm:p-6 md:p-8" onSubmit={handleSubmit}>
         
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4">
-          <label htmlFor="name" className="p-2">Name</label>
+          <label htmlFor="name" className="p-2 text-sm md:text-base xl:text-lg">Name</label>
           <input 
             type="text" 
             name="name" 
@@ -166,7 +157,7 @@ export default function BaziCalculator() {
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4">
-          <label htmlFor="sex" className="p-2">Gender</label>
+          <label htmlFor="sex" className="p-2 text-sm md:text-base xl:text-lg ">Gender</label>
           <select 
             name="sex" 
             id="sex" 
@@ -181,7 +172,7 @@ export default function BaziCalculator() {
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4">
-          <label htmlFor="birthDate" className="p-2">Birth Date</label>
+          <label htmlFor="birthDate" className="p-2 text-sm md:text-base xl:text-lg">Birth Date</label>
           <input 
             type="date" 
             name="birthDate" 
@@ -193,7 +184,7 @@ export default function BaziCalculator() {
         </div>
   
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4">
-          <label htmlFor="birthTime" className="p-2">Birth Time</label>
+          <label htmlFor="birthTime" className="p-2 text-sm md:text-base xl:text-lg">Birth Time</label>
           <input 
             type="time" 
             name="birthTime" 
@@ -205,7 +196,7 @@ export default function BaziCalculator() {
         </div>
   
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4">
-          <label htmlFor="timezone" className="p-2">Timezone</label>
+          <label htmlFor="timezone" className="p-2 text-sm md:text-base xl:text-lg">Timezone</label>
           <select 
             name="timezone" 
             id="timezone" 
@@ -231,7 +222,7 @@ export default function BaziCalculator() {
               disabled={isSubmitting}
             >
               {isSubmitting ? (
-                <div className="flex items-center justify-center space-x-1 text-sm sm:text-base">
+                <div className="flex items-center justify-center space-x-1 text-sm md:text-base xl:text-lg">
                   <span>Decoding</span>
                   <span className="dot-flashing"></span>
                   <span className="dot-flashing"></span>
