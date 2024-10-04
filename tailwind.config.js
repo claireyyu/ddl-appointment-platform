@@ -20,6 +20,7 @@ module.exports = {
 				'pStart': '#8316F0',
 				'pEnd': '#4B0D8A',
 				'navbar': 'rgb(0 0 0 / 55%)',
+				'menu-option': '#10A8EA',
   			// card: {
   			// 	DEFAULT: 'hsl(var(--card))',
   			// 	foreground: 'hsl(var(--card-foreground))'

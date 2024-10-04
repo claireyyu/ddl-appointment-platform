@@ -3,7 +3,6 @@ import {majorTimezones} from './TimezoneData';
 import moment from 'moment-timezone';
 import "../../app/globals.css";
 
-
 export default function BaziCalculator() {
 
   const [error, setError] = useState('');
@@ -21,7 +20,7 @@ export default function BaziCalculator() {
       sex: '',
       birthDate: '',
       birthTime: '',
-      timezone: '' // Added timezone here
+      timezone: ''
   });
 
   // State to store response data
@@ -137,7 +136,7 @@ export default function BaziCalculator() {
       const resultUrl = `/result?${query}`;
       window.open(resultUrl, '_blank');
     }
-  }, [result, formData]);
+  }, [result]);
   
   return (
     <div className="w-full max-w-xl mx-auto"> {/* Added max-width and center alignment */}
@@ -170,7 +169,7 @@ export default function BaziCalculator() {
             <option value="male">Male</option>
           </select>
         </div>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4">
           <label htmlFor="birthDate" className="p-2 text-sm md:text-base xl:text-lg">Birth Date</label>
           <input 
@@ -194,7 +193,7 @@ export default function BaziCalculator() {
             onChange={handleChange} 
           />
         </div>
-  
+
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4">
           <label htmlFor="timezone" className="p-2 text-sm md:text-base xl:text-lg">Timezone</label>
           <select 
