@@ -5,6 +5,8 @@ import { Globe, Menu, X } from 'react-feather';
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuSeparator, DropdownMenuRadioGroup, DropdownMenuRadioItem } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Image from 'next/image';
+import logo from '../../../public/logo.png';
 
 export default function Navbar() {
   const [position, setPosition] = useState("english");
@@ -13,7 +15,9 @@ export default function Navbar() {
   return (
     <div>
       <div className="grid grid-cols-5 justify-between items-center p-4 text-foreground sticky top-0 z-50 text-lg bg-navbar">
-        <Link href="/" className="col-span-2 text-3xl xl:text-4xl font-bold ml-8 p-2 bg-gradient-to-r from-bpStart to-bpEnd text-transparent bg-clip-text">Lab 8</Link>
+        <Link href="/" className="col-span-2 flex items-center ml-8 md:ml-16">
+          <Image src={logo} alt="Lab 8" width={100} height={100} />
+        </Link>
 
         <div className="col-span-2 hidden md:flex items-center justify-evenly gap-12">
             <Link href="/">Home</Link>
