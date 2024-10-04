@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${kanit.variable}`}>
       <body>
-        <Navbar />
+        {/* <Navbar /> */}
         {children}
         <Footer />
       </body>

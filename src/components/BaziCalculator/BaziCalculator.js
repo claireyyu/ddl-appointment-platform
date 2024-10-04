@@ -1,21 +1,11 @@
 import { useState, useEffect } from 'react';
 import {majorTimezones} from './TimezoneData';
 import moment from 'moment-timezone';
-import BaziResult from './BaziResult';
-import Link from 'next/link';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "../ui/dropdown-menu"
 import "../../app/globals.css";
 
 
-
 export default function BaziCalculator() {
+
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -128,34 +118,51 @@ export default function BaziCalculator() {
     } catch (error) {
         setResult(`Error: ${error.message || 'Failed to fetch'}`);
     } finally {
-        setIsSubmitting(false); // Enable button and change text
+      setIsSubmitting(false); // Enable button and change text
     }
   };
 
+  useEffect(() => {
+    if (result) {
+      const query = new URLSearchParams({
+        inputName: formData.name,
+        birthLocalYear: moment(formData.birthDate).year().toString(),
+        birthLocalMonth: (moment(formData.birthDate).month() + 1).toString(),
+        birthLocalDay: moment(formData.birthDate).date().toString(),
+        birthLocalHour: formData.birthTime.split(':')[0],
+        birthLocalMinute: formData.birthTime.split(':')[1],
+        result: result
+      }).toString();
+  
+      const resultUrl = `/result?${query}`;
+      window.open(resultUrl, '_blank');
+    }
+  }, [result, formData]);
+  
   return (
-    <div className="w-full">
-      <h1 className="text-lg text-center p-2 md:text-lg font-bold">Try the Bazi calculator and get your life decoded.</h1>
-      <form className="flex flex-col gap-4 md:p-8 bg-background mx-4 md:mx-8 2xl:mx-32" onSubmit={handleSubmit}>
+    <div className="w-full max-w-xl mx-auto"> {/* Added max-width and center alignment */}
+      <h1 className="text-sm md:text-base xl:text-lg text-center p-2 font-bold">Try the Bazi calculator and get your life decoded.</h1>
+      <form className="flex flex-col gap-4 p-4 sm:p-6 md:p-8" onSubmit={handleSubmit}>
         
-        <div className="grid grid-cols-3 gap-4">
-          <label htmlFor="name" className="p-2">Name</label>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4">
+          <label htmlFor="name" className="p-2 text-sm md:text-base xl:text-lg">Name</label>
           <input 
             type="text" 
             name="name" 
             id="name" 
             value={formData.name}
-            className="p-2 col-span-2 rounded-bazi border-4 border-bStart text-black text-center"
+            className="p-2 col-span-1 sm:col-span-2 rounded-custom border-4 border-bStart text-black text-center"
             onChange={handleChange} 
           />
         </div>
         
-        <div className="grid grid-cols-3 gap-4">
-          <label htmlFor="sex" className="p-2">Gender</label>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4">
+          <label htmlFor="sex" className="p-2 text-sm md:text-base xl:text-lg ">Gender</label>
           <select 
             name="sex" 
             id="sex" 
             value={formData.sex}
-            className="p-2 col-span-2 rounded-bazi border-4 border-bStart text-black text-center" 
+            className="p-2 col-span-1 sm:col-span-2 rounded-custom border-4 border-bStart text-black text-center" 
             onChange={handleChange}
           >
             <option value="">Select Gender</option>
@@ -164,37 +171,37 @@ export default function BaziCalculator() {
           </select>
         </div>
         
-        <div className="grid grid-cols-3 gap-4">
-          <label htmlFor="birthDate" className="p-2">Birth Date</label>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4">
+          <label htmlFor="birthDate" className="p-2 text-sm md:text-base xl:text-lg">Birth Date</label>
           <input 
             type="date" 
             name="birthDate" 
             id="birthDate" 
             value={formData.birthDate}
-            className="p-2 col-span-2 rounded-bazi border-4 border-bStart text-black text-center" 
+            className="p-2 col-span-1 sm:col-span-2 rounded-custom border-4 border-bStart text-black text-center" 
             onChange={handleChange} 
           />
         </div>
   
-        <div className="grid grid-cols-3 gap-4">
-          <label htmlFor="birthTime" className="p-2">Birth Time</label>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4">
+          <label htmlFor="birthTime" className="p-2 text-sm md:text-base xl:text-lg">Birth Time</label>
           <input 
             type="time" 
             name="birthTime" 
             id="birthTime" 
             value={formData.birthTime}
-            className="p-2 col-span-2 rounded-bazi border-4 border-bStart text-black text-center" 
+            className="p-2 col-span-1 sm:col-span-2 rounded-custom border-4 border-bStart text-black text-center" 
             onChange={handleChange} 
           />
         </div>
   
-        <div className="grid grid-cols-3 gap-4">
-          <label htmlFor="timezone" className="p-2">Timezone</label>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4">
+          <label htmlFor="timezone" className="p-2 text-sm md:text-base xl:text-lg">Timezone</label>
           <select 
             name="timezone" 
             id="timezone" 
             value={formData.timezone}
-            className="p-2 col-span-2 rounded-bazi border-4 border-bStart text-black text-center" 
+            className="p-2 col-span-1 sm:col-span-2 rounded-custom border-4 border-bStart text-black text-center" 
             onChange={handleChange}
           >
             <option value="">Select Timezone</option>
@@ -204,46 +211,31 @@ export default function BaziCalculator() {
           </select>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div></div>
-          <div className="p-2 col-span-2 flex justify-center">
-            {!result && <button
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4">
+          <div className="p-2"></div>
+          <div className="p-2 col-span-1 sm:col-span-2 rounded-custom text-black flex justify-center">
+            <button
               type="submit"
-              className={`w-full md:max-w-xs cursor-pointer text-white px-6 py-2 rounded-bazi font-bold transition-colors ${isSubmitting ? 'cursor-not-allowed bg-gradient-to-r from-bStart to-bEnd' : 'bg-gradient-to-r from-bStart to-bEnd'
-                }`}
+              className={`w-full sm:w-2/3 md:w-1/2 xl:w-3/5 cursor-pointer text-white px-4 py-2 rounded-custom font-bold transition-colors flex items-center justify-center ${
+                isSubmitting ? 'cursor-not-allowed bg-gradient-to-r from-bStart to-bEnd' : 'bg-gradient-to-r from-bStart to-bEnd'
+              }`}
               disabled={isSubmitting}
             >
               {isSubmitting ? (
-                <div className="flex items-center justify-center">
+                <div className="flex items-center justify-center space-x-1 text-sm md:text-base xl:text-lg">
                   <span>Decoding</span>
                   <span className="dot-flashing"></span>
                   <span className="dot-flashing"></span>
                   <span className="dot-flashing"></span>
                 </div>
               ) : 'Decode'}
-            </button>}
-            {result && (
-              <Link href={{
-                pathname: '/result',
-                query: { 
-                  inputName: formData.name,
-                  birthLocalYear: moment(formData.birthDate).year(),
-                  birthLocalMonth: moment(formData.birthDate).month() + 1, // month is zero-indexed
-                  birthLocalDay: moment(formData.birthDate).date(),
-                  birthLocalHour: formData.birthTime.split(':')[0],
-                  birthLocalMinute: formData.birthTime.split(':')[1],
-                  result: result
-                }
-            }}
-            className="w-full md:max-w-xs cursor-pointer text-white px-10 py-2 rounded font-bold transition-colors bg-gradient-to-r from-bStart to-bEnd text-center">View Result</Link>
-          )}
+            </button>
           </div>
         </div>
 
-        {error && <p className="text-red-500 mt-2">{error}</p>}
+        {error && <p className="text-red-500 mt-2 text-center">{error}</p>}
 
       </form>
-
     </div>
   );
 }

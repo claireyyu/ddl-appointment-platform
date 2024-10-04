@@ -19,6 +19,7 @@ module.exports = {
 				'bEnd': '#10A8EA',
 				'pStart': '#8316F0',
 				'pEnd': '#4B0D8A',
+				'navbar': 'rgb(0 0 0 / 55%)',
   			// card: {
   			// 	DEFAULT: 'hsl(var(--card))',
   			// 	foreground: 'hsl(var(--card-foreground))'
@@ -61,8 +62,10 @@ module.exports = {
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
-  		}
+				sm: 'calc(var(--radius) - 4px)',
+				'custom': '0.625rem',
+				'custom-lg': '1.875rem',
+			}
   	}
   },
 	plugins: [require("tailwindcss-animate")],

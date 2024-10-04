@@ -13,11 +13,8 @@ export default function Navbar() {
 
   return (
     <div>
-
-      <nav className="flex justify-between items-center bg-background p-4 text-foreground sticky text-lg">
-
-        {/* <h1 className="text-3xl font-bold ml-16 p-2">Lab 8</h1> */}
-        <Link href="/" className="text-3xl font-bold ml-8 p-2 bg-gradient-to-r from-bpStart to-bpEnd text-transparent bg-clip-text">Lab 8</Link>
+      <div className="flex justify-between items-center p-4 text-foreground sticky top-0 z-50 text-lg bg-navbar">
+      <Link href="/" className="text-3xl xl:text-4xl font-bold ml-8 p-2 bg-gradient-to-r from-bpStart to-bpEnd text-transparent bg-clip-text">Lab 8</Link>
         <div className="hidden md:flex items-center gap-12">
           <Link href="/">Home</Link>
           <Link href="/services">Services</Link>
@@ -40,7 +37,7 @@ export default function Navbar() {
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="hidden md:flex sticky items-center text-slate-50 border-none focus">
+                <Button variant="outline" className="hidden md:flex sticky items-center text-foreground border-none focus bg-transparent">
                   <Globe className="m-1" />
                 </Button>
               </DropdownMenuTrigger>
@@ -53,7 +50,6 @@ export default function Navbar() {
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
-
         </div>
 
         {/* Hamburger menu for smaller screens */}
@@ -62,7 +58,7 @@ export default function Navbar() {
             {isMenuOpen ? <X className="text-2xl" /> : <Menu className="text-2xl" />}
           </button>
         </div>
-      </nav>
+      </div>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
@@ -98,6 +94,6 @@ export default function Navbar() {
           </div>
         </div>
       )}
-    </div>
+    </div >
   );
 }
