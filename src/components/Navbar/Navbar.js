@@ -9,40 +9,30 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 export default function Navbar() {
   const [position, setPosition] = useState("english");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isSignedIn = false;
 
   return (
     <div>
-      <div className="flex justify-between items-center p-4 text-foreground sticky top-0 z-50 text-lg bg-navbar">
-      <Link href="/" className="text-3xl xl:text-4xl font-bold ml-8 p-2 bg-gradient-to-r from-bpStart to-bpEnd text-transparent bg-clip-text">Lab 8</Link>
-        <div className="hidden md:flex items-center gap-12">
-          <Link href="/">Home</Link>
-          <Link href="/services">Services</Link>
-          <Link href="/about">About</Link>
-          <Link href="/#contact" >Contact</Link>
+      <div className="grid grid-cols-5 justify-between items-center p-4 text-foreground sticky top-0 z-50 text-lg bg-navbar">
+        <Link href="/" className="col-span-2 text-3xl xl:text-4xl font-bold ml-8 p-2 bg-gradient-to-r from-bpStart to-bpEnd text-transparent bg-clip-text">Lab 8</Link>
 
-          <div className="flex">
-            {isSignedIn ? (
-              <Link href="/profile">
-                <Avatar>
-                  <AvatarImage src="https://github.com/shadcn.png" />
-                  <AvatarFallback>BZ</AvatarFallback>
-                </Avatar>
-              </Link>
-            ) : (
-              <Button className="bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base" variant="default" asChild>
-                <Link href="auth/login">Login</Link>
-              </Button>
-            )}
+        <div className="col-span-2 hidden md:flex items-center justify-evenly gap-12">
+            <Link href="/">Home</Link>
+            <Link href="/services">Services</Link>
+            <Link href="/about">About</Link>
+            <Link href="/#contact" >Contact</Link>
+        </div>
 
-            <Button variant="outline" className="hidden md:flex sticky cursor-pointer items-center text-foreground border-none focus bg-transparent">
-              <Globe className="m-1" />
-            </Button>
-          </div>
+        <div className="col-span-1 flex justify-center items-center gap-12">
+          <Button className="hidden md:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base" variant="default" asChild>
+              <Link href="auth/login">Login</Link>
+          </Button>
+          <Button variant="outline" className="hidden md:flex sticky cursor-pointer items-center text-foreground border-none focus bg-transparent">
+            <Globe className="m-1" />
+          </Button>
         </div>
 
         {/* Hamburger menu for smaller screens */}
-        <div className="md:hidden">
+        <div className="col-span-2 md:hidden flex justify-end mr-2">
           <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X className="text-2xl" /> : <Menu className="text-2xl" />}
           </button>
@@ -57,18 +47,9 @@ export default function Navbar() {
           <Link href="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
           <Link href="/#contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
 
-          {isSignedIn ? (
-            <Link href="/profile" onClick={() => setIsMenuOpen(false)}>
-              <Avatar>
-                <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-            </Link>
-          ) : (
-            <Button className="bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground p-2 rounded-xl" variant="outline" asChild>
-              <Link href="auth/login" onClick={() => setIsMenuOpen(false)}>Login</Link>
-            </Button>
-          )}
+          <Button className="bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground p-2 rounded-xl" variant="outline" asChild>
+            <Link href="auth/login" onClick={() => setIsMenuOpen(false)}>Login</Link>
+          </Button>
 
           {/* Language Switch (In Mobile Menu) */}
           <div className="flex flex-col items-center">
