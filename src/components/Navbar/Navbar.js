@@ -12,6 +12,11 @@ export default function Navbar() {
   const [position, setPosition] = useState("english");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const handleLogin = () => {
+    window.location.href = 'http://localhost:8000/auth/google/redirect';
+  };
+
+
   return (
     <div>
       <div className="grid grid-cols-5 justify-between items-center p-4 text-foreground sticky top-0 z-50 text-lg bg-navbar">
@@ -27,9 +32,9 @@ export default function Navbar() {
         </div>
 
         <div className="col-span-1 flex justify-center items-center gap-12">
-          <Button className="hidden md:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base" variant="default" asChild>
-              <Link href="auth/login">Login</Link>
-          </Button>
+          <button className="hidden md:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base px-4 py-2 rounded-custom" onClick={handleLogin}>
+            Login
+          </button>
           <Button variant="outline" className="hidden md:flex sticky cursor-pointer items-center text-foreground border-none focus bg-transparent">
             <Globe className="m-1" />
           </Button>
