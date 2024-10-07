@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 
-export default function page() {
+export default function Page() {
   const user = {
     username: "ClaireYu",
     email: "claire.yu@example.com",
