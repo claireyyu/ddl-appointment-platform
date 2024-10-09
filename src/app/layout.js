@@ -2,6 +2,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import { Kanit } from "next/font/google";
+import { AuthProvider } from "@/contexts/AuthContext";
 
 const kanit = Kanit({
   subsets: ['latin'],
@@ -20,7 +21,9 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${kanit.variable}`}>
       <body>
         {/* <Navbar /> */}
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
         <Footer />
       </body>
     </html>

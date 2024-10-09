@@ -1,21 +1,20 @@
 "use client";
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Globe, Menu, X } from 'react-feather';
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuSeparator, DropdownMenuRadioGroup, DropdownMenuRadioItem } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from 'next/image';
 import logo from '../../../public/logo.png';
+import axios from 'axios';
+import { useAuth } from '@/contexts/AuthContext';
 
 export default function Navbar() {
+  const { loginWithGoogle, logout } = useAuth();
   const [position, setPosition] = useState("english");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const handleLogin = () => {
-    window.location.href = 'http://localhost:8000/auth/google/redirect';
-  };
-
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   return (
     <div>
@@ -32,8 +31,17 @@ export default function Navbar() {
         </div>
 
         <div className="col-span-1 flex justify-center items-center gap-12">
-          <button className="hidden md:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base px-4 py-2 rounded-custom" onClick={handleLogin}>
+          <button 
+            className="hidden md:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base px-4 py-2 rounded-custom" 
+            onClick={loginWithGoogle}
+          >
             Login
+          </button>
+          <button 
+            className="hidden md:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base px-4 py-2 rounded-custom" 
+            onClick={logout}
+          >
+            Logout
           </button>
           <Button variant="outline" className="hidden md:flex sticky cursor-pointer items-center text-foreground border-none focus bg-transparent">
             <Globe className="m-1" />
@@ -56,8 +64,12 @@ export default function Navbar() {
           <Link href="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
           <Link href="/#contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
 
-          <Button className="bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground p-2 rounded-xl" variant="outline" asChild>
-            <Link href="auth/login" onClick={() => setIsMenuOpen(false)}>Login</Link>
+          <Button 
+            className="bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground p-2 rounded-xl" 
+            variant="outline" 
+            onClick={isAuthenticated ? handleLogout : handleLogin}
+          >
+            {isAuthenticated ? 'Logout' : 'Login'}
           </Button>
 
           {/* Language Switch (In Mobile Menu) */}

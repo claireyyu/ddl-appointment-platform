@@ -18,7 +18,7 @@ export default function Page() {
   return (
     <div>
       <h1>Debug Page</h1>
-      <p>JWT Token: {token ? token : 'No token found'}</p>
+      <p className="bg-foreground text-background p-4 m-8 rounded-md break-words">JWT Token: {token ? token : 'No token found'}</p>
     </div>
   );
 }
