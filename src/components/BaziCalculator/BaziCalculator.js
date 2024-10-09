@@ -97,7 +97,6 @@ export default function BaziCalculator() {
             const data2 = await response2.json();
 
             const combinedData = {
-                debug: data1.original.debug,
                 nianzhu: data1.original.nianzhu,
                 yuezhu: data1.original.yuezhu,
                 rizhu: data1.original.rizhu,

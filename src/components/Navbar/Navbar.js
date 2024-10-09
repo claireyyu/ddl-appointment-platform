@@ -7,14 +7,12 @@ import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuSep
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from 'next/image';
 import logo from '../../../public/logo.png';
-import axios from 'axios';
 import { useAuth } from '@/contexts/AuthContext';
 
 export default function Navbar() {
-  const { loginWithGoogle, logout } = useAuth();
+  const { user, loginWithGoogle, logout } = useAuth();
   const [position, setPosition] = useState("english");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   return (
     <div>
@@ -33,15 +31,9 @@ export default function Navbar() {
         <div className="col-span-1 flex justify-center items-center gap-12">
           <button 
             className="hidden md:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base px-4 py-2 rounded-custom" 
-            onClick={loginWithGoogle}
+            onClick={user ? logout : loginWithGoogle}
           >
-            Login
-          </button>
-          <button 
-            className="hidden md:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base px-4 py-2 rounded-custom" 
-            onClick={logout}
-          >
-            Logout
+            {user ? 'Logout' : 'Login'}
           </button>
           <Button variant="outline" className="hidden md:flex sticky cursor-pointer items-center text-foreground border-none focus bg-transparent">
             <Globe className="m-1" />
@@ -67,9 +59,9 @@ export default function Navbar() {
           <Button 
             className="bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground p-2 rounded-xl" 
             variant="outline" 
-            onClick={isAuthenticated ? handleLogout : handleLogin}
+            onClick={user ? logout : loginWithGoogle}
           >
-            {isAuthenticated ? 'Logout' : 'Login'}
+            {user ? 'Logout' : 'Login'}
           </Button>
 
           {/* Language Switch (In Mobile Menu) */}
