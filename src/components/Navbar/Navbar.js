@@ -3,8 +3,6 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { Globe, Menu, X } from 'react-feather';
 import { Button } from '@/components/ui/button';
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuSeparator, DropdownMenuRadioGroup, DropdownMenuRadioItem } from '@/components/ui/dropdown-menu';
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from 'next/image';
 import logo from '../../../public/logo.png';
 import { useAuth } from '@/contexts/AuthContext';

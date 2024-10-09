@@ -1,5 +1,5 @@
 import "./globals.css";
-import Navbar from "@/components/Navbar/Navbar";
+import NavigationWrapper from "@/components/NavigationWrapper/NavigationWrapper";
 import Footer from "@/components/Footer/Footer";
 import { Kanit } from "next/font/google";
 import { AuthProvider } from "@/contexts/AuthContext";
@@ -20,8 +20,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${kanit.variable}`}>
       <body>
-        {/* <Navbar /> */}
         <AuthProvider>
+          <NavigationWrapper />
           {children}
         </AuthProvider>
         <Footer />
