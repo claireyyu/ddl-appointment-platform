@@ -29,12 +29,22 @@ export default function Navbar() {
         </div>
 
         <div className="col-span-1 flex justify-center items-center gap-12">
-          <button 
-            className="hidden md:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base px-4 py-2 rounded-custom" 
-            onClick={user ? logout : loginWithGoogle}
-          >
-            {user ? 'Logout' : 'Login'}
-          </button>
+          {user ? (
+              <Link href="/profile">
+                <button 
+                  className="hidden md:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base px-4 py-2 rounded-custom"
+                >
+                  Profile
+                </button>
+              </Link>
+            ) : (
+              <button 
+                className="hidden md:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base px-4 py-2 rounded-custom" 
+                onClick={loginWithGoogle}
+              >
+                Login
+              </button>
+            )}
           <Button variant="outline" className="hidden md:flex sticky cursor-pointer items-center text-foreground border-none focus bg-transparent">
             <Globe className="m-1" />
           </Button>
