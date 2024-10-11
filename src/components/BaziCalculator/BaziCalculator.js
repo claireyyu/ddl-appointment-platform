@@ -123,7 +123,7 @@ export default function BaziCalculator() {
   };
 
   const postBaziResult = async (name, sex, birthYear, birthMonth, birthDay, birthHour, birthMinute, result) => {
-    const URL = 'http://localhost:8000/v1/bazi-result';
+    const URL = 'http://localhost:8000/v1/user/results';
     try {
       const response = await fetch(URL, {
         method: 'POST',
