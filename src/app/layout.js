@@ -12,7 +12,7 @@ const kanit = Kanit({
 })
 
 export const metadata = {
-  title: "Bazi",
+  title: "Lab8",
   description: "A Bazi Web App",
 };
 

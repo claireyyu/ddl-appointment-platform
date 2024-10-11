@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
 
   // Function to handle Google login (redirects to backend)
   const loginWithGoogle = () => {
-    window.location.href = "http://localhost:8000/v1/auth/google/redirect";
+    window.location.href = `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/auth/google/redirect`;
   };
 
   // Extract the token from the URL query parameter and store it
@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     try {
-      const res = await fetch("http://localhost:8000/v1/user/profile", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/user/profile`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${storedToken}`, // Attach token in Authorization header
@@ -65,7 +65,7 @@ export const AuthProvider = ({ children }) => {
     if (storedToken) {
       try {
         // Call the backend to invalidate the JWT token
-        await fetch("http://localhost:8000/v1/auth/google/logout", {
+        await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/auth/google/logout`, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${storedToken}`,
