@@ -122,7 +122,8 @@ export default function BaziCalculator() {
     }
   };
 
-  const postBaziResult = async (name, sex, birthYear, birthMonth, birthDay, birthHour, birthMinute, result) => {
+  const storeUserBaziResult = async (name, sex, birthYear, birthMonth, birthDay, birthHour, birthMinute, result) => {
+
     const URL = 'http://localhost:8000/v1/user/results';
     try {
       const response = await fetch(URL, {
@@ -130,6 +131,30 @@ export default function BaziCalculator() {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ name, sex, birthYear, birthMonth, birthDay, birthHour, birthMinute, result })
+      });
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.error("Error posting Bazi result:", error);
+    }
+  };
+
+  const storePublicBaziResult = async (name, sex, birthYear, birthMonth, birthDay, birthHour, birthMinute, result) => {
+
+    const URL = 'http://localhost:8000/v1/results';
+    try {
+      const response = await fetch(URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ name, sex, birthYear, birthMonth, birthDay, birthHour, birthMinute, result })
       });
@@ -163,16 +188,26 @@ export default function BaziCalculator() {
 
       // post the result to the backend
       if (token) {
-      postBaziResult(
-        formData.name,
-        formData.sex,
-        moment(formData.birthDate).year().toString(),
-        (moment(formData.birthDate).month() + 1).toString(),
-        moment(formData.birthDate).date().toString(),
-        formData.birthTime.split(':')[0],
-        formData.birthTime.split(':')[1],
-        result
+        storeUserBaziResult(
+          formData.name,
+          formData.sex,
+          moment(formData.birthDate).year().toString(),
+          (moment(formData.birthDate).month() + 1).toString(),
+          moment(formData.birthDate).date().toString(),
+          formData.birthTime.split(':')[0],
+          formData.birthTime.split(':')[1],
+          result
         );
+      } else {
+        storePublicBaziResult(
+          formData.name,
+          formData.sex,
+          moment(formData.birthDate).year().toString(),
+          (moment(formData.birthDate).month() + 1).toString(),
+          moment(formData.birthDate).date().toString(),
+          formData.birthTime.split(':')[0],
+          formData.birthTime.split(':')[1],
+          result);
       }
     }
   }, [result]);
