@@ -2,9 +2,10 @@
 
 import { useAuth } from "../../contexts/AuthContext";
 import { useEffect } from 'react';
+import { AuthContextType } from "../../types/auth";
 
 export default function Profile() {
-  const { user, loading, logout } = useAuth();
+  const { user, loading, logout } = useAuth() as AuthContextType;
 
   return (
     <div>

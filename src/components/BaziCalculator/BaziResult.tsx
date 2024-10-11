@@ -1,6 +1,7 @@
 'use client'
  
 import { useSearchParams } from 'next/navigation'
+import { type BaziResultData } from '../../types/bazi';
 
 export default function BaziResult() {
   const searchParams = useSearchParams();
@@ -23,7 +24,7 @@ export default function BaziResult() {
 
   // get the result from the query string
   const result = searchParams.get('result');
-  const jsonResult = JSON.parse(result);
+  const jsonResult: BaziResultData = JSON.parse(result || '');
   const { nianzhu, yuezhu, rizhu, shizhu, personality_detail, rizhu_detail } = jsonResult;
 
   // extract the stem and branch for each pillar

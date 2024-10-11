@@ -1,12 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FormEvent, ChangeEvent } from 'react';
 import {majorTimezones} from './TimezoneData';
 import moment from 'moment-timezone';
 import "../../app/globals.css";
-import { useAuth } from '@/contexts/AuthContext';
+import { useAuth } from "../../contexts/AuthContext";
+import { AuthContextType } from '../../types/auth';
+import { type FormData, type BaziRequestData, type BaziApiResponse, type BaziResultData } from '../../types/bazi';
 
 export default function BaziCalculator() {
-  const { token, user } = useAuth();
-
+  const { token, user } = useAuth() as AuthContextType;
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -17,7 +18,7 @@ export default function BaziCalculator() {
   });
 
   // State to store form fields
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     sex: '',
     birthDate: '',
@@ -29,7 +30,7 @@ export default function BaziCalculator() {
   const [result, setResult] = useState('');
 
   // Update state on input change
-  const handleChange = (event) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -44,7 +45,7 @@ export default function BaziCalculator() {
     setError('');
   }, []);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // Clear error message at the beginning of each submit attempt
@@ -62,7 +63,7 @@ export default function BaziCalculator() {
     const birthDateTime = moment.tz(`${formData.birthDate} ${formData.birthTime}`, formData.timezone);
     const beijingTime = birthDateTime.clone().tz('Asia/Shanghai');
 
-    const bodyData = {
+    const bodyData: BaziRequestData = {
       name: formData.name,
       sex: formData.sex,
       type: 1, // Assuming type is always 1 (gongli)
@@ -98,12 +99,11 @@ export default function BaziCalculator() {
         const data1 = await response1.json();
         const data2 = await response2.json();
 
-        const combinedData = {
+        const combinedData: BaziResultData = {
           nianzhu: data1.original.nianzhu,
           yuezhu: data1.original.yuezhu,
           rizhu: data1.original.rizhu,
           shizhu: data1.original.shizhu,
-          big_start_year: data1.original.big_start_year,
           personality_detail: data2.original.personality_detail,
           rizhu_detail: data2.original.rizhu_detail,
         };
@@ -122,7 +122,7 @@ export default function BaziCalculator() {
     }
   };
 
-  const storeUserBaziResult = async (name, sex, birthYear, birthMonth, birthDay, birthHour, birthMinute, result) => {
+  const storeUserBaziResult = async (baziRequestData: BaziRequestData, result: string) => {
 
     const URL = 'http://localhost:8000/v1/user/results';
     try {
@@ -132,7 +132,7 @@ export default function BaziCalculator() {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ name, sex, birthYear, birthMonth, birthDay, birthHour, birthMinute, result })
+        body: JSON.stringify({ ...baziRequestData, result })
       });
       
       if (!response.ok) {
@@ -147,7 +147,7 @@ export default function BaziCalculator() {
     }
   };
 
-  const storePublicBaziResult = async (name, sex, birthYear, birthMonth, birthDay, birthHour, birthMinute, result) => {
+  const storePublicBaziResult = async (baziRequestData: BaziRequestData, result: string) => {
 
     const URL = 'http://localhost:8000/v1/results';
     try {
@@ -156,7 +156,7 @@ export default function BaziCalculator() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, sex, birthYear, birthMonth, birthDay, birthHour, birthMinute, result })
+        body: JSON.stringify({ ...baziRequestData, result })
       });
       
       if (!response.ok) {
@@ -186,28 +186,28 @@ export default function BaziCalculator() {
       const resultUrl = `/result?${query}`;
       window.open(resultUrl, '_blank');
 
+      // create body data for posting to backend
+      const bodyData: BaziRequestData = {
+        name: formData.name,
+        sex: formData.sex,
+        year: moment(formData.birthDate).year(),
+        month: moment(formData.birthDate).month() + 1,
+        day: moment(formData.birthDate).date(),
+        hours: parseInt(formData.birthTime.split(':')[0]),
+        minute: parseInt(formData.birthTime.split(':')[1])
+      };
+
       // post the result to the backend
       if (token) {
         storeUserBaziResult(
-          formData.name,
-          formData.sex,
-          moment(formData.birthDate).year().toString(),
-          (moment(formData.birthDate).month() + 1).toString(),
-          moment(formData.birthDate).date().toString(),
-          formData.birthTime.split(':')[0],
-          formData.birthTime.split(':')[1],
+          bodyData,
           result
         );
       } else {
         storePublicBaziResult(
-          formData.name,
-          formData.sex,
-          moment(formData.birthDate).year().toString(),
-          (moment(formData.birthDate).month() + 1).toString(),
-          moment(formData.birthDate).date().toString(),
-          formData.birthTime.split(':')[0],
-          formData.birthTime.split(':')[1],
-          result);
+          bodyData,
+          result
+        );
       }
     }
   }, [result]);
