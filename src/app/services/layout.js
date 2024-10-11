@@ -1,5 +1,4 @@
-import PageBar from "@/components/PageBar/PageBar";
-import Navbar from "@/components/Navbar/Navbar";
+import PageBar from "../../components/PageBar/PageBar";
 
 export default function ServicesLayout({ children }) {
   return (

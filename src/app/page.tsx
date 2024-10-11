@@ -1,9 +1,9 @@
 "use client";
 import BaziCalculator from '../components/BaziCalculator/BaziCalculator';
-import ContactForm from '@/components/ContactForm/ContactForm';
-import TestimonialSlider from '@/components/TestimonialSlider/TestimonialSlider';
-import Navbar from '@/components/Navbar/Navbar'
-import HomeAbout from '@/components/HomeAbout/HomeAbout'
+import ContactForm from '../components/ContactForm/ContactForm';
+import TestimonialSlider from '../components/TestimonialSlider/TestimonialSlider';
+import Navbar from '../components/Navbar/Navbar'
+import HomeAbout from '../components/HomeAbout/HomeAbout'
 
 export default function Page() {
   return (

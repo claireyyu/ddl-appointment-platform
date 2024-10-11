@@ -2,10 +2,10 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { Globe, Menu, X } from 'react-feather';
-import { Button } from '@/components/ui/button';
+import { Button } from '../../components/ui/button';
 import Image from 'next/image';
 import logo from '../../../public/logo.png';
-import { useAuth } from '@/contexts/AuthContext';
+import { useAuth } from '../../contexts/AuthContext';
 
 export default function Navbar() {
   const { user, loginWithGoogle, logout } = useAuth();

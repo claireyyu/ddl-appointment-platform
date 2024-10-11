@@ -1,4 +1,4 @@
-import ServiceCard from '@/components/ServiceCard/ServiceCard';
+import ServiceCard from '../../components/ServiceCard/ServiceCard';
 import service1 from '../../../public/service-1.png';
 import service2 from '../../../public/service-2.png';
 import service3 from '../../../public/service-3.png';

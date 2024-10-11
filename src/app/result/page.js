@@ -1,6 +1,6 @@
 "use client";
 
-import BaziResult from '@/components/BaziCalculator/BaziResult';
+import BaziResult from "../../components/BaziCalculator/BaziResult";
 import { useSearchParams } from 'next/navigation';
 
 export default function ResultPage() {

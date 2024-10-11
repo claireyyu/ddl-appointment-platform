@@ -92,7 +92,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, token, loading, loginWithGoogle, fetchUserProfile, logout }}>
+    <AuthContext.Provider value={{ user, token, loading, loginWithGoogle, logout }}>
       {children}
     </AuthContext.Provider>
   );

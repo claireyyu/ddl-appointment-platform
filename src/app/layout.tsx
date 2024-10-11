@@ -1,8 +1,10 @@
-import "./globals.css";
-import NavigationWrapper from "@/components/NavigationWrapper/NavigationWrapper";
-import Footer from "@/components/Footer/Footer";
+import NavigationWrapper from "../components/NavigationWrapper/NavigationWrapper";
+import Footer from "../components/Footer/Footer";
 import { Kanit } from "next/font/google";
-import { AuthProvider } from "@/contexts/AuthContext";
+import { AuthProvider } from "../contexts/AuthContext";
+import { ChildrenProps } from "../types/ChildrenProps";
+import "../app/globals.css";
+
 
 const kanit = Kanit({
   subsets: ['latin'],
@@ -16,7 +18,7 @@ export const metadata = {
   description: "A Bazi Web App",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: ChildrenProps) {
   return (
     <html lang="en" className={`${kanit.variable}`}>
       <body>

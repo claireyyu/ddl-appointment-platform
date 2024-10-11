@@ -1,7 +1,4 @@
 import React from 'react'
-import ServiceCard from '@/components/ServiceCard/ServiceCard'
-import Button from '@/components/ui/button'
-import Link from 'next/link'
 import Image from 'next/image'
 import aboutPic from "../../../public/about.png";
 

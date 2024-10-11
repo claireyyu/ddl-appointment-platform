@@ -1,6 +1,4 @@
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
-import PageBar from "@/components/PageBar/PageBar";
+import PageBar from "../../components/PageBar/PageBar";
 
 export default function AboutLayout({ children }) {
   return (
