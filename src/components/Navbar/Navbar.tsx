@@ -43,9 +43,9 @@ export default function Navbar() {
                 Login
               </button>
             )}
-          <Button variant="outline" className="hidden md:flex sticky cursor-pointer items-center text-foreground border-none focus bg-transparent">
-            <Globe className="m-1" />
-          </Button>
+          <button className="hidden md:flex sticky cursor-pointer items-center text-foreground border-none focus bg-transparent">
+              <Globe className="m-1" />
+          </button>
         </div>
 
         {/* Hamburger menu for smaller screens */}
