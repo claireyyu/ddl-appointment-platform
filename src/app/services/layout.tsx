@@ -1,6 +1,7 @@
 import PageBar from "../../components/PageBar/PageBar";
+import type { ReactNode } from "react";
 
-export default function ServicesLayout({ children }) {
+export default function ServicesLayout({ children }: { children: ReactNode }) {
   return (
     <div>
       <PageBar>

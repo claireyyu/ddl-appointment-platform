@@ -39,7 +39,6 @@ export default function Page() {
             </div>
           </ServiceCard>
 
-
         </section>
       </div>
     </div>

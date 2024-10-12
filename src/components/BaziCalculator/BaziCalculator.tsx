@@ -1,5 +1,5 @@
 import { useState, useEffect, FormEvent, ChangeEvent } from 'react';
-import {majorTimezones} from './TimezoneData';
+import { majorTimezones } from './TimezoneData';
 import moment from 'moment-timezone';
 import "../../app/globals.css";
 import { useAuth } from "../../contexts/AuthContext";

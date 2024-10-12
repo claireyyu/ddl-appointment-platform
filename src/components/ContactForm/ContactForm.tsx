@@ -1,5 +1,7 @@
+import { FormEvent } from 'react';
+
 export default function ContactForm() {
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log('Submit');
         window.alert('Your submission has been received. Thank you!');
