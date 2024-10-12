@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { Globe, Menu, X } from 'react-feather';
-import { Button } from '../ui/button';
 import Image from 'next/image';
 import logo from '../../../public/logo.png';
 import { useAuth } from '../../contexts/AuthContext';
@@ -64,23 +63,22 @@ export default function Navbar() {
           <Link href="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
           <Link href="/#contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
 
-          <Button 
+          <button 
             className="bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground p-2 rounded-xl" 
-            variant="outline" 
             onClick={user ? logout : loginWithGoogle}
           >
             {user ? 'Logout' : 'Login'}
-          </Button>
+          </button>
 
           {/* Language Switch (In Mobile Menu) */}
           <div className="flex flex-col items-center">
             <div className="flex gap-4">
-              <Button onClick={() => setPosition('english')} variant={position === 'english' ? 'outline' : 'solid'}>
+              <button onClick={() => setPosition('english')} className={`${position === 'english' ? 'border-white border-2' : 'border-transparent'} p-2 rounded-xl`}>
                 English
-              </Button>
-              <Button onClick={() => setPosition('chinese')} variant={position === 'chinese' ? 'outline' : 'solid'}>
+              </button>
+              <button onClick={() => setPosition('chinese')} className={`${position === 'chinese' ? 'border-white border-2' : 'border-transparent'} p-2 rounded-xl`}>
                 Chinese
-              </Button>
+              </button>
             </div>
           </div>
         </div>
