@@ -1,0 +1,11 @@
+.headerText {
+  @apply w-full md:w-auto
+}
+
+.pillarText {
+  @apply col-span-1 py-8 text-center
+}
+
+.mobilePillarText {
+  @apply text-lg my-4
+}

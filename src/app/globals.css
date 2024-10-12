@@ -94,7 +94,7 @@ body {
   } */
 }
 
-/* styles/globals.css */
+/* Loading animation */
 @keyframes dot-flashing {
   0% {
     opacity: 1;

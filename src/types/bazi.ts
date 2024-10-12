@@ -11,23 +11,22 @@ export interface BaziRequestData {
   name: string;
   sex: string;
   type?: number;
+  birthYear: number;
+  birthMonth: number;
+  birthDay: number;
+  birthHour: number;
+  birthMinute: number;
+}
+
+export interface BaziApiRequestData {
+  name: string;
+  sex: string;
+  type?: number;
   year: number;
   month: number;
   day: number;
   hours: number;
   minute: number;
-}
-
-export interface BaziApiResponse {
-  original: {
-    nianzhu: [string, string];
-    yuezhu: [string, string];
-    rizhu: [string, string];
-    shizhu: [string, string];
-    big_start_year: number | null;
-    personality_detail: string;
-    rizhu_detail: string;
-  };
 }
 
 export interface BaziResultData {

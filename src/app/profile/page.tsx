@@ -4,7 +4,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { useEffect } from 'react';
 import { AuthContextType } from "../../types/auth";
 
-export default function Profile() {
+export default function ProfilePage() {
   const { user, loading, logout } = useAuth() as AuthContextType;
 
   return (

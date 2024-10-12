@@ -1,4 +1,6 @@
-export const majorTimezones = [
+import moment from 'moment-timezone';
+
+const majorTimezones = [
   { label: 'Baker Island Time', value: 'Etc/GMT+12' },
   { label: 'Samoa Standard Time', value: 'Pacific/Pago_Pago' },
   { label: 'Hawaii-Aleutian Standard Time', value: 'Pacific/Honolulu' },
@@ -24,3 +26,9 @@ export const majorTimezones = [
   { label: 'Australian Eastern Standard Time', value: 'Australia/Sydney' },
   { label: 'Solomon Islands Time', value: 'Pacific/Guadalcanal' }
 ];
+
+  // Generate list of major timezones with UTC offset
+  export const timezones = majorTimezones.map((tz) => {
+    const offset = moment.tz(tz.value).format('Z');
+    return { label: `${tz.label} (UTC${offset})`, value: tz.value };
+  });

@@ -1,0 +1,7 @@
+.title {
+  @apply text-xl mt-4;
+}
+
+.paragraph {
+  @apply text-lg mt-4;
+}
