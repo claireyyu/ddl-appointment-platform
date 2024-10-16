@@ -1,10 +1,17 @@
-// Define types for form data
+// BaziCalculator.tsx
 export interface FormData {
   name: string;
   sex: string;
   birthDate: string;
   birthTime: string;
   timezone: string;
+}
+
+// Baziformfields.tsx
+export interface BaziFormFieldsProps {
+  formData: FormData;
+  timezones: { value: string; label: string }[];
+  handleChange: (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
 }
 
 export interface BaziRequestData {

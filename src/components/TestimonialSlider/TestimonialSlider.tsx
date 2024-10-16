@@ -4,7 +4,7 @@ import { reviews } from '../../utils/reviewsData';
 
 export default function Testimonials () {
     return (
-      <section className="max-w-screen-lg mx-auto flex flex-col justify-center">
+      <section className="flex flex-col justify-center">
         <div className="relative select-none">
           <Splide
             options={{

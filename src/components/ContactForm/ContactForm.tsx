@@ -8,7 +8,7 @@ export default function ContactForm() {
     }
     
     return (
-        <div className="flex flex-col gap-4 max-w-4xl w-full">
+        <div className="flex flex-col">
             <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold">Contact Us</h1>
             <p className="text-sm md:text-base xl:text-lg text-justify mb-2 md:mb-4">Have a question, need more information, or interested in a partnership? Share your details below, and we'll get back to you as soon as possible!</p>
             <form className="flex flex-col gap-3 md:gap-4 lg:gap-5" onSubmit={handleSubmit}>

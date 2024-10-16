@@ -8,11 +8,11 @@ import HomeAbout from '../components/HomeAbout/HomeAbout'
 export default function Page() {
   return (
     <div>
-      <div className="min-h-screen flex flex-col bg-cover bg-center bg-[url(/home-bg-1.png)]">
+      <div className="min-h-screen bg-cover bg-center flex flex-col bg-[url(/home-bg-1.png)]">
         <Navbar/>
-        <section className="flex-1 flex flex-col xl:flex-row items-center gap-4 p-4 xl:p-22">
+        <section className="flex-1 flex flex-col xl:flex-row items-center p-4 xl:p-22">
           <span className="w-1/2" />
-          <div className="w-full lg:w-1/3 lg:ml-24">
+          <div className="max-w-xl mx-auto lg:w-1/3 lg:ml-24">
             <BaziCalculator />
           </div>
         </section>
@@ -29,14 +29,14 @@ export default function Page() {
 
       <div id="contact" className="min-h-screen bg-cover bg-center md:bg-[url(/home-bg-3.png)]">
         <section className="min-h-screen flex">
-          <div className="w-full md:w-1/2 flex items-center mx-4 md:mx-8 lg:mx-24">
+          <div className="max-w-4xl md:w-1/2 flex items-center mx-4 md:mx-8 lg:mx-24">
             <ContactForm />
           </div>
           <div className="hidden md:block md:w-1/2" />
         </section>
       </div>
 
-      <section className="my-10 px-4 md:px-0">
+      <section className="my-10 px-4 md:px-0 max-w-screen-lg mx-auto ">
         <TestimonialSlider />
       </section>
     </div>

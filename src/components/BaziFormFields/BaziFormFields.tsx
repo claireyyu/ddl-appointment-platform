@@ -1,5 +1,4 @@
 import React, { ChangeEvent } from 'react';
-import { type BaziFormType } from '../../types/bazi';
 import { type BaziFormFieldsProps } from '../../types/bazi';
 
 

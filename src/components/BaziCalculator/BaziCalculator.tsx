@@ -209,7 +209,7 @@ export default function BaziCalculator() {
   }, [result]);
 
   return (
-    <div className="w-full max-w-xl mx-auto"> {/* Added max-width and center alignment */}
+    <div>
       <h1 className="text-sm md:text-base xl:text-lg text-center p-2 font-bold">Try the Bazi calculator and get your life decoded.</h1>
       <form className="flex flex-col gap-4 p-4 sm:p-6 md:p-8" onSubmit={handleSubmit}>
         <BaziFormFields formData={formData} handleChange={handleChange} timezones={timezones} />
