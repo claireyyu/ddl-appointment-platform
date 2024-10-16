@@ -4,7 +4,7 @@ import moment from 'moment-timezone';
 import "../../app/globals.css";
 import { useAuth } from "../../contexts/AuthContext";
 import { AuthContextType } from '../../types/auth';
-import { type FormData, type BaziRequestData, type BaziResultData, type BaziApiRequestData } from '../../types/bazi';
+import { type FormData, type BaziRequestData, type BaziResultData } from '../../types/bazi';
 import BaziFormFields from '../BaziFormFields/BaziFormFields';
 import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
 
@@ -59,7 +59,7 @@ export default function BaziCalculator() {
     const birthDateTime = moment.tz(`${formData.birthDate} ${formData.birthTime}`, formData.timezone);
     const beijingTime = birthDateTime.clone().tz('Asia/Shanghai');
 
-    const bodyData: BaziApiRequestData = {
+    const bodyData: BaziRequestData = {
       name: formData.name,
       sex: formData.sex,
       type: 1, // Assuming type is always 1 (gongli)

@@ -25,17 +25,6 @@ export interface BaziRequestData {
   minute: number;
 }
 
-export interface BaziApiRequestData {
-  name: string;
-  sex: string;
-  type?: number;
-  year: number;
-  month: number;
-  day: number;
-  hours: number;
-  minute: number;
-}
-
 export interface BaziResultData {
   nianzhu: [string, string];
   yuezhu: [string, string];
