@@ -186,11 +186,11 @@ export default function BaziCalculator() {
       const bodyData: BaziRequestData = {
         name: formData.name,
         sex: formData.sex,
-        birthYear: moment(formData.birthDate).year(),
-        birthMonth: moment(formData.birthDate).month() + 1,
-        birthDay: moment(formData.birthDate).date(),
-        birthHour: parseInt(formData.birthTime.split(':')[0]),
-        birthMinute: parseInt(formData.birthTime.split(':')[1])
+        year: moment(formData.birthDate).year(),
+        month: moment(formData.birthDate).month() + 1,
+        day: moment(formData.birthDate).date(),
+        hours: parseInt(formData.birthTime.split(':')[0]),
+        minute: parseInt(formData.birthTime.split(':')[1])
       };
 
       // post the result to the backend

@@ -18,11 +18,11 @@ export interface BaziRequestData {
   name: string;
   sex: string;
   type?: number;
-  birthYear: number;
-  birthMonth: number;
-  birthDay: number;
-  birthHour: number;
-  birthMinute: number;
+  year: number;
+  month: number;
+  day: number;
+  hours: number;
+  minute: number;
 }
 
 export interface BaziApiRequestData {
