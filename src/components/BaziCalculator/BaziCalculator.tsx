@@ -13,6 +13,10 @@ export default function BaziCalculator() {
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  useEffect(() => {
+    setError('');
+  }, []);
+
   // State to store form fields
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -36,10 +40,6 @@ export default function BaziCalculator() {
     // Clear the error for the field being updated
     setError('');
   };
-
-  useEffect(() => {
-    setError('');
-  }, []);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

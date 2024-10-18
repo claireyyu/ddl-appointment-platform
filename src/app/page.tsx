@@ -8,8 +8,8 @@ import HomeAbout from '../components/HomeAbout/HomeAbout'
 export default function Page() {
   return (
     <div>
+      {/* <Navbar/> */}
       <div className="min-h-screen bg-cover bg-center flex flex-col bg-[url(/home-bg-1.png)]">
-        <Navbar/>
         <section className="flex-1 flex flex-col xl:flex-row items-center p-4 xl:p-22">
           <span className="w-1/2" />
           <div className="max-w-xl mx-auto lg:w-1/3 lg:ml-24">

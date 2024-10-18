@@ -94,7 +94,7 @@ export default function ResultPage() {
         <br/>
         <p className="text-justify">Bazi Interpretation <br/><br/>{personality_detail}</p>
       </div>
-    </div>
+      </div>
   );
   
 }

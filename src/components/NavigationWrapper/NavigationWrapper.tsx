@@ -7,5 +7,5 @@ export default function NavigationWrapper() {
   const pathname = usePathname();
   const isHomePage = pathname === '/';
 
-  return !isHomePage ? <Navbar /> : null;
+  return !isHomePage ? <Navbar/> : null;
 }

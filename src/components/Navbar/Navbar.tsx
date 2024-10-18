@@ -12,8 +12,8 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div>
-      <div className="grid grid-cols-5 justify-between items-center p-4 text-foreground sticky top-0 z-50 text-lg bg-navbar">
+    <div className="w-full sticky top-0 z-50">
+      <div className="grid grid-cols-5 justify-between items-center p-4 text-foreground text-lg bg-background">
         <Link href="/" className="col-span-2 flex items-center ml-8 md:ml-16">
           <Image src={logo} alt="Lab 8" width={100} height={100} />
         </Link>
