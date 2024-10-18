@@ -1,10 +1,15 @@
 'use client'
- 
-import { useSearchParams } from 'next/navigation'
+
+import { useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { type BaziResultData } from '../../types/bazi';
 import styles from './ResultPage.module.css';
+import ResultHeader from '../../components/ResultHeader/ResultHeader';
+import BaziPaipan from '../../components/BaziPaipan/BaziPaipan';
 
 export default function ResultPage() {
+  const [activeTab, setActiveTab] = useState('bazi'); // New state to manage active tab
+
   const searchParams = useSearchParams();
 
   // get local date and time
@@ -40,62 +45,46 @@ export default function ResultPage() {
 
   return (
     <div className="flex flex-col items-center text-center rounded-3xl bg-foreground text-background">
-      <div className="flex w-full p-8 text-foreground bg-gradient-to-r from-bpStart to-bpEnd rounded-t-3xl items-center justify-between flex-wrap md:flex-nowrap">
-          <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 w-full md:w-auto">
-            <p className={styles.headerText}>Name: {name}</p>
-            <p className={styles.headerText}>Local Birthday: {birthYear}/{birthMonth}/{birthDay}</p>
-            <p className={styles.headerText}>Lunar Birthday: {lunarYear}/{lunarMonth}/{lunarDay}</p>
-            <p className={styles.headerText}>Time: {birthHour}:{birthMinute}</p>
-            <div className="md:hidden flex justify-center text-xl border-2 border-foreground p-2 mt-4 md:mt-0">
-              <p>Lab 8</p>
-            </div>
-          </div>
-          <div className="hidden md:flex md:justify-end text-xl border-2 border-foreground p-2 mt-4 md:mt-0">
-            <p>Lab 8</p>
-          </div>
-      </div>
-      <div className="overflow-x-auto mt-8">
-        <div className="bg-gradient-to-r from-bpStart to-bpEnd p-0.5 rounded-custom-lg">
-          <div className="hidden md:grid grid-cols-1 md:grid-cols-5 min-w-full gap-4 p-2 bg-foreground rounded-custom-lg">
-              <div className={styles.pillarText}></div>
-              <div className={styles.pillarText}>Year Pillar</div>
-              <div className={styles.pillarText}>Month Pillar</div>
-              <div className={styles.pillarText}>Day Pillar</div>
-              <div className={styles.pillarText}>Hour Pillar</div>
+      {/* Result Header */}
+      <ResultHeader name={name} birthYear={birthYear} birthMonth={birthMonth} birthDay={birthDay} birthHour={birthHour} birthMinute={birthMinute} lunarYear={lunarYear} lunarMonth={lunarMonth} lunarDay={lunarDay} />
 
-              <div className={styles.pillarText}>Top Stem</div>
-              <div className={styles.pillarText}>{yearStem}</div>
-              <div className={styles.pillarText}>{monthStem}</div>
-              <div className={styles.pillarText}>{dayStem}</div>
-              <div className={styles.pillarText}>{hourStem}</div>
+      {/* Buttons to Toggle Content */}
+      <div className="flex mt-4 space-x-4">
+        <button
+          className={`px-6 py-2 rounded-custom shadow-button ${activeTab === 'bazi' ? 'bg-gradient-to-r from-bStart to-bEnd text-foreground' : 'bg-foreground text-black'}`}
+          onClick={() => setActiveTab('bazi')}
+        >
+          Bazi
+        </button>
+        <button
+          className={`px-3 py-2 rounded-custom shadow-button ${activeTab === 'liupan' ? 'bg-gradient-to-r from-bStart to-bEnd text-foreground' : 'bg-foreground text-black'}`}
+          onClick={() => setActiveTab('liupan')}
+        >
+          Liupan
+        </button>
+      </div>
 
-              <div className={styles.pillarText}>Bottom Branch</div>
-              <div className={styles.pillarText}>{yearBranch}</div>
-              <div className={styles.pillarText}>{monthBranch}</div>
-              <div className={styles.pillarText}>{dayBranch}</div>
-              <div className={styles.pillarText}>{hourBranch}</div>
+      {/* Toggle Content Based on Active Tab */}
+      <div className="mt-8">
+        {activeTab === 'bazi' ? (
+          <BaziPaipan
+            yearStem={yearStem}
+            yearBranch={yearBranch}
+            monthStem={monthStem}
+            monthBranch={monthBranch}
+            dayStem={dayStem}
+            dayBranch={dayBranch}
+            hourStem={hourStem}
+            hourBranch={hourBranch}
+            rizhu_detail={rizhu_detail}
+            personality_detail={personality_detail} />
+        ) : (
+          <div>
+            {/* Liupan Content */}
+            
           </div>
-        </div>
-
-        {/* Mobile View */}
-        <div className="md:hidden flex flex-col">
-          <p className={styles.mobilePillarText}>Year Pillar </p>
-          <p>Top Stem - {yearStem}<br />Bottom Branch - {yearBranch}</p>
-          <p className={styles.mobilePillarText}>Month Pillar </p>
-          <p>Top Stem - {monthStem}<br />Bottom Branch - {monthBranch}</p>
-          <p className={styles.mobilePillarText}>Day Pillar </p>
-          <p>Top Stem - {dayStem}<br />Bottom Branch - {dayBranch}</p>
-          <p className={styles.mobilePillarText}>Hour Pillar </p>
-          <p>Top Stem - {hourStem}<br />Bottom Branch - {hourBranch}</p>
-        </div>
+        )}
       </div>
-      <div className="m-16">
-        <p className="text-justify">Rizhu Interpretation <br/><br/>{rizhu_detail}</p>
-        <br/>
-        <p className="text-justify">Bazi Interpretation <br/><br/>{personality_detail}</p>
-      </div>
-      </div>
+    </div>
   );
-  
 }
-

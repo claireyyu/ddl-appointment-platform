@@ -27,7 +27,12 @@ module.exports = {
 				sm: 'calc(var(--radius) - 4px)',
 				'custom': '0.625rem',
 				'custom-lg': '1.875rem',
-			}
+			},
+			boxShadow: {
+				'button': '0 4px 4px rgba(0, 0, 0, 0.25)', 
+				'card': '0 16px 32px -8px rgba(12, 12, 13, 0.4)',
+      }
+
   	}
   },
 	plugins: [require("tailwindcss-animate")],
