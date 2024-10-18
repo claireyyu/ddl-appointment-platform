@@ -36,7 +36,7 @@ export default function ResultPage() {
 
   // extract the bazi sizhu and bazi cesuan
   const { nianzhu, yuezhu, rizhu, shizhu } = baziSizhu;
-  const { qiyunYear, dayunGanZhi, dayunAge, dayunStart } = baziDayun;
+  const { jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNianzhu } = baziDayun;
   const { rizhu_detail, personality_detail } = baziCesuan;
 
   // extract the stem and branch for each pillar
@@ -86,10 +86,7 @@ export default function ResultPage() {
             personality_detail={personality_detail} />
         ) : (
           <div>
-              {/* <p>DayunGanzhi: {dayunGanZhi}</p>
-              <p>DayunAge: {dayunAge}</p>
-              <p>DayunStart: {dayunStart}</p> */}
-              <BaziDayun qiyunYear={qiyunYear} dayunGanZhi={dayunGanZhi.slice(0, 8)} dayunAge={dayunAge.slice(0, 8)} dayunStart={dayunStart.slice(0, 8)} />
+              <BaziDayun jiaoyun={jiaoyun} dayunGanZhi={dayunGanZhi.slice(0, 8)} dayunAge={dayunAge.slice(0, 8)} dayunStart={dayunStart.slice(0, 8)} dayunNianzhu={JSON.stringify(dayunNianzhu)} />
           </div>
         )}
       </div>
