@@ -6,6 +6,7 @@ import { type BaziResultData } from '../../types/bazi';
 import styles from './ResultPage.module.css';
 import ResultHeader from '../../components/ResultHeader/ResultHeader';
 import BaziPaipan from '../../components/BaziPaipan/BaziPaipan';
+import BaziDayun from '../../components/BaziDayun/BaziDayun';
 
 export default function ResultPage() {
   const [activeTab, setActiveTab] = useState('bazi'); // New state to manage active tab
@@ -31,7 +32,12 @@ export default function ResultPage() {
   // get the result from the query string
   const result = searchParams.get('result');
   const jsonResult: BaziResultData = JSON.parse(result || '');
-  const { nianzhu, yuezhu, rizhu, shizhu, personality_detail, rizhu_detail } = jsonResult;
+  const { baziSizhu, baziDayun, baziCesuan } = jsonResult;
+
+  // extract the bazi sizhu and bazi cesuan
+  const { nianzhu, yuezhu, rizhu, shizhu } = baziSizhu;
+  const { qiyunYear, dayunGanZhi, dayunAge, dayunStart } = baziDayun;
+  const { rizhu_detail, personality_detail } = baziCesuan;
 
   // extract the stem and branch for each pillar
   const yearStem = nianzhu[0];
@@ -80,8 +86,10 @@ export default function ResultPage() {
             personality_detail={personality_detail} />
         ) : (
           <div>
-            {/* Liupan Content */}
-            
+              {/* <p>DayunGanzhi: {dayunGanZhi}</p>
+              <p>DayunAge: {dayunAge}</p>
+              <p>DayunStart: {dayunStart}</p> */}
+              <BaziDayun qiyunYear={qiyunYear} dayunGanZhi={dayunGanZhi.slice(0, 8)} dayunAge={dayunAge.slice(0, 8)} dayunStart={dayunStart.slice(0, 8)} />
           </div>
         )}
       </div>

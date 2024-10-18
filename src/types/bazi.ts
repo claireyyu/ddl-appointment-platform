@@ -26,10 +26,7 @@ export interface BaziRequestData {
 }
 
 export interface BaziResultData {
-  nianzhu: [string, string];
-  yuezhu: [string, string];
-  rizhu: [string, string];
-  shizhu: [string, string];
-  personality_detail: string;
-  rizhu_detail: string;
+  baziSizhu: { "nianzhu": string, "yuezhu": string, "rizhu": string, "shizhu": string };
+  baziDayun: { "qiyunYear": string, "dayunGanZhi": string[], "dayunAge": number[], "dayunStart": number[]};
+  baziCesuan: { "personality_detail": string, "rizhu_detail": string };
 }

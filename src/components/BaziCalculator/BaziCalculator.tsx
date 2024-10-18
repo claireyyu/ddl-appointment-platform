@@ -96,13 +96,17 @@ export default function BaziCalculator() {
         const data2 = await response2.json();
 
         const combinedData: BaziResultData = {
-          nianzhu: data1.original.nianzhu,
-          yuezhu: data1.original.yuezhu,
-          rizhu: data1.original.rizhu,
-          shizhu: data1.original.shizhu,
-          personality_detail: data2.original.personality_detail,
-          rizhu_detail: data2.original.rizhu_detail,
+          // nianzhu: data1.original.baziSizhu.nianzhu,
+          // yuezhu: data1.original.baziSizhu.yuezhu,
+          // rizhu: data1.original.baziSizhu.rizhu,
+          // shizhu: data1.original.baziSizhu.shizhu,
+          // personality_detail: data2.original.baziCesuan.personality_detail,
+          // rizhu_detail: data2.original.baziCesuan.rizhu_detail,
+          baziSizhu: data1.original.baziSizhu,
+          baziDayun: data1.original.baziDayun,
+          baziCesuan: data2.original.baziCesuan
         };
+        console.log(combinedData);
 
         setResult(JSON.stringify(combinedData));
             
