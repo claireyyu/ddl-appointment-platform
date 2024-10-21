@@ -26,6 +26,47 @@ export default function BaziCalculator() {
     setError('');
   }, []);
 
+  useEffect(() => {
+    if (result) {
+      const query = new URLSearchParams({
+        inputName: formData.name,
+        birthLocalYear: moment(formData.birthDate).year().toString(),
+        birthLocalMonth: (moment(formData.birthDate).month() + 1).toString(),
+        birthLocalDay: moment(formData.birthDate).date().toString(),
+        birthLocalHour: formData.birthTime.split(':')[0],
+        birthLocalMinute: formData.birthTime.split(':')[1],
+        result: result
+      }).toString();
+
+      const resultUrl = `/result?${query}`;
+      window.open(resultUrl, '_blank');
+
+      // create body data for posting to backend
+      const bodyData: BaziRequestData = {
+        name: formData.name,
+        sex: formData.sex,
+        year: moment(formData.birthDate).year(),
+        month: moment(formData.birthDate).month() + 1,
+        day: moment(formData.birthDate).date(),
+        hours: parseInt(formData.birthTime.split(':')[0]),
+        minute: parseInt(formData.birthTime.split(':')[1])
+      };
+
+      // post the result to the backend
+      if (token) {
+        storeUserBaziResult(
+          bodyData,
+          result
+        );
+      } else {
+        storePublicBaziResult(
+          bodyData,
+          result
+        );
+      }
+    }
+  }, [result]);
+
   // Update state on input change
   const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = event.target;
@@ -70,8 +111,9 @@ export default function BaziCalculator() {
     try {
       const URL1 = 'http://127.0.0.1:8000/v1/paipan';
       const URL2 = 'http://127.0.0.1:8000/v1/cesuan';
+      const URL3 = 'http://127.0.0.1:8000/v1/jingpan';
 
-      const [response1, response2] = await Promise.all([
+      const [response1, response2, response3] = await Promise.all([
         fetch(URL1, {
           method: 'POST',
           headers: {
@@ -85,17 +127,26 @@ export default function BaziCalculator() {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(bodyData)
+        }),
+        fetch(URL3, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(bodyData)
         })
       ]);
 
-      if (response1.ok && response2.ok) {
+      if (response1.ok && response2.ok && response3.ok) {
         const data1 = await response1.json();
         const data2 = await response2.json();
+        const data3 = await response3.json();
 
         const combinedData: BaziResultData = {
           baziSizhu: data1.original.baziSizhu,
           baziDayun: data1.original.baziDayun,
-          baziCesuan: data2.original.baziCesuan
+          baziCesuan: data2.original.baziCesuan,
+          baziLiuyue: data3.original.baziLiuyue
         };
         console.log(combinedData);
 
@@ -104,7 +155,8 @@ export default function BaziCalculator() {
       } else {
         const errorData1 = await response1.text();
         const errorData2 = await response2.text();
-        setResult(`Failed to fetch data: ${errorData1}, ${errorData2}`);
+        const errorData3 = await response3.text();
+        setResult(`Failed to fetch data: ${errorData1}, ${errorData2}, ${errorData3}`);
       }
     } catch (error) {
       setResult(`Error: ${error.message || 'Failed to fetch'}`);
@@ -161,47 +213,6 @@ export default function BaziCalculator() {
       console.error("Error posting Bazi result:", error);
     }
   };
-
-  useEffect(() => {
-    if (result) {
-      const query = new URLSearchParams({
-        inputName: formData.name,
-        birthLocalYear: moment(formData.birthDate).year().toString(),
-        birthLocalMonth: (moment(formData.birthDate).month() + 1).toString(),
-        birthLocalDay: moment(formData.birthDate).date().toString(),
-        birthLocalHour: formData.birthTime.split(':')[0],
-        birthLocalMinute: formData.birthTime.split(':')[1],
-        result: result
-      }).toString();
-
-      const resultUrl = `/result?${query}`;
-      window.open(resultUrl, '_blank');
-
-      // create body data for posting to backend
-      const bodyData: BaziRequestData = {
-        name: formData.name,
-        sex: formData.sex,
-        year: moment(formData.birthDate).year(),
-        month: moment(formData.birthDate).month() + 1,
-        day: moment(formData.birthDate).date(),
-        hours: parseInt(formData.birthTime.split(':')[0]),
-        minute: parseInt(formData.birthTime.split(':')[1])
-      };
-
-      // post the result to the backend
-      if (token) {
-        storeUserBaziResult(
-          bodyData,
-          result
-        );
-      } else {
-        storePublicBaziResult(
-          bodyData,
-          result
-        );
-      }
-    }
-  }, [result]);
 
   return (
     <div>

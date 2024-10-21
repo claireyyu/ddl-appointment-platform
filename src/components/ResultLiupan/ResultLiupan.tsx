@@ -42,7 +42,7 @@ export function BaziLiupan( {yearStem, yearBranch, monthStem, monthBranch, daySt
   );
 }
 
-export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNianzhu }) {
+export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNianzhu, baziLiuyue }) {
 
   const [selectedDayun, setSelectedDayun] = useState(0);
   const [selectedLiunian, setSelectedLiunian] = useState(0);
@@ -93,6 +93,10 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
             <p>{group[1]}</p>
           </button>
         ))}
+      </div>
+
+      <div>
+        <p>{baziLiuyue}</p>
       </div>
     </div>
   );
