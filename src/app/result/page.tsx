@@ -6,7 +6,7 @@ import { type BaziResultData } from '../../types/bazi';
 import styles from './ResultPage.module.css';
 import ResultHeader from '../../components/ResultHeader/ResultHeader';
 import {BaziPaipan, BaziDetail} from '../../components/ResultPaipan/ResultPaipan';
-import BaziDayun from '../../components/BaziDayun/BaziDayun';
+import {BaziDayun} from '../../components/ResultLiupan/ResultLiupan';
 import ResultButtons from '../../components/ResultButtons/ResultButtons';
 
 export default function ResultPage() {
