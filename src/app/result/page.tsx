@@ -5,8 +5,9 @@ import { useSearchParams } from 'next/navigation';
 import { type BaziResultData } from '../../types/bazi';
 import styles from './ResultPage.module.css';
 import ResultHeader from '../../components/ResultHeader/ResultHeader';
-import BaziPaipan from '../../components/BaziPaipan/BaziPaipan';
+import {BaziPaipan, BaziDetail} from '../../components/ResultPaipan/ResultPaipan';
 import BaziDayun from '../../components/BaziDayun/BaziDayun';
+import ResultButtons from '../../components/ResultButtons/ResultButtons';
 
 export default function ResultPage() {
   const [activeTab, setActiveTab] = useState('bazi'); // New state to manage active tab
@@ -50,42 +51,36 @@ export default function ResultPage() {
   const hourBranch = shizhu[1];
 
   return (
-    <div className="flex flex-col items-center text-center rounded-3xl bg-foreground text-background">
-      {/* Result Header */}
+    <div className="flex flex-col text-center rounded-3xl bg-foreground text-background">
       <ResultHeader name={name} birthYear={birthYear} birthMonth={birthMonth} birthDay={birthDay} birthHour={birthHour} birthMinute={birthMinute} lunarYear={lunarYear} lunarMonth={lunarMonth} lunarDay={lunarDay} />
 
-      {/* Buttons to Toggle Content */}
-      <div className="flex mt-4 space-x-4">
-        <button
-          className={`px-6 py-2 rounded-custom shadow-button ${activeTab === 'bazi' ? 'bg-gradient-to-r from-bStart to-bEnd text-foreground' : 'bg-foreground text-black'}`}
-          onClick={() => setActiveTab('bazi')}
-        >
-          Bazi
-        </button>
-        <button
-          className={`px-3 py-2 rounded-custom shadow-button ${activeTab === 'liupan' ? 'bg-gradient-to-r from-bStart to-bEnd text-foreground' : 'bg-foreground text-black'}`}
-          onClick={() => setActiveTab('liupan')}
-        >
-          Liupan
-        </button>
-      </div>
-
-      {/* Toggle Content Based on Active Tab */}
       <div className="mt-8">
         {activeTab === 'bazi' ? (
-          <BaziPaipan
-            yearStem={yearStem}
-            yearBranch={yearBranch}
-            monthStem={monthStem}
-            monthBranch={monthBranch}
-            dayStem={dayStem}
-            dayBranch={dayBranch}
-            hourStem={hourStem}
-            hourBranch={hourBranch}
-            rizhu_detail={rizhu_detail}
-            personality_detail={personality_detail} />
-        ) : (
           <div>
+            <BaziPaipan
+              yearStem={yearStem}
+              yearBranch={yearBranch}
+              monthStem={monthStem}
+              monthBranch={monthBranch}
+              dayStem={dayStem}
+              dayBranch={dayBranch}
+              hourStem={hourStem}
+              hourBranch={hourBranch}
+              />
+            <BaziDetail rizhu_detail={rizhu_detail} personality_detail={personality_detail} />
+          </div>
+        ) : (
+            <div>
+                <BaziPaipan
+                yearStem={yearStem}
+                yearBranch={yearBranch}
+                monthStem={monthStem}
+                monthBranch={monthBranch}
+                dayStem={dayStem}
+                dayBranch={dayBranch}
+                hourStem={hourStem}
+                hourBranch={hourBranch}
+                />
               <BaziDayun jiaoyun={jiaoyun} dayunGanZhi={dayunGanZhi.slice(0, 8)} dayunAge={dayunAge.slice(0, 8)} dayunStart={dayunStart.slice(0, 8)} dayunNianzhu={JSON.stringify(dayunNianzhu)} />
           </div>
         )}
