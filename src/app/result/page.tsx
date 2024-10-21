@@ -62,38 +62,8 @@ export default function ResultPage() {
         </div>
 
         <div className="col-span-4 my-8">
-          <BaziPaipan
-                yearStem={yearStem}
-                yearBranch={yearBranch}
-                monthStem={monthStem}
-                monthBranch={monthBranch}
-                dayStem={dayStem}
-                dayBranch={dayBranch}
-                hourStem={hourStem}
-                hourBranch={hourBranch}
-                />
-        </div>
-      </div>
-
-      {/* <div className="flex flex-col self-start mt-4 space-y-4 ml-8">
-        <button
-          className={`px-3 py-2 rounded-custom shadow-button ${activeTab === 'bazi' ? 'bg-gradient-to-r from-bStart to-bEnd text-foreground' : 'bg-foreground text-black'}`}
-          onClick={() => setActiveTab('bazi')}
-        >
-          Bazi
-        </button>
-        <button
-          className={`px-3 py-2 rounded-custom shadow-button ${activeTab === 'liupan' ? 'bg-gradient-to-r from-bStart to-bEnd text-foreground' : 'bg-foreground text-black'}`}
-          onClick={() => setActiveTab('liupan')}
-        >
-          Liupan
-        </button>
-      </div> */}
-
-      <div className="mt-8">
         {activeTab === 'bazi' ? (
-          <div>
-            {/* <BaziPaipan
+          <BaziPaipan
               yearStem={yearStem}
               yearBranch={yearBranch}
               monthStem={monthStem}
@@ -102,12 +72,30 @@ export default function ResultPage() {
               dayBranch={dayBranch}
               hourStem={hourStem}
               hourBranch={hourBranch}
-              /> */}
+            />)
+            : (
+          <BaziPaipan
+            yearStem={yearStem}
+            yearBranch={yearBranch}
+            monthStem={monthStem}
+            monthBranch={monthBranch}
+            dayStem={dayStem}
+            dayBranch={dayBranch}
+            hourStem={hourStem}
+            hourBranch={hourBranch}
+              />
+            )}
+        </div>
+      </div>
+
+      <div className="mt-8">
+        {activeTab === 'bazi' ? (
+          <div className="mx-8 my-4">
             <BaziDetail rizhu_detail={rizhu_detail} personality_detail={personality_detail} />
           </div>
         ) : (
-            <div>
-              <BaziDayun jiaoyun={jiaoyun} dayunGanZhi={dayunGanZhi.slice(0, 8)} dayunAge={dayunAge.slice(0, 8)} dayunStart={dayunStart.slice(0, 8)} dayunNianzhu={JSON.stringify(dayunNianzhu)} />
+          <div className="mx-8 my-4">
+            <BaziDayun jiaoyun={jiaoyun} dayunGanZhi={dayunGanZhi.slice(0, 8)} dayunAge={dayunAge.slice(0, 8)} dayunStart={dayunStart.slice(0, 8)} dayunNianzhu={JSON.stringify(dayunNianzhu)} />
           </div>
         )}
       </div>
