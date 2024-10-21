@@ -51,27 +51,18 @@ export default function ResultPage() {
   const hourBranch = shizhu[1];
 
   return (
+
     <div className="flex flex-col text-center rounded-3xl bg-foreground text-background">
       <ResultHeader name={name} birthYear={birthYear} birthMonth={birthMonth} birthDay={birthDay} birthHour={birthHour} birthMinute={birthMinute} lunarYear={lunarYear} lunarMonth={lunarMonth} lunarDay={lunarDay} />
 
-      <div className="mt-8">
-        {activeTab === 'bazi' ? (
-          <div>
-            <BaziPaipan
-              yearStem={yearStem}
-              yearBranch={yearBranch}
-              monthStem={monthStem}
-              monthBranch={monthBranch}
-              dayStem={dayStem}
-              dayBranch={dayBranch}
-              hourStem={hourStem}
-              hourBranch={hourBranch}
-              />
-            <BaziDetail rizhu_detail={rizhu_detail} personality_detail={personality_detail} />
-          </div>
-        ) : (
-            <div>
-                <BaziPaipan
+      <div className="grid grid-cols-5">
+        
+        <div className="col-span-1 my-8 flex flex-col items-stretch space-y-4 ml-8">
+          <ResultButtons activeTab={activeTab} setActiveTab={setActiveTab} />
+        </div>
+
+        <div className="col-span-4 my-8">
+          <BaziPaipan
                 yearStem={yearStem}
                 yearBranch={yearBranch}
                 monthStem={monthStem}
@@ -81,10 +72,45 @@ export default function ResultPage() {
                 hourStem={hourStem}
                 hourBranch={hourBranch}
                 />
+        </div>
+      </div>
+
+      {/* <div className="flex flex-col self-start mt-4 space-y-4 ml-8">
+        <button
+          className={`px-3 py-2 rounded-custom shadow-button ${activeTab === 'bazi' ? 'bg-gradient-to-r from-bStart to-bEnd text-foreground' : 'bg-foreground text-black'}`}
+          onClick={() => setActiveTab('bazi')}
+        >
+          Bazi
+        </button>
+        <button
+          className={`px-3 py-2 rounded-custom shadow-button ${activeTab === 'liupan' ? 'bg-gradient-to-r from-bStart to-bEnd text-foreground' : 'bg-foreground text-black'}`}
+          onClick={() => setActiveTab('liupan')}
+        >
+          Liupan
+        </button>
+      </div> */}
+
+      <div className="mt-8">
+        {activeTab === 'bazi' ? (
+          <div>
+            {/* <BaziPaipan
+              yearStem={yearStem}
+              yearBranch={yearBranch}
+              monthStem={monthStem}
+              monthBranch={monthBranch}
+              dayStem={dayStem}
+              dayBranch={dayBranch}
+              hourStem={hourStem}
+              hourBranch={hourBranch}
+              /> */}
+            <BaziDetail rizhu_detail={rizhu_detail} personality_detail={personality_detail} />
+          </div>
+        ) : (
+            <div>
               <BaziDayun jiaoyun={jiaoyun} dayunGanZhi={dayunGanZhi.slice(0, 8)} dayunAge={dayunAge.slice(0, 8)} dayunStart={dayunStart.slice(0, 8)} dayunNianzhu={JSON.stringify(dayunNianzhu)} />
           </div>
         )}
       </div>
-    </div>
+      </div>
   );
 }
