@@ -12,12 +12,6 @@ export default function BaziCalculator() {
   const { token, user } = useAuth() as AuthContextType;
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  useEffect(() => {
-    setError('');
-  }, []);
-
-  // State to store form fields
   const [formData, setFormData] = useState<FormData>({
     name: '',
     sex: '',
@@ -26,8 +20,11 @@ export default function BaziCalculator() {
     timezone: ''
   });
 
-  // State to store response data
   const [result, setResult] = useState('');
+
+  useEffect(() => {
+    setError('');
+  }, []);
 
   // Update state on input change
   const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -96,12 +93,6 @@ export default function BaziCalculator() {
         const data2 = await response2.json();
 
         const combinedData: BaziResultData = {
-          // nianzhu: data1.original.baziSizhu.nianzhu,
-          // yuezhu: data1.original.baziSizhu.yuezhu,
-          // rizhu: data1.original.baziSizhu.rizhu,
-          // shizhu: data1.original.baziSizhu.shizhu,
-          // personality_detail: data2.original.baziCesuan.personality_detail,
-          // rizhu_detail: data2.original.baziCesuan.rizhu_detail,
           baziSizhu: data1.original.baziSizhu,
           baziDayun: data1.original.baziDayun,
           baziCesuan: data2.original.baziCesuan
@@ -215,7 +206,7 @@ export default function BaziCalculator() {
   return (
     <div>
       <h1 className="text-sm md:text-base xl:text-lg text-center p-2 font-bold">Try the Bazi calculator and get your life decoded.</h1>
-      <form className="flex flex-col gap-4 p-4 sm:p-6 md:p-8" onSubmit={handleSubmit}>
+      <form className="flex flex-col p-4 sm:p-6 md:p-8" onSubmit={handleSubmit}>
         <BaziFormFields formData={formData} handleChange={handleChange} timezones={timezones} />
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4">

@@ -89,6 +89,10 @@ body {
   * {
     @apply border-border;
   }
+  img {
+    width: auto;
+    height: auto;
+  }
   /* body {
     @apply bg-background text-foreground;
   } */

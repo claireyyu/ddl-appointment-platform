@@ -16,11 +16,11 @@ export default function ContactForm() {
                 <div className="flex flex-col md:flex-row md:space-x-4">
                     <div className="flex flex-col flex-1 gap-1 md:gap-2">
                         <label htmlFor="name" className="text-sm md:text-base xl:text-lg p-1 md:p-2">Name</label>
-                        <input type="text" name="name" id="name" className="p-2 rounded-custom bg-slate-100" />
+                        <input type="text" name="name" id="name" autoComplete="name" className="p-2 rounded-custom bg-slate-100" />
                     </div>
                     <div className="flex flex-col flex-1 gap-1 md:gap-2 mt-3 md:mt-0">
                         <label htmlFor="email" className="text-sm md:text-base xl:text-lg p-1 md:p-2">Email</label>
-                        <input type="email" name="email" id="email" className="p-2 rounded-custom bg-slate-100" />
+                        <input type="email" name="email" id="email" autoComplete="email" className="p-2 rounded-custom bg-slate-100" />
                     </div>
                 </div>
 

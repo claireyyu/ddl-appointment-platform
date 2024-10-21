@@ -33,7 +33,6 @@ export const AuthProvider = ({ children }) => {
   // Fetch user data using the stored JWT token
   const fetchUserProfile = async () => {
     const storedToken = localStorage.getItem('token');
-
     if (!storedToken) {
       setLoading(false);
       return;
@@ -50,6 +49,9 @@ export const AuthProvider = ({ children }) => {
       if (res.ok) {
         const data = await res.json();
         setUser(data);
+      } else if (res.status === 401) {
+        console.log('Token is invalid or expired. Logging out...');
+        handleInvalidToken(); // Handle invalid token scenario
       } else {
         console.error('Failed to fetch user profile');
       }
@@ -58,6 +60,13 @@ export const AuthProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
+  };
+
+  // Handle invalid token (remove it and log out the user)
+  const handleInvalidToken = () => {
+    setUser(null);
+    setToken(null);
+    localStorage.removeItem('token'); // Clear token from localStorage
   };
 
   const logout = async () => {
