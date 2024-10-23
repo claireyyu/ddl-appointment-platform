@@ -31,3 +31,14 @@ export interface BaziResultData {
   baziCesuan: { "personality_detail": string, "rizhu_detail": string };
   baziLiuyue: { "baziLiuyue": string[][]};
 }
+
+export interface BaziPublicResultData { 
+  name: string;
+  sex: string;
+  birth_year: number;
+  birth_month: number;
+  birth_day: number;
+  birth_hour: number;
+  birth_minute: number;
+  result: BaziResultData;
+}

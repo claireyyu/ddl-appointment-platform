@@ -33,7 +33,7 @@ export default function ResultPage() {
   // get the result from the query string
   const result = searchParams.get('result');
   const jsonResult: BaziResultData = JSON.parse(result || '');
-  const { baziSizhu, baziDayun, baziCesuan, baziLiuyue } = jsonResult;
+  const { baziSizhu, baziDayun, baziCesuan, baziLiuyue } = jsonResult; 
 
   // extract the bazi sizhu and bazi cesuan
   const { nianzhu, yuezhu, rizhu, shizhu } = baziSizhu;
@@ -95,7 +95,7 @@ export default function ResultPage() {
           </div>
         ) : (
           <div className="mx-8 my-4">
-              <BaziDayun jiaoyun={jiaoyun} dayunGanZhi={dayunGanZhi.slice(0, 8)} dayunAge={dayunAge.slice(0, 8)} dayunStart={dayunStart.slice(0, 8)} dayunNianzhu={JSON.stringify(dayunNianzhu)} baziLiuyue={baziLiuyue} />
+              <BaziDayun jiaoyun={jiaoyun} dayunGanZhi={dayunGanZhi.slice(0, 8)} dayunAge={dayunAge.slice(0, 8)} dayunStart={dayunStart.slice(0, 8)} dayunNianzhu={JSON.stringify(dayunNianzhu)} baziLiuyue={baziLiuyue} /> 
           </div>
         )}
       </div>
