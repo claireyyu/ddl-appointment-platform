@@ -96,7 +96,7 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
       </div>
 
       <div>
-        <p>{baziLiuyue}</p>
+        <p>{baziLiuyue[0][0]}</p>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { type BaziResultData } from '../../types/bazi';
+import { type BaziResultData, type BaziPublicResultData } from '../../types/bazi';
 import styles from './ResultPage.module.css';
 import ResultHeader from '../../components/ResultHeader/ResultHeader';
 import {BaziPaipan, BaziDetail} from '../../components/ResultPaipan/ResultPaipan';
@@ -13,14 +13,67 @@ export default function ResultPage() {
   const [activeTab, setActiveTab] = useState('bazi'); // New state to manage active tab
 
   const searchParams = useSearchParams();
+  const resultId = searchParams.get('id');
+  const [fetchedResult, setFetchedResult] = useState<BaziPublicResultData | null>(null);
 
-  // get local date and time
-  const name = searchParams.get('inputName');
-  const birthYear = searchParams.get('birthLocalYear');
-  const birthMonth = searchParams.get('birthLocalMonth');
-  const birthDay = searchParams.get('birthLocalDay');
-  const birthHour = searchParams.get('birthLocalHour');
-  const birthMinute = searchParams.get('birthLocalMinute');
+  useEffect(() => {
+    if (!resultId) {
+      return;
+    }
+
+    // fetch data from database
+    async function fetchResultById(id: string) {
+      try {
+        // Perform the GET request
+        const response = await fetch(`http://localhost:8000/v1/result/${id}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+    
+        // Check if the response is successful
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+    
+        // Parse the response as JSON
+        const data = await response.json();
+    
+        // Log or use the response data
+        console.log(data);
+        return data; // Return the data if needed
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
+    async function handleFetchResult() { 
+      try {
+        const resultData = await fetchResultById(resultId);
+        console.log('resultData:', resultData);
+        setFetchedResult(resultData);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }
+
+    handleFetchResult();
+
+  }, [resultId]);
+
+  // for debugging
+  if (!fetchedResult) {
+    return <div>Loading...</div>;
+  }
+
+  const name = fetchedResult.name.toString();
+  const birthYear: string = fetchedResult.birth_year.toString();
+  const birthMonth: string = fetchedResult.birth_month.toString();
+  const birthDay: string = fetchedResult.birth_day.toString();
+  const birthHour: string = fetchedResult.birth_hour.toString();
+  const birthMinute: string = fetchedResult.birth_minute.toString();
+  const result: BaziResultData = fetchedResult.result;
 
   // convert local date to lunar date
   const { Lunar, Solar } = require('lunar-javascript');
@@ -31,9 +84,7 @@ export default function ResultPage() {
   const lunarDay = lunar.getDay();
 
   // get the result from the query string
-  const result = searchParams.get('result');
-  const jsonResult: BaziResultData = JSON.parse(result || '');
-  const { baziSizhu, baziDayun, baziCesuan, baziLiuyue } = jsonResult; 
+  const { baziSizhu, baziDayun, baziCesuan, baziLiuyue } = result; 
 
   // extract the bazi sizhu and bazi cesuan
   const { nianzhu, yuezhu, rizhu, shizhu } = baziSizhu;
