@@ -1,5 +1,5 @@
 .pillarText {
-  @apply col-span-1 py-2 text-center
+  @apply col-span-1 py-2 text-center flex flex-col justify-center items-center
 }
 
 .mobilePillarText {

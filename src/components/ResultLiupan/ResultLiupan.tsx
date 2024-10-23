@@ -20,7 +20,7 @@ export function BaziLiupan( {yearStem, yearBranch, monthStem, monthBranch, daySt
         <div className={styles.pillarText}>Yearly Cycle</div>
         <div className={styles.pillarText}>Monthly Cycle</div>
 
-        <div className={styles.pillarText}>Top Stem</div>
+        <div className={styles.pillarText}><p>Top</p><p>Stem</p></div>
         <div className={styles.pillarText}>{yearStem}</div>
         <div className={styles.pillarText}>{monthStem}</div>
         <div className={styles.pillarText}>{dayStem}</div>
@@ -117,11 +117,12 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
       <div className="col-span-1 flex items-center justify-center">
         <p>Yearly Cycle</p>
       </div>
-      <div className="col-span-5 flex items-center justify-center">
+      <div className="col-span-5 flex items-center justify-start">
         <div className="hidden md:grid grid-cols-1 md:grid-cols-10 gap-2 p-2 bg-foreground rounded-custom-lg">
           {dayunNianzhuArr[selectedDayun].map((group: string[], index: number) => (
             <button key={index} className={`flex flex-col items-center p-4 hover:bg-tbSelected ${selectedLiunian === index ? 'bg-tbSelected' : ''}`}  onClick={() => handleClickLiunian(index)}>
-              <p>Age {dayunAge[selectedDayun] + index}</p>
+              <p>Age</p>
+              <p>{dayunAge[selectedDayun] + index}</p>
               <p>{group[0]}</p>
               <p>{group[1]}</p>
             </button>

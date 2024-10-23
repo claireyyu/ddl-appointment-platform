@@ -55,6 +55,8 @@ export default function ResultPage() {
         setFetchedResult(resultData);
       } catch (error) {
         console.error("Error:", error);
+      } finally {
+        window.history.replaceState({}, document.title, window.location.pathname); // Clear query params from the URL
       }
     }
 
