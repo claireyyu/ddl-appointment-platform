@@ -28,19 +28,6 @@ export default function BaziCalculator() {
 
   useEffect(() => {
     if (result) {
-      // const query = new URLSearchParams({
-      //   inputName: formData.name,
-      //   birthLocalYear: moment(formData.birthDate).year().toString(),
-      //   birthLocalMonth: (moment(formData.birthDate).month() + 1).toString(),
-      //   birthLocalDay: moment(formData.birthDate).date().toString(),
-      //   birthLocalHour: formData.birthTime.split(':')[0],
-      //   birthLocalMinute: formData.birthTime.split(':')[1],
-      //   result: result
-      // }).toString();
-
-      // const resultUrl = `/result?${query}`;
-      // window.open(resultUrl, '_blank');
-
       const storePublicBaziResult = async (baziRequestData: BaziRequestData, result: string) => {
 
         const URL = 'http://localhost:8000/v1/results';
@@ -92,35 +79,6 @@ export default function BaziCalculator() {
       };
 
       handleToResultPage();
-
-      // // create body data for posting to backend
-      // const bodyData: BaziRequestData = {
-      //   name: formData.name,
-      //   sex: formData.sex,
-      //   year: moment(formData.birthDate).year(),
-      //   month: moment(formData.birthDate).month() + 1,
-      //   day: moment(formData.birthDate).date(),
-      //   hours: parseInt(formData.birthTime.split(':')[0]),
-      //   minute: parseInt(formData.birthTime.split(':')[1])
-      // };
-
-      // let resultId: string;
-      // // post the result to the backend
-      // if (token) {
-      //   storeUserBaziResult(
-      //     bodyData,
-      //     result
-      //   );
-      // } else {
-      //   resultId = storePublicBaziResult(
-      //     bodyData,
-      //     result
-      //   );
-      // }
-
-      // const resultUrl = `/result?${resultId}`;
-      // window.open(resultUrl, '_blank');
-
     }
   }, [result]);
 
@@ -259,7 +217,7 @@ export default function BaziCalculator() {
           <div className="p-2 col-span-1 sm:col-span-2 rounded-custom text-black flex justify-center">
             <button
               type="submit"
-              className={`w-full sm:w-2/3 md:w-1/2 xl:w-3/5 cursor-pointer text-white px-4 py-2 rounded-custom font-bold transition-colors flex items-center justify-center ${isSubmitting ? 'cursor-not-allowed bg-gradient-to-r from-bStart to-bEnd' : 'bg-gradient-to-r from-bStart to-bEnd'
+              className={`w-full sm:w-2/3 md:w-1/2 xl:w-3/5 cursor-pointer text-white px-4 py-2 rounded-custom font-bold transition-colors flex items-center justify-center ${isSubmitting ? 'cursor-not-allowed bg-gradient-to-r from-bStart to-bEnd' : 'bg-gradient-to-r from-bStart to-bEnd hover:opacity-90'
                 }`}
               disabled={isSubmitting}
             >

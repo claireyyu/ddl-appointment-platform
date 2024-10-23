@@ -19,10 +19,10 @@ export default function Navbar() {
         </Link>
 
         <div className="col-span-2 hidden md:flex items-center justify-evenly gap-12">
-            <Link href="/">Home</Link>
-            <Link href="/services">Services</Link>
-            <Link href="/about">About</Link>
-            <Link href="/#contact" >Contact</Link>
+            <Link href="/" className="hover:-translate-y-0.5 transition-transform duration-200">Home</Link>
+            <Link href="/services" className="hover:-translate-y-0.5 transition-transform duration-200">Services</Link>
+            <Link href="/about" className="hover:-translate-y-0.5 transition-transform duration-200">About</Link>
+            <Link href="/#contact" className="hover:-translate-y-0.5 transition-transform duration-200">Contact</Link>
         </div>
 
         <div className="col-span-1 flex justify-center items-center gap-12">
@@ -36,7 +36,7 @@ export default function Navbar() {
               </Link>
             ) : (
               <button 
-                className="hidden md:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base px-4 py-2 rounded-custom" 
+                className="hidden md:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base px-4 py-2 rounded-custom hover:opacity-90 cursor-pointer" 
                 onClick={loginWithGoogle}
               >
                 Login

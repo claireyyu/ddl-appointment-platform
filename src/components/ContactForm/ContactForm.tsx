@@ -35,7 +35,7 @@ export default function ContactForm() {
                 </div>
 
                 <div className="flex justify-center mt-2 md:mt-4">
-                    <input type="submit" value="Send" className="bg-gradient-to-r from-bStart to-bEnd px-8 md:px-10 py-2 rounded-custom font-bold text-sm md:text-base xl:text-lg"/>
+                    <input type="submit" value="Send" className="bg-gradient-to-r from-bStart to-bEnd px-8 md:px-10 py-2 rounded-custom font-bold text-sm md:text-base xl:text-lg hover:opacity-90 cursor-pointer"/>
                 </div>
                 
             </form> 
