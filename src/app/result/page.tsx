@@ -6,7 +6,7 @@ import { type BaziResultData, type BaziPublicResultData } from '../../types/bazi
 import styles from './ResultPage.module.css';
 import ResultHeader from '../../components/ResultHeader/ResultHeader';
 import {BaziPaipan, BaziDetail} from '../../components/ResultPaipan/ResultPaipan';
-import {BaziDayun} from '../../components/ResultLiupan/ResultLiupan';
+import {BaziLiupan, BaziDayun} from '../../components/ResultLiupan/ResultLiupan';
 import ResultButtons from '../../components/ResultButtons/ResultButtons';
 
 export default function ResultPage() {
@@ -106,13 +106,13 @@ export default function ResultPage() {
     <div className="flex flex-col text-center rounded-3xl bg-foreground text-background">
       <ResultHeader name={name} birthYear={birthYear} birthMonth={birthMonth} birthDay={birthDay} birthHour={birthHour} birthMinute={birthMinute} lunarYear={lunarYear} lunarMonth={lunarMonth} lunarDay={lunarDay} />
 
-      <div className="grid grid-cols-5">
+      <div className="grid grid-cols-6">
         
         <div className="col-span-1 my-8 flex flex-col items-stretch space-y-4 ml-8">
           <ResultButtons activeTab={activeTab} setActiveTab={setActiveTab} />
         </div>
 
-        <div className="col-span-4 my-8">
+        <div className="col-span-5 my-8 mr-4">
         {activeTab === 'bazi' ? (
           <BaziPaipan
               yearStem={yearStem}
@@ -125,7 +125,7 @@ export default function ResultPage() {
               hourBranch={hourBranch}
             />)
             : (
-          <BaziPaipan
+          <BaziLiupan
             yearStem={yearStem}
             yearBranch={yearBranch}
             monthStem={monthStem}

@@ -19,6 +19,8 @@ module.exports = {
 				'pEnd': '#4B0D8A',
 				'navbar': 'rgb(0 0 0 / 55%)',
 				'menu-option': '#10A8EA',
+				'tbHeader': '#A564E814',
+				'tbSelected': '#F6F6F6',
   			border: 'hsl(var(--border))',
   		},
   		borderRadius: {

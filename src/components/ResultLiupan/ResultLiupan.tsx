@@ -1,30 +1,42 @@
 import styles from './ResultLiupan.module.css';
-import { useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import DayunNianzhuHelper from '../../utils/DayunNianzhuHelper';
-import {type BaziPaipanProps} from '../../types/paipan';
+import { type BaziPaipanProps } from '../../types/paipan';
+import { BaziContext } from '../../contexts/BaziContext';
 
 export function BaziLiupan( {yearStem, yearBranch, monthStem, monthBranch, dayStem, dayBranch, hourStem, hourBranch}: BaziPaipanProps) {
+  const { selectedDayunGanzhi, selectedLiunianGanzhi, selectedLiuyueGanzhi, dayunNianzhuArray } = useContext(BaziContext);
+
   return (
     <div className="flex flex-col items-center">
       {/* Bazi Content */}
-      <div className="hidden md:grid grid-cols-1 md:grid-cols-5 gap-4 p-2 bg-foreground rounded-custom-lg shadow-card">
+      <div className="hidden md:grid grid-cols-1 md:grid-cols-8 p-2 mx-4 bg-foreground rounded-custom-lg shadow-card">
         <div className={styles.pillarText}></div>
         <div className={styles.pillarText}>Year Pillar</div>
         <div className={styles.pillarText}>Month Pillar</div>
         <div className={styles.pillarText}>Day Pillar</div>
         <div className={styles.pillarText}>Hour Pillar</div>
+        <div className={styles.pillarText}>Decade Cycle</div>
+        <div className={styles.pillarText}>Yearly Cycle</div>
+        <div className={styles.pillarText}>Monthly Cycle</div>
 
         <div className={styles.pillarText}>Top Stem</div>
         <div className={styles.pillarText}>{yearStem}</div>
         <div className={styles.pillarText}>{monthStem}</div>
         <div className={styles.pillarText}>{dayStem}</div>
         <div className={styles.pillarText}>{hourStem}</div>
+        <div className={styles.pillarText}>{selectedDayunGanzhi[0]}</div>
+        <div className={styles.pillarText}>{selectedLiunianGanzhi[0]}</div>
+        <div className={styles.pillarText}>{selectedLiuyueGanzhi[0]}</div>
 
         <div className={styles.pillarText}>Bottom Branch</div>
         <div className={styles.pillarText}>{yearBranch}</div>
         <div className={styles.pillarText}>{monthBranch}</div>
         <div className={styles.pillarText}>{dayBranch}</div>
         <div className={styles.pillarText}>{hourBranch}</div>
+        <div className={styles.pillarText}>{selectedDayunGanzhi[1]}</div>
+        <div className={styles.pillarText}>{selectedLiunianGanzhi[1]}</div>
+        <div className={styles.pillarText}>{selectedLiuyueGanzhi[1]}</div>
       </div>
 
       {/* Mobile View */}
@@ -48,8 +60,23 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
   const [selectedLiunian, setSelectedLiunian] = useState(0);
   const [selectedLiuyue, setSelectedLiuyue] = useState(0);
 
+  const { selectedDayunGanzhi, setSelectedDayunGanzhi, selectedLiunianGanzhi, setSelectedLiunianGanzhi, selectedLiuyueGanzhi, setSelectedLiuyueGanzhi, dayunNianzhuArray, setDayunNianzhuArray} = useContext(BaziContext);
+
+  const jiaoyunYear = jiaoyun.split('年')[0];
+  const jiaoyunMonth = jiaoyun.split('年')[1].split('月')[0];
+  const jiaoyunDay = jiaoyun.split('年')[1].split('月')[1].split('日')[0];
+
+  const dayunNianzhuObj = JSON.parse(dayunNianzhu);
+  const dayunNianzhuArr = DayunNianzhuHelper(dayunNianzhuObj);
+
+  useEffect(() => {
+    setSelectedDayunGanzhi(dayunGanZhi[selectedDayun]);
+    setSelectedLiunianGanzhi(dayunNianzhuArr[selectedDayun][selectedLiunian]);
+    setSelectedLiuyueGanzhi(baziLiuyue[selectedDayun][selectedLiunian][selectedLiuyue]);
+  }, [selectedDayun, selectedLiunian, selectedLiuyue]);
+
   const liunianDates = [
-    '2/4', '3/6', '4/5', '5/6', '6/6', '7/7', '8/8', '9/8', '10/8', '11/7', '12/7', '1/6'
+    'Feb.', 'Mar.', 'Apr.', 'May', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.', 'Jan.'
   ]
 
   const handleClickDayun = (index: number) => {
@@ -62,64 +89,59 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
     setSelectedLiunian(index);
   }
 
-  const handleClickLiuYue = (index: number) => {
+  const handleClickLiuyue = (index: number) => {
     console.log('clicked liuyue', index);
     setSelectedLiuyue(index);
   }
 
-  const jiaoyunYear = jiaoyun.split('年')[0];
-  const jiaoyunMonth = jiaoyun.split('年')[1].split('月')[0];
-  const jiaoyunDay = jiaoyun.split('年')[1].split('月')[1].split('日')[0];
-
-  const dayunNianzhuObj = JSON.parse(dayunNianzhu);
-  const dayunNianzhuArr = DayunNianzhuHelper(dayunNianzhuObj);
-
   return (
-    <div className="flex flex-col items-center w-full gap-4">
-      {/* 交运年 */}
-      <div className="flex flex-col items-center">
-        <p>Decade Cycle starts on {jiaoyunYear}-{jiaoyunMonth}-{jiaoyunDay}</p>
-      </div>
+    <div className="grid grid-cols-6 gap-4">
 
-      {/* 大运 */}
-      <div className="hidden md:grid grid-cols-1 md:grid-cols-8 gap-2 p-2 bg-foreground rounded-custom-lg shadow-card mb-8">
-        {dayunAge.map((age: number, index: number) => (
-          <button key={index} className={`flex flex-col items-center p-4 hover:bg-slate-100 ${selectedDayun === index ? 'bg-slate-100' : ''}`}  onClick={() => handleClickDayun(index)}>
-            <p>Age: {age}</p>
-            <p>{dayunStart[index]}</p>
-            <p>{dayunGanZhi[index][0]}</p>
-            <p>{dayunGanZhi[index][1]}</p>
-          </button>
-        ))}
-      </div>
+        <div className="col-span-1 flex items-center">
+          <p>Decade Cycle starts on {jiaoyunYear}-{jiaoyunMonth}-{jiaoyunDay}</p>
+        </div>
+        <div className="col-span-5 flex items-center justify-start">
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-8 p-2 bg-foreground rounded-custom-lg">
+            {dayunAge.map((age: number, index: number) => (
+              <button key={index} className={`flex flex-col items-center p-4 hover:bg-tbSelected ${selectedDayun === index ? 'bg-tbSelected' : ''}`}  onClick={() => handleClickDayun(index)}>
+                  <p>Age {age}</p>
+                  <p>{dayunStart[index]}</p>
+                  <p>{dayunGanZhi[index][0]}</p>
+                  <p>{dayunGanZhi[index][1]}</p>
 
-      {/* 流年 */}
-      <div className="hidden md:grid grid-cols-1 md:grid-cols-10 gap-2 p-2 bg-foreground rounded-custom-lg shadow-card">
-        {dayunNianzhuArr[selectedDayun].map((group: string[], index: number) => (
-          <button key={index} className={`flex flex-col items-center p-4 hover:bg-slate-100 ${selectedLiunian === index ? 'bg-slate-100' : ''}`}  onClick={() => handleClickLiunian(index)}>
-            <p>Age: {dayunAge[selectedDayun] + index}</p>
-            <p>{group[0]}</p>
-            <p>{group[1]}</p>
-          </button>
-        ))}
+              </button>
+              ))}
+          </div>
       </div>
-
-      {/* 流月 */}
-      <div className="hidden md:grid grid-cols-1 md:grid-cols-12 gap-2 p-2 bg-foreground rounded-custom-lg shadow-card">
-        {baziLiuyue[selectedDayun][selectedLiunian].map((group: string[], index: number) => (
-          <button key={index} className={`flex flex-col items-center p-4 hover:bg-slate-100 ${selectedLiuyue === index ? 'bg-slate-100' : ''}`}  onClick={() => handleClickLiuYue(index)}>
-            <p>{liunianDates[index]}</p>
-            <p>{group[0]}</p>
-            <p>{group[1]}</p>
-          </button>
-        ))}
+      
+      <div className="col-span-1 flex items-center justify-center">
+        <p>Yearly Cycle</p>
       </div>
-
-      <div>
-        <p>{baziLiuyue[selectedDayun][selectedLiunian]}</p>
-        {/* <p>{baziLiuyue}</p>
-        <p>selectedDayun: {selectedDayun}</p>
-        <p>selectedLiunian: {selectedLiunian}</p> */}
+      <div className="col-span-5 flex items-center justify-center">
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-10 gap-2 p-2 bg-foreground rounded-custom-lg">
+          {dayunNianzhuArr[selectedDayun].map((group: string[], index: number) => (
+            <button key={index} className={`flex flex-col items-center p-4 hover:bg-tbSelected ${selectedLiunian === index ? 'bg-tbSelected' : ''}`}  onClick={() => handleClickLiunian(index)}>
+              <p>Age {dayunAge[selectedDayun] + index}</p>
+              <p>{group[0]}</p>
+              <p>{group[1]}</p>
+            </button>
+          ))}
+        </div>
+      </div>
+      
+      <div className="col-span-1 flex items-center justify-center">
+          <p>Monthly Cycle</p>
+        </div>
+        <div className="col-span-5 flex items-center justify-center">
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-12 gap-2 p-2 bg-foreground rounded-custom-lg">
+            {baziLiuyue[selectedDayun][selectedLiunian].map((group: string[], index: number) => (
+              <button key={index} className={`flex flex-col items-center p-4 hover:bg-tbSelected ${selectedLiuyue === index ? 'bg-tbSelected' : ''}`}  onClick={() => handleClickLiuyue(index)}>
+                <p>{liunianDates[index]}</p>
+                <p>{group[0]}</p>
+                <p>{group[1]}</p>
+              </button>
+            ))}
+          </div>
       </div>
     </div>
   );
