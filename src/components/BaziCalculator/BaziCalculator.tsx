@@ -51,34 +51,85 @@ export default function BaziCalculator() {
         }
       };
 
+      const storeUserBaziResult = async (baziRequestData: BaziRequestData, result: string) => {
+
+        const URL = 'http://localhost:8000/v1/user/results';
+        try {
+          const response = await fetch(URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ ...baziRequestData, result })
+          });
+          
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          
+          const data = await response.json();
+          console.log(data);
+          return data;
+        } catch (error) {
+          console.error("Error posting Bazi result:", error);
+        }
+      };
+
+      const bodyData: BaziRequestData = {
+        name: formData.name,
+        sex: formData.sex,
+        year: moment(formData.birthDate).year(),
+        month: moment(formData.birthDate).month() + 1,
+        day: moment(formData.birthDate).date(),
+        hours: parseInt(formData.birthTime.split(':')[0]),
+        minute: parseInt(formData.birthTime.split(':')[1])
+      };
+
       const handleToResultPage = async () => {
-        // Create body data for posting to backend
-        const bodyData: BaziRequestData = {
-          name: formData.name,
-          sex: formData.sex,
-          year: moment(formData.birthDate).year(),
-          month: moment(formData.birthDate).month() + 1,
-          day: moment(formData.birthDate).date(),
-          hours: parseInt(formData.birthTime.split(':')[0]),
-          minute: parseInt(formData.birthTime.split(':')[1])
-        };
+        // // Create body data for posting to backend
+        // const bodyData: BaziRequestData = {
+        //   name: formData.name,
+        //   sex: formData.sex,
+        //   year: moment(formData.birthDate).year(),
+        //   month: moment(formData.birthDate).month() + 1,
+        //   day: moment(formData.birthDate).date(),
+        //   hours: parseInt(formData.birthTime.split(':')[0]),
+        //   minute: parseInt(formData.birthTime.split(':')[1])
+        // };
 
         try {
           const resultData = await storePublicBaziResult(bodyData, result);
-          console.log('resultData:', resultData);
           const resultId = resultData.resultId;
-          console.log('resultId:', resultId);
           const query = new URLSearchParams({
+            auth: '0',
             id: resultId
           }).toString();
           const resultUrl = `/result?${query}`;
           window.open(resultUrl, '_blank');
+
         } catch (error) {
           console.error("Error:", error);
         }
       };
 
-      handleToResultPage();
+      const handleToResultPageUser = async () => {
+        try {
+          const resultData = await storeUserBaziResult(bodyData, result);
+          const resultId = resultData.resultId;
+          const query = new URLSearchParams({
+            auth: '1',
+            id: resultId
+          }).toString();
+          const resultUrl = `/result?${query}`;
+          window.open(resultUrl, '_blank');
+
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      };
+
+      token ? handleToResultPageUser() : handleToResultPage();
     }
   }, [result]);
 
@@ -177,32 +228,6 @@ export default function BaziCalculator() {
       setResult(`Error: ${error.message || 'Failed to fetch'}`);
     } finally {
       setIsSubmitting(false); // Enable button and change text
-    }
-  };
-
-
-  const storeUserBaziResult = async (baziRequestData: BaziRequestData, result: string) => {
-
-    const URL = 'http://localhost:8000/v1/user/results';
-    try {
-      const response = await fetch(URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({ ...baziRequestData, result })
-      });
-      
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      
-      const data = await response.json();
-      console.log(data);
-      return data;
-    } catch (error) {
-      console.error("Error posting Bazi result:", error);
     }
   };
 

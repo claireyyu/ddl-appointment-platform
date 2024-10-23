@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { type BaziResultData, type BaziPublicResultData } from '../../types/bazi';
-import styles from './ResultPage.module.css';
 import ResultHeader from '../../components/ResultHeader/ResultHeader';
 import {BaziPaipan, BaziDetail} from '../../components/ResultPaipan/ResultPaipan';
 import {BaziLiupan, BaziDayun} from '../../components/ResultLiupan/ResultLiupan';
@@ -11,9 +10,11 @@ import ResultButtons from '../../components/ResultButtons/ResultButtons';
 
 export default function ResultPage() {
   const [activeTab, setActiveTab] = useState('bazi'); // New state to manage active tab
+  const token = localStorage.getItem('token');
 
   const searchParams = useSearchParams();
   const resultId = searchParams.get('id');
+  const isAuthenticated = searchParams.get('auth') === '1';
   const [fetchedResult, setFetchedResult] = useState<BaziPublicResultData | null>(null);
 
   useEffect(() => {
@@ -48,6 +49,33 @@ export default function ResultPage() {
       }
     }
 
+    // fetch data from database
+    async function fetchUserResultById(id: string) {
+      try {
+        // Perform the GET request
+        const response = await fetch(`http://localhost:8000/v1/user/result/${id}`, {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`, // Attach token in Authorization header
+          },
+        });
+    
+        // Check if the response is successful
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+    
+        // Parse the response as JSON
+        const data = await response.json();
+    
+        // Log or use the response data
+        console.log(data);
+        return data; // Return the data if needed
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
     async function handleFetchResult() { 
       try {
         const resultData = await fetchResultById(resultId);
@@ -60,13 +88,25 @@ export default function ResultPage() {
       }
     }
 
-    handleFetchResult();
+    async function handleFetchUserResult() {
+      try {
+        const resultData = await fetchUserResultById(resultId);
+        console.log('resultData:', resultData);
+        setFetchedResult(resultData);
+      } catch (error) {
+        console.error("Error:", error);
+      } finally {
+        window.history.replaceState({}, document.title, window.location.pathname); // Clear query params from the URL
+      }
+    }
 
-  }, [resultId]);
+    isAuthenticated ? handleFetchUserResult() : handleFetchResult();
+
+  }, [resultId, token]);
 
   // for debugging
   if (!fetchedResult) {
-    return <div>Loading...</div>;
+    return <div>Loading... token is {token}</div>;
   }
 
   const name = fetchedResult.name.toString();
