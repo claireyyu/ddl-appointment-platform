@@ -1,6 +1,6 @@
 
 export default function DayunNianzhuHelper(data: { string: { "year_char": string }[]}) {
-  console.log(data);
+  // console.log(data);
   const keys = []
   for (let i = 0; i < 10; i++) {
     keys.push(`dayunNianzhu${i}`);
@@ -8,7 +8,7 @@ export default function DayunNianzhuHelper(data: { string: { "year_char": string
   
   // Collect the arrays using the provided keys
   const dayunArrays = keys.map(key => data[key]);
-  console.log(dayunArrays);
+  // console.log(dayunArrays);
 
   // Determine how many elements are in each array (assumed they all have the same length)
   const numElements = 8;

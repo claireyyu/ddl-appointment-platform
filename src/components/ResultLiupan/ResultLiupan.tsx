@@ -46,15 +46,25 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
 
   const [selectedDayun, setSelectedDayun] = useState(0);
   const [selectedLiunian, setSelectedLiunian] = useState(0);
+  const [selectedLiuyue, setSelectedLiuyue] = useState(0);
+
+  const liunianDates = [
+    '2/4', '3/6', '4/5', '5/6', '6/6', '7/7', '8/8', '9/8', '10/8', '11/7', '12/7', '1/6'
+  ]
 
   const handleClickDayun = (index: number) => {
-    console.log('clicked', index);
+    console.log('clicked dayun', index);
     setSelectedDayun(index);
   };
 
   const handleClickLiunian = (index: number) => {
-    console.log('clicked', index);
+    console.log('clicked liunian', index);
     setSelectedLiunian(index);
+  }
+
+  const handleClickLiuYue = (index: number) => {
+    console.log('clicked liuyue', index);
+    setSelectedLiuyue(index);
   }
 
   const jiaoyunYear = jiaoyun.split('年')[0];
@@ -63,7 +73,6 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
 
   const dayunNianzhuObj = JSON.parse(dayunNianzhu);
   const dayunNianzhuArr = DayunNianzhuHelper(dayunNianzhuObj);
-
 
   return (
     <div className="flex flex-col items-center w-full gap-4">
@@ -95,8 +104,22 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
         ))}
       </div>
 
+      {/* 流月 */}
+      <div className="hidden md:grid grid-cols-1 md:grid-cols-12 gap-2 p-2 bg-foreground rounded-custom-lg shadow-card">
+        {baziLiuyue[selectedDayun][selectedLiunian].map((group: string[], index: number) => (
+          <button key={index} className={`flex flex-col items-center p-4 hover:bg-slate-100 ${selectedLiuyue === index ? 'bg-slate-100' : ''}`}  onClick={() => handleClickLiuYue(index)}>
+            <p>{liunianDates[index]}</p>
+            <p>{group[0]}</p>
+            <p>{group[1]}</p>
+          </button>
+        ))}
+      </div>
+
       <div>
-        <p>{baziLiuyue[0][0]}</p>
+        <p>{baziLiuyue[selectedDayun][selectedLiunian]}</p>
+        {/* <p>{baziLiuyue}</p>
+        <p>selectedDayun: {selectedDayun}</p>
+        <p>selectedLiunian: {selectedLiunian}</p> */}
       </div>
     </div>
   );
