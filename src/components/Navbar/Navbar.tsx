@@ -5,6 +5,7 @@ import { Globe, Menu, X } from 'react-feather';
 import Image from 'next/image';
 import logo from '../../../public/logo.png';
 import { useAuth } from '../../contexts/AuthContext';
+import AccountDropdownButton from '../AccountDropdown/AccountDropdown';
 
 export default function Navbar() {
   const { user, loginWithGoogle, logout } = useAuth();
@@ -27,13 +28,14 @@ export default function Navbar() {
 
         <div className="col-span-1 flex justify-center items-center gap-12">
           {user ? (
-              <Link href="/profile">
-                <button 
-                  className="hidden md:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base px-4 py-2 rounded-custom"
-                >
-                  Profile
-                </button>
-              </Link>
+              // <Link href="/profile">
+              //   <button
+              //     className="hidden md:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base px-4 py-2 rounded-custom hover:opacity-90 cursor-pointer"
+              //   >
+              //     My Account
+              //   </button>
+            // </Link>
+              <AccountDropdownButton />
             ) : (
               <button 
                 className="hidden md:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base px-4 py-2 rounded-custom hover:opacity-90 cursor-pointer" 
