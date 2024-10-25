@@ -102,14 +102,24 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
         </div>
         <div className="col-span-5 flex items-center justify-start">
           <div className="hidden md:grid grid-cols-1 md:grid-cols-8 p-2 bg-foreground rounded-custom-lg">
-            {dayunAge.map((age: number, index: number) => (
-              <button key={index} className={`flex flex-col items-center p-4 hover:bg-tbSelected ${selectedDayun === index ? 'bg-tbSelected' : ''}`}  onClick={() => handleClickDayun(index)}>
-                  <p>Age {age}</p>
-                  <p>{dayunStart[index]}</p>
-                  <p>{dayunGanZhi[index][0]}</p>
-                  <p>{dayunGanZhi[index][1]}</p>
-
-              </button>
+          {dayunAge.map((age: number, index: number) => (
+            <button
+              key={index}
+              className={`flex flex-col items-center hover:bg-tbSelected ${selectedDayun === index ? 'bg-tbSelected' : ''}`}
+              onClick={() => handleClickDayun(index)}
+            >
+              {/* Header Section */}
+              <div className="w-full bg-tbHeader text-center mx-4 py-2">
+                <p>Age {age}</p>
+                <p>{dayunStart[index]}</p>
+              </div>
+            
+              {/* Data Section */}
+              <div className="w-full p-2 text-center">
+                <p>{dayunGanZhi[index][0]}</p>
+                <p>{dayunGanZhi[index][1]}</p>
+              </div>
+            </button>
               ))}
           </div>
       </div>
@@ -118,13 +128,24 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
         <p>Yearly Cycle</p>
       </div>
       <div className="col-span-5 flex items-center justify-start">
-        <div className="hidden md:grid grid-cols-1 md:grid-cols-10 gap-2 p-2 bg-foreground rounded-custom-lg">
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-10 p-2 bg-foreground rounded-custom-lg">
           {dayunNianzhuArr[selectedDayun].map((group: string[], index: number) => (
-            <button key={index} className={`flex flex-col items-center p-4 hover:bg-tbSelected ${selectedLiunian === index ? 'bg-tbSelected' : ''}`}  onClick={() => handleClickLiunian(index)}>
-              <p>Age</p>
-              <p>{dayunAge[selectedDayun] + index}</p>
-              <p>{group[0]}</p>
-              <p>{group[1]}</p>
+            <button
+            key={index}
+            className={`flex flex-col items-center hover:bg-tbSelected ${selectedLiunian === index ? 'bg-tbSelected' : ''}`}
+            onClick={() => handleClickLiunian(index)}
+            >
+              {/* Header Section */}
+              <div className="w-full bg-tbHeader text-center mx-6 py-2">
+                <p>Age</p>
+                <p>{dayunAge[selectedDayun] + index}</p>
+              </div>
+
+              {/* Data Section */}
+              <div className="w-full p-2 text-center">
+                <p>{group[0]}</p>
+                <p>{group[1]}</p>
+              </div>
             </button>
           ))}
         </div>
@@ -134,12 +155,23 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
           <p>Monthly Cycle</p>
         </div>
         <div className="col-span-5 flex items-center justify-center">
-          <div className="hidden md:grid grid-cols-1 md:grid-cols-12 gap-2 p-2 bg-foreground rounded-custom-lg">
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-12 p-2 bg-foreground rounded-custom-lg">
             {baziLiuyue[selectedDayun][selectedLiunian].map((group: string[], index: number) => (
-              <button key={index} className={`flex flex-col items-center p-4 hover:bg-tbSelected ${selectedLiuyue === index ? 'bg-tbSelected' : ''}`}  onClick={() => handleClickLiuyue(index)}>
-                <p>{liunianDates[index]}</p>
-                <p>{group[0]}</p>
-                <p>{group[1]}</p>
+              <button
+              key={index}
+              className={`flex flex-col items-center hover:bg-tbSelected ${selectedLiuyue === index ? 'bg-tbSelected' : ''}`}
+              onClick={() => handleClickLiuyue(index)}
+              >
+                {/* Header Section */}
+                <div className="w-full bg-tbHeader text-center mx-6 py-2">
+                  <p>{liunianDates[index]}</p>
+                </div>
+
+                {/* Data Section */}
+                <div className="w-full p-2 text-center">
+                  <p>{group[0]}</p>
+                  <p>{group[1]}</p>
+                </div>
               </button>
             ))}
           </div>
