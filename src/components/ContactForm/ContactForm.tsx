@@ -1,9 +1,51 @@
-import { FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
+import {type ContactFormData} from '../../types/contact';
 
 export default function ContactForm() {
+    const [contactFormData, setContactFormData] = useState<ContactFormData>({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+    });
+
+    function handleContactFormChange(e: React.ChangeEvent<HTMLInputElement>) {
+        const { name, value } = e.target;
+        setContactFormData({
+            ...contactFormData,
+            [name]: value
+        });
+    }
+
+    function handleMessageChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
+        const { name, value } = e.target;
+        setContactFormData({
+            ...contactFormData,
+            [name]: value
+        });
+    }
+
+    // async function sendForm()
+    async function sendContactForm() { 
+        const response = await fetch('http://localhost:8000/v1/contact/send', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(contactFormData),
+        })
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log('response: ', data);
+    }
+    
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log('Submit');
+        sendContactForm();
         window.alert('Your submission has been received. Thank you!');
     }
     
@@ -16,22 +58,22 @@ export default function ContactForm() {
                 <div className="flex flex-col md:flex-row md:space-x-4">
                     <div className="flex flex-col flex-1 gap-1 md:gap-2">
                         <label htmlFor="name" className="text-sm md:text-base xl:text-lg p-1 md:p-2">Name</label>
-                        <input type="text" name="name" id="name" autoComplete="name" className="p-2 rounded-custom bg-slate-100" />
+                        <input type="text" name="name" id="name" autoComplete="name" className="p-2 rounded-custom bg-slate-100 text-background" value={contactFormData.name} onChange={handleContactFormChange} />
                     </div>
                     <div className="flex flex-col flex-1 gap-1 md:gap-2 mt-3 md:mt-0">
                         <label htmlFor="email" className="text-sm md:text-base xl:text-lg p-1 md:p-2">Email</label>
-                        <input type="email" name="email" id="email" autoComplete="email" className="p-2 rounded-custom bg-slate-100" />
+                        <input type="email" name="email" id="email" autoComplete="email" className="p-2 rounded-custom bg-slate-100 text-background" value={contactFormData.email} onChange={handleContactFormChange}/>
                     </div>
                 </div>
 
                 <div className="flex flex-col gap-1 md:gap-2">
                     <label htmlFor="subject" className="text-sm md:text-base xl:text-lg p-1 md:p-2">Subject</label>
-                    <input name="subject" id="subject" className="p-2 rounded-custom bg-slate-100"/>
+                    <input name="subject" id="subject" className="p-2 rounded-custom bg-slate-100 text-background" value={contactFormData.subject} onChange={handleContactFormChange}/>
                 </div>
 
                 <div className="flex flex-col gap-1 md:gap-2">
                     <label htmlFor="message" className="text-sm md:text-base xl:text-lg p-1 md:p-2">Message</label>
-                    <textarea name="message" id="message" className="p-2 rounded-custom bg-slate-100 resize-none h-20 md:h-16"/>
+                    <textarea name="message" id="message" className="p-2 rounded-custom bg-slate-100 resize-none h-20 md:h-16 text-background" value={contactFormData.message} onChange={handleMessageChange}/>
                 </div>
 
                 <div className="flex justify-center mt-2 md:mt-4">

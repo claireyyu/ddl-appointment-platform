@@ -10,11 +10,11 @@ import ResultButtons from '../../components/ResultButtons/ResultButtons';
 
 export default function ResultPage() {
   const [activeTab, setActiveTab] = useState('bazi'); // New state to manage active tab
-  const token = localStorage.getItem('token');
 
   const searchParams = useSearchParams();
   const resultId = searchParams.get('id');
   const isAuthenticated = searchParams.get('auth') === '1';
+  const token = isAuthenticated ? searchParams.get('token') : null;
   const [fetchedResult, setFetchedResult] = useState<BaziPublicResultData | null>(null);
 
   useEffect(() => {
@@ -42,7 +42,7 @@ export default function ResultPage() {
         const data = await response.json();
     
         // Log or use the response data
-        console.log(data);
+        console.log('Result fetched by id: ', data);
         return data; // Return the data if needed
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -69,7 +69,7 @@ export default function ResultPage() {
         const data = await response.json();
     
         // Log or use the response data
-        console.log(data);
+        console.log('Result fetched by id: ', data);
         return data; // Return the data if needed
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -79,7 +79,6 @@ export default function ResultPage() {
     async function handleFetchResult() { 
       try {
         const resultData = await fetchResultById(resultId);
-        console.log('resultData:', resultData);
         setFetchedResult(resultData);
       } catch (error) {
         console.error("Error:", error);
@@ -91,7 +90,6 @@ export default function ResultPage() {
     async function handleFetchUserResult() {
       try {
         const resultData = await fetchUserResultById(resultId);
-        console.log('resultData:', resultData);
         setFetchedResult(resultData);
       } catch (error) {
         console.error("Error:", error);
@@ -106,7 +104,7 @@ export default function ResultPage() {
 
   // for debugging
   if (!fetchedResult) {
-    return <div>Loading... token is {token}</div>;
+    return <div>Loading...</div>;
   }
 
   const name = fetchedResult.name.toString();
