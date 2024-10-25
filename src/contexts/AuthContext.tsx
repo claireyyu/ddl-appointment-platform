@@ -25,6 +25,7 @@ export const AuthProvider = ({ children }) => {
     if (token) {
       localStorage.setItem('token', token); // Store token in localStorage
       setToken(token); // Store token in state
+
       // Clear token from URL
       window.history.replaceState({}, document.title, window.location.pathname); // Clear query params from the URL
     }
@@ -99,6 +100,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     extractTokenFromUrl(); // Extract the token from the URL when the page loads
     fetchUserProfile(); // Fetch user data with the extracted token
+    console.log('user:', user);
   }, []);
 
   return (

@@ -1,4 +1,3 @@
-import NavigationWrapper from "../components/NavigationWrapper/NavigationWrapper";
 import Footer from "../components/Footer/Footer";
 import { Kanit } from "next/font/google";
 import { AuthProvider } from "../contexts/AuthContext";
@@ -47,7 +46,6 @@ export default function RootLayout({children}: {children: ReactNode}) {
       <body>
         <AuthProvider>
           <BaziProvider>
-            {/* <NavigationWrapper /> */}
             <NavBar />
             {children}
           </BaziProvider>

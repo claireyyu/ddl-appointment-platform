@@ -14,10 +14,11 @@ export default function ResultPage() {
   const searchParams = useSearchParams();
   const resultId = searchParams.get('id');
   const isAuthenticated = searchParams.get('auth') === '1';
-  const token = isAuthenticated ? searchParams.get('token') : null;
+  const token = isAuthenticated ? localStorage.get('token') : null;
   const [fetchedResult, setFetchedResult] = useState<BaziPublicResultData | null>(null);
 
   useEffect(() => {
+    console.log('token:', token); 
     if (!resultId) {
       return;
     }
@@ -83,7 +84,7 @@ export default function ResultPage() {
       } catch (error) {
         console.error("Error:", error);
       } finally {
-        window.history.replaceState({}, document.title, window.location.pathname); // Clear query params from the URL
+        // window.history.replaceState({}, document.title, window.location.pathname); // Clear query params from the URL
       }
     }
 
@@ -94,7 +95,7 @@ export default function ResultPage() {
       } catch (error) {
         console.error("Error:", error);
       } finally {
-        window.history.replaceState({}, document.title, window.location.pathname); // Clear query params from the URL
+        // window.history.replaceState({}, document.title, window.location.pathname); // Clear query params from the URL
       }
     }
 

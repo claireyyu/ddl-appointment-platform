@@ -1,3 +1,4 @@
+'use client'
 import { useState, useEffect, FormEvent, ChangeEvent } from 'react';
 import { timezones } from '../../utils/TimezoneData';
 import moment from 'moment-timezone';
@@ -27,6 +28,8 @@ export default function BaziCalculator() {
   }, []);
 
   useEffect(() => {
+
+
     if (result) {
       const storePublicBaziResult = async (baziRequestData: BaziRequestData, result: string) => {
 
@@ -87,17 +90,6 @@ export default function BaziCalculator() {
       };
 
       const handleToResultPage = async () => {
-        // // Create body data for posting to backend
-        // const bodyData: BaziRequestData = {
-        //   name: formData.name,
-        //   sex: formData.sex,
-        //   year: moment(formData.birthDate).year(),
-        //   month: moment(formData.birthDate).month() + 1,
-        //   day: moment(formData.birthDate).date(),
-        //   hours: parseInt(formData.birthTime.split(':')[0]),
-        //   minute: parseInt(formData.birthTime.split(':')[1])
-        // };
-
         try {
           const resultData = await storePublicBaziResult(bodyData, result);
           const resultId = resultData.resultId;
