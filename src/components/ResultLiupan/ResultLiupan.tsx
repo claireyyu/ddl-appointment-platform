@@ -10,31 +10,31 @@ export function BaziLiupan( {yearStem, yearBranch, monthStem, monthBranch, daySt
   return (
     <div className="flex flex-col items-center">
       {/* Bazi Content */}
-      <div className="hidden md:grid grid-cols-1 md:grid-cols-8 p-2 mx-4 bg-foreground rounded-custom-lg shadow-card">
-        <div className={styles.pillarText}></div>
-        <div className={styles.pillarText}>Year Pillar</div>
-        <div className={styles.pillarText}>Month Pillar</div>
-        <div className={styles.pillarText}>Day Pillar</div>
-        <div className={styles.pillarText}>Hour Pillar</div>
-        <div className={styles.pillarText}>Decade Cycle</div>
-        <div className={styles.pillarText}>Yearly Cycle</div>
-        <div className={styles.pillarText}>Monthly Cycle</div>
+      <div className="hidden md:grid grid-cols-1 md:grid-cols-8 p-2 mx-4 bg-foreground">
+        <div className={styles.pillarHeaderText}></div>
+        <div className={styles.pillarHeaderText}>Year<br />Pillar</div>
+        <div className={styles.pillarHeaderText}>Month<br />Pillar</div>
+        <div className={styles.pillarHeaderText}>Day<br />Pillar</div>
+        <div className={styles.pillarHeaderText}>Hour<br />Pillar</div>
+        <div className={styles.pillarHeaderText}>Decade<br />Cycle</div>
+        <div className={styles.pillarHeaderText}>Yearly<br />Cycle</div>
+        <div className={styles.pillarHeaderText}>Monthly<br />Cycle</div>
 
-        <div className={styles.pillarText}><p>Top</p><p>Stem</p></div>
+        <div className={styles.pillarText}>Top<br />Stem</div>
         <div className={styles.pillarText}>{yearStem}</div>
         <div className={styles.pillarText}>{monthStem}</div>
         <div className={styles.pillarText}>{dayStem}</div>
         <div className={styles.pillarText}>{hourStem}</div>
-        <div className={styles.pillarText}>{selectedDayunGanzhi[0]}</div>
+        <div className={styles.pillarTextLBorder}>{selectedDayunGanzhi[0]}</div>
         <div className={styles.pillarText}>{selectedLiunianGanzhi[0]}</div>
         <div className={styles.pillarText}>{selectedLiuyueGanzhi[0]}</div>
 
-        <div className={styles.pillarText}>Bottom Branch</div>
+        <div className={styles.pillarText}>Bottom<br />Branch</div>
         <div className={styles.pillarText}>{yearBranch}</div>
         <div className={styles.pillarText}>{monthBranch}</div>
         <div className={styles.pillarText}>{dayBranch}</div>
         <div className={styles.pillarText}>{hourBranch}</div>
-        <div className={styles.pillarText}>{selectedDayunGanzhi[1]}</div>
+        <div className={styles.pillarTextLBorder}>{selectedDayunGanzhi[1]}</div>
         <div className={styles.pillarText}>{selectedLiunianGanzhi[1]}</div>
         <div className={styles.pillarText}>{selectedLiuyueGanzhi[1]}</div>
       </div>

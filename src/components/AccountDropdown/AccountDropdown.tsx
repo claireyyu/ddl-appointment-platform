@@ -29,8 +29,35 @@ function AccountDropdownButton() {
       </button>
 
       {isMenuOpen && (
-        <div className="flex flex-col items-center rounded-custom relative">
-          <div className="absolute">
+        <div className="flex flex-col items-center relative">
+          <div className="absolute bg-foreground rounded-custom flex flex-col">
+
+            <button
+                className="w-full text-bEnd text-base px-4 py-2 hover:bg-gray-100 hover:rounded-t-custom cursor-pointer flex justify-center items-center whitespace-nowrap"
+              >
+                <Link href="/profile" >
+                  Saved Profiles
+                </Link>
+            </button>
+
+            <div className="border-t border-bEnd w-10/12 mx-auto"></div>
+
+            <button
+              className="w-full text-bEnd text-base px-4 py-2 hover:bg-gray-100 hover:rounded-b-custom cursor-pointer"
+              onClick={logout}
+            >
+              Logout
+            </button>
+
+        </div>
+      </div>
+      )}
+    </div>
+  )
+}
+
+export default AccountDropdownButton
+
             {/* <Link href="/profile" >
               <div
                 className="bg-foreground text-bEnd text-base px-4 py-2 hover:opacity-90 cursor-pointer"
@@ -38,18 +65,3 @@ function AccountDropdownButton() {
                 Saved Profiles
               </div>
             </Link> */}
-
-            <button
-              className="w-full bg-foreground text-bEnd text-base px-4 py-2 hover:opacity-90 cursor-pointer"
-              onClick={logout}
-            >
-              Logout
-            </button>
-          </div>
-        </div>
-      )}
-    </div>
-  )
-}
-
-export default AccountDropdownButton

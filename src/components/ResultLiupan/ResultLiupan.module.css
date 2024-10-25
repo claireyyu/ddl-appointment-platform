@@ -1,5 +1,13 @@
 .pillarText {
-  @apply col-span-1 py-2 text-center flex flex-col justify-center items-center
+  @apply col-span-1 px-4 py-2 text-center flex flex-col justify-center items-center
+}
+
+.pillarHeaderText {
+  @apply col-span-1 px-4 py-2 text-center flex flex-col justify-center items-center bg-tbHeader
+}
+
+.pillarTextLBorder {
+  @apply col-span-1 px-4 py-2 text-center flex flex-col justify-center items-center border-l-2 border-bEnd
 }
 
 .mobilePillarText {
