@@ -10,7 +10,7 @@ import BaziFormFields from '../BaziFormFields/BaziFormFields';
 import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
 
 export default function BaziCalculator() {
-  const { token, user } = useAuth() as AuthContextType;
+  const { token, user, loading } = useAuth() as AuthContextType;
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<FormData>({
@@ -26,6 +26,13 @@ export default function BaziCalculator() {
   useEffect(() => {
     setError('');
   }, []);
+
+  useEffect(() => {
+    if (!loading && user) {
+      console.log('User:', user);
+      console.log('Token:', token);
+    }
+  }, [loading, user]);
 
   useEffect(() => {
 
