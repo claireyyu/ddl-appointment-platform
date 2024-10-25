@@ -14,7 +14,12 @@ export default function AboutPage() {
       <p className={styles.paragraph}>Central to BaZi is your birth chart, a unique map based on the date and time of your birth. This chart is made up of four pillars, with each pillar consisting of a Top Stem and a Bottom Branch:
       </p>
       <div className="my-8 flex items-center justify-center">
-        <Image src={aboutPic} alt="About" className="cursor-pointer"/>
+        <div className="bg-gradient-to-r from-bStart to-bEnd rounded-custom p-1">
+        {/* <span className="flex w-full bg-gray-900 text-white rounded p-2">
+          Gradient border
+        </span> */}
+          <Image src={aboutPic} alt="About" className="cursor-pointer rounded-custom"/>
+        </div>
       </div>
       <div>
         <p className={styles.title}>Meaning of the Four Pillars</p>
