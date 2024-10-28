@@ -7,9 +7,12 @@ import ResultHeader from '../../components/ResultHeader/ResultHeader';
 import { BaziPaipan, BaziDetail } from '../../components/ResultPaipan/ResultPaipan';
 import { BaziLiupan, BaziDayun } from '../../components/ResultLiupan/ResultLiupan';
 import ResultButtons from '../../components/ResultButtons/ResultButtons';
+import { useAuth } from '../../contexts/AuthContext';
+import { AuthContextType } from '../../types/auth';
 
 export default function ResultPage() {
-  const [token, setToken] = useState(null);
+  // const [token, setToken] = useState(null);
+  const { token } = useAuth() as AuthContextType;
   const [activeTab, setActiveTab] = useState('bazi'); // New state to manage active tab
 
   const searchParams = useSearchParams();
@@ -17,10 +20,10 @@ export default function ResultPage() {
   const isAuthenticated = searchParams.get('auth') === '1';
   const [fetchedResult, setFetchedResult] = useState<BaziPublicResultData | null>(null);
 
-  useEffect(() => {
-    const storedToken = localStorage.getItem('token');
-    setToken(storedToken);
-  }, []);
+  // useEffect(() => {
+  //   const storedToken = localStorage.getItem('token');
+  //   setToken(storedToken);
+  // }, []);
   
   useEffect(() => {
     if (!resultId) {
@@ -80,7 +83,8 @@ export default function ResultPage() {
   const birthMonth: string = fetchedResult.birth_month.toString();
   const birthDay: string = fetchedResult.birth_day.toString();
   const birthHour: string = fetchedResult.birth_hour.toString();
-  const birthMinute: string = fetchedResult.birth_minute.toString();
+  const birthMinute: string = fetchedResult.birth_minute.toString() === '0' ? '00' : fetchedResult.birth_minute.toString();
+
   const result: BaziResultData = fetchedResult.result;
 
   // convert local date to lunar date

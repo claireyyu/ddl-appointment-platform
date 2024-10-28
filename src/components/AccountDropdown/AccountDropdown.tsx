@@ -1,26 +1,18 @@
-import React, {useState} from 'react'
-import Link from 'next/link'
-import { useAuth } from '../../contexts/AuthContext'
-import { AuthContextType } from '../../types/auth'
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { useAuth } from '../../contexts/AuthContext';
+import { AuthContextType } from '../../types/auth';
 
 function AccountDropdownButton() {
   const { logout } = useAuth() as AuthContextType;
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  function handleToggleMenu() { 
+  function handleToggleMenu() {
     setIsMenuOpen(!isMenuOpen);
   }
 
   return (
-  //   <Link href="/profile">
-  //     <button
-  //       className="hidden md:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base px-4 py-2 rounded-custom hover:opacity-90 cursor-pointer"
-  //     >
-  //       My Account
-  //     </button>
-    // </Link>
-    <div>
+    <div className="relative">
       <button
         className="hidden md:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base px-4 py-2 rounded-custom hover:opacity-90 cursor-pointer"
         onClick={handleToggleMenu}
@@ -29,39 +21,27 @@ function AccountDropdownButton() {
       </button>
 
       {isMenuOpen && (
-        <div className="flex flex-col items-center relative">
-          <div className="absolute bg-foreground rounded-custom flex flex-col">
+        <div className="absolute bg-foreground rounded-custom flex flex-col mt-2">
+          <button
+            className="w-full text-bEnd text-base px-4 py-2 hover:bg-gray-100 rounded-t-custom cursor-pointer focus:outline-none flex justify-center items-center whitespace-nowrap"
+          >
+            <Link href="/profile">
+              <span className="cursor-pointer">Saved Profiles</span>
+            </Link>
+          </button>
 
-            <button
-                className="w-full text-bEnd text-base px-4 py-2 hover:bg-gray-100 hover:rounded-t-custom cursor-pointer flex justify-center items-center whitespace-nowrap"
-              >
-                <Link href="/profile" >
-                  Saved Profiles
-                </Link>
-            </button>
+          <div className="border-t border-bEnd w-10/12 mx-auto"></div>
 
-            <div className="border-t border-bEnd w-10/12 mx-auto"></div>
-
-            <button
-              className="w-full text-bEnd text-base px-4 py-2 hover:bg-gray-100 hover:rounded-b-custom cursor-pointer"
-              onClick={logout}
-            >
-              Logout
-            </button>
-
+          <button
+            className="w-full text-bEnd text-base px-4 py-2 hover:bg-gray-100 rounded-b-custom cursor-pointer focus:outline-none"
+            onClick={logout}
+          >
+            Logout
+          </button>
         </div>
-      </div>
       )}
     </div>
-  )
+  );
 }
 
-export default AccountDropdownButton
-
-            {/* <Link href="/profile" >
-              <div
-                className="bg-foreground text-bEnd text-base px-4 py-2 hover:opacity-90 cursor-pointer"
-              >
-                Saved Profiles
-              </div>
-            </Link> */}
+export default AccountDropdownButton;

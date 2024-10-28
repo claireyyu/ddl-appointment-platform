@@ -8,9 +8,18 @@ import { useAuth } from '../../contexts/AuthContext';
 import AccountDropdownButton from '../AccountDropdown/AccountDropdown';
 
 export default function Navbar() {
-  const { user, loginWithGoogle, logout } = useAuth();
+  // const [token, setToken] = useState(null);
+  const { token, user, loginWithGoogle, logout } = useAuth();
   const [position, setPosition] = useState("english");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // useEffect(() => {
+  //   if (!localStorage.getItem('token')) {
+  //     setToken(null);
+  //   }
+  //   const storedToken = localStorage.getItem('token');
+  //   setToken(storedToken);
+  // }, []);
 
   return (
     <div className="w-full sticky top-0 z-50">
@@ -27,7 +36,7 @@ export default function Navbar() {
         </div>
 
         <div className="col-span-1 flex justify-center items-center gap-12">
-          {user ? (
+          {token ? (
               <AccountDropdownButton />
             ) : (
               <button 
@@ -60,9 +69,9 @@ export default function Navbar() {
 
           <button 
             className="bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground p-2 rounded-xl" 
-            onClick={user ? logout : loginWithGoogle}
+            onClick={token ? logout : loginWithGoogle}
           >
-            {user ? 'Logout' : 'Login'}
+            {token ? 'Logout' : 'Login'}
           </button>
 
           {/* Language Switch (In Mobile Menu) */}
