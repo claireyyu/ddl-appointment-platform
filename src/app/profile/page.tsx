@@ -7,6 +7,12 @@ import { AuthContextType } from "../../types/auth";
 export default function ProfilePage() {
   const { user, loading, logout } = useAuth() as AuthContextType;
 
+  useEffect(() => {
+    if (!loading && !user) {
+      console.log("User is not logged in.");
+    }
+  }, [loading, user]);
+
   return (
     <div>
       {loading ? (
