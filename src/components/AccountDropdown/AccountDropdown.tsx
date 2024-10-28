@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useAuth } from '../../contexts/AuthContext';
 import { AuthContextType } from '../../types/auth';
+import { useModal } from '../../contexts/ModalContext';
 
 function AccountDropdownButton() {
   const { logout } = useAuth() as AuthContextType;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { openModal } = useModal();
 
   function handleToggleMenu() {
     setIsMenuOpen(!isMenuOpen);
@@ -28,6 +30,15 @@ function AccountDropdownButton() {
             <Link href="/profile">
               <span className="cursor-pointer">Saved Profiles</span>
             </Link>
+          </button>
+
+          <div className="border-t border-bEnd w-10/12 mx-auto"></div>
+
+          <button
+            className="w-full text-bEnd text-base px-4 py-2 hover:bg-gray-100 cursor-pointer focus:outline-none"
+            onClick={openModal}
+          >
+            Create new profile
           </button>
 
           <div className="border-t border-bEnd w-10/12 mx-auto"></div>

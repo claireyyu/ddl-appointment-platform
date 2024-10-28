@@ -7,7 +7,7 @@ import { type ReactNode } from "react";
 import { type Metadata } from "next";
 import Script from "next/script";
 import NavBar from "../components/Navbar/Navbar";
-
+import { ModalProvider } from "../contexts/ModalContext";
 
 const kanit = Kanit({
   subsets: ['latin'],
@@ -46,8 +46,10 @@ export default function RootLayout({children}: {children: ReactNode}) {
       <body>
         <AuthProvider>
           <BaziProvider>
-            <NavBar />
-            {children}
+            <ModalProvider>
+              <NavBar />
+              {children}
+            </ModalProvider>
           </BaziProvider>
         </AuthProvider>
         <Footer />

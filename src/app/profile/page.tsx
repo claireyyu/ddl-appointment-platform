@@ -1,15 +1,17 @@
 'use client';
-
-import { useAuth } from "../../contexts/AuthContext";
+import { useAuth } from '../../contexts/AuthContext';
 import { useEffect } from 'react';
-import { AuthContextType } from "../../types/auth";
+import { AuthContextType } from '../../types/auth';
+import Modal from '../../components/Modal/Modal';
+import { useModal } from '../../contexts/ModalContext';
 
 export default function ProfilePage() {
-  const { user, loading, logout } = useAuth() as AuthContextType;
+  const { user, loading } = useAuth() as AuthContextType;
+  const { isModalOpen, closeModal } = useModal();
 
   useEffect(() => {
     if (!loading && !user) {
-      console.log("User is not logged in.");
+      console.log('User is not logged in.');
     }
   }, [loading, user]);
 
@@ -18,10 +20,13 @@ export default function ProfilePage() {
       {loading ? (
         <p>Loading...</p>
       ) : user ? (
-          <div>
-            <h1>Welcome, {user.name}!</h1>
-            <p>Email: {user.email}</p>
-            <button onClick={logout} className="bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base px-4 py-2 rounded-custom">Logout</button>
+        <div>
+          <h1>Welcome, {user.name}!</h1>
+          <p>Email: {user.email}</p>
+
+          <Modal isOpen={isModalOpen} onClose={closeModal}>
+            <h2 className="text-lg font-bold mb-4 text-background">This is a Modal</h2>
+          </Modal>
         </div>
       ) : (
         <p>You are not logged in</p>
