@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: ReactNode}) {  
   return (
     <html lang="en" className={`${kanit.variable}`}>
-      {/* <head>
+      <head>
         <Script
             id="tawk-to"
             strategy="afterInteractive"
@@ -42,7 +42,7 @@ export default function RootLayout({children}: {children: ReactNode}) {
               `,
             }}
           />
-      </head> */}
+      </head>
       <body>
         <AuthProvider>
           <BaziProvider>

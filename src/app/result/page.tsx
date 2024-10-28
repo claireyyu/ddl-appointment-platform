@@ -321,6 +321,7 @@ export default function ResultPage() {
 
   return (
     <div className="flex flex-col text-center rounded-3xl bg-foreground text-background">
+      <p>token: {token}</p>
       <ResultHeader name={name} birthYear={birthYear} birthMonth={birthMonth} birthDay={birthDay} birthHour={birthHour} birthMinute={birthMinute} lunarYear={lunarYear} lunarMonth={lunarMonth} lunarDay={lunarDay} />
 
       <div className="grid grid-cols-6">
