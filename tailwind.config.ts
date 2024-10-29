@@ -21,7 +21,8 @@ module.exports = {
 				'menu-option': '#10A8EA',
 				'tbHeader': '#A564E814',
 				'tbSelected': '#F6F6F6',
-  			border: 'hsl(var(--border))',
+				'greyBg': '#202628',
+				border: 'hsl(var(--border))',
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

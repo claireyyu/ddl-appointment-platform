@@ -36,7 +36,9 @@ function ProfileList() {
     fetchProfileList();
   }, [token])
 
-  async function handleDeleteUserResult(id: number) {
+  async function handleDeleteUserResult(id: number, event: React.MouseEvent) {
+
+    event.stopPropagation();
 
     const confirmed = window.confirm("Are you sure you want to delete this result?");
 
@@ -82,11 +84,11 @@ function ProfileList() {
           <button key={result.id} className="border-bpStart border-2 p-4 hover:opacity-75" onClick={() => handleToResultPage(result.id)}>
             <div className="flex w-full">
               <div className="flex-1 p-4 flex flex-col items-start space-y-2">
-                <p>{result.id} {result.name}</p>
+                <p>{result.name}</p>
                 <p>Birth Date: {result.birth_year}-{result.birth_month}-{result.birth_day}</p>
               </div>
               <div className="flex flex-1 items-center justify-end">
-                <button className="hover:opacity-50 mr-16" onClick={() => handleDeleteUserResult(result.id)}>
+                <button className="hover:opacity-50 mr-16" onClick={(event) => handleDeleteUserResult(result.id, event)}>
                   <FaRegTrashAlt size="24"/>
                 </button>
               </div>

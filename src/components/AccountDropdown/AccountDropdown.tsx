@@ -3,14 +3,26 @@ import Link from 'next/link';
 import { useAuth } from '../../contexts/AuthContext';
 import { AuthContextType } from '../../types/auth';
 import { useModal } from '../../contexts/ModalContext';
+import { usePathname } from 'next/navigation'
+import {useRouter} from 'next/navigation';
 
 function AccountDropdownButton() {
+  const pathname = usePathname();
+  const router = useRouter();
+
   const { logout } = useAuth() as AuthContextType;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { openModal } = useModal();
 
   function handleToggleMenu() {
     setIsMenuOpen(!isMenuOpen);
+  }
+
+  function handleClickCreateProfile() { 
+    if (pathname !== '/profile') {
+      router.push('/profile');
+    }
+    openModal();
   }
 
   return (
@@ -36,7 +48,7 @@ function AccountDropdownButton() {
 
           <button
             className="w-full text-bEnd text-base px-4 py-2 hover:bg-gray-100 cursor-pointer focus:outline-none whitespace-nowrap"
-            onClick={openModal}
+            onClick={handleClickCreateProfile}
           >
             Create new profile
           </button>

@@ -5,6 +5,7 @@ import { AuthContextType } from '../../types/auth';
 import Modal from '../../components/Modal/Modal';
 import { useModal } from '../../contexts/ModalContext';
 import ProfileList from '../../components/ProfileList/ProfileList';
+import CreateProfileModal from '../../components/CreateProfileModal/CreateProfileModal';
 
 export default function ProfilePage() {
   const { user, loading } = useAuth() as AuthContextType;
@@ -22,18 +23,15 @@ export default function ProfilePage() {
         <p>Loading...</p>
       ) : user ? (
         <div>
-          <h1>Welcome, {user.name}!</h1>
-          <p>Email: {user.email}</p>
+            <h1>Welcome, {user.name}!</h1>
+            <p>Email: {user.email}</p>
 
-            <div>
-            <ProfileList />
-            </div>
-          <Modal isOpen={isModalOpen} onClose={closeModal}>
-            <h2 className="text-lg font-bold mb-4 text-background">This is a Modal</h2>
-          </Modal>
+            <ProfileList />      
+            <CreateProfileModal />
         </div>
+          
       ) : (
-        <p>You are not logged in</p>
+        <p>Loading your profiles...</p>
       )}
     </div>
   );
