@@ -48,7 +48,7 @@ export default function RootLayout({children}: {children: ReactNode}) {
           <BaziProvider>
             <ModalProvider>
               <div className="app-container">
-                <header><NavBar /></header>
+                <NavBar />
                 <main>{children}</main>
                 <footer><Footer /></footer>
               </div>

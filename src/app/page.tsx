@@ -9,9 +9,9 @@ export default function Page() {
   return (
     <div>
       {/* <Navbar/> */}
-      <div className="min-h-screen bg-cover bg-center flex flex-col bg-[url(/home-bg-1.png)]">
+      <div className="min-h-screen bg-cover bg-center bg-[url(/home-bg-1.png)] flex flex-col">
         <section className="flex-1 flex flex-col xl:flex-row items-center p-4 xl:p-22">
-          <span className="w-1/2" />
+          <span className="w-1/2 2xl:w-3/5" />
           <div className="max-w-xl mx-auto lg:w-1/3 lg:ml-24">
             <BaziCalculator />
           </div>

@@ -29,7 +29,7 @@ function AccountDropdownButton() {
   return (
     <div className="relative">
       <button
-        className="hidden lg:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base px-4 py-2 rounded-custom hover:opacity-90 cursor-pointer focus:outline-none"
+        className="hidden xl:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base px-4 py-2 rounded-custom hover:opacity-90 cursor-pointer focus:outline-none"
         onClick={handleToggleMenu}
       >
         My Account

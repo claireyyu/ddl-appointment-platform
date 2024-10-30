@@ -37,7 +37,7 @@ export default function ProfilePage() {
       ) : user ? (
           <div className="flex flex-col ">
             {/* mobile */}
-            <div className="lg:hidden border-bEnd border-2 rounded-custom mb-8 inline-flex self-center mt-8">
+            <div className="xl:hidden border-bEnd border-2 rounded-custom mb-8 inline-flex self-center mt-8">
               <CreateProfileBtn onClick={toggleMobileForm} />
             </div>
             {openMobileForm && <CreateProfileMobile openMobileForm={openMobileForm} toggleMobileForm={toggleMobileForm} />}

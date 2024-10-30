@@ -22,7 +22,6 @@ export async function getUser(token) {
   }
 }
 
-
 export async function getUserBaziProfiles(token) { 
   try {
     const response = await fetch(`${BASE_URL}/v1/user/results`, {
