@@ -6,8 +6,10 @@ import Modal from '../../components/Modal/Modal';
 import { useModal } from '../../contexts/ModalContext';
 import ProfileList from '../../components/ProfileList/ProfileList';
 import CreateProfileModal from '../../components/CreateProfileModal/CreateProfileModal';
+import CreateProfileBtn from '../../components/CreateProfileBtn/CreateProfileBtn';
 
 export default function ProfilePage() {
+  const { openModal } = useModal();
   const { user, loading } = useAuth() as AuthContextType;
   const { isModalOpen, closeModal } = useModal();
 
@@ -26,10 +28,14 @@ export default function ProfilePage() {
       {loading ? (
         <p>Loading...</p>
       ) : user ? (
-        <div>
+        <div className="flex flex-col ">
             {/* <h1>Welcome, {user.name}!</h1>
             <p>Email: {user.email}</p> */}
-
+            {
+              <div className="lg:hidden border-bEnd border-2 rounded-custom mb-8 inline-flex self-center">
+                <CreateProfileBtn onClick={openModal} />
+              </div>
+            }
             <ProfileList />      
             <CreateProfileModal />
         </div>
