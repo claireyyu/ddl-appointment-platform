@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function Page() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 mx-4 md:mx-16 mt-12 text-foreground">
-      <Image src={personalReadingPic} alt="Service" className="col-span-1 md:w-2/3 md:h-auto justify-self-center pt-4 md:pt-16" />
+      <Image src={personalReadingPic} alt="Service" className="col-span-1 md:w-2/3 md:h-auto justify-self-center py-4 md:py-16" />
       <div className="flex flex-col col-span-2 px-4 md:px-16 pb-4 md:pb-16">
         <div className="text-justify md:text-lg">
           <p>
