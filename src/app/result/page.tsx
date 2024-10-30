@@ -82,8 +82,8 @@ export default function ResultPage() {
     <div className="flex flex-col text-center rounded-3xl bg-foreground text-background">
       <ResultHeader name={name} birthYear={birthYear} birthMonth={birthMonth} birthDay={birthDay} birthHour={birthHour} birthMinute={birthMinute} lunarYear={lunarYear} lunarMonth={lunarMonth} lunarDay={lunarDay} />
 
-      <div className="grid grid-cols-6">
-        <div className="col-span-1 my-8 flex flex-col items-stretch space-y-4 ml-8">
+      <div className="flex items-center justify-center md:grid grid-cols-6">
+        <div className="col-span-1 my-8 hidden md:flex flex-col items-stretch space-y-4 ml-8">
           <ResultButtons activeTab={activeTab} setActiveTab={setActiveTab} />
         </div>
         <div className="col-span-5 my-8 mr-4">

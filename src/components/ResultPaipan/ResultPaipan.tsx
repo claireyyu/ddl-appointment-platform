@@ -26,7 +26,7 @@ export function BaziPaipan( {yearStem, yearBranch, monthStem, monthBranch, daySt
       </div>
 
       {/* Mobile View */}
-      <div className="md:hidden flex flex-col">
+      <div className="md:hidden flex flex-col ">
         <p className={styles.mobilePillarText}>Year Pillar </p>
         <p>Top Stem - {yearStem}<br />Bottom Branch - {yearBranch}</p>
         <p className={styles.mobilePillarText}>Month Pillar </p>
@@ -45,7 +45,8 @@ export function BaziDetail({ rizhu_detail, personality_detail }) {
     <div>
       <p className="text-justify">Rizhu Interpretation <br/><br/>{rizhu_detail}</p>
       <br/>
-      <p className="text-justify">Bazi Interpretation <br/><br/>{personality_detail}</p>
+      <p className="text-justify">Bazi Interpretation <br /><br />{personality_detail}</p>
+      
     </div>
   )
 }

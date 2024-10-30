@@ -97,7 +97,7 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
   return (
     <div className="grid grid-cols-6 gap-4">
 
-        <div className="col-span-1 flex items-center">
+        <div className="col-span-1 flex items-center justify-center">
           <p>Decade Cycle starts on {jiaoyunYear}-{jiaoyunMonth}-{jiaoyunDay}</p>
         </div>
         <div className="col-span-5 flex items-center justify-start">
@@ -154,7 +154,7 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
       <div className="col-span-1 flex items-center justify-center">
           <p>Monthly Cycle</p>
         </div>
-        <div className="col-span-5 flex items-center justify-center">
+        <div className="col-span-5 flex items-center justify-start">
           <div className="hidden md:grid grid-cols-1 md:grid-cols-12 p-2 bg-foreground rounded-custom-lg">
             {baziLiuyue[selectedDayun][selectedLiunian].map((group: string[], index: number) => (
               <button
