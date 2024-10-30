@@ -9,9 +9,9 @@ import { BaziLiupan, BaziDayun } from '../../components/ResultLiupan/ResultLiupa
 import ResultButtons from '../../components/ResultButtons/ResultButtons';
 import { useAuth } from '../../contexts/AuthContext';
 import { AuthContextType } from '../../types/auth';
+import { fetchResult } from '../../services/resultService';
 
 export default function ResultPage() {
-  // const [token, setToken] = useState(null);
   const { token } = useAuth() as AuthContextType;
   const [activeTab, setActiveTab] = useState('bazi'); // New state to manage active tab
 
@@ -20,56 +20,21 @@ export default function ResultPage() {
   const isAuthenticated = searchParams.get('auth') === '1';
   const [fetchedResult, setFetchedResult] = useState<BaziPublicResultData | null>(null);
 
-  // useEffect(() => {
-  //   const storedToken = localStorage.getItem('token');
-  //   setToken(storedToken);
-  // }, []);
-  
   useEffect(() => {
     if (!resultId) {
       return;
     }
 
-    // Fetch data based on authentication status
-    const fetchResult = async () => {
+    // Fetch result only if not loading and token is available (for authenticated)
+    if ((isAuthenticated ? token : true)) {
       try {
-        let response;
-
-        if (isAuthenticated && token) {
-          console.log('Fetching user result by id with token:', token);
-          // Authenticated request
-          response = await fetch(`http://localhost:8000/v1/user/result/${resultId}`, {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`, // Attach token in Authorization header
-            },
-          });
-        } else {
-          // Public request
-          response = await fetch(`http://localhost:8000/v1/result/${resultId}`, {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          });
+        fetchResult(isAuthenticated, token, resultId).then((data) => {
+          setFetchedResult(data);
         }
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        console.log('Result fetched by id: ', data);
-        setFetchedResult(data);
+        );
       } catch (error) {
         console.error('Error fetching data:', error);
       }
-    };
-
-    // Fetch result only if not loading and token is available (for authenticated)
-    if ((isAuthenticated ? token : true)) {
-      fetchResult();
     }
   }, [resultId, isAuthenticated, token]);
 

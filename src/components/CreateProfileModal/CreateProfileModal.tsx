@@ -10,6 +10,7 @@ import moment from 'moment-timezone';
 import { BaziRequestData, BaziResultData } from '../../types/bazi';
 import { useAuth } from '../../contexts/AuthContext';
 import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
+import { fetchPaipan, fetchCesuan, fetchJingpan } from '../../services/baziService';
 
 function CreateProfileModal() {
   const { isModalOpen, closeModal } = useModal();
@@ -80,59 +81,25 @@ function CreateProfileModal() {
     };
   
     try {
-      const URL1 = 'http://127.0.0.1:8000/v1/paipan';
-      const URL2 = 'http://127.0.0.1:8000/v1/cesuan';
-      const URL3 = 'http://127.0.0.1:8000/v1/jingpan';
-
-      const [response1, response2, response3] = await Promise.all([
-        fetch(URL1, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(bodyData)
-        }),
-        fetch(URL2, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(bodyData)
-        }),
-        fetch(URL3, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(bodyData)
-        })
+      const [paipanData, cesuanData, jingsuanData] = await Promise.all([
+        fetchPaipan(bodyData),
+        fetchCesuan(bodyData),
+        fetchJingpan(bodyData),
       ]);
-
-      if (response1.ok && response2.ok && response3.ok) {
-        const data1 = await response1.json();
-        const data2 = await response2.json();
-        const data3 = await response3.json();
-
-        const combinedData: BaziResultData = {
-          baziSizhu: data1.original.baziSizhu,
-          baziDayun: data1.original.baziDayun,
-          baziCesuan: data2.original.baziCesuan,
-          baziLiuyue: data3.original.baziLiuyue
-        };
-        console.log(combinedData);
-
-        setResult(JSON.stringify(combinedData));
-      } else {
-        const errorData1 = await response1.text();
-        const errorData2 = await response2.text();
-        const errorData3 = await response3.text();
-        setResult(`Failed to fetch data: ${errorData1}, ${errorData2}, ${errorData3}`);
-      }
+    
+      const combinedData: BaziResultData = {
+        baziSizhu: paipanData.original.baziSizhu,
+        baziDayun: paipanData.original.baziDayun,
+        baziCesuan: cesuanData.original.baziCesuan,
+        baziLiuyue: jingsuanData.original.baziLiuyue
+      };
+      setResult(JSON.stringify(combinedData));
     } catch (error) {
       setResult(`Error: ${error.message || 'Failed to fetch'}`);
     } finally {
-      setIsSubmitting(false); // Enable button and change text
+      setIsSubmitting(false);
     }
+  
   };
 
   useEffect(() => { 
