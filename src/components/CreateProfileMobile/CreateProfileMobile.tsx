@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react'
-import Modal from '../../components/Modal/Modal';
-import { useModal } from '../../contexts/ModalContext';
 import BaziFormFields from '../BaziFormFields/BaziFormFields';
 import { useState } from 'react';
 import { FormData } from '../../types/bazi';
@@ -11,8 +9,7 @@ import { BaziRequestData, BaziResultData } from '../../types/bazi';
 import { useAuth } from '../../contexts/AuthContext';
 import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
 
-function CreateProfileModal() {
-  const { isModalOpen, closeModal } = useModal();
+function CreateProfileMobile({ openMobileForm, toggleMobileForm }) {
   const { token } = useAuth();
   
   const [formData, setFormData] = useState<FormData>({
@@ -30,7 +27,6 @@ function CreateProfileModal() {
   // Close modal after submission is done
   useEffect(() => {
     if (!isSubmitting && result) {
-      closeModal();
       window.alert("Refresh to see your profile!");
     }
   }, [isSubmitting, result]);
@@ -135,7 +131,7 @@ function CreateProfileModal() {
     }
   };
 
-  useEffect(() => { 
+  useEffect(() => {
     if (result) {
       const storeUserBaziResult = async (baziRequestData: BaziRequestData, result: string) => {
 
@@ -177,24 +173,33 @@ function CreateProfileModal() {
   }, [result]);
 
 
-    return (
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <form className="flex flex-col w-full p-8" onSubmit={handleSaveUserProfile}>
-          <BaziFormFields formData={formData} handleChange={handleChange} timezones={timezones} />
-          <div className="flex justify-center mt-4">
-            <button
-              type="submit"
-              className={`w-full sm:w-2/3 md:w-1/2 xl:w-3/5 cursor-pointer text-white px-4 py-2 rounded-custom font-bold transition-colors flex items-center justify-center ${isSubmitting ? 'cursor-not-allowed bg-gradient-to-r from-bStart to-bEnd' : 'bg-gradient-to-r from-bStart to-bEnd hover:opacity-90'}`}
-              disabled={isSubmitting}>
-              {isSubmitting ? (
-                <LoadingAnimation />
-              ) : 'Save'}
-              </button>
-          </div>
-          {error && <p className="text-red-500 mt-2 text-center">{error}</p>}
-        </form>
-      </Modal>
+  return (
+    <div>
+      {openMobileForm && (
+        <form  className = "flex flex-col border-bEnd border-2 rounded-custom w-full p-8" onSubmit = { handleSaveUserProfile } >
+        <BaziFormFields formData={formData} handleChange={handleChange} timezones={timezones} />
+        <div className="flex flex-col space-y-4 justify-center mt-4">
+          <button
+            type="submit"
+            className={`w-full sm:w-2/3 md:w-1/2 xl:w-3/5 cursor-pointer text-white px-4 py-2 rounded-custom font-bold transition-colors flex items-center justify-center ${isSubmitting ? 'cursor-not-allowed bg-gradient-to-r from-bStart to-bEnd' : 'bg-gradient-to-r from-bStart to-bEnd hover:opacity-90'}`}
+            disabled={isSubmitting}>
+            {isSubmitting ? (
+              <LoadingAnimation />
+            ) : 'Save'}
+        </button>
+          <button
+          className='w-full sm:w-2/3 md:w-1/2 xl:w-3/5 cursor-pointer text-white px-4 py-2 rounded-custom font-bold transition-colors flex items-center justify-center bg-gradient-to-r border-foreground border-2 hover:opacity-90'
+          onClick={toggleMobileForm}
+        >
+          Close
+          </button>
+        </div>
+        { error && <p className="text-red-500 mt-2 text-center">{error}</p> }
+        </form >
+      )}
+    </div>
+
     );
   }
 
-export default CreateProfileModal;
+export default CreateProfileMobile;

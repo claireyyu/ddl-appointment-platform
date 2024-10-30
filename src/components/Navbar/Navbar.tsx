@@ -70,6 +70,8 @@ export default function Navbar() {
             {token ? 'My Account' : 'Login'}
           </button>
 
+          <button onClick={logout}>Logout</button>
+
           {/* Language Switch (In Mobile Menu) */}
           <div className="flex flex-col items-center">
             <div className="flex gap-4">
