@@ -15,6 +15,10 @@ export default function ProfilePage() {
     if (!loading && !user) {
       console.log('User is not logged in.');
     }
+
+    if (!loading && user) {
+      console.log('User is logged in.');
+    }
   }, [loading, user]);
 
   return (
@@ -23,8 +27,8 @@ export default function ProfilePage() {
         <p>Loading...</p>
       ) : user ? (
         <div>
-            <h1>Welcome, {user.name}!</h1>
-            <p>Email: {user.email}</p>
+            {/* <h1>Welcome, {user.name}!</h1>
+            <p>Email: {user.email}</p> */}
 
             <ProfileList />      
             <CreateProfileModal />

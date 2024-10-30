@@ -47,12 +47,14 @@ export default function RootLayout({children}: {children: ReactNode}) {
         <AuthProvider>
           <BaziProvider>
             <ModalProvider>
-              <NavBar />
-              {children}
+              <div className="app-container">
+                <header><NavBar /></header>
+                <main>{children}</main>
+                <footer><Footer /></footer>
+              </div>
             </ModalProvider>
           </BaziProvider>
         </AuthProvider>
-        <Footer />
       </body>
     </html>
   );

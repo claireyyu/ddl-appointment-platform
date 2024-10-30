@@ -9,8 +9,10 @@ import { timezones } from '../../utils/TimezoneData';
 import moment from 'moment-timezone';
 import { BaziRequestData, BaziResultData } from '../../types/bazi';
 import { useAuth } from '../../contexts/AuthContext';
+import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
 
 function CreateProfileModal() {
+  // const { handleSubmit, isSubmitting, error, result } = useSubmit();
   const { isModalOpen, closeModal } = useModal();
   const { token } = useAuth();
   
@@ -26,6 +28,14 @@ function CreateProfileModal() {
   const [result, setResult] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Close modal after submission is done
+  useEffect(() => {
+    if (!isSubmitting && result) {
+      window.alert("Refresh to see your profile!");
+      closeModal();
+    }
+  }, [isSubmitting, result]);
+  
   const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({
@@ -33,8 +43,14 @@ function CreateProfileModal() {
       [name]: value,
     }));
 
-    // Clear the error for the field being updated
+    // // Clear the error for the field being updated
     setError('');
+  };
+
+  const handleSaveUserProfile = (e) => {
+    e.preventDefault();
+    handleSubmit();
+    // closeModal();
   };
 
   const handleSubmit = async () => {
@@ -107,7 +123,6 @@ function CreateProfileModal() {
         console.log(combinedData);
 
         setResult(JSON.stringify(combinedData));
-            
       } else {
         const errorData1 = await response1.text();
         const errorData2 = await response2.text();
@@ -119,12 +134,6 @@ function CreateProfileModal() {
     } finally {
       setIsSubmitting(false); // Enable button and change text
     }
-  };
-
-  const handleSaveUserProfile = () => {
-    closeModal();
-    window.alert("Decoding your profile... Check your profiles a minute later.");
-    handleSubmit();
   };
 
   useEffect(() => { 
@@ -174,7 +183,14 @@ function CreateProfileModal() {
         <form className="flex flex-col w-full p-8" onSubmit={handleSaveUserProfile}>
           <BaziFormFields formData={formData} handleChange={handleChange} timezones={timezones} />
           <div className="flex justify-center mt-4">
-            <button type="submit" className="w-full sm:w-2/3 md:w-1/2 xl:w-3/5 cursor-pointer text-white px-4 py-2 rounded-custom font-bold transition-colors flex items-center justify-center bg-gradient-to-r from-bStart to-bEnd hover:opacity-75">Save</button>
+            <button
+              type="submit"
+              className={`w-full sm:w-2/3 md:w-1/2 xl:w-3/5 cursor-pointer text-white px-4 py-2 rounded-custom font-bold transition-colors flex items-center justify-center ${isSubmitting ? 'cursor-not-allowed bg-gradient-to-r from-bStart to-bEnd' : 'bg-gradient-to-r from-bStart to-bEnd hover:opacity-90'}`}
+              disabled={isSubmitting}>
+              {isSubmitting ? (
+                <LoadingAnimation />
+              ) : 'Save'}
+              </button>
           </div>
           {error && <p className="text-red-500 mt-2 text-center">{error}</p>}
         </form>

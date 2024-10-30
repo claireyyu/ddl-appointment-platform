@@ -13,14 +13,6 @@ export default function Navbar() {
   const [position, setPosition] = useState("english");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // useEffect(() => {
-  //   if (!localStorage.getItem('token')) {
-  //     setToken(null);
-  //   }
-  //   const storedToken = localStorage.getItem('token');
-  //   setToken(storedToken);
-  // }, []);
-
   return (
     <div className="w-full sticky top-0 z-50">
       <div className="grid grid-cols-5 justify-between items-center p-4 text-foreground text-lg bg-background">

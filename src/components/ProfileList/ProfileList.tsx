@@ -81,19 +81,19 @@ function ProfileList() {
     <div>
       <div className="flex flex-col space-y-4">
         {results.map((result: BaziUserResultData) => (
-          <button key={result.id} className="border-bpStart border-2 p-4 hover:opacity-75" onClick={() => handleToResultPage(result.id)}>
+          <div key={result.id} className="border-bpStart border-2 p-4 hover:opacity-75" >
             <div className="flex w-full">
-              <div className="flex-1 p-4 flex flex-col items-start space-y-2">
+              <button className="w-10/12 p-4 flex flex-col items-start space-y-2" onClick={() => handleToResultPage(result.id)}>
                 <p>{result.name}</p>
                 <p>Birth Date: {result.birth_year}-{result.birth_month}-{result.birth_day}</p>
-              </div>
-              <div className="flex flex-1 items-center justify-end">
+              </button>
+              <div className="w-2/12 flex items-center justify-end">
                 <button className="hover:opacity-50 mr-16" onClick={(event) => handleDeleteUserResult(result.id, event)}>
                   <FaRegTrashAlt size="24"/>
                 </button>
               </div>
             </div>
-          </button>
+          </div>
         ))}
       </div>
     </div>

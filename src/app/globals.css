@@ -23,6 +23,30 @@ body {
   background: var(--background);
 }
 
+/* Set body height and enable Flexbox */
+body, .app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+/* Header height can be fixed or dynamic based on the navbar’s content */
+header {
+  flex-shrink: 0;
+}
+
+/* Make main take up the remaining height */
+main {
+  flex: 1;
+}
+
+/* Optional: Footer styling to stay at the bottom */
+footer {
+  flex-shrink: 0;
+}
+
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
