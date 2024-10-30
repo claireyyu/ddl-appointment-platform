@@ -1,5 +1,6 @@
 import { FormEvent, useState } from 'react';
-import {type ContactFormData} from '../../types/contact';
+import { type ContactFormData } from '../../types/contact';
+import { createContactForm } from '../../services/contactService';
 
 export default function ContactForm() {
     const [contactFormData, setContactFormData] = useState<ContactFormData>({
@@ -24,29 +25,17 @@ export default function ContactForm() {
             [name]: value
         });
     }
-
-    // async function sendForm()
-    async function sendContactForm() { 
-        const response = await fetch('http://localhost:8000/v1/contact/send', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(contactFormData),
-        })
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        console.log('response: ', data);
-    }
     
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        sendContactForm();
+        createContactForm(contactFormData);
         window.alert('Your submission has been received. Thank you!');
+        setContactFormData({
+            name: '',
+            email: '',
+            subject: '',
+            message: ''
+        });
     }
     
     return (

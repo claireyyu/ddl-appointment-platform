@@ -9,7 +9,7 @@ import { BaziLiupan, BaziDayun } from '../../components/ResultLiupan/ResultLiupa
 import ResultButtons from '../../components/ResultButtons/ResultButtons';
 import { useAuth } from '../../contexts/AuthContext';
 import { AuthContextType } from '../../types/auth';
-import { fetchResult } from '../../services/resultService';
+import { getBaziResult } from '../../services/resultService';
 
 export default function ResultPage() {
   const { token } = useAuth() as AuthContextType;
@@ -28,7 +28,7 @@ export default function ResultPage() {
     // Fetch result only if not loading and token is available (for authenticated)
     if ((isAuthenticated ? token : true)) {
       try {
-        fetchResult(isAuthenticated, token, resultId).then((data) => {
+        getBaziResult(isAuthenticated, token, resultId).then((data) => {
           setFetchedResult(data);
         }
         );

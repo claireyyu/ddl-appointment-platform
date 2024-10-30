@@ -10,7 +10,8 @@ import moment from 'moment-timezone';
 import { BaziRequestData, BaziResultData } from '../../types/bazi';
 import { useAuth } from '../../contexts/AuthContext';
 import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
-import { fetchPaipan, fetchCesuan, fetchJingpan } from '../../services/baziService';
+import { getPaipan, getCesuan, getJingpan } from '../../services/baziService';
+import { createUserBaziResult } from '../../services/resultService';
 
 function CreateProfileModal() {
   const { isModalOpen, closeModal } = useModal();
@@ -82,9 +83,9 @@ function CreateProfileModal() {
   
     try {
       const [paipanData, cesuanData, jingsuanData] = await Promise.all([
-        fetchPaipan(bodyData),
-        fetchCesuan(bodyData),
-        fetchJingpan(bodyData),
+        getPaipan(bodyData),
+        getCesuan(bodyData),
+        getJingpan(bodyData),
       ]);
     
       const combinedData: BaziResultData = {
@@ -104,31 +105,6 @@ function CreateProfileModal() {
 
   useEffect(() => { 
     if (result) {
-      const storeUserBaziResult = async (baziRequestData: BaziRequestData, result: string) => {
-
-        const URL = 'http://localhost:8000/v1/user/results';
-        try {
-          const response = await fetch(URL, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({ ...baziRequestData, result })
-          });
-          
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          
-          const data = await response.json();
-          console.log(data);
-          return data;
-        } catch (error) {
-          console.error("Error posting Bazi result:", error);
-        }
-      };
-
       const bodyData: BaziRequestData = {
         name: formData.name,
         sex: formData.sex,
@@ -138,8 +114,8 @@ function CreateProfileModal() {
         hours: parseInt(formData.birthTime.split(':')[0]),
         minute: parseInt(formData.birthTime.split(':')[1])
       };
-
-      storeUserBaziResult(bodyData, result);
+      
+      createUserBaziResult(bodyData, result, token);
     }
   }, [result]);
 

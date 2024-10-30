@@ -1,9 +1,9 @@
 import { BaziRequestData } from '../types/bazi';
 
-const BASE_URL = 'http://localhost:8000/v1';
+const BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
-export const fetchPaipan = async (bodyData: BaziRequestData) => {
-  const response = await fetch(`${BASE_URL}/paipan`, {
+export const getPaipan = async (bodyData: BaziRequestData) => {
+  const response = await fetch(`${BASE_URL}/v1/paipan`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(bodyData),
@@ -12,8 +12,8 @@ export const fetchPaipan = async (bodyData: BaziRequestData) => {
   return response.json();
 };
 
-export const fetchCesuan = async (bodyData) => {
-  const response = await fetch(`${BASE_URL}/cesuan`, {
+export const getCesuan = async (bodyData) => {
+  const response = await fetch(`${BASE_URL}/v1/cesuan`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(bodyData),
@@ -22,8 +22,8 @@ export const fetchCesuan = async (bodyData) => {
   return response.json();
 };
 
-export const fetchJingpan = async (bodyData) => {
-  const response = await fetch(`${BASE_URL}/jingpan`, {
+export const getJingpan = async (bodyData) => {
+  const response = await fetch(`${BASE_URL}/v1/jingpan`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(bodyData),

@@ -48,7 +48,7 @@ export default function ProfilePage() {
         </div>
           
       ) : (
-        <p>Loading your profiles...</p>
+        <p className="text-center">You're not logged in.</p>
       )}
     </div>
   );

@@ -8,8 +8,8 @@ import { AuthContextType } from '../../types/auth';
 import { type FormData, type BaziRequestData, type BaziResultData } from '../../types/bazi';
 import BaziFormFields from '../BaziFormFields/BaziFormFields';
 import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
-import { fetchPaipan, fetchCesuan, fetchJingpan } from '../../services/baziService';
-import { storePublicBaziResult, storeUserBaziResult } from '../../services/resultService';
+import { getPaipan, getCesuan, getJingpan } from '../../services/baziService';
+import { createPublicBaziResult, createUserBaziResult } from '../../services/resultService';
 
 export default function BaziCalculator() {
   const { token, user, loading } = useAuth() as AuthContextType;
@@ -55,13 +55,13 @@ export default function BaziCalculator() {
           let query;
 
           if (token) {
-            resultData = await storeUserBaziResult(bodyData, result, token);
+            resultData = await createUserBaziResult(bodyData, result, token);
             query = new URLSearchParams({
               auth: '1',
               id: resultData.resultId
             }).toString();
           } else {
-            resultData = await storePublicBaziResult(bodyData, result);
+            resultData = await createPublicBaziResult(bodyData, result);
             query = new URLSearchParams({
               auth: '0',
               id: resultData.resultId
@@ -122,9 +122,9 @@ export default function BaziCalculator() {
 
     try {
       const [paipanData, cesuanData, jingsuanData] = await Promise.all([
-        fetchPaipan(bodyData),
-        fetchCesuan(bodyData),
-        fetchJingpan(bodyData),
+        getPaipan(bodyData),
+        getCesuan(bodyData),
+        getJingpan(bodyData),
       ]);
     
       const combinedData: BaziResultData = {

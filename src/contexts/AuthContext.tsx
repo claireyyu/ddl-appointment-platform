@@ -3,6 +3,7 @@
 import { createContext, useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/navigation';
 import { type AuthContextType } from '../types/auth';
+import { getUser } from '../services/userService';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -43,48 +44,40 @@ export const AuthProvider = ({ children }) => {
   
     extractTokenFromUrl();
   }, []);
+
+  // Handle invalid token (remove it and log out the user)
+  const handleInvalidToken = () => {
+    setUser(null);
+    setToken(null);
+    localStorage.removeItem('token');
+  };
   
   // Fetch user profile data from the backend
   useEffect(() => {
-    // Handle invalid token (remove it and log out the user)
-    const handleInvalidToken = () => {
-      setUser(null);
-      setToken(null);
-      localStorage.removeItem('token');
-    };
-    
+
     // Only fetch the profile if the token is set
-    const fetchUserProfile = async () => {
+    const getUserProfile = async () => {
       if (!token) {
         setLoading(false);
         return;
       }
   
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/user/profile`, {
-          method: 'GET',
-          headers: {
-            'Authorization': `Bearer ${token}`,
-          },
-        });
-  
-        if (res.ok) {
-          const data = await res.json();
+        const data = await getUser(token);
+        if (data) {
           setUser(data);
-        } else if (res.status === 401) {
+        } else {
           console.log('Token is invalid or expired. Logging out...');
           handleInvalidToken(); // Handle invalid token scenario
-        } else {
-          console.error('Failed to fetch user profile');
         }
       } catch (error) {
-        console.error('Error fetching user profile:', error);
+        console.error('Failed to fetch user profile:', error);
       } finally {
         setLoading(false);
       }
     };
   
-    fetchUserProfile(); // Fetch user data with the extracted token
+    getUserProfile(); // Fetch user data with the extracted token
   }, [token]); // Run fetchUserProfile whenever token changes
 
   // Function to handle Google login (redirects to backend)

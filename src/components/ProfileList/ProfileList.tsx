@@ -4,36 +4,22 @@ import { useAuth } from '../../contexts/AuthContext'
 import { AuthContextType } from '../../types/auth'
 import { BaziUserResultData } from '../../types/bazi'
 import { FaRegTrashAlt } from "react-icons/fa";
-
+import { getUserBaziProfiles, deleteUserBaziProfile } from '../../services/userService'
 
 function ProfileList() {
   const { token } = useAuth() as AuthContextType;
   const [results, setResults] = useState([]);
 
   useEffect(() => { 
-    async function fetchProfileList() { 
-      try {
-        const response = await fetch('http://localhost:8000/v1/user/results', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`, // Attach token in Authorization header
-          },
-        });
-  
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-  
-        const data = await response.json();
+
+    try {
+      getUserBaziProfiles(token).then((data) => {
         setResults(data);
-        console.log('Profile list fetched: ', data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
+      });
+    } catch (error) {
+      console.error('Error fetching data:', error);
     }
 
-    fetchProfileList();
   }, [token])
 
   async function handleDeleteUserResult(id: number, event: React.MouseEvent) {
@@ -47,26 +33,15 @@ function ProfileList() {
     }
 
     try {
-      const response = await fetch(`http://localhost:8000/v1/user/result/${id}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application / json',
-          'Authorization': `Bearer ${token}`, // Attach token in Authorization header
-        },
+      deleteUserBaziProfile(id, token).then((data) => {
+        console.log('Result deleted: ', data);
+        setResults(results.filter((result: BaziUserResultData) => result.id !== id));
       });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      console.log('Result deleted: ', data);
-      setResults(results.filter((result: BaziUserResultData) => result.id !== id));
-    }
-    catch (error) {
+    } catch (error) {
       console.error('Error deleting data:', error);
     }
   }
+
   
   function handleToResultPage(id:number) {
     const query = new URLSearchParams({
