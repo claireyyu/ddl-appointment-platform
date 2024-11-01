@@ -37,17 +37,23 @@ export async function getUserBaziProfiles(token) {
     }
 
     const data = await response.json();
-    return data;
+    console.log('Data before filter:', data);
+    const filteredData = data.filter((data) => { 
+      return data.is_delete === 0;
+    });
+    console.log('Data after filter:', filteredData);
+
+    return filteredData;
 
   } catch (error) {
     console.error('Error fetching data:', error);
   }
 }
 
-export async function deleteUserBaziProfile(id, token) {
+export async function updateIsDelete(id, token) {
   try {
     const response = await fetch(`${BASE_URL}/v1/user/result/${id}`, {
-      method: 'DELETE',
+      method: 'PUT',
       headers: {
         'Content-Type': 'application / json',
         'Authorization': `Bearer ${token}`, // Attach token in Authorization header

@@ -4,7 +4,7 @@ import { useAuth } from '../../contexts/AuthContext'
 import { AuthContextType } from '../../types/auth'
 import { BaziUserResultData } from '../../types/bazi'
 import { FaRegTrashAlt } from "react-icons/fa";
-import { getUserBaziProfiles, deleteUserBaziProfile } from '../../services/userService'
+import { getUserBaziProfiles, updateIsDelete } from '../../services/userService'
 
 function ProfileList() {
   const { token } = useAuth() as AuthContextType;
@@ -20,7 +20,7 @@ function ProfileList() {
       console.error('Error fetching data:', error);
     }
 
-  }, [token])
+  }, [])
 
   async function handleDeleteUserResult(id: number, event: React.MouseEvent) {
 
@@ -33,7 +33,7 @@ function ProfileList() {
     }
 
     try {
-      deleteUserBaziProfile(id, token).then((data) => {
+      updateIsDelete(id, token).then((data) => {
         console.log('Result deleted: ', data);
         setResults(results.filter((result: BaziUserResultData) => result.id !== id));
       });
@@ -41,7 +41,6 @@ function ProfileList() {
       console.error('Error deleting data:', error);
     }
   }
-
   
   function handleToResultPage(id:number) {
     const query = new URLSearchParams({
