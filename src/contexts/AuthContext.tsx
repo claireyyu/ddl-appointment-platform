@@ -85,6 +85,7 @@ export const AuthProvider = ({ children }) => {
     window.location.href = `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/auth/google/redirect`;
   };
 
+
   const logout = async () => {
     const storedToken = localStorage.getItem('token');
     
