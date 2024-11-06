@@ -125,7 +125,7 @@ function CreateProfileMobile({ openMobileForm, toggleMobileForm }) {
             className={`w-full sm:w-2/3 md:w-1/2 xl:w-3/5 cursor-pointer text-white px-4 py-2 rounded-custom font-bold transition-colors flex items-center justify-center ${isSubmitting ? 'cursor-not-allowed bg-gradient-to-r from-bStart to-bEnd' : 'bg-gradient-to-r from-bStart to-bEnd hover:opacity-90'}`}
             disabled={isSubmitting}>
             {isSubmitting ? (
-              <LoadingAnimation />
+              <LoadingAnimation title="Decoding"/>
             ) : 'Save'}
         </button>
           <button

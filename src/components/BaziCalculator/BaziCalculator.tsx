@@ -158,7 +158,7 @@ export default function BaziCalculator() {
             >
 
               {isSubmitting ? (
-                <LoadingAnimation />
+                <LoadingAnimation title="Decoding"/>
               ) : 'Decode'}
             </button>
           </div>

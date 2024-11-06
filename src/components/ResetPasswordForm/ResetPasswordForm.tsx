@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
 
 export default function ResetPasswordForm({ accountFormData, handleAccountFormChange, handleSendVerificationCode, handleVerifyCode, handleResetPassword, setIsChangingPassword, errorMessage }) {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isCodeSent, setIsCodeSent] = useState(false);
   const [isCodeVerified, setIsCodeVerified] = useState(false);
   const [verificationCode, setVerificationCode] = useState('');
@@ -8,9 +10,11 @@ export default function ResetPasswordForm({ accountFormData, handleAccountFormCh
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleSendCode = async () => {
+    setIsSubmitting(true);
     const success = await handleSendVerificationCode();
     if (success) {
       setIsCodeSent(true);
+      setIsSubmitting(false);
     }
   };
 
@@ -42,10 +46,13 @@ export default function ResetPasswordForm({ accountFormData, handleAccountFormCh
           onChange={handleAccountFormChange}
         />
         <button
-          className="w-full bg-gradient-to-r from-bStart to-bEnd text-white py-2 rounded-lg mt-8 shadow-button hover:opacity-90"
+          className={`w-full bg-gradient-to-r from-bStart to-bEnd text-white py-2 rounded-lg mt-8 shadow-button hover:opacity-90 ${isSubmitting ? 'cursor-not-allowed' : ''}`}
           onClick={handleSendCode}
-          >
-          Send Verification Code
+          disabled={isSubmitting}
+        >
+         {isSubmitting ? (
+            <LoadingAnimation title="Sending"/>
+          ) : 'Send Verification Code'}
         </button>
         </div>)
       }
@@ -91,7 +98,7 @@ export default function ResetPasswordForm({ accountFormData, handleAccountFormCh
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
         <button
-          className="w-full bg-gradient-to-r from-bStart to-bEnd text-white py-2 rounded-lg mt-8 shadow-button hover:opacity-90"
+          className={`w-full bg-gradient-to-r from-bStart to-bEnd text-white py-2 rounded-lg mt-8 shadow-button hover:opacity-90 ${!isCodeSent ? 'd' : ''}`}
           onClick={handleChangePassword}
           >
           Confirm Change

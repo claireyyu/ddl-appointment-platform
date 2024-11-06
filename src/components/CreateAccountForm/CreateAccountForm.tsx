@@ -10,7 +10,7 @@ export default function CreateAccountForm({ accountFormData, handleAccountFormCh
         <p className="text-nowrap">Already have an account?</p>
         <button className="underline text-nowrap cursor-pointer" onClick={() => setIsCreatingAccount(false)}>Sign In</button>
       </div>
-      <div className="flex flex-col md:space-y-2 min-w-64">
+      <div className="flex flex-col space-y-2 min-w-64">
         <input
           type="text"
           name="name"
@@ -47,9 +47,9 @@ export default function CreateAccountForm({ accountFormData, handleAccountFormCh
         <p className="mt-2">Or</p>
       </div>
       <button className="w-full border-bStart border-4 rounded-lg mt-2 px-2 py-1 shadow-button hover:opacity-75 cursor-pointer" onClick={loginWithGoogle}>
-        <div className="flex items-center justify-center">
-          <Image src={googleLogo} alt="Logo" width="50" height="50" />
-          <p className="ml-2">Continue with Google</p>
+        <div className="flex items-center justify-center whitespace-nowrap">
+          <Image src={googleLogo} alt="Logo" width="30" height="30" />
+          <p className="hidden md:block md:ml-2">Continue with Google</p>
         </div>
       </button>
     </div>

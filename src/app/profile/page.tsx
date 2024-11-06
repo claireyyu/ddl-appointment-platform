@@ -33,7 +33,7 @@ export default function ProfilePage() {
   return (
     <div>
       {loading ? (
-        <LoadingAnimation />
+        <LoadingAnimation title="Decoding"/>
       ) : user ? (
           <div className="flex flex-col ">
             {/* mobile */}

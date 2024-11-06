@@ -71,10 +71,10 @@ export default function Navbar() {
             {token ? 'My Account' : 'Login'}
           </button>
 
-          <button onClick={logout}>Logout</button>
+          {token && <button onClick={logout}>Logout</button>}
 
           {/* Language Switch (In Mobile Menu) */}
-          <div className="flex flex-col items-center">
+          {/* <div className="flex flex-col items-center">
             <div className="flex gap-4">
               <button onClick={() => setPosition('english')} className={`${position === 'english' ? 'border-white border-2' : 'border-transparent'} p-2 rounded-xl`}>
                 English
@@ -83,7 +83,7 @@ export default function Navbar() {
                 Chinese
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
       )}
 
