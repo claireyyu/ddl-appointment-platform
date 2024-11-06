@@ -14,6 +14,10 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  function handleCloseModal() {
+    setIsModalOpen(false);
+  }
+
   return (
     <div className="w-full sticky top-0 z-50">
       <div className="grid grid-cols-5 2xl:grid-cols-6 justify-between items-center p-4 text-foreground text-lg bg-background">
@@ -84,7 +88,7 @@ export default function Navbar() {
       )}
 
       {/* Login Modal */}
-      <LoginModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <LoginModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
   );
 }

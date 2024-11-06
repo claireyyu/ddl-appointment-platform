@@ -14,7 +14,7 @@ export default function LoginModal({ isOpen, onClose }) {
     password: '',
   });
   const [errorMessage, setErrorMessage] = useState('');
-
+  
   // Clear error message when user types
   useEffect(() => {
     if (errorMessage) {
@@ -22,6 +22,15 @@ export default function LoginModal({ isOpen, onClose }) {
     }
   }, [accountFormData]);
 
+  // Clear form data when modal is closed
+  useEffect(() => {
+    if (!isOpen) {
+      setAccountFormData({ name: '', email: '', password: '' });
+      setIsCreatingAccount(false);
+      setIsChangingPassword(false);
+    }
+  }, [isOpen]);
+  
   // Handle form input changes
   function handleAccountFormChange(e) {
     const { name, value } = e.target;
@@ -69,6 +78,9 @@ export default function LoginModal({ isOpen, onClose }) {
       setErrorMessage('Login failed. Please check your credentials.');
     }
   }
+
+  // Reset password handler using AuthContext's resetPassword function
+  async function handleResetPassword() { }
 
   const renderContent = () => {
     if (isCreatingAccount) {
@@ -127,13 +139,28 @@ export default function LoginModal({ isOpen, onClose }) {
 
     if (isChangingPassword) {
       return (
-        <>
-          <h2 className="text-xl mb-4">Change Password</h2>
-          {/* Password change form */}
-          <button onClick={() => setIsChangingPassword(false)} className="text-blue-500 underline mt-4">
-            Back to login
+        <div className="text-background flex flex-col justify-center items-center p-24">
+          <h1 className="text-2xl text-center mb-4">Reset Password</h1>
+          <div className="flex flex-col md:space-y-2 min-w-64">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              className="p-2 rounded-custom bg-foreground text-background border-4 border-bStart"
+              value={accountFormData.email}
+              onChange={handleAccountFormChange}
+            />
+          </div>
+          <button
+            className="w-full bg-gradient-to-r from-bStart to-bEnd text-white py-2 rounded-lg mt-8 shadow-button hover:opacity-90"
+            onClick={handleResetPassword}
+          >
+            Reset Password
           </button>
-        </>
+          <button className="text-start cursor-pointer mt-4" onClick={() => setIsChangingPassword(false)}>Back to Sign In</button>
+
+          {errorMessage && <p className="text-red-500 mt-4">{errorMessage}</p>}
+        </div>
       );
     }
     
