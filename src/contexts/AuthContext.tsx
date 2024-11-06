@@ -129,8 +129,56 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const sendResetPasswordEmail = async (email) => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/auth/email/password/send`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to send reset password email');
+    }
+
+    return response.json();
+  };
+
+  const verifyCode = async (email, token) => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/auth/email/password/verify`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, token }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to verify code');
+    }
+
+    return response.json();
+  };
+
+  const resetPassword = async (email, token, password, password_confirmation) => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/auth/email/password/reset`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, token, password, password_confirmation }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to reset password');
+    }
+
+    return response.json();
+  };
+
   return (
-    <AuthContext.Provider value={{ user, token, loading, loginWithGoogle, signup, login, logout }}>
+    <AuthContext.Provider value={{ user, token, loading, loginWithGoogle, signup, login, logout, sendResetPasswordEmail, verifyCode, resetPassword}}>
       {children}
     </AuthContext.Provider>
   );

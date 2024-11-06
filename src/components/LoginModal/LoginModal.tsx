@@ -1,11 +1,311 @@
+// // import { useEffect, useState } from 'react';
+// // import { useAuth } from '../../contexts/AuthContext';
+// // import Modal from '../Modal/Modal';
+// // import CreateAccountForm from '../CreateAccountForm/CreateAccountForm';
+// // import ResetPasswordForm from '../ResetPasswordForm/ResetPasswordForm';
+// // import SignInForm from '../SignInForm/SignInForm';
+
+// // export default function LoginModal({ isOpen, onClose }) {
+// //   const { loginWithGoogle, signup, login } = useAuth();
+// //   const [isCreatingAccount, setIsCreatingAccount] = useState(false);
+// //   const [isChangingPassword, setIsChangingPassword] = useState(false);
+// //   const [accountFormData, setAccountFormData] = useState({
+// //     name: '',
+// //     email: '',
+// //     password: '',
+// //   });
+// //   const [errorMessage, setErrorMessage] = useState('');
+
+// //   // Clear error message when user types
+// //   useEffect(() => {
+// //     if (errorMessage) {
+// //       setErrorMessage('');
+// //     }
+// //   }, [accountFormData]);
+
+// //   // Clear form data when modal is closed
+// //   useEffect(() => {
+// //     if (!isOpen) {
+// //       setAccountFormData({ name: '', email: '', password: '' });
+// //       setIsCreatingAccount(false);
+// //       setIsChangingPassword(false);
+// //     }
+// //   }, [isOpen]);
+
+// //   // Handle form input changes
+// //   function handleAccountFormChange(e) {
+// //     const { name, value } = e.target;
+// //     setAccountFormData({
+// //       ...accountFormData,
+// //       [name]: value,
+// //     });
+// //   }
+
+// //   // Signup handler using AuthContext's signup function
+// //   async function handleSignup() {
+// //     if (!accountFormData.name || !accountFormData.email || !accountFormData.password) {
+// //       setErrorMessage('Please complete all fields.');
+// //       return;
+// //     }
+
+// //     if (accountFormData.password.length < 6) {
+// //       setErrorMessage('Password must be at least 6 characters long.');
+// //       return;
+// //     }
+
+// //     try {
+// //       await signup(accountFormData.name, accountFormData.email, accountFormData.password);
+// //       alert('Account created successfully!');
+// //       setAccountFormData({ name: '', email: '', password: '' }); // Clear form fields
+// //       onClose(); // Close modal on success
+// //     } catch (error) {
+// //       setErrorMessage('Signup failed. Please try again.');
+// //     }
+// //   }
+
+// //   // Login handler using AuthContext's login function
+// //   async function handleLogin() {
+// //     if (!accountFormData.email || !accountFormData.password) {
+// //       setErrorMessage('Please complete all fields.');
+// //       return;
+// //     }
+
+// //     try {
+// //       await login(accountFormData.email, accountFormData.password);
+// //       alert('Login successful!');
+// //       setAccountFormData({ name: '', email: '', password: '' }); // Clear form fields
+// //       onClose(); // Close modal on success
+// //     } catch (error) {
+// //       setErrorMessage('Login failed. Please check your credentials.');
+// //     }
+// //   }
+
+// //   // Reset password handler using AuthContext's resetPassword function
+// //   async function handleResetPassword() { }
+
+// //   const renderContent = () => {
+// //     if (isCreatingAccount) {
+// //       return (
+// //         <CreateAccountForm
+// //           accountFormData={accountFormData}
+// //           handleAccountFormChange={handleAccountFormChange}
+// //           handleSignup={handleSignup}
+// //           loginWithGoogle={loginWithGoogle}
+// //           setIsCreatingAccount={setIsCreatingAccount}
+// //           errorMessage={errorMessage}
+// //         />
+// //       );
+// //     }
+
+// //     if (isChangingPassword) {
+// //       return (
+// //         <ResetPasswordForm
+// //           accountFormData={accountFormData}
+// //           handleAccountFormChange={handleAccountFormChange}
+// //           handleResetPassword={handleResetPassword}
+// //           setIsChangingPassword={setIsChangingPassword}
+// //           errorMessage={errorMessage}
+// //         />
+// //       );
+// //     }
+
+// //     return (
+// //       <SignInForm
+// //         accountFormData={accountFormData}
+// //         handleAccountFormChange={handleAccountFormChange}
+// //         handleLogin={handleLogin}
+// //         loginWithGoogle={loginWithGoogle}
+// //         setIsCreatingAccount={setIsCreatingAccount}
+// //         setIsChangingPassword={setIsChangingPassword}
+// //         errorMessage={errorMessage}
+// //       />
+// //     );
+// //   };
+
+// //   return (
+// //     <Modal isOpen={isOpen} onClose={onClose} bgColor={'bg-foreground'}>
+// //       {renderContent()}
+// //     </Modal>
+// //   );
+// // }
+
+// import { useEffect, useState } from 'react';
+// import { useAuth } from '../../contexts/AuthContext';
+// import Modal from '../Modal/Modal';
+// import CreateAccountForm from '../CreateAccountForm/CreateAccountForm';
+// import ResetPasswordForm from '../ResetPasswordForm/ResetPasswordForm';
+// import SignInForm from '../SignInForm/SignInForm';
+
+// export default function LoginModal({ isOpen, onClose }) {
+//   const { loginWithGoogle, signup, login, sendResetPasswordEmail, resetPassword } = useAuth();
+//   const [isCreatingAccount, setIsCreatingAccount] = useState(false);
+//   const [isChangingPassword, setIsChangingPassword] = useState(false);
+//   const [accountFormData, setAccountFormData] = useState({
+//     name: '',
+//     email: '',
+//     password: '',
+//   });
+//   const [errorMessage, setErrorMessage] = useState('');
+
+//   // Clear error message when user types
+//   useEffect(() => {
+//     if (errorMessage) {
+//       setErrorMessage('');
+//     }
+//   }, [accountFormData]);
+
+//   // Clear form data when modal is closed
+//   useEffect(() => {
+//     if (!isOpen) {
+//       setAccountFormData({ name: '', email: '', password: '' });
+//       setIsCreatingAccount(false);
+//       setIsChangingPassword(false);
+//     }
+//   }, [isOpen]);
+
+//   // Handle form input changes
+//   function handleAccountFormChange(e) {
+//     const { name, value } = e.target;
+//     setAccountFormData({
+//       ...accountFormData,
+//       [name]: value,
+//     });
+//   }
+
+//   // Signup handler using AuthContext's signup function
+//   async function handleSignup() {
+//     if (!accountFormData.name || !accountFormData.email || !accountFormData.password) {
+//       setErrorMessage('Please complete all fields.');
+//       return;
+//     }
+
+//     if (accountFormData.password.length < 6) {
+//       setErrorMessage('Password must be at least 6 characters long.');
+//       return;
+//     }
+
+//     try {
+//       await signup(accountFormData.name, accountFormData.email, accountFormData.password);
+//       alert('Account created successfully!');
+//       setAccountFormData({ name: '', email: '', password: '' }); // Clear form fields
+//       onClose(); // Close modal on success
+//     } catch (error) {
+//       setErrorMessage('Signup failed. Please try again.');
+//     }
+//   }
+
+//   // Login handler using AuthContext's login function
+//   async function handleLogin() {
+//     if (!accountFormData.email || !accountFormData.password) {
+//       setErrorMessage('Please complete all fields.');
+//       return;
+//     }
+
+//     try {
+//       await login(accountFormData.email, accountFormData.password);
+//       alert('Login successful!');
+//       setAccountFormData({ name: '', email: '', password: '' }); // Clear form fields
+//       onClose(); // Close modal on success
+//     } catch (error) {
+//       setErrorMessage('Login failed. Please check your credentials.');
+//     }
+//   }
+
+//   // Send verification code handler
+//   async function handleSendVerificationCode() {
+//     if (!accountFormData.email) {
+//       setErrorMessage('Please enter your email.');
+//       return false;
+//     }
+
+//     try {
+//       await sendResetPasswordEmail(accountFormData.email);
+//       alert('Verification code sent to your email.');
+//       return true;
+//     } catch (error) {
+//       setErrorMessage('Failed to send verification code. Please try again.');
+//       return false;
+//     }
+//   }
+
+//   // Verify code and reset password handler
+//   async function handleVerifyCodeAndResetPassword(verificationCode, newPassword, confirmPassword) {
+//     if (!verificationCode || !newPassword || !confirmPassword) {
+//       setErrorMessage('Please complete all fields.');
+//       return;
+//     }
+
+//     if (newPassword !== confirmPassword) {
+//       setErrorMessage('Passwords do not match.');
+//       return;
+//     }
+
+//     try {
+//       await resetPassword(accountFormData.email, verificationCode, newPassword, confirmPassword);
+//       alert('Password reset successfully!');
+//       setAccountFormData({ name: '', email: '', password: '' }); // Clear form fields
+//       onClose(); // Close modal on success
+//     } catch (error) {
+//       setErrorMessage('Failed to reset password. Please try again.');
+//     }
+//   }
+
+//   const renderContent = () => {
+//     if (isCreatingAccount) {
+//       return (
+//         <CreateAccountForm
+//           accountFormData={accountFormData}
+//           handleAccountFormChange={handleAccountFormChange}
+//           handleSignup={handleSignup}
+//           loginWithGoogle={loginWithGoogle}
+//           setIsCreatingAccount={setIsCreatingAccount}
+//           errorMessage={errorMessage}
+//         />
+//       );
+//     }
+
+//     if (isChangingPassword) {
+//       return (
+//         <ResetPasswordForm
+//           accountFormData={accountFormData}
+//           handleAccountFormChange={handleAccountFormChange}
+//           handleSendVerificationCode={handleSendVerificationCode}
+//           handleVerifyCodeAndResetPassword={handleVerifyCodeAndResetPassword}
+//           setIsChangingPassword={setIsChangingPassword}
+//           errorMessage={errorMessage}
+//         />
+//       );
+//     }
+
+//     return (
+//       <SignInForm
+//         accountFormData={accountFormData}
+//         handleAccountFormChange={handleAccountFormChange}
+//         handleLogin={handleLogin}
+//         loginWithGoogle={loginWithGoogle}
+//         setIsCreatingAccount={setIsCreatingAccount}
+//         setIsChangingPassword={setIsChangingPassword}
+//         errorMessage={errorMessage}
+//       />
+//     );
+//   };
+
+//   return (
+//     <Modal isOpen={isOpen} onClose={onClose} bgColor={'bg-foreground'}>
+//       {renderContent()}
+//     </Modal>
+//   );
+// }
+
 import { useEffect, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import Modal from '../Modal/Modal';
-import googleLogo from '../../../public/google-icon.png';
-import Image from 'next/image';
+import CreateAccountForm from '../CreateAccountForm/CreateAccountForm';
+import ResetPasswordForm from '../ResetPasswordForm/ResetPasswordForm';
+import SignInForm from '../SignInForm/SignInForm';
 
 export default function LoginModal({ isOpen, onClose }) {
-  const { loginWithGoogle, signup, login } = useAuth();
+  const { loginWithGoogle, signup, login, sendResetPasswordEmail, verifyCode, resetPassword } = useAuth();
   const [isCreatingAccount, setIsCreatingAccount] = useState(false);
   const [isChangingPassword, setIsChangingPassword] = useState(false);
   const [accountFormData, setAccountFormData] = useState({
@@ -13,8 +313,9 @@ export default function LoginModal({ isOpen, onClose }) {
     email: '',
     password: '',
   });
+  const [verificationCode, setVerificationCode] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  
+
   // Clear error message when user types
   useEffect(() => {
     if (errorMessage) {
@@ -30,7 +331,7 @@ export default function LoginModal({ isOpen, onClose }) {
       setIsChangingPassword(false);
     }
   }, [isOpen]);
-  
+
   // Handle form input changes
   function handleAccountFormChange(e) {
     const { name, value } = e.target;
@@ -79,134 +380,103 @@ export default function LoginModal({ isOpen, onClose }) {
     }
   }
 
-  // Reset password handler using AuthContext's resetPassword function
-  async function handleResetPassword() { }
+  // Send verification code handler
+  async function handleSendVerificationCode() {
+    if (!accountFormData.email) {
+      setErrorMessage('Please enter your email.');
+      return false;
+    }
+
+    try {
+      await sendResetPasswordEmail(accountFormData.email);
+      alert('Verification code sent to your email.');
+      return true;
+    } catch (error) {
+      setErrorMessage('Failed to send verification code. Please try again.');
+      return false;
+    }
+  }
+
+  // Verify code handler
+  async function handleVerifyCode(verificationCode) {
+    if (!verificationCode) {
+      setErrorMessage('Please enter the verification code.');
+      return false;
+    }
+
+    try {
+      await verifyCode(accountFormData.email, verificationCode);
+      alert('Verification code verified successfully!');
+      setVerificationCode(verificationCode); // Save verification
+      return true;
+    } catch (error) {
+      setErrorMessage('Failed to verify code. Please try again.');
+      return false;
+    }
+  }
+
+  // Reset password handler
+  async function handleResetPassword(newPassword, confirmPassword) {
+    if (!newPassword || !confirmPassword) {
+      setErrorMessage('Please complete all fields.');
+      return false;
+    }
+
+    if (newPassword !== confirmPassword) {
+      setErrorMessage('Passwords do not match.');
+      return false;
+    }
+
+    try {
+      await resetPassword(accountFormData.email, verificationCode, newPassword, confirmPassword);
+      alert('Password reset successfully!');
+      setAccountFormData({ name: '', email: '', password: '' }); // Clear form fields
+      onClose(); // Close modal on success
+      return true;
+    } catch (error) {
+      setErrorMessage('Failed to reset password. Please try again.');
+      return false;
+    }
+  }
 
   const renderContent = () => {
     if (isCreatingAccount) {
       return (
-        <div className="text-background flex flex-col justify-center items-center p-24">
-          <h1 className="text-2xl text-center mb-4">Create Account</h1>
-          <div className="flex space-x-2 mb-8">
-            <p className="text-nowrap">Already have an account?</p>
-            <button className="underline text-nowrap cursor-pointer" onClick={() => setIsCreatingAccount(false)}>Sign In</button>
-          </div>
-          <div className="flex flex-col md:space-y-2 min-w-64">
-            <input
-              type="text"
-              name="name"
-              placeholder="Username"
-              className="p-2 rounded-custom bg-foreground text-background border-4 border-bStart"
-              value={accountFormData.name}
-              onChange={handleAccountFormChange}
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              className="p-2 rounded-custom bg-foreground text-background border-4 border-bStart"
-              value={accountFormData.email}
-              onChange={handleAccountFormChange}
-            />
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              className="p-2 rounded-custom bg-foreground text-background border-4 border-bStart"
-              value={accountFormData.password}
-              onChange={handleAccountFormChange}
-            />
-          </div>
-          <button
-            className="w-full bg-gradient-to-r from-bStart to-bEnd text-white py-2 rounded-lg mt-12 shadow-button hover:opacity-90"
-            onClick={handleSignup}
-          >
-            Create Account
-          </button>
-          {errorMessage && <p className="text-red-500 mt-4">{errorMessage}</p>}
-          <div className="flex">
-            <p className="mt-2">Or</p>
-          </div>
-          <button className="w-full border-bStart border-4 rounded-lg mt-2 px-2 py-1 shadow-button hover:opacity-75 cursor-pointer" onClick={loginWithGoogle}>
-            <div className="flex items-center justify-center">
-              <Image src={googleLogo} alt="Logo" width="50" height="50" />
-              <p className="ml-2">Continue with Google</p>
-            </div>
-          </button>
-        </div>
+        <CreateAccountForm
+          accountFormData={accountFormData}
+          handleAccountFormChange={handleAccountFormChange}
+          handleSignup={handleSignup}
+          loginWithGoogle={loginWithGoogle}
+          setIsCreatingAccount={setIsCreatingAccount}
+          errorMessage={errorMessage}
+        />
       );
     }
 
     if (isChangingPassword) {
       return (
-        <div className="text-background flex flex-col justify-center items-center p-24">
-          <h1 className="text-2xl text-center mb-4">Reset Password</h1>
-          <div className="flex flex-col md:space-y-2 min-w-64">
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              className="p-2 rounded-custom bg-foreground text-background border-4 border-bStart"
-              value={accountFormData.email}
-              onChange={handleAccountFormChange}
-            />
-          </div>
-          <button
-            className="w-full bg-gradient-to-r from-bStart to-bEnd text-white py-2 rounded-lg mt-8 shadow-button hover:opacity-90"
-            onClick={handleResetPassword}
-          >
-            Reset Password
-          </button>
-          <button className="text-start cursor-pointer mt-4" onClick={() => setIsChangingPassword(false)}>Back to Sign In</button>
-
-          {errorMessage && <p className="text-red-500 mt-4">{errorMessage}</p>}
-        </div>
+        <ResetPasswordForm
+          accountFormData={accountFormData}
+          handleAccountFormChange={handleAccountFormChange}
+          handleSendVerificationCode={handleSendVerificationCode}
+          handleVerifyCode={handleVerifyCode}
+          handleResetPassword={handleResetPassword}
+          setIsChangingPassword={setIsChangingPassword}
+          errorMessage={errorMessage}
+        />
       );
     }
-    
+
     return (
-      <div className="text-background flex flex-col justify-center items-center p-24">
-        <h1 className="text-2xl text-center mb-4">Sign In</h1>
-        <div className="flex space-x-2 mb-8">
-          <p className="text-nowrap">Don't have an account?</p>
-          <button className="underline text-nowrap cursor-pointer" onClick={() => setIsCreatingAccount(true)}>Sign Up</button>
-        </div>
-        <div className="flex flex-col md:space-y-2 min-w-64">
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            className="p-2 rounded-custom bg-foreground text-background border-4 border-bStart"
-            value={accountFormData.email}
-            onChange={handleAccountFormChange}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            className="p-2 rounded-custom bg-foreground text-background border-4 border-bStart"
-            value={accountFormData.password}
-            onChange={handleAccountFormChange}
-          />
-          <button className="text-start cursor-pointer" onClick={() => setIsChangingPassword(true)}>Forgot Password?</button>
-        </div>
-        <button
-          className="w-full bg-gradient-to-r from-bStart to-bEnd text-white py-2 rounded-lg mt-12 shadow-button hover:opacity-90"
-          onClick={handleLogin}
-        >
-          Sign In
-        </button>
-        {errorMessage && <p className="text-red-500 mt-4">{errorMessage}</p>}
-        <div className="flex">
-          <p className="mt-2">Or</p>
-        </div>
-        <button className="w-full border-bStart border-4 rounded-lg mt-2 px-2 py-1 shadow-button hover:opacity-75 cursor-pointer" onClick={loginWithGoogle}>
-          <div className="flex items-center justify-center">
-            <Image src={googleLogo} alt="Logo" width="50" height="50" />
-            <p className="ml-2">Continue with Google</p>
-          </div>
-        </button>
-      </div>
+      <SignInForm
+        accountFormData={accountFormData}
+        handleAccountFormChange={handleAccountFormChange}
+        handleLogin={handleLogin}
+        loginWithGoogle={loginWithGoogle}
+        setIsCreatingAccount={setIsCreatingAccount}
+        setIsChangingPassword={setIsChangingPassword}
+        errorMessage={errorMessage}
+      />
     );
   };
 
