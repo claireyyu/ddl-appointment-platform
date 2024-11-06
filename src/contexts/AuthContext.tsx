@@ -4,6 +4,7 @@ import { createContext, useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/navigation';
 import { type AuthContextType } from '../types/auth';
 import { getUser } from '../services/userService';
+import { signup as signupService, login as loginService } from '../services/accountService';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -13,15 +14,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
-  // // for debugging
-  // useEffect(() => {
-  //   if (!loading && user) {
-  //     console.log('User:', user);
-  //     console.log('Token:', token);
-  //   }
-  // }, [loading, user]);
-
-  // always check if token exists in localStorage when the page loads
+  // Check if token exists in localStorage on page load
   useEffect(() => {
     const savedToken = localStorage.getItem('token');
     if (savedToken) {
@@ -29,19 +22,19 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  // Extract the token from the URL query parameter and store it
+  // Extract token from URL if present
   useEffect(() => {
     const extractTokenFromUrl = () => {
       const urlParams = new URLSearchParams(window.location.search);
       const token = urlParams.get('token');
-  
+
       if (token) {
         localStorage.setItem('token', token);
         setToken(token);
         window.history.replaceState({}, document.title, window.location.pathname); // Clear query params from the URL
       }
     };
-  
+
     extractTokenFromUrl();
   }, []);
 
@@ -51,24 +44,22 @@ export const AuthProvider = ({ children }) => {
     setToken(null);
     localStorage.removeItem('token');
   };
-  
+
   // Fetch user profile data from the backend
   useEffect(() => {
-
-    // Only fetch the profile if the token is set
     const getUserProfile = async () => {
       if (!token) {
         setLoading(false);
         return;
       }
-  
+
       try {
         const data = await getUser(token);
         if (data) {
           setUser(data);
         } else {
           console.log('Token is invalid or expired. Logging out...');
-          handleInvalidToken(); // Handle invalid token scenario
+          handleInvalidToken();
         }
       } catch (error) {
         console.error('Failed to fetch user profile:', error);
@@ -76,9 +67,9 @@ export const AuthProvider = ({ children }) => {
         setLoading(false);
       }
     };
-  
-    getUserProfile(); // Fetch user data with the extracted token
-  }, [token]); // Run fetchUserProfile whenever token changes
+
+    getUserProfile();
+  }, [token]);
 
   // Function to handle Google login (redirects to backend)
   const loginWithGoogle = () => {
@@ -86,12 +77,41 @@ export const AuthProvider = ({ children }) => {
   };
 
 
+  // Function to handle email signup
+  const signup = async (name, email, password) => {
+    
+    try {
+      const data = await signupService({ name, email, password });
+      localStorage.setItem('token', data.authorisation.token); // Store token
+      setToken(data.authorisation.token);
+      setUser(data.user);
+      router.push('/'); // Redirect to homepage or desired page
+    } catch (error) {
+      console.error('Signup failed:', error);
+      throw error;
+    }
+  };
+
+  // Function to handle email login
+  const login = async (email, password) => {
+    try {
+      const data = await loginService({ email, password });
+      localStorage.setItem('token', data.authorisation.token); // Store token
+      setToken(data.authorisation.token);
+      setUser(data.user);
+      router.push('/'); // Redirect to homepage or desired page
+    } catch (error) {
+      console.error('Login failed:', error);
+      throw error;
+    }
+  };
+
+  // Logout function
   const logout = async () => {
     const storedToken = localStorage.getItem('token');
-    
+
     if (storedToken) {
       try {
-        // Call the backend to invalidate the JWT token
         await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/auth/google/logout`, {
           method: 'POST',
           headers: {
@@ -99,12 +119,9 @@ export const AuthProvider = ({ children }) => {
           },
         });
 
-        // Clear user data and token from state and localStorage
         setUser(null);
         setToken(null);
         localStorage.removeItem('token');
-
-        // Redirect to login page or home
         router.push('/');
       } catch (error) {
         console.error('Error logging out:', error);
@@ -113,12 +130,16 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, token, loading, loginWithGoogle, logout }}>
+    <AuthContext.Provider value={{ user, token, loading, loginWithGoogle, signup, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
 export const useAuth = () => {
-  return useContext(AuthContext);
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return context;
 };
