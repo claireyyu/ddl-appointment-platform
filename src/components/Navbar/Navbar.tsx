@@ -1,21 +1,22 @@
 "use client";
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Globe, Menu, X } from 'react-feather';
 import Image from 'next/image';
 import logo from '../../../public/logo.png';
 import { useAuth } from '../../contexts/AuthContext';
 import AccountDropdownButton from '../AccountDropdown/AccountDropdown';
+import LoginModal from '../LoginModal/LoginModal';
 
 export default function Navbar() {
-  // const [token, setToken] = useState(null);
-  const { token, user, loginWithGoogle, logout } = useAuth();
+  const { token, logout } = useAuth();
   const [position, setPosition] = useState("english");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  function toProfile() {
-    window.location.href = '/profile';
-  }
+  // function toProfile() {
+  //   window.location.href = '/profile';
+  // }
 
   return (
     <div className="w-full sticky top-0 z-50">
@@ -25,25 +26,25 @@ export default function Navbar() {
         </Link>
 
         <div className="col-span-2 2xl:col-span-2 hidden xl:flex items-center justify-evenly gap-12">
-            <Link href="/" className="hover:-translate-y-0.5 transition-transform duration-200">Home</Link>
-            <Link href="/services" className="hover:-translate-y-0.5 transition-transform duration-200">Services</Link>
-            <Link href="/about" className="hover:-translate-y-0.5 transition-transform duration-200">About</Link>
-            <Link href="/#contact" className="hover:-translate-y-0.5 transition-transform duration-200">Contact</Link>
+          <Link href="/" className="hover:-translate-y-0.5 transition-transform duration-200">Home</Link>
+          <Link href="/services" className="hover:-translate-y-0.5 transition-transform duration-200">Services</Link>
+          <Link href="/about" className="hover:-translate-y-0.5 transition-transform duration-200">About</Link>
+          <Link href="/#contact" className="hover:-translate-y-0.5 transition-transform duration-200">Contact</Link>
         </div>
 
         <div className="col-span-1 flex justify-center items-center gap-12">
           {token ? (
-              <AccountDropdownButton />
-            ) : (
-              <button 
-                className="hidden xl:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base px-4 py-2 rounded-custom hover:opacity-90 cursor-pointer" 
-                onClick={loginWithGoogle}
-              >
-                Login
-              </button>
-            )}
+            <AccountDropdownButton />
+          ) : (
+            <button 
+              className="hidden xl:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base px-4 py-2 rounded-custom hover:opacity-90 cursor-pointer" 
+              onClick={() => setIsModalOpen(true)}
+            >
+              Login
+            </button>
+          )}
           <button className="hidden xl:flex sticky cursor-pointer items-center text-foreground border-none focus bg-transparent">
-              <Globe className="m-1" />
+            <Globe className="m-1" />
           </button>
         </div>
 
@@ -65,7 +66,7 @@ export default function Navbar() {
 
           <button 
             className="bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground p-2 rounded-xl" 
-            onClick={token ? toProfile : loginWithGoogle}
+            onClick={() => { setIsModalOpen(true); setIsMenuOpen(false); }}
           >
             {token ? 'My Account' : 'Login'}
           </button>
@@ -85,6 +86,9 @@ export default function Navbar() {
           </div>
         </div>
       )}
-    </div >
+
+      {/* Login Modal */}
+      <LoginModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </div>
   );
 }
