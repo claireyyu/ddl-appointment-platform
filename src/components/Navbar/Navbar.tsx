@@ -14,6 +14,15 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  function handleMobileToProfile(e) {
+    if (e.target.innerText === 'My Account') {
+      window.location.href = '/profile';
+    } else {
+      setIsModalOpen(true);
+      setIsMenuOpen(false);
+    }
+  }
+
   function handleCloseModal() {
     setIsModalOpen(false);
   }
@@ -66,7 +75,7 @@ export default function Navbar() {
 
           <button 
             className="bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground p-2 rounded-xl" 
-            onClick={() => { setIsModalOpen(true); setIsMenuOpen(false); }}
+            onClick={handleMobileToProfile}
           >
             {token ? 'My Account' : 'Login'}
           </button>

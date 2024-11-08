@@ -73,7 +73,6 @@ export default function LoginModal({ isOpen, onClose }) {
 
     try {
       await login(accountFormData.email, accountFormData.password);
-      alert('Login successful!');
       setAccountFormData({ name: '', email: '', password: '' }); // Clear form fields
       onClose(); // Close modal on success
     } catch (error) {
@@ -107,7 +106,7 @@ export default function LoginModal({ isOpen, onClose }) {
 
     try {
       await verifyCode(accountFormData.email, verificationCode);
-      alert('Verification code verified successfully!');
+      // alert('Verification code verified successfully!');
       setVerificationCode(verificationCode); // Save verification
       return true;
     } catch (error) {

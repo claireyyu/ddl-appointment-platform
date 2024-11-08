@@ -18,7 +18,7 @@ export default function AboutPage() {
         {/* <span className="flex w-full bg-gray-900 text-white rounded p-2">
           Gradient border
         </span> */}
-          <Image src={aboutPic} alt="About" className="cursor-pointer rounded-custom"/>
+          <Image src={aboutPic} alt="About" className="cursor-pointer rounded-custom" width={500} height={500} />
         </div>
       </div>
       <div>
@@ -33,18 +33,18 @@ export default function AboutPage() {
         </p>
         <p className={styles.paragraph}>
           Day Pillar:<br />
-          Heavenly Stem: Represents the individual, directly reflecting the person’s character and health based on its elemental attributes.Earthly Branch: Represents the spouse and marriage status, indicating partner relationships and family interactions.
+          Heavenly Stem: Represents the individual, directly reflecting the person's character and health based on its elemental attributes.Earthly Branch: Represents the spouse and marriage status, indicating partner relationships and family interactions.
         </p>
         <p className={styles.paragraph}>
           Hour Pillar:<br />
           Heavenly Stem: Symbolizes children, reflecting the relationship with them and predicting the state of later life.Earthly Branch: Represents a person's achievements and living environment in later years, reflecting later life fortunes and interactions with descendants.
         </p>
         <p className={styles.paragraph + " mb-4"}>
-          In summary, the Year Pillar influences early life, the Month Pillar impacts middle age, the Day Pillar is closely related to the individual and marriage, while the Hour Pillar affects later life fortunes and relationships with children. Together, these four pillars form a person's BaZi chart, helping to interpret their life’s fortunes, character, and significant events.
+          In summary, the Year Pillar influences early life, the Month Pillar impacts middle age, the Day Pillar is closely related to the individual and marriage, while the Hour Pillar affects later life fortunes and relationships with children. Together, these four pillars form a person's BaZi chart, helping to interpret their life's fortunes, character, and significant events.
         </p><br />
         <p className={styles.title}>Our Mission</p>
-        <p className={styles.paragraph + " mb-4"}>At Lab 8, we are dedicated to helping you uncover your life's potential through personalized BaZi readings. With years of experience and deep knowledge of Chinese metaphysics, we offer clear guidance to help you live in harmony and happiness.</p>
-        <p className={styles.paragraph + " mb-4"}>Whether you're seeking clarity on a specific issue or a comprehensive understanding of your life’s journey, we are here to support you with insightful interpretations and practical advice.</p>
+        <p className={styles.paragraph + " mb-4"}>At Lab 8, we are dedicated to helping you uncover your life's potential through personalized BaZi readings. With years of experience and deep knowledge of Chinese metaphysics, we offer clear guidance to help you live in harmony and happiness.</p>
+        <p className={styles.paragraph + " mb-4"}>Whether you're seeking clarity on a specific issue or a comprehensive understanding of your life's journey, we are here to support you with insightful interpretations and practical advice.</p>
       </div>
     </div>
   );
