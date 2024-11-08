@@ -52,7 +52,7 @@ function ProfileList() {
   }
 
    return (
-    <div>
+    <div className="mt-4">
       <div className="flex flex-col space-y-4">
         {results.map((result: BaziUserResultData) => (
           <div key={result.id} className="border-bpStart border-2 p-4 hover:opacity-75" >

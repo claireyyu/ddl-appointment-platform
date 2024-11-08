@@ -21,6 +21,7 @@ export default function Page() {
             <br />WeChat
             <br />AliPay
           </p>
+          <br />
           <p>
             How It Works:
             <br /><br />

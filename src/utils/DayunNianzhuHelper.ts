@@ -22,7 +22,12 @@ export default function DayunNianzhuHelper(data: { string: { "year_char": string
 
     // For each array, get the `year_char` at index `i`
     dayunArrays.forEach(array => {
-      group.push(array[i].year_char); // Push the `year_char` into the group
+      // Check if array[i] exists and has a year_char, otherwise push a "?" as a placeholder
+      if (array && array[i] && array[i].year_char) {
+        group.push(array[i].year_char);
+      } else {
+        group.push('?'); // Add '?' if the value is null or missing
+      }
     });
 
     // Add the group to the final result
