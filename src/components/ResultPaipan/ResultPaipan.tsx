@@ -43,7 +43,7 @@ export function BaziPaipan( {yearStem, yearBranch, monthStem, monthBranch, daySt
 export function BaziDetail({ rizhu_detail, personality_detail }) {
   return (
     <div>
-      <p className="text-justify">Rizhu Interpretation <br/><br/>{rizhu_detail}</p>
+      <p className="text-justify">Birth Date Interpretation <br/><br/>{rizhu_detail}</p>
       <br/>
       <p className="text-justify">Bazi Interpretation <br /><br />{personality_detail}</p>
       
