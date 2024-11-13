@@ -4,6 +4,36 @@ import DayunNianzhuHelper from '../../utils/DayunNianzhuHelper';
 import { type BaziPaipanProps } from '../../types/paipan';
 import { BaziContext } from '../../contexts/BaziContext';
 
+const colorMap = {
+  // 10 Heavenly Stems
+  甲: '#0FA958',
+  乙: '#0FA958',
+  丙: '#E73434',
+  丁: '#E73434',
+  戊: '#AD6420',
+  己: '#AD6420',
+  庚: '#E8A908',
+  辛: '#E8A908',
+  壬: '#49C2F6',
+  癸: '#49C2F6',
+
+  // 12 Earthly Branches
+  子: '#49C2F6',
+  丑: '#AD6420',
+  寅: '#0FA958',
+  卯: '#0FA958',
+  辰: '#AD6420',
+  巳: '#E73434',
+  午: '#E73434',
+  未: '#AD6420',
+  申: '#E8A908',
+  酉: '#E8A908',
+  戌: '#AD6420',
+  亥: '#49C2F6',
+};
+
+const getColor = (char) => colorMap[char] || '#000';
+
 export function BaziLiupan( {yearStem, yearBranch, monthStem, monthBranch, dayStem, dayBranch, hourStem, hourBranch}: BaziPaipanProps) {
   const { selectedDayunGanzhi, selectedLiunianGanzhi, selectedLiuyueGanzhi, dayunNianzhuArray } = useContext(BaziContext);
 
@@ -21,22 +51,50 @@ export function BaziLiupan( {yearStem, yearBranch, monthStem, monthBranch, daySt
         <div className={styles.pillarHeaderText}>Monthly<br />Cycle</div>
 
         <div className={styles.pillarText}>Top<br />Stem</div>
-        <div className={styles.pillarText}>{yearStem}</div>
-        <div className={styles.pillarText}>{monthStem}</div>
-        <div className={styles.pillarText}>{dayStem}</div>
-        <div className={styles.pillarText}>{hourStem}</div>
-        <div className={styles.pillarTextLBorder}>{selectedDayunGanzhi[0]}</div>
-        <div className={styles.pillarText}>{selectedLiunianGanzhi[0]}</div>
-        <div className={styles.pillarText}>{selectedLiuyueGanzhi[0]}</div>
+        <div className={styles.pillarText}
+            style={{ color: getColor(yearStem) }}
+        >{yearStem}</div>
+        <div className={styles.pillarText}
+            style={{ color: getColor(monthStem) }}
+        >{monthStem}</div>
+        <div className={styles.pillarText}
+            style={{ color: getColor(dayStem) }}
+        >{dayStem}</div>
+        <div className={styles.pillarText}
+            style={{ color: getColor(hourStem) }}
+        >{hourStem}</div>
+        <div className={styles.pillarTextLBorder}
+            style={{ color: getColor(selectedDayunGanzhi[0]) }}
+        >{selectedDayunGanzhi[0]}</div>
+        <div className={styles.pillarText}
+            style={{ color: getColor(selectedLiunianGanzhi[0]) }}
+        >{selectedLiunianGanzhi[0]}</div>
+        <div className={styles.pillarText}
+            style={{ color: getColor(selectedLiuyueGanzhi[0]) }}
+        >{selectedLiuyueGanzhi[0]}</div>
 
         <div className={styles.pillarText}>Bottom<br />Branch</div>
-        <div className={styles.pillarText}>{yearBranch}</div>
-        <div className={styles.pillarText}>{monthBranch}</div>
-        <div className={styles.pillarText}>{dayBranch}</div>
-        <div className={styles.pillarText}>{hourBranch}</div>
-        <div className={styles.pillarTextLBorder}>{selectedDayunGanzhi[1]}</div>
-        <div className={styles.pillarText}>{selectedLiunianGanzhi[1]}</div>
-        <div className={styles.pillarText}>{selectedLiuyueGanzhi[1]}</div>
+        <div className={styles.pillarText}
+            style={{ color: getColor(yearBranch) }}
+        >{yearBranch}</div>
+        <div className={styles.pillarText}
+            style={{ color: getColor(monthBranch) }}
+        >{monthBranch}</div>
+        <div className={styles.pillarText}
+            style={{ color: getColor(dayBranch) }}
+        >{dayBranch}</div>
+        <div className={styles.pillarText}
+            style={{ color: getColor(hourBranch) }}
+        >{hourBranch}</div>
+        <div className={styles.pillarTextLBorder}
+            style={{ color: getColor(selectedDayunGanzhi[1]) }}
+        >{selectedDayunGanzhi[1]}</div>
+        <div className={styles.pillarText}
+            style={{ color: getColor(selectedLiunianGanzhi[1]) }}
+        >{selectedLiunianGanzhi[1]}</div>
+        <div className={styles.pillarText}
+            style={{ color: getColor(selectedLiuyueGanzhi[1]) }}
+        >{selectedLiuyueGanzhi[1]}</div>
       </div>
 
       {/* Mobile View */}
@@ -116,8 +174,13 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
             
               {/* Data Section */}
               <div className="w-full p-2 text-center">
-                <p>{dayunGanZhi[index][0]}</p>
-                <p>{dayunGanZhi[index][1]}</p>
+                <p
+                  style={{ color: getColor(dayunGanZhi[index][0]) }}
+                >
+                  {dayunGanZhi[index][0]}</p>
+                <p
+                  style={{ color: getColor(dayunGanZhi[index][1]) }}
+                >{dayunGanZhi[index][1]}</p>
               </div>
             </button>
               ))}
@@ -143,8 +206,12 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
 
               {/* Data Section */}
               <div className="w-full p-2 text-center">
-                <p>{group[0]}</p>
-                <p>{group[1]}</p>
+                <p
+                  style={{ color: getColor(group[0]) }}
+                >{group[0]}</p>
+                <p
+                  style={{ color: getColor(group[1]) }}
+                >{group[1]}</p>
               </div>
             </button>
           ))}
@@ -169,8 +236,12 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
 
                 {/* Data Section */}
                 <div className="w-full p-2 text-center">
-                  <p>{group[0]}</p>
-                  <p>{group[1]}</p>
+                  <p
+                    style={{ color: getColor(group[0]) }}
+                  >{group[0]}</p>
+                  <p
+                    style={{ color: getColor(group[1]) }}
+                  >{group[1]}</p>
                 </div>
               </button>
             ))}
