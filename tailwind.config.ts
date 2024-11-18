@@ -11,6 +11,7 @@ module.exports = {
 			colors: {
 				'background': '#000000',
 				'foreground': '#FFFFFF',
+				'contact-bg': '#4164dd',
 				'bpStart': '#10A8EA',
 				'bpEnd': '#B21BF9',
 				'bStart': '#80EBF2',

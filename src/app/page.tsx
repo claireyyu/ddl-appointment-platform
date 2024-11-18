@@ -27,7 +27,7 @@ export default function Page() {
         </section>
       </div>
 
-      <div id="contact" className="min-h-screen bg-cover bg-center md:bg-[url(/home-bg-3.png)]">
+      <div id="contact" className="min-h-screen bg-cover bg-center bg-contact-bg md:bg-[url(/home-bg-3.png)]">
         <section className="min-h-screen flex">
           <div className="max-w-4xl md:w-1/2 flex items-center mx-4 md:mx-8 lg:mx-24">
             <ContactForm />
