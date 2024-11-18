@@ -35,7 +35,7 @@ export function BaziPaipan({ yearStem, yearBranch, monthStem, monthBranch, daySt
   return (
     <div className="flex flex-col items-center">
       {/* Bazi Content */}
-      <div className="hidden md:grid grid-cols-1 md:grid-cols-5 gap-4 p-2 bg-foreground rounded-custom-lg shadow-card">
+      <div className="hidden xl:grid grid-cols-1 xl:grid-cols-5 gap-4 p-2 bg-foreground rounded-custom-lg shadow-card">
         <div className={styles.pillarText}></div>
         <div className={styles.pillarText}>Year Pillar</div>
         <div className={styles.pillarText}>Month Pillar</div>
@@ -72,8 +72,8 @@ export function BaziPaipan({ yearStem, yearBranch, monthStem, monthBranch, daySt
       </div>
 
       {/* Mobile View */}
-      <div className="md:hidden flex flex-col ">
-        <p className={styles.mobilePillarText}>Year Pillar </p>
+      <div className="xl:hidden flex flex-col justify-center items-center flex-1">
+        <p className={styles.mobilePillarText}>Year Pillar</p>
         <p>Top Stem - {yearStem}<br />Bottom Branch - {yearBranch}</p>
         <p className={styles.mobilePillarText}>Month Pillar </p>
         <p>Top Stem - {monthStem}<br />Bottom Branch - {monthBranch}</p>

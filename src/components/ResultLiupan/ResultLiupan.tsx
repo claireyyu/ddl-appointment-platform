@@ -173,7 +173,7 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
               </div>
             
               {/* Data Section */}
-              <div className="w-full p-2 text-center">
+              <div className="w-full p-2 text-center space-y-2">
                 <p
                   style={{ color: getColor(dayunGanZhi[index][0]) }}
                 >
@@ -205,7 +205,7 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
               </div>
 
               {/* Data Section */}
-              <div className="w-full p-2 text-center">
+              <div className="w-full p-2 text-center space-y-2">
                 <p
                   style={{ color: getColor(group[0]) }}
                 >{group[0]}</p>
@@ -235,7 +235,7 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
                 </div>
 
                 {/* Data Section */}
-                <div className="w-full p-2 text-center">
+                <div className="w-full p-2 text-center space-y-2">
                   <p
                     style={{ color: getColor(group[0]) }}
                   >{group[0]}</p>

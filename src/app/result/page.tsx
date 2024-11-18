@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { type BaziResultData, type BaziPublicResultData } from '../../types/bazi';
 import ResultHeader from '../../components/ResultHeader/ResultHeader';
 import { BaziPaipan, BaziDetail } from '../../components/ResultPaipan/ResultPaipan';
@@ -16,6 +16,7 @@ export default function ResultPage() {
   const [activeTab, setActiveTab] = useState('bazi'); // New state to manage active tab
 
   const searchParams = useSearchParams();
+  const router = useRouter();
   const resultId = searchParams.get('id');
   const isAuthenticated = searchParams.get('auth') === '1';
   const [fetchedResult, setFetchedResult] = useState<BaziPublicResultData | null>(null);
@@ -30,8 +31,10 @@ export default function ResultPage() {
       try {
         getBaziResult(isAuthenticated, token, resultId).then((data) => {
           setFetchedResult(data);
+          router.replace(window.location.pathname);
         }
         );
+        
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -83,10 +86,10 @@ export default function ResultPage() {
       <ResultHeader name={name} birthYear={birthYear} birthMonth={birthMonth} birthDay={birthDay} birthHour={birthHour} birthMinute={birthMinute} lunarYear={lunarYear} lunarMonth={lunarMonth} lunarDay={lunarDay} />
 
       <div className="flex items-center justify-center md:grid grid-cols-6">
-        <div className="col-span-1 my-8 hidden md:flex flex-col items-stretch space-y-4 ml-8">
+        <div className="hidden col-span-1 my-8 xl:flex flex-col items-stretch space-y-4 ml-8">
           <ResultButtons activeTab={activeTab} setActiveTab={setActiveTab} />
         </div>
-        <div className="col-span-5 my-8 mr-4">
+        <div className="col-span-6 xl:col-span-5 my-8 mr-4">
           {activeTab === 'bazi' ? (
             <BaziPaipan
               yearStem={yearStem}
