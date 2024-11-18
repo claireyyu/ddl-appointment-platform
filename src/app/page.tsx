@@ -7,6 +7,7 @@ import HomeAbout from '../components/HomeAbout/HomeAbout'
 import HomeTraits from '../components/HomeTraits/HomeTraits';
 import homeTraitsPic from "../../public/home-traits.png";
 import Image from 'next/image'
+import HomeTraitsButtons from '../components/HomeTraitsButtons/HomeTraitsButtons';
 
 export default function Page() {
   return (
@@ -35,7 +36,8 @@ export default function Page() {
           <div className="col-span-3 md:col-span-2 flex flex-col justify-center mx-4 md:mx-8 lg:ml-24 my-8 lg:my-24">
             <HomeTraits />
           </div>
-          <Image src={homeTraitsPic} alt="Home Traits" className="hidden md:flex flex-col self-center justify-self-center md:col-span-1 md:mr-8 lg:mr-24" />
+          <HomeTraitsButtons />
+          {/* <Image src={homeTraitsPic} alt="Home Traits" className="hidden md:flex flex-col self-center justify-self-center md:col-span-1 md:mr-8 lg:mr-24" /> */}
         </section>
       </div>
 
