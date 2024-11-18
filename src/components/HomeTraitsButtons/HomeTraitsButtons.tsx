@@ -18,7 +18,7 @@ const HomeTraitsButtons = () => {
   };
 
   return (
-    <div className="bg-cover bg-center bg-[url(/home-traits.png)] h-[40vh] w-full md:h-[70vh] md:w-[70vh] grid grid-cols-3">
+    <div className="bg-cover bg-center bg-[url(/home-traits.png)] h-[40vh] w-full lg:h-[50vh] lg:w-[50vh] xl:h-[70vh] xl:w-[70vh] grid grid-cols-3">
       <div />
       <TraitButton trait="fire" onClick={handleOpenTraitModal} />
       <div />

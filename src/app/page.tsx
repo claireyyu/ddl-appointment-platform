@@ -13,41 +13,30 @@ export default function Page() {
   return (
     <div>
       {/* <Navbar/> */}
-      <div className="min-h-screen bg-cover bg-center bg-[url(/home-bg-1.png)] flex flex-col">
-        <section className="flex-1 flex flex-col xl:flex-row items-center p-4 xl:p-22">
+      <div className="min-h-screen bg-cover bg-center bg-[url(/home-bg-1-sm.png)] xl:bg-[url(/home-bg-1.png)] flex flex-col">
+        <section className="flex-1 flex flex-col xl:flex-row justify-center items-center p-4 xl:p-22">
           <span className="w-1/2 2xl:w-3/5" />
-          <div className="max-w-xl mx-auto lg:w-1/3 lg:ml-24">
+          <div className="max-w-xl mx-auto xl:w-1/3 xl:ml-24">
             <BaziCalculator />
           </div>
         </section>
       </div>
 
-      <div className="min-h-screen bg-cover bg-center md:bg-[url(/home-bg-2.png)]">
+      <div className="min-h-screen bg-cover bg-center xl:bg-[url(/home-bg-2.png)]">
         <section className="min-h-screen grid grid-cols-2 gap-4">
-          <div className="col-span-2 md:col-span-1 flex flex-col justify-center mx-4 md:mx-8 lg:ml-24 my-8 lg:my-24">
+          <div className="col-span-2 xl:col-span-1 flex flex-col justify-center mx-4 md:mx-8 lg:ml-24 my-8 lg:my-24">
             <HomeAbout />
           </div>
-          <span className="hidden md:block md:col-span-1" />
+          <span className="hidden xl:block xl:col-span-1" />
         </section>
       </div>
 
-      {/* <div className="min-h-screen bg-trait-bg">
-        <section className="min-h-screen flex flex-col md:grid grid-cols-3 gap-4">
-          <div className="flex-1 col-span-3 md:col-span-2 2xl:col-span-1 flex flex-col justify-center mx-4 md:mx-8 lg:ml-24 my-8 lg:my-24">
-            <HomeTraits />
-          </div>
-          <div className="flex-1 flex flex-col justify-center items-center md:col-span-1 md:mr-8 lg:mr-24 2xl:col-span-2">
-            <HomeTraitsButtons />
-          </div>
-          <Image src={homeTraitsPic} alt="Home Traits" className="hidden md:flex flex-col self-center justify-self-center md:col-span-1 md:mr-8 lg:mr-24" />
-        </section>
-      </div> */}
       <div className="min-h-screen bg-trait-bg">
-        <section className="min-h-screen flex flex-col md:flex-row">
-          <div className="flex-1 flex flex-col justify-center mx-4 md:mx-8 lg:ml-24 my-8 lg:my-24">
+        <section className="min-h-screen flex flex-col xl:flex-row">
+          <div className="flex-1 flex flex-col justify-center items-center mx-4 md:mx-8 xl:ml-24 my-8 lg:my-24">
             <HomeTraits />
           </div>
-          <div className="flex-1 flex justify-center items-center mx-4 md:mx-8 lg:mr-24">
+          <div className="flex-1 flex justify-center items-center mx-4 md:mx-8">
             <HomeTraitsButtons />
           </div>
         </section>
