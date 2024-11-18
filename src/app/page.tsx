@@ -31,13 +31,25 @@ export default function Page() {
         </section>
       </div>
 
-      <div className="min-h-screen bg-trait-bg">
-        <section className="min-h-screen grid grid-cols-3 gap-4">
-          <div className="col-span-3 md:col-span-2 flex flex-col justify-center mx-4 md:mx-8 lg:ml-24 my-8 lg:my-24">
+      {/* <div className="min-h-screen bg-trait-bg">
+        <section className="min-h-screen flex flex-col md:grid grid-cols-3 gap-4">
+          <div className="flex-1 col-span-3 md:col-span-2 2xl:col-span-1 flex flex-col justify-center mx-4 md:mx-8 lg:ml-24 my-8 lg:my-24">
             <HomeTraits />
           </div>
-          <HomeTraitsButtons />
-          {/* <Image src={homeTraitsPic} alt="Home Traits" className="hidden md:flex flex-col self-center justify-self-center md:col-span-1 md:mr-8 lg:mr-24" /> */}
+          <div className="flex-1 flex flex-col justify-center items-center md:col-span-1 md:mr-8 lg:mr-24 2xl:col-span-2">
+            <HomeTraitsButtons />
+          </div>
+          <Image src={homeTraitsPic} alt="Home Traits" className="hidden md:flex flex-col self-center justify-self-center md:col-span-1 md:mr-8 lg:mr-24" />
+        </section>
+      </div> */}
+      <div className="min-h-screen bg-trait-bg">
+        <section className="min-h-screen flex flex-col md:flex-row">
+          <div className="flex-1 flex flex-col justify-center mx-4 md:mx-8 lg:ml-24 my-8 lg:my-24">
+            <HomeTraits />
+          </div>
+          <div className="flex-1 flex justify-center items-center mx-4 md:mx-8 lg:mr-24">
+            <HomeTraitsButtons />
+          </div>
         </section>
       </div>
 

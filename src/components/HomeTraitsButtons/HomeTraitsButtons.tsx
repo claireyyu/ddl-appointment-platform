@@ -1,11 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from '../Modal/Modal';
+import TraitButton from '../TraitButton/TraitButton';
+import TraitModalContent from '../TraitModalContent/TraitModalContent';
 
-function HomeTraitsButtons() {
+const HomeTraitsButtons = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedTrait, setSelectedTrait] = useState('');
+
+  const handleOpenTraitModal = (trait) => {
+    setSelectedTrait(trait);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedTrait('');
+  };
+
   return (
-    <div className="bg-cover bg-center md:bg-[url(/home-traits.png)] md:flex self-center justify-self-center md:mr-8 lg:mr-24" style={{ height: '400px', width: '400px' }}>
+    <div className="bg-cover bg-center bg-[url(/home-traits.png)] h-[40vh] w-full md:h-[70vh] md:w-[70vh] grid grid-cols-3">
+      <div />
+      <TraitButton trait="fire" onClick={handleOpenTraitModal} />
+      <div />
+      <TraitButton trait="wood" onClick={handleOpenTraitModal} />
+      <div />
+      <TraitButton trait="earth" onClick={handleOpenTraitModal} />
+      <div className="col-span-3 grid grid-cols-2">
+        <TraitButton trait="water" onClick={handleOpenTraitModal} />
+        <TraitButton trait="metal" onClick={handleOpenTraitModal} />
+      </div>
 
+      {isModalOpen && (
+        <Modal isOpen={isModalOpen} onClose={handleCloseModal} bgColor="bg-white" maxWidth="max-w-2xl">
+          <TraitModalContent trait={selectedTrait} />
+        </Modal>
+      )}
     </div>
   );
-}
+};
 
 export default HomeTraitsButtons;

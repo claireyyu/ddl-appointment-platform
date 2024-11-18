@@ -1,0 +1,3 @@
+.listText {
+  @apply text-sm md:text-base xl:text-lg text-justify mb-2 lg:mb-4
+}
