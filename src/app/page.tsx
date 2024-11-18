@@ -4,6 +4,9 @@ import ContactForm from '../components/ContactForm/ContactForm';
 import TestimonialSlider from '../components/TestimonialSlider/TestimonialSlider';
 import Navbar from '../components/Navbar/Navbar';
 import HomeAbout from '../components/HomeAbout/HomeAbout'
+import HomeTraits from '../components/HomeTraits/HomeTraits';
+import homeTraitsPic from "../../public/home-traits.png";
+import Image from 'next/image'
 
 export default function Page() {
   return (
@@ -24,6 +27,15 @@ export default function Page() {
             <HomeAbout />
           </div>
           <span className="hidden md:block md:col-span-1" />
+        </section>
+      </div>
+
+      <div className="min-h-screen bg-trait-bg">
+        <section className="min-h-screen grid grid-cols-3 gap-4">
+          <div className="col-span-3 md:col-span-2 flex flex-col justify-center mx-4 md:mx-8 lg:ml-24 my-8 lg:my-24">
+            <HomeTraits />
+          </div>
+          <Image src={homeTraitsPic} alt="Home Traits" className="hidden md:flex flex-col self-center justify-self-center md:col-span-1 md:mr-8 lg:mr-24" />
         </section>
       </div>
 
