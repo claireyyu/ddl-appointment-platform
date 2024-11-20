@@ -10,8 +10,13 @@ import BaziFormFields from '../BaziFormFields/BaziFormFields';
 import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
 import { getPaipan, getCesuan, getJingpan } from '../../services/baziService';
 import { createPublicBaziResult, createUserBaziResult } from '../../services/resultService';
+import {useLocale, useTranslations} from 'next-intl';
+
 
 export default function BaziCalculator() {
+  const t = useTranslations('BaziCalculator');
+  const locale = useLocale();
+
   const { token, user, loading } = useAuth() as AuthContextType;
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -27,13 +32,6 @@ export default function BaziCalculator() {
   useEffect(() => {
     setError('');
   }, []);
-
-  // useEffect(() => {
-  //   if (!loading && user) {
-  //     console.log('User:', user);
-  //     console.log('Token:', token);
-  //   }
-  // }, [loading, user]);
 
   useEffect(() => {
 
@@ -143,7 +141,7 @@ export default function BaziCalculator() {
 
   return (
     <div>
-      <h1 className="text-sm md:text-base xl:text-lg text-center p-2 font-bold">Try the Bazi calculator and get your life decoded.</h1>
+      <h1 className="text-sm md:text-base xl:text-lg text-center p-2 font-bold">{t('title')}</h1>
       <form className="flex flex-col p-4 sm:p-6 md:p-8" onSubmit={handleSubmit}>
         <BaziFormFields formData={formData} handleChange={handleChange} timezones={timezones} />
 
@@ -158,8 +156,8 @@ export default function BaziCalculator() {
             >
 
               {isSubmitting ? (
-                <LoadingAnimation title="Decoding"/>
-              ) : 'Decode'}
+                <LoadingAnimation title={t('decoding')}/>
+              ) : t('decode')}
             </button>
           </div>
         </div>

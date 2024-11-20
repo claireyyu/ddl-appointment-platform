@@ -1,12 +1,15 @@
 import React, { ChangeEvent } from 'react';
 import { type BaziFormFieldsProps } from '../../types/bazi';
-
+import {useLocale, useTranslations} from 'next-intl';
 
 const BaziFormFields: React.FC<BaziFormFieldsProps> = ({ formData, timezones, handleChange }) => {
+  const t = useTranslations('BaziCalculator');
+  const locale = useLocale();
+
   return (
     <div className="flex flex-col justify-between">
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 mb-4">
-        <label htmlFor="name" className="p-2 text-sm md:text-base xl:text-lg">Name</label>
+        <label htmlFor="name" className="p-2 text-sm md:text-base xl:text-lg">{t('name')}</label>
         <input
           type="text"
           name="name"
@@ -19,7 +22,7 @@ const BaziFormFields: React.FC<BaziFormFieldsProps> = ({ formData, timezones, ha
       </div>
       
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 mb-4">
-        <label htmlFor="sex" className="p-2 text-sm md:text-base xl:text-lg ">Gender</label>
+        <label htmlFor="sex" className="p-2 text-sm md:text-base xl:text-lg ">{t('gender')}</label>
         <select
           name="sex"
           id="sex"
@@ -27,14 +30,14 @@ const BaziFormFields: React.FC<BaziFormFieldsProps> = ({ formData, timezones, ha
           className="p-2 col-span-1 sm:col-span-2 rounded-custom border-4 border-bStart text-black text-center"
           onChange={handleChange}
         >
-          <option value="">Select Gender</option>
-          <option value="female">Female</option>
-          <option value="male">Male</option>
+          <option value="">{t('selectGender')}</option>
+          <option value="female">{t('female')}</option>
+          <option value="male">{t('male')}</option>
         </select>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 mb-4">
-        <label htmlFor="birthDate" className="p-2 text-sm md:text-base xl:text-lg">Birth Date</label>
+        <label htmlFor="birthDate" className="p-2 text-sm md:text-base xl:text-lg">{t('birthDate')}</label>
         <input
           type="date"
           name="birthDate"
@@ -46,7 +49,7 @@ const BaziFormFields: React.FC<BaziFormFieldsProps> = ({ formData, timezones, ha
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 mb-4">
-        <label htmlFor="birthTime" className="p-2 text-sm md:text-base xl:text-lg">Birth Time</label>
+        <label htmlFor="birthTime" className="p-2 text-sm md:text-base xl:text-lg">{t('birthTime')}</label>
         <input
           type="time"
           name="birthTime"
@@ -58,7 +61,7 @@ const BaziFormFields: React.FC<BaziFormFieldsProps> = ({ formData, timezones, ha
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 mb-4">
-        <label htmlFor="timezone" className="p-2 text-sm md:text-base xl:text-lg">Timezone</label>
+        <label htmlFor="timezone" className="p-2 text-sm md:text-base xl:text-lg">{t('timezone')}</label>
         <select
           name="timezone"
           id="timezone"
@@ -66,8 +69,10 @@ const BaziFormFields: React.FC<BaziFormFieldsProps> = ({ formData, timezones, ha
           className="p-2 col-span-1 sm:col-span-2 rounded-custom border-4 border-bStart text-black text-center"
           onChange={handleChange}
         >
-          <option value="">Select Timezone</option>
-          {timezones.map((tz: { value: string; label: string }) => (
+          <option value="">{t('selectTimezone')}</option>
+          {locale == 'en' ? timezones[0].data.map((tz: { value: string; label: string }) => (
+            <option key={tz.value} value={tz.value}>{tz.label}</option>
+          )) : timezones[1].data.map((tz: { value: string; label: string }) => (
             <option key={tz.value} value={tz.value}>{tz.label}</option>
           ))}
         </select>
