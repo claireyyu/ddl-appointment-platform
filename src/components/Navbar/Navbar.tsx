@@ -7,8 +7,13 @@ import logo from '../../../public/logo.png';
 import { useAuth } from '../../contexts/AuthContext';
 import AccountDropdownButton from '../AccountDropdown/AccountDropdown';
 import LoginModal from '../LoginModal/LoginModal';
+import {useLocale, useTranslations} from 'next-intl';
+
 
 export default function Navbar() {
+  const t = useTranslations('NavBar');
+  const locale = useLocale();
+
   const { token, logout } = useAuth();
   const [position, setPosition] = useState("english");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,10 +40,10 @@ export default function Navbar() {
         </Link>
 
         <div className="col-span-2 2xl:col-span-2 hidden xl:flex items-center justify-evenly gap-12">
-          <Link href="/" className="hover:-translate-y-0.5 transition-transform duration-200">Home</Link>
-          <Link href="/services" className="hover:-translate-y-0.5 transition-transform duration-200">Services</Link>
-          <Link href="/about" className="hover:-translate-y-0.5 transition-transform duration-200">About</Link>
-          <Link href="/#contact" className="hover:-translate-y-0.5 transition-transform duration-200">Contact</Link>
+          <Link href="/" className="hover:-translate-y-0.5 transition-transform duration-200">{t('home')}</Link>
+          <Link href="/services" className="hover:-translate-y-0.5 transition-transform duration-200">{t('services')}</Link>
+          <Link href="/about" className="hover:-translate-y-0.5 transition-transform duration-200">{t('about')}</Link>
+          <Link href="/#contact" className="hover:-translate-y-0.5 transition-transform duration-200">{t('contact')}</Link>
         </div>
 
         <div className="col-span-1 flex justify-center items-center gap-12">
@@ -49,7 +54,7 @@ export default function Navbar() {
               className="hidden xl:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base px-4 py-2 rounded-custom hover:opacity-90 cursor-pointer" 
               onClick={() => setIsModalOpen(true)}
             >
-              Login
+              {t('login')}
             </button>
           )}
           <button className="hidden xl:flex sticky cursor-pointer items-center text-foreground border-none focus bg-transparent">
@@ -68,16 +73,16 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="xl:hidden flex flex-col items-center bg-background text-foreground p-4 space-y-4">
-          <Link href="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
-          <Link href="/services" onClick={() => setIsMenuOpen(false)}>Services</Link>
-          <Link href="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
-          <Link href="/#contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+          <Link href="/" onClick={() => setIsMenuOpen(false)}>{t('home')}</Link>
+          <Link href="/services" onClick={() => setIsMenuOpen(false)}>{t('services')}</Link>
+          <Link href="/about" onClick={() => setIsMenuOpen(false)}>{t('about')}</Link>
+          <Link href="/#contact" onClick={() => setIsMenuOpen(false)}>{t('contact')}</Link>
 
           <button 
             className="bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground p-2 rounded-xl" 
             onClick={handleMobileToProfile}
           >
-            {token ? 'My Account' : 'Login'}
+            {token ? t('myAccount') : t('login')}
           </button>
 
           {token && <button onClick={logout}>Logout</button>}

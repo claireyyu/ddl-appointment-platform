@@ -6,21 +6,13 @@ type Props = {
   params: {locale: string};
 };
 
-export default function IndexPage({params: {locale}}: Props) {
+export default function HomePage({params: {locale}}: Props) {
   // Enable static rendering
   setRequestLocale(locale);
 
-  const t = useTranslations('IndexPage');
+  const t = useTranslations('HomePage');
 
   return (
-    <PageLayout title={t('title')}>
-      <p className="max-w-[590px]">
-        {t.rich('description', {
-          code: (chunks) => (
-            <code className="font-mono text-white">{chunks}</code>
-          )
-        })}
-      </p>
-    </PageLayout>
+    <p>{t('title')}</p>
   );
 }

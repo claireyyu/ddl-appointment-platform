@@ -2,15 +2,15 @@ import {createNavigation} from 'next-intl/navigation';
 import {defineRouting} from 'next-intl/routing';
 
 export const routing = defineRouting({
-  locales: ['en', 'de'],
+  locales: ['en', 'zh'],
   defaultLocale: 'en',
-  pathnames: {
-    '/': '/',
-    '/pathnames': {
-      en: '/pathnames',
-      de: '/pfadnamen'
-    }
-  }
+  // pathnames: {
+  //   '/': '/',
+  //   '/pathnames': {
+  //     en: '/pathnames',
+  //     zh: '/pfadnamen'
+  //   }
+  // }
 });
 
 export type Pathnames = keyof typeof routing.pathnames;

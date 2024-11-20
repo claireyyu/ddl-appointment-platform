@@ -3,12 +3,21 @@
     "description": "<p>Es ist leider ein Problem aufgetreten.</p><p>Du kannst versuchen <retry>diese Seite neu zu laden</retry>.</p>",
     "title": "Etwas ist schief gelaufen!"
   },
-  "IndexPage": {
+  "HomePage": {
     "description": "Dies ist ein Beispiel, das die Verwendung von <code>next-intl</code> mit dem Next.js App Router demonstriert. Bei Ändern der Sprache rechts oben ändert sich der Inhalt dieser Seite.",
-    "title": "next-intl Beispiel"
+    "title": "这是标题"
+  },
+  "NavBar": {
+    "home": "主页",
+    "services": "服务",
+    "about": "关于我们",
+    "contact": "联系我们",
+    "login": "登录",
+    "myAccount": "账号"
   },
   "LocaleLayout": {
-    "title": "next-intl Beispiel"
+    "title": "Lab8",
+    "description": "欢迎使用八字工具"
   },
   "LocaleSwitcher": {
     "label": "Sprache ändern",
@@ -29,7 +38,7 @@
   "PageLayout": {
     "links": {
       "docs": {
-        "description": "Erfahre mehr über next-intl in der offiziellen Dokumentation.",
+        "description": "未找到页面",
         "href": "https://next-intl-docs.vercel.app/",
         "title": "Dokumentation"
       },
