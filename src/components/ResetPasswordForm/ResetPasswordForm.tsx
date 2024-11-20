@@ -1,7 +1,17 @@
 import { useState } from 'react';
 import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
+import { useTranslations } from 'next-intl';
 
-export default function ResetPasswordForm({ accountFormData, handleAccountFormChange, handleSendVerificationCode, handleVerifyCode, handleResetPassword, setIsChangingPassword, errorMessage }) {
+export default function ResetPasswordForm({
+  accountFormData,
+  handleAccountFormChange,
+  handleSendVerificationCode,
+  handleVerifyCode,
+  handleResetPassword,
+  setIsChangingPassword,
+  errorMessage,
+}) {
+  const t = useTranslations('ResetPasswordForm'); // Namespace for translations
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isCodeSent, setIsCodeSent] = useState(false);
   const [isCodeVerified, setIsCodeVerified] = useState(false);
@@ -14,8 +24,8 @@ export default function ResetPasswordForm({ accountFormData, handleAccountFormCh
     const success = await handleSendVerificationCode();
     if (success) {
       setIsCodeSent(true);
-      setIsSubmitting(false);
     }
+    setIsSubmitting(false);
   };
 
   const handleConfirmCode = async () => {
@@ -34,79 +44,83 @@ export default function ResetPasswordForm({ accountFormData, handleAccountFormCh
 
   return (
     <div className="text-background flex flex-col justify-center items-center p-24">
-      {!isCodeSent && 
-        (<div className="flex flex-col min-w-64">
-        <h1 className="text-2xl text-center mb-4">Reset Password</h1>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          className="p-2 rounded-custom bg-foreground text-background border-4 border-bStart"
-          value={accountFormData.email}
-          onChange={handleAccountFormChange}
-        />
-        <button
-          className={`w-full bg-gradient-to-r from-bStart to-bEnd text-white py-2 rounded-lg mt-8 shadow-button hover:opacity-90 ${isSubmitting ? 'cursor-not-allowed' : ''}`}
-          onClick={handleSendCode}
-          disabled={isSubmitting}
-        >
-         {isSubmitting ? (
-            <LoadingAnimation title="Sending"/>
-          ) : 'Send Verification Code'}
-        </button>
-        </div>)
-      }
-
-      {isCodeSent && !isCodeVerified &&
-        (<div className="flex flex-col min-w-64">
-        <h1 className="text-2xl text-center mb-4">Verify Code</h1>
-        <input
-          type="text"
-          name="verificationCode"
-          placeholder="Verification Code"
-          className="p-2 rounded-custom bg-foreground text-background border-4 border-bStart"
-          value={verificationCode}
-          onChange={(e) => setVerificationCode(e.target.value)}
-        />
-        <button
-          className="w-full bg-gradient-to-r from-bStart to-bEnd text-white py-2 rounded-lg mt-8 shadow-button hover:opacity-90"
-          onClick={handleConfirmCode}
+      {!isCodeSent && (
+        <div className="flex flex-col min-w-64">
+          <h1 className="text-2xl text-center mb-4">{t('resetPassword')}</h1>
+          <input
+            type="email"
+            name="email"
+            placeholder={t('emailPlaceholder')}
+            className="p-2 rounded-custom bg-foreground text-background border-4 border-bStart"
+            value={accountFormData.email}
+            onChange={handleAccountFormChange}
+          />
+          <button
+            className={`w-full bg-gradient-to-r from-bStart to-bEnd text-white py-2 rounded-lg mt-8 shadow-button hover:opacity-90 ${
+              isSubmitting ? 'cursor-not-allowed' : ''
+            }`}
+            onClick={handleSendCode}
+            disabled={isSubmitting}
           >
-          Confirm Code
-        </button>
-        <button className="text-center cursor-pointer mt-4" onClick={handleSendCode}>Resend Code</button>
-        </div>)
-      }
+            {isSubmitting ? <LoadingAnimation title={t('sending')} /> : t('sendVerificationCode')}
+          </button>
+        </div>
+      )}
 
-      {isCodeVerified &&
-        (<div className="flex flex-col min-w-64">
-        <h1 className="text-2xl text-center mb-4">Change Password</h1>
-        <input
-          type="password"
-          name="newPassword"
-          placeholder="New Password"
-          className="p-2 rounded-custom bg-foreground text-background border-4 border-bStart mb-4"
-          value={newPassword}
-          onChange={(e) => setNewPassword(e.target.value)}
-        />
-        <input
-          type="password"
-          name="confirmPassword"
-          placeholder="Confirm New Password"
-          className="p-2 rounded-custom bg-foreground text-background border-4 border-bStart"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
-        <button
-          className={`w-full bg-gradient-to-r from-bStart to-bEnd text-white py-2 rounded-lg mt-8 shadow-button hover:opacity-90 ${!isCodeSent ? 'd' : ''}`}
-          onClick={handleChangePassword}
+      {isCodeSent && !isCodeVerified && (
+        <div className="flex flex-col min-w-64">
+          <h1 className="text-2xl text-center mb-4">{t('verifyCode')}</h1>
+          <input
+            type="text"
+            name="verificationCode"
+            placeholder={t('verificationCodePlaceholder')}
+            className="p-2 rounded-custom bg-foreground text-background border-4 border-bStart"
+            value={verificationCode}
+            onChange={(e) => setVerificationCode(e.target.value)}
+          />
+          <button
+            className="w-full bg-gradient-to-r from-bStart to-bEnd text-white py-2 rounded-lg mt-8 shadow-button hover:opacity-90"
+            onClick={handleConfirmCode}
           >
-          Confirm Change
-        </button>
-        </div>)
-      }
+            {t('confirmCode')}
+          </button>
+          <button className="text-center cursor-pointer mt-4" onClick={handleSendCode}>
+            {t('resendCode')}
+          </button>
+        </div>
+      )}
 
-      <button className="text-start cursor-pointer mt-4" onClick={() => setIsChangingPassword(false)}>Back to Sign In</button>
+      {isCodeVerified && (
+        <div className="flex flex-col min-w-64">
+          <h1 className="text-2xl text-center mb-4">{t('changePassword')}</h1>
+          <input
+            type="password"
+            name="newPassword"
+            placeholder={t('newPasswordPlaceholder')}
+            className="p-2 rounded-custom bg-foreground text-background border-4 border-bStart mb-4"
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
+          />
+          <input
+            type="password"
+            name="confirmPassword"
+            placeholder={t('confirmPasswordPlaceholder')}
+            className="p-2 rounded-custom bg-foreground text-background border-4 border-bStart"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+          <button
+            className={`w-full bg-gradient-to-r from-bStart to-bEnd text-white py-2 rounded-lg mt-8 shadow-button hover:opacity-90`}
+            onClick={handleChangePassword}
+          >
+            {t('confirmChange')}
+          </button>
+        </div>
+      )}
+
+      <button className="text-start cursor-pointer mt-4" onClick={() => setIsChangingPassword(false)}>
+        {t('backToSignIn')}
+      </button>
 
       {errorMessage && <p className="text-red-500 mt-4">{errorMessage}</p>}
     </div>

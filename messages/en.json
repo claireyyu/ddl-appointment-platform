@@ -14,6 +14,68 @@
   "Footer": {
     "description": "Ⓒ 2024 Lab 8. All rights reserved."
   },
+
+  "SignInForm": {
+    "title": "Sign In",
+    "noAccount": "Don't have an account?",
+    "signUp": "Sign Up",
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Password",
+    "forgotPassword": "Forgot Password?",
+    "signInButton": "Sign In",
+    "or": "Or",
+    "googleAlt": "Google Logo",
+    "continueWithGoogle": "Continue with Google"
+  },
+  "CreateAccountForm": {
+    "title": "Create Account",
+    "haveAccount": "Already have an account?",
+    "signIn": "Sign In",
+    "placeholders": {
+      "username": "Username",
+      "email": "Email",
+      "password": "Password"
+    },
+    "createAccountButton": "Create Account",
+    "or": "Or",
+    "googleAlt": "Google Logo",
+    "continueWithGoogle": "Continue with Google"
+  },
+  "ResetPasswordForm": {
+    "resetPassword": "Reset Password",
+    "emailPlaceholder": "Email",
+    "sendVerificationCode": "Send Verification Code",
+    "sending": "Sending...",
+    "verifyCode": "Verify Code",
+    "verificationCodePlaceholder": "Verification Code",
+    "confirmCode": "Confirm Code",
+    "resendCode": "Resend Code",
+    "changePassword": "Change Password",
+    "newPasswordPlaceholder": "New Password",
+    "confirmPasswordPlaceholder": "Confirm New Password",
+    "confirmChange": "Confirm Change",
+    "backToSignIn": "Back to Sign In"
+  },
+  "LoginModal": {
+    "errors": {
+      "completeFields": "Please complete all fields.",
+      "passwordTooShort": "Password must be at least 6 characters long.",
+      "signupFailed": "Signup failed. Please try again.",
+      "loginFailed": "Login failed. Please check your credentials.",
+      "enterEmail": "Please enter your email.",
+      "verificationFailed": "Failed to send verification code. Please try again.",
+      "enterVerificationCode": "Please enter the verification code.",
+      "passwordMismatch": "Passwords do not match.",
+      "passwordResetFailed": "Failed to reset password. Please try again."
+    },
+    "success": {
+      "accountCreated": "Account created successfully!",
+      "verificationSent": "Verification code sent to your email.",
+      "passwordReset": "Password reset successfully!"
+    }
+  },
+
+
   "BaziCalculator": {
     "title": "Try the Bazi calculator and get your life decoded.",
     "name": "Name",
@@ -28,12 +90,16 @@
     "decode": "Decode",
     "decoding": "Decoding..."
   },
+
+
   "HomeAbout": {
     "title": "WHAT IS BAZI?",
     "paragraph1": "Bazi, or 'Eight Characters,' is a traditional Chinese system that analyzes a person's destiny based on their birth date and time. It consists of four pairs of 'Top Stems' and 'Bottom Branches,' which represent the year, month, day, and hour of birth.",
     "paragraph2": "Rooted in ancient Chinese philosophy and metaphysics, Bazi has origins that trace back over 3,000 years. The system provides insights into various aspects of life, including personality, relationships, career, and health, by examining the interactions of the Five Elements (Wood, Fire, Earth, Metal, Water) and the balance of Yin and Yang.",
     "learnMore": "Learn More"
   },
+
+
   "HomeTraits": {
     "title": "Traits of Five Elements",
     "metal": "Metal: Thrives in structured, rule-based environments and values efficiency and justice.",
@@ -97,5 +163,120 @@
     },
     "invalidTrait": "Invalid trait selected.",
     "personalityCharacteristics": "Personality Characteristics"
+  },
+
+
+  "ContactForm": {
+    "title": "Contact Us",
+    "description": "Have a question, need more information, or interested in a partnership? Share your details below, and we'll get back to you as soon as possible!",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send",
+    "submissionReceived": "Your submission has been received. Thank you!"
+  },
+
+
+  "Testimonials": {
+    "reviews": [
+      {
+        "id": 1,
+        "image": "https://images.unsplash.com/photo-1605462863863-10d9e47e15ee?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "name": "John Doe",
+        "text": "I was extremely pleased with the quality of the product. It exceeded my expectations and provided great value for the price."
+      },
+      {
+        "id": 2,
+        "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "name": "Jane Smith",
+        "text": "The customer service was excellent. They were responsive and helpful throughout the entire process, making it a smooth experience for me."
+      },
+      {
+        "id": 3,
+        "image": "https://images.unsplash.com/photo-1463453091185-61582044d556?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "name": "Alex Johnson",
+        "text": "The attention to detail in their work is impressive. Every aspect of the project was handled with precision and care. I highly recommend their services."
+      },
+      {
+        "id": 4,
+        "image": "https://plus.unsplash.com/premium_photo-1671823917954-dc943c1bd9df?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "name": "Emily Davis",
+        "text": "The team demonstrated a deep understanding of my requirements. They were able to capture the essence of my vision and deliver a product that exceeded my expectations."
+      },
+      {
+        "id": 5,
+        "image": "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?q=80&w=1776&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "name": "David Miller",
+        "text": "The product not only met but exceeded my expectations. It's clear that the team is dedicated to delivering high-quality work. I'm a satisfied customer."
+      }
+    ],
+    "summary": "Rated 4.6/5 based on 121 reviews. Showing our 4 & 5 star reviews."
+  },
+
+
+  "ServicesPage": {
+    "title": "Services",
+    "description": "At Lab 8, we offer a variety of services designed to help you gain deep insights into your life's path using the ancient wisdom of BaZi (Chinese Astrology) and psychic guidance. Whether you're seeking clarity, personal growth, or a fresh perspective on your future, our services are tailored to empower you in achieving success and fulfillment.\n\nExplore our services below.",
+    "services": {
+      "singleQuestion": "Single Question\nReading",
+      "currentYear": "Current Year\nBaZi Interpretation",
+      "lifetime": "Lifetime BaZi\nInterpretation",
+      "psychic": "Psychic Reading"
+    }
+  },
+  "PersonalReading": {
+    "imageAlt": "Service",
+    "intro": "Are you seeking guidance on your career, relationships, or other life challenges? Receive a personalized reading delivered straight to your inbox within one business day. Our service offers quick and insightful answers to your pressing questions, using time-honored Chinese methods.",
+    "price": {
+      "standard": "Standard Price: USD 45",
+      "promo": "Promo Price: USD 9.9"
+    },
+    "paymentMethod": {
+      "title": "Payment Method",
+      "paypal": "PayPal",
+      "wechat": "WeChat",
+      "alipay": "AliPay"
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "steps": {
+        "purchase": "Purchase: Make your payment via PayPal, WeChat, or Alipay.",
+        "email": "Email Us: Send an email to xxx@gmail.com with your payment reference number or a screenshot of the transaction.",
+        "prepareQuestion": "Prepare Your Question: Meditate on your question for 3 minutes. Provide three integer numbers (between 1-999) along with your question. Optional: You can also include background information for a more thorough interpretation.",
+        "restrictions": "Restrictions: We do not address questions related to medical health, death, or legal matters.",
+        "receiveAnswer": "Receive Your Answer: Your reading will be emailed to you within one business day. Please check your spam or junk folder if you don't see it in your inbox."
+      }
+    },
+    "note": "Note: This is a written service conducted exclusively via email. Your privacy is our priority—all readings are conducted with complete confidentiality."
+  },
+
+  "AboutPage": {
+    "title": "About",
+    "intro": "At Lab 8, the number '8' symbolizes both the 'Ba' (八) in BaZi and the infinity symbol (∞), reflecting our belief in the limitless potential within each individual. We are here to guide you through life's possibilities, helping you navigate challenges with clarity and wisdom.",
+    "baziExplanation": "We utilize the ancient wisdom of BaZi, or the 'Four Pillars of Destiny,' to unlock a deeper understanding of your life's path, personality, and potential. BaZi is a Chinese metaphysical system that interprets universal energies through the interaction of the Five Elements (Wood, Fire, Earth, Metal, and Water) and Yin-Yang forces, shaping your life experiences from birth.",
+    "birthChartIntro": "Central to BaZi is your birth chart, a unique map based on the date and time of your birth. This chart is made up of four pillars, with each pillar consisting of a Top Stem and a Bottom Branch:",
+    "imageAlt": "About",
+    "fourPillarsTitle": "Meaning of the Four Pillars",
+    "yearPillar": {
+      "title": "Year Pillar",
+      "description": "Heavenly Stem: Represents the influence of grandparents or family elders, reflecting a person's family background and early environment. Earthly Branch: Reflects innate constitution and hereditary factors, symbolizing growth and foundations during adolescence."
+    },
+    "monthPillar": {
+      "title": "Month Pillar",
+      "description": "Heavenly Stem: Represents parents, leaders, or supervisors, symbolizing early career development and social status in adulthood. Earthly Branch: Reflects interactions with family and work environment, as well as life state and interpersonal relationships during middle age."
+    },
+    "dayPillar": {
+      "title": "Day Pillar",
+      "description": "Heavenly Stem: Represents the individual, directly reflecting the person's character and health based on its elemental attributes. Earthly Branch: Represents the spouse and marriage status, indicating partner relationships and family interactions."
+    },
+    "hourPillar": {
+      "title": "Hour Pillar",
+      "description": "Heavenly Stem: Symbolizes children, reflecting the relationship with them and predicting the state of later life. Earthly Branch: Represents a person's achievements and living environment in later years, reflecting later life fortunes and interactions with descendants."
+    },
+    "fourPillarsSummary": "In summary, the Year Pillar influences early life, the Month Pillar impacts middle age, the Day Pillar is closely related to the individual and marriage, while the Hour Pillar affects later life fortunes and relationships with children. Together, these four pillars form a person's BaZi chart, helping to interpret their life's fortunes, character, and significant events.",
+    "missionTitle": "Our Mission",
+    "missionDescription1": "At Lab 8, we are dedicated to helping you uncover your life's potential through personalized BaZi readings. With years of experience and deep knowledge of Chinese metaphysics, we offer clear guidance to help you live in harmony and happiness.",
+    "missionDescription2": "Whether you're seeking clarity on a specific issue or a comprehensive understanding of your life's journey, we are here to support you with insightful interpretations and practical advice."
   }
 }

@@ -14,6 +14,67 @@
   "Footer": {
     "description": "Ⓒ 2024 Lab 8 版权所有"
   },
+
+  "SignInForm": {
+    "title": "登录",
+    "noAccount": "还没有账户？",
+    "signUp": "注册",
+    "emailPlaceholder": "电子邮件",
+    "passwordPlaceholder": "密码",
+    "forgotPassword": "忘记密码？",
+    "signInButton": "登录",
+    "or": "或者",
+    "googleAlt": "谷歌标志",
+    "continueWithGoogle": "使用 Google 登录"
+  },
+  "CreateAccountForm": {
+    "title": "创建账户",
+    "haveAccount": "已经有账户了？",
+    "signIn": "登录",
+    "placeholders": {
+      "username": "用户名",
+      "email": "电子邮件",
+      "password": "密码"
+    },
+    "createAccountButton": "创建账户",
+    "or": "或者",
+    "googleAlt": "谷歌标志",
+    "continueWithGoogle": "通过 Google 登录"
+  },
+  "ResetPasswordForm": {
+    "resetPassword": "重置密码",
+    "emailPlaceholder": "电子邮件",
+    "sendVerificationCode": "发送验证码",
+    "sending": "发送中...",
+    "verifyCode": "验证验证码",
+    "verificationCodePlaceholder": "验证码",
+    "confirmCode": "确认验证码",
+    "resendCode": "重新发送验证码",
+    "changePassword": "更改密码",
+    "newPasswordPlaceholder": "新密码",
+    "confirmPasswordPlaceholder": "确认新密码",
+    "confirmChange": "确认更改",
+    "backToSignIn": "返回登录"
+  }, 
+  "LoginModal": {
+    "errors": {
+      "completeFields": "请填写所有字段。",
+      "passwordTooShort": "密码必须至少6个字符。",
+      "signupFailed": "注册失败。请再试一次。",
+      "loginFailed": "登录失败。请检查您的凭据。",
+      "enterEmail": "请输入您的电子邮件。",
+      "verificationFailed": "验证码发送失败。请再试一次。",
+      "enterVerificationCode": "请输入验证码。",
+      "passwordMismatch": "密码不匹配。",
+      "passwordResetFailed": "密码重置失败。请再试一次。"
+    },
+    "success": {
+      "accountCreated": "账户创建成功！",
+      "verificationSent": "验证码已发送到您的电子邮件。",
+      "passwordReset": "密码重置成功！"
+    }
+  }, 
+
   "BaziCalculator": {
     "title": "欢迎使用八字计算器",
     "name": "姓名",
@@ -28,12 +89,16 @@
     "decode": "解读",
     "decoding": "请稍候..."
   },
+
+  
   "HomeAbout": {
     "title": "什么是八字？",
     "paragraph1": "八字，又称“八个字符”，是一种传统的中国系统，通过分析一个人的出生日期和时间来解读其命运。它由四组“天干”和“地支”组成，分别代表出生的年份、月份、日期和时辰。",
     "paragraph2": "八字起源于中国古代哲学和玄学，其历史可以追溯到3000多年前。通过研究五行（金、木、水、火、土）的相互作用以及阴阳的平衡，八字系统可以洞察生活的各个方面，包括性格、关系、职业和健康。",
     "learnMore": "详情"
   },
+
+
   "HomeTraits": {
     "title": "五行的特质",
     "metal": "金：适合规则与秩序的领域，强调效率和正义。",
@@ -97,5 +162,121 @@
     },
     "invalidTrait": "选择的特质无效。",
     "personalityCharacteristics": "性格特征"
+  },
+
+
+  "ContactForm": {
+    "title": "联系我们",
+    "description": "有任何问题、需要更多信息，或有合作意向？请在下方填写您的信息，我们会尽快回复您！",
+    "name": "姓名",
+    "email": "电子邮件",
+    "subject": "主题",
+    "message": "消息",
+    "send": "发送",
+    "submissionReceived": "您的提交已收到。谢谢！"
+  },
+
+
+  "Testimonials": {
+    "reviews": [
+      {
+        "id": 1,
+        "image": "https://images.unsplash.com/photo-1605462863863-10d9e47e15ee?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "name": "张伟",
+        "text": "我对产品的质量感到非常满意。它超出了我的预期，并且提供了很高的性价比。"
+      },
+      {
+        "id": 2,
+        "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "name": "李芳",
+        "text": "客户服务非常出色。他们在整个过程中响应迅速且乐于助人，使我的体验非常顺畅。"
+      },
+      {
+        "id": 3,
+        "image": "https://images.unsplash.com/photo-1463453091185-61582044d556?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "name": "王强",
+        "text": "他们工作的细节处理令人印象深刻。项目的每个方面都被精心处理。我强烈推荐他们的服务。"
+      },
+      {
+        "id": 4,
+        "image": "https://plus.unsplash.com/premium_photo-1671823917954-dc943c1bd9df?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "name": "赵丽",
+        "text": "团队展示了对我需求的深刻理解。他们能够捕捉我的愿景的本质，并交付了超出我预期的产品。"
+      },
+      {
+        "id": 5,
+        "image": "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?q=80&w=1776&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "name": "刘杰",
+        "text": "产品不仅满足了我的期望，还超出了我的预期。显然，这个团队致力于交付高质量的工作。我是一个满意的客户。"
+      }
+    ],
+    "summary": "基于121条评论的评分为4.6/5。正在展示我们的4星和5星评论。"
+  },
+
+
+  "ServicesPage": {
+    "title": "服务",
+    "description": "在 Lab 8，我们提供多种服务，旨在帮助您通过古老的八字（中国占星术）智慧和心理引导，深入了解您的人生道路。无论您是寻求清晰的方向、个人成长，还是对未来的新视角，我们的服务旨在帮助您获得成功与满足。\n\n探索以下服务。",
+    "services": {
+      "singleQuestion": "单个问题\n解读",
+      "currentYear": "当年八字\n解读",
+      "lifetime": "一生八字\n解读",
+      "psychic": "心理解读"
+    }
+  },
+  "PersonalReading": {
+    "imageAlt": "服务",
+    "intro": "您是否正在寻找关于职业、人际关系或其他生活挑战的指导？在一个工作日内，我们将为您提供个性化的解读，直接发送至您的邮箱。我们的服务提供快速且深刻的答案，基于久经考验的中国传统方法。",
+    "price": {
+      "standard": "标准价格：USD 45",
+      "promo": "促销价格：USD 9.9"
+    },
+    "paymentMethod": {
+      "title": "付款方式",
+      "paypal": "PayPal",
+      "wechat": "微信支付",
+      "alipay": "支付宝"
+    },
+    "howItWorks": {
+      "title": "操作指南",
+      "steps": {
+        "purchase": "购买：通过 PayPal、微信或支付宝付款。",
+        "email": "发送邮件：将付款参考号或交易截图发送到 xxx@gmail.com。",
+        "prepareQuestion": "准备您的问题：冥想您的问题 3 分钟。提供三个整数（介于 1-999）以及您的问题。可选：您还可以提供背景信息，以便我们更全面地解读。",
+        "restrictions": "限制：我们不解答与医疗健康、死亡或法律事务相关的问题。",
+        "receiveAnswer": "接收您的答案：您的解读将在一个工作日内通过电子邮件发送给您。如果您未在收件箱中看到，请检查垃圾邮件文件夹。"
+      }
+    },
+    "note": "注意：这是一项仅通过电子邮件进行的书面服务。您的隐私是我们的首要任务——所有解读均在完全保密的情况下进行。"
+  },
+
+  "AboutPage": {
+    "title": "关于我们",
+    "intro": "在 Lab 8，数字“8”既象征八字中的“八”，也象征无限符号（∞），体现了我们对每个人无限潜力的信念。我们在这里引导您探索生活的可能性，帮助您以清晰和智慧应对挑战。",
+    "baziExplanation": "我们利用八字或“四柱命理”的古老智慧，深入解读您的生命道路、个性和潜力。八字是一种中国玄学系统，通过五行（金、木、水、火、土）和阴阳力量的相互作用，解读宇宙能量，塑造您从出生开始的生命经历。",
+    "birthChartIntro": "八字的核心是您的出生图，这是基于您的出生日期和时间的独特地图。这个图由四根柱子组成，每根柱子由一个天干和一个地支组成：",
+    "imageAlt": "关于我们",
+    "fourPillarsTitle": "四柱的意义",
+    "yearPillar": {
+      "title": "年柱",
+      "description": "天干：代表祖父母或家族长辈的影响，反映一个人的家庭背景和早期环境。地支：反映先天体质和遗传因素，象征青少年时期的成长和基础。"
+    },
+    "monthPillar": {
+      "title": "月柱",
+      "description": "天干：代表父母、领导或主管，象征职业发展的早期阶段和成年后的社会地位。地支：反映与家庭和工作环境的互动，以及中年时期的生活状态和人际关系。"
+    },
+    "dayPillar": {
+      "title": "日柱",
+      "description": "天干：代表个人，直接反映一个人的性格和健康状况。地支：代表配偶和婚姻状况，表明伴侣关系和家庭互动。"
+    },
+    "hourPillar": {
+      "title": "时柱",
+      "description": "天干：象征子女，反映与他们的关系，并预测晚年的状态。地支：代表一个人晚年的成就和生活环境，反映晚年运势和与后代的互动。"
+    },
+    "fourPillarsSummary": "总而言之，年柱影响早年生活，月柱影响中年，日柱与个人和婚姻密切相关，而时柱影响晚年的运势和与子女的关系。这四根柱子共同构成了一个人的八字图，帮助解读他们的命运、性格和重要事件。",
+    "missionTitle": "我们的使命",
+    "missionDescription1": "在 Lab 8，我们致力于通过个性化的八字解读，帮助您发现生命的潜力。凭借多年的经验和对中国玄学的深入了解，我们提供清晰的指导，帮助您和谐快乐地生活。",
+    "missionDescription2": "无论您是想解决具体问题，还是全面了解自己的人生旅程，我们都将通过深刻的解读和实用的建议全力支持您。"
   }
+
 }
