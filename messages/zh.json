@@ -3,6 +3,13 @@
     "title": "Lab8",
     "description": "欢迎使用八字工具"
   },
+  "LocaleSwitcher": {
+    "label": "选择语言",
+    "locale": {
+      "en": "英语",
+      "zh": "中文"
+    }
+  },
   "NavBar": {
     "home": "主页",
     "services": "服务",

@@ -3,6 +3,13 @@
     "title": "Lab8",
     "description": "Decode your bazi with Lab8!"
   },
+  "LocaleSwitcher": {
+    "label": "Select your language",
+    "locale": {
+      "en": "English",
+      "zh": "中文"
+    }
+  },
   "NavBar": {
     "home": "Home",
     "services": "Services",
