@@ -2,14 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { type BaziResultData, type BaziPublicResultData } from '../../types/bazi';
-import ResultHeader from '../../components/ResultHeader/ResultHeader';
-import { BaziPaipan, BaziDetail } from '../../components/ResultPaipan/ResultPaipan';
-import { BaziLiupan, BaziDayun } from '../../components/ResultLiupan/ResultLiupan';
-import ResultButtons from '../../components/ResultButtons/ResultButtons';
-import { useAuth } from '../../contexts/AuthContext';
-import { AuthContextType } from '../../types/auth';
-import { getBaziResult } from '../../services/resultService';
+import { type BaziResultData, type BaziPublicResultData } from '../../../types/bazi';
+import ResultHeader from '../../../components/ResultHeader/ResultHeader';
+import { BaziPaipan, BaziDetail } from '../../../components/ResultPaipan/ResultPaipan';
+import { BaziLiupan, BaziDayun } from '../../../components/ResultLiupan/ResultLiupan';
+import ResultButtons from '../../../components/ResultButtons/ResultButtons';
+import { useAuth } from '../../../contexts/AuthContext';
+import { AuthContextType } from '../../../types/auth';
+import { getBaziResult } from '../../../services/resultService';
 
 export default function ResultPage() {
   const { token } = useAuth() as AuthContextType;

@@ -278,5 +278,66 @@
     "missionTitle": "Our Mission",
     "missionDescription1": "At Lab 8, we are dedicated to helping you uncover your life's potential through personalized BaZi readings. With years of experience and deep knowledge of Chinese metaphysics, we offer clear guidance to help you live in harmony and happiness.",
     "missionDescription2": "Whether you're seeking clarity on a specific issue or a comprehensive understanding of your life's journey, we are here to support you with insightful interpretations and practical advice."
+  },
+
+  "ProfileLayout": {
+    "myAccount": "My Account"
+  },
+  "ProfileList": {
+    "birthDate": "Birth Date"
+  },
+  "CreateProfile": {
+    "createNewProfile": "Create new profile"
+  },
+  "CreateProfileMobile": {
+    "refreshToSeeProfile": "Refresh to see your profile!",
+    "fillAllFields": "Please make sure to fill all fields.",
+    "fetchFailed": "Failed to fetch data.",
+    "decoding": "Decoding...",
+    "save": "Save",
+    "close": "Close"
+  },
+  "AccountDropdown": {
+    "myAccount": "My Account",
+    "savedProfiles": "Saved Profiles",
+    "logout": "Logout"
+  },
+
+  "ResultHeader": {
+    "name": "Name",
+    "localBirthday": "Local Birthday",
+    "lunarBirthday": "Lunar Birthday",
+    "time": "Time"
+  },
+  "ResultButtons": {
+    "bazi": "BaZi",
+    "liupan": "LiuPan"
+  },
+  "ResultPaipan": {
+    "yearPillar": "Year Pillar",
+    "monthPillar": "Month Pillar",
+    "dayPillar": "Day Pillar",
+    "hourPillar": "Hour Pillar",
+    "topStem": "Top Stem",
+    "bottomBranch": "Bottom Branch"
+  },
+  "ResultDetail": {
+    "birthDateInterpretation": "Birth Date Interpretation",
+    "baziInterpretation": "Bazi Interpretation"
+  },
+  "ResultLiupan": {
+    "yearPillar": "Year Pillar",
+    "monthPillar": "Month Pillar",
+    "dayPillar": "Day Pillar",
+    "hourPillar": "Hour Pillar",
+    "decadeCycle": "Decade Cycle",
+    "yearlyCycle": "Yearly Cycle",
+    "monthlyCycle": "Monthly Cycle",
+    "topStem": "Top Stem",
+    "bottomBranch": "Bottom Branch",
+    "startsOn": "Decade Cycle starts on",
+    "age": "Age",
+    "monthly": "Monthly Cycle",
+    "yearly": "Yearly Cycle"
   }
 }

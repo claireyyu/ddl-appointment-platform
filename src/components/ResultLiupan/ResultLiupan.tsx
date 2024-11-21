@@ -3,6 +3,7 @@ import { useState, useContext, useEffect } from 'react';
 import DayunNianzhuHelper from '../../utils/DayunNianzhuHelper';
 import { type BaziPaipanProps } from '../../types/paipan';
 import { BaziContext } from '../../contexts/BaziContext';
+import {useTranslations, useLocale} from 'next-intl';
 
 const colorMap = {
   // 10 Heavenly Stems
@@ -34,23 +35,25 @@ const colorMap = {
 
 const getColor = (char) => colorMap[char] || '#000';
 
-export function BaziLiupan( {yearStem, yearBranch, monthStem, monthBranch, dayStem, dayBranch, hourStem, hourBranch}: BaziPaipanProps) {
+export function BaziLiupan({ yearStem, yearBranch, monthStem, monthBranch, dayStem, dayBranch, hourStem, hourBranch }: { yearStem: string, yearBranch: string, monthStem: string, monthBranch: string, dayStem: string, dayBranch: string, hourStem: string, hourBranch: string }) {
   const { selectedDayunGanzhi, selectedLiunianGanzhi, selectedLiuyueGanzhi, dayunNianzhuArray } = useContext(BaziContext);
+  const t = useTranslations('ResultLiupan');
+  const { locale } = useLocale();
 
   return (
-    <div className="flex flex-col items-center">
+    <div className={`flex flex-col ${locale !== 'zh' ? 'mx-16' : 'items-center'}`}>
       {/* Bazi Content */}
       <div className="hidden md:grid grid-cols-1 md:grid-cols-8 p-2 mx-4 bg-foreground">
         <div className={styles.pillarHeaderText}></div>
-        <div className={styles.pillarHeaderText}>Year<br />Pillar</div>
-        <div className={styles.pillarHeaderText}>Month<br />Pillar</div>
-        <div className={styles.pillarHeaderText}>Day<br />Pillar</div>
-        <div className={styles.pillarHeaderText}>Hour<br />Pillar</div>
-        <div className={styles.pillarHeaderText}>Decade<br />Cycle</div>
-        <div className={styles.pillarHeaderText}>Yearly<br />Cycle</div>
-        <div className={styles.pillarHeaderText}>Monthly<br />Cycle</div>
+        <div className={styles.pillarHeaderText}>{t('yearPillar')}</div>
+        <div className={styles.pillarHeaderText}>{t('monthPillar')}</div>
+        <div className={styles.pillarHeaderText}>{t('dayPillar')}</div>
+        <div className={styles.pillarHeaderText}>{t('hourPillar')}</div>
+        <div className={styles.pillarHeaderText}>{t('decadeCycle')}</div>
+        <div className={styles.pillarHeaderText}>{t('yearlyCycle')}</div>
+        <div className={styles.pillarHeaderText}>{t('monthlyCycle')}</div>
 
-        <div className={styles.pillarText}>Top<br />Stem</div>
+        <div className={styles.pillarText}>{t('topStem')}</div>
         <div className={styles.pillarText}
             style={{ color: getColor(yearStem) }}
         >{yearStem}</div>
@@ -73,7 +76,7 @@ export function BaziLiupan( {yearStem, yearBranch, monthStem, monthBranch, daySt
             style={{ color: getColor(selectedLiuyueGanzhi[0]) }}
         >{selectedLiuyueGanzhi[0]}</div>
 
-        <div className={styles.pillarText}>Bottom<br />Branch</div>
+        <div className={styles.pillarText}>{t('bottomBranch')}</div>
         <div className={styles.pillarText}
             style={{ color: getColor(yearBranch) }}
         >{yearBranch}</div>
@@ -99,20 +102,23 @@ export function BaziLiupan( {yearStem, yearBranch, monthStem, monthBranch, daySt
 
       {/* Mobile View */}
       <div className="md:hidden flex flex-col">
-        <p className={styles.mobilePillarText}>Year Pillar </p>
-        <p>Top Stem - {yearStem}<br />Bottom Branch - {yearBranch}</p>
-        <p className={styles.mobilePillarText}>Month Pillar </p>
-        <p>Top Stem - {monthStem}<br />Bottom Branch - {monthBranch}</p>
-        <p className={styles.mobilePillarText}>Day Pillar </p>
-        <p>Top Stem - {dayStem}<br />Bottom Branch - {dayBranch}</p>
-        <p className={styles.mobilePillarText}>Hour Pillar </p>
-        <p>Top Stem - {hourStem}<br />Bottom Branch - {hourBranch}</p>
+        <p className={styles.mobilePillarText}>{t('yearPillar')}</p>
+        <p>{t('topStem')} - {yearStem}<br />{t('bottomBranch')} - {yearBranch}</p>
+        <p className={styles.mobilePillarText}>{t('monthPillar')}</p>
+        <p>{t('topStem')} - {monthStem}<br />{t('bottomBranch')} - {monthBranch}</p>
+        <p className={styles.mobilePillarText}>{t('dayPillar')}</p>
+        <p>{t('topStem')} - {dayStem}<br />{t('bottomBranch')} - {dayBranch}</p>
+        <p className={styles.mobilePillarText}>{t('hourPillar')}</p>
+        <p>{t('topStem')} - {hourStem}<br />{t('bottomBranch')} - {hourBranch}</p>
       </div>
     </div>
   );
 }
 
 export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNianzhu, baziLiuyue }) {
+
+  const t = useTranslations('ResultLiupan');
+  const { locale } = useLocale();
 
   const [selectedDayun, setSelectedDayun] = useState(0);
   const [selectedLiunian, setSelectedLiunian] = useState(0);
@@ -156,7 +162,7 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
     <div className="grid grid-cols-6 gap-4">
 
         <div className="col-span-1 flex items-center justify-center">
-          <p>Decade Cycle starts on {jiaoyunYear}-{jiaoyunMonth}-{jiaoyunDay}</p>
+          <p>{t('startsOn')} {jiaoyunYear}-{jiaoyunMonth}-{jiaoyunDay}</p>
         </div>
         <div className="col-span-5 flex items-center justify-start">
           <div className="hidden md:grid grid-cols-1 md:grid-cols-8 p-2 bg-foreground rounded-custom-lg">
@@ -168,7 +174,7 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
             >
               {/* Header Section */}
               <div className="w-full bg-tbHeader text-center mx-4 py-2">
-                <p>Age {age}</p>
+                <p>{t('age')} {age}</p>
                 <p>{dayunStart[index]}</p>
               </div>
             
@@ -188,7 +194,7 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
       </div>
       
       <div className="col-span-1 flex items-center justify-center">
-        <p>Yearly Cycle</p>
+        <p>{t('yearly')}</p>
       </div>
       <div className="col-span-5 flex items-center justify-start">
         <div className="hidden md:grid grid-cols-1 md:grid-cols-10 p-2 bg-foreground rounded-custom-lg">
@@ -200,7 +206,7 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
             >
               {/* Header Section */}
               <div className="w-full bg-tbHeader text-center mx-6 py-2">
-                <p>Age</p>
+                <p>{t('age')}</p>
                 <p>{dayunAge[selectedDayun] + index}</p>
               </div>
 
@@ -219,7 +225,7 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
       </div>
       
       <div className="col-span-1 flex items-center justify-center">
-          <p>Monthly Cycle</p>
+          <p>{t('monthly')}</p>
         </div>
         <div className="col-span-5 flex items-center justify-start">
           <div className="hidden md:grid grid-cols-1 md:grid-cols-12 p-2 bg-foreground rounded-custom-lg">

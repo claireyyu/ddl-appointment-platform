@@ -1,7 +1,11 @@
 import styles from './ResultPaipan.module.css'; 
 import { type BaziPaipanProps } from '../../types/paipan';
+import { useTranslations, useLocale } from 'next-intl';
 
 export function BaziPaipan({ yearStem, yearBranch, monthStem, monthBranch, dayStem, dayBranch, hourStem, hourBranch }: BaziPaipanProps) {
+  const t = useTranslations('ResultPaipan');
+  const { locale } = useLocale();
+
   const colorMap = {
     // 10 Heavenly Stems
     甲: '#0FA958',
@@ -32,17 +36,18 @@ export function BaziPaipan({ yearStem, yearBranch, monthStem, monthBranch, daySt
 
   const getColor = (char) => colorMap[char] || '#000';
   
+  
   return (
-    <div className="flex flex-col items-center">
-      {/* Bazi Content */}
-      <div className="hidden xl:grid grid-cols-1 xl:grid-cols-5 gap-4 p-2 bg-foreground rounded-custom-lg shadow-card">
+    <div className={`flex flex-col ${locale !== 'zh' ? 'mx-16' : 'items-center'}`}>
+        {/* Bazi Content */}
+      <div className={"hidden xl:grid grid-cols-1 xl:grid-cols-5 gap-4 p-2 bg-foreground rounded-custom-lg shadow-card"}>
         <div className={styles.pillarText}></div>
-        <div className={styles.pillarText}>Year Pillar</div>
-        <div className={styles.pillarText}>Month Pillar</div>
-        <div className={styles.pillarText}>Day Pillar</div>
-        <div className={styles.pillarText}>Hour Pillar</div>
+        <div className={styles.pillarText}>{t('yearPillar')}</div>
+        <div className={styles.pillarText}>{t('monthPillar')}</div>
+        <div className={styles.pillarText}>{t('dayPillar')}</div>
+        <div className={styles.pillarText}>{t('hourPillar')}</div>
 
-        <div className={styles.pillarText}>Top Stem</div>
+        <div className={styles.pillarText}>{t('topStem')}</div>
         <div className={styles.pillarText}
             style={{ color: getColor(yearStem) }}
         >{yearStem}</div>
@@ -56,7 +61,7 @@ export function BaziPaipan({ yearStem, yearBranch, monthStem, monthBranch, daySt
             style={{ color: getColor(hourStem) }}
         >{hourStem}</div>
 
-        <div className={styles.pillarText}>Bottom Branch</div>
+        <div className={styles.pillarText}>{t('bottomBranch')}</div>
         <div className={styles.pillarText}
             style={{ color: getColor(yearBranch) }}
         >{yearBranch}</div>
@@ -73,25 +78,27 @@ export function BaziPaipan({ yearStem, yearBranch, monthStem, monthBranch, daySt
 
       {/* Mobile View */}
       <div className="xl:hidden flex flex-col justify-center items-center flex-1">
-        <p className={styles.mobilePillarText}>Year Pillar</p>
-        <p>Top Stem - {yearStem}<br />Bottom Branch - {yearBranch}</p>
-        <p className={styles.mobilePillarText}>Month Pillar </p>
-        <p>Top Stem - {monthStem}<br />Bottom Branch - {monthBranch}</p>
-        <p className={styles.mobilePillarText}>Day Pillar </p>
-        <p>Top Stem - {dayStem}<br />Bottom Branch - {dayBranch}</p>
-        <p className={styles.mobilePillarText}>Hour Pillar </p>
-        <p>Top Stem - {hourStem}<br />Bottom Branch - {hourBranch}</p>
+        <p className={styles.mobilePillarText}>{t('yearPillar')}</p>
+        <p>{t('topStem')} - {yearStem}<br />{t('bottomBranch')} - {yearBranch}</p>
+        <p className={styles.mobilePillarText}>{t('monthPillar')} </p>
+        <p>{t('topStem')} - {monthStem}<br />{t('bottomBranch')} - {monthBranch}</p>
+        <p className={styles.mobilePillarText}>{t('dayPillar')} </p>
+        <p>{t('topStem')} - {dayStem}<br />{t('bottomBranch')} - {dayBranch}</p>
+        <p className={styles.mobilePillarText}>{t('hourPillar')} </p>
+        <p>{t('topStem')} - {hourStem}<br />{t('bottomBranch')} - {hourBranch}</p>
       </div>
     </div>
   );
 }
 
 export function BaziDetail({ rizhu_detail, personality_detail }) {
+  const t = useTranslations('ResultDetail');
+
   return (
     <div>
-      <p className="text-justify">Birth Date Interpretation <br/><br/>{rizhu_detail}</p>
+      <p className="text-justify">{t('birthDateInterpretation')} <br/><br/>{rizhu_detail}</p>
       <br/>
-      <p className="text-justify">Bazi Interpretation <br /><br />{personality_detail}</p>
+      <p className="text-justify">{t('baziInterpretation')} <br /><br />{personality_detail}</p>
       
     </div>
   )

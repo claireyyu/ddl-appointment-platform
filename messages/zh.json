@@ -277,6 +277,66 @@
     "missionTitle": "我们的使命",
     "missionDescription1": "在 Lab 8，我们致力于通过个性化的八字解读，帮助您发现生命的潜力。凭借多年的经验和对中国玄学的深入了解，我们提供清晰的指导，帮助您和谐快乐地生活。",
     "missionDescription2": "无论您是想解决具体问题，还是全面了解自己的人生旅程，我们都将通过深刻的解读和实用的建议全力支持您。"
-  }
+  },
 
+  "ProfileLayout": {
+    "myAccount": "我的账户"
+  },
+  "ProfileList": {
+    "birthDate": "出生日期"
+  },
+  "CreateProfile": {
+    "createNewProfile": "创建新档案"
+  },
+  "CreateProfileMobile": {
+    "refreshToSeeProfile": "刷新以查看您的档案！",
+    "fillAllFields": "请确保填写所有字段。",
+    "fetchFailed": "获取数据失败。",
+    "decoding": "解码中...",
+    "save": "保存",
+    "close": "关闭"
+  },
+  "AccountDropdown": {
+    "myAccount": "我的账户",
+    "savedProfiles": "保存的档案",
+    "logout": "退出"
+  },
+
+  "ResultHeader": {
+    "name": "姓名",
+    "localBirthday": "公历生日",
+    "lunarBirthday": "农历生日",
+    "time": "出生时间"
+  },  
+  "ResultButtons": {
+    "bazi": "八字",
+    "liupan": "流盘"
+  },
+  "ResultPaipan": {
+    "yearPillar": "年柱",
+    "monthPillar": "月柱",
+    "dayPillar": "日柱",
+    "hourPillar": "时柱",
+    "topStem": "天干",
+    "bottomBranch": "地支"
+  },
+  "ResultDetail": {
+    "birthDateInterpretation": "生辰解读",
+    "baziInterpretation": "八字解读"
+  },
+  "ResultLiupan": {
+    "yearPillar": "年柱",
+    "monthPillar": "月柱",
+    "dayPillar": "日柱",
+    "hourPillar": "时柱",
+    "decadeCycle": "大运",
+    "yearlyCycle": "流年",
+    "monthlyCycle": "流月",
+    "topStem": "天干",
+    "bottomBranch": "地支",
+    "startsOn": "大运周期开始于",
+    "age": "年龄",
+    "monthly": "流月",
+    "yearly": "流年"
+    }
 }

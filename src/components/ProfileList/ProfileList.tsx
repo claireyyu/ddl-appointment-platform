@@ -5,8 +5,10 @@ import { AuthContextType } from '../../types/auth'
 import { BaziUserResultData } from '../../types/bazi'
 import { FaRegTrashAlt } from "react-icons/fa";
 import { getUserBaziProfiles, updateIsDelete } from '../../services/userService'
+import { useTranslations } from 'next-intl';
 
 function ProfileList() {
+  const t = useTranslations("ProfileList");
   const { token } = useAuth() as AuthContextType;
   const [results, setResults] = useState([]);
 
@@ -59,7 +61,7 @@ function ProfileList() {
             <div className="flex w-full">
               <button className="w-10/12 p-4 flex flex-col items-start space-y-2" onClick={() => handleToResultPage(result.id)}>
                 <p>{result.name}</p>
-                <p>Birth Date: {result.birth_year}-{result.birth_month}-{result.birth_day}</p>
+                <p>{t('birthDate')}: {result.birth_year}-{result.birth_month}-{result.birth_day}</p>
               </button>
               <div className="w-2/12 flex items-center justify-end">
                 <button className="hover:opacity-50 mr-16" onClick={(event) => handleDeleteUserResult(result.id, event)}>

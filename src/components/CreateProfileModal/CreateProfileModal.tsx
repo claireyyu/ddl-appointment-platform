@@ -12,8 +12,11 @@ import { useAuth } from '../../contexts/AuthContext';
 import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
 import { getPaipan, getCesuan, getJingpan } from '../../services/baziService';
 import { createUserBaziResult } from '../../services/resultService';
+import { useTranslations } from "next-intl";
 
 function CreateProfileModal() {
+  const t = useTranslations("CreateProfileMobile");
+
   const { isModalOpen, closeModal } = useModal();
   const { token } = useAuth();
   
@@ -33,7 +36,7 @@ function CreateProfileModal() {
   useEffect(() => {
     if (!isSubmitting && result) {
       closeModal();
-      window.alert("Refresh to see your profile!");
+      window.alert(t("refreshToSeeProfile"));
     }
   }, [isSubmitting, result]);
   
@@ -60,7 +63,7 @@ function CreateProfileModal() {
 
     // Validate form fields
     if (!formData.name || !formData.sex || !formData.birthDate || !formData.birthTime || !formData.timezone) {
-      setError('Please make sure to fill all fields');
+      setError(t("fillAllFields"));
       return;
     }
 
@@ -96,7 +99,7 @@ function CreateProfileModal() {
       };
       setResult(JSON.stringify(combinedData));
     } catch (error) {
-      setResult(`Error: ${error.message || 'Failed to fetch'}`);
+      setResult(`Error: ${error.message || t("fetchFailed")}`);
     } finally {
       setIsSubmitting(false);
     }
@@ -130,8 +133,8 @@ function CreateProfileModal() {
               className={`w-full sm:w-2/3 md:w-1/2 xl:w-3/5 cursor-pointer text-white px-4 py-2 rounded-custom font-bold transition-colors flex items-center justify-center ${isSubmitting ? 'cursor-not-allowed bg-gradient-to-r from-bStart to-bEnd' : 'bg-gradient-to-r from-bStart to-bEnd hover:opacity-90'}`}
               disabled={isSubmitting}>
               {isSubmitting ? (
-                <LoadingAnimation title="Saving"/>
-              ) : 'Save'}
+                <LoadingAnimation title={t('decoding')}/>
+              ) : t('save')}
               </button>
           </div>
           {error && <p className="text-red-500 mt-2 text-center">{error}</p>}

@@ -1,14 +1,14 @@
 'use client';
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '../../../contexts/AuthContext';
 import { useState, useEffect } from 'react';
-import { AuthContextType } from '../../types/auth';
-import Modal from '../../components/Modal/Modal';
-import { useModal } from '../../contexts/ModalContext';
-import ProfileList from '../../components/ProfileList/ProfileList';
-import CreateProfileModal from '../../components/CreateProfileModal/CreateProfileModal';
-import CreateProfileBtn from '../../components/CreateProfileBtn/CreateProfileBtn';
-import CreateProfileMobile from '../../components/CreateProfileMobile/CreateProfileMobile';
-import LoadingAnimation from '../../components/LoadingAnimation/LoadingAnimation';
+import { AuthContextType } from '../../../types/auth';
+import Modal from '../../../components/Modal/Modal';
+import { useModal } from '../../../contexts/ModalContext';
+import ProfileList from '../../../components/ProfileList/ProfileList';
+import CreateProfileModal from '../../../components/CreateProfileModal/CreateProfileModal';
+import CreateProfileBtn from '../../../components/CreateProfileBtn/CreateProfileBtn';
+import CreateProfileMobile from '../../../components/CreateProfileMobile/CreateProfileMobile';
+import LoadingAnimation from '../../../components/LoadingAnimation/LoadingAnimation';
 
 export default function ProfilePage() {
   const { openModal } = useModal();
