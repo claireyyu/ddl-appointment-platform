@@ -10,7 +10,7 @@ import { useLocale } from 'next-intl';
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }) => {
-  const {locale} = useLocale();
+  const locale = useLocale();
 
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);

@@ -2,14 +2,15 @@
 
 import { useParams } from 'next/navigation';
 import { ChangeEvent, ReactNode, useTransition, useState } from 'react';
-import { Locale, usePathname, useRouter, routing } from '../../i18n/routing';
+import { Locale, usePathname, routing, useRouter } from '../../i18n/routing';
 import { useTranslations } from 'next-intl';
 import { Globe } from 'react-feather';
+// import { useRouter } from 'next/navigation';
 
 export function LocaleSwitcher() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname();
+  const currentPath = usePathname();
   const params = useParams();
 
   const t = useTranslations('LocaleSwitcher');
@@ -20,11 +21,8 @@ export function LocaleSwitcher() {
   }
 
   function onLocaleChange(locale: string) {
-    router.replace(
-      { pathname, query: params },
-      { locale }
-    );
-    setIsOpen(false); // Close the dropdown after selection
+    // Navigate to the new locale-specific route
+    router.replace('/', { locale });
   }
 
   return (
