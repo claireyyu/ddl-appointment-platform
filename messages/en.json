@@ -4,11 +4,7 @@
     "description": "Decode your bazi with Lab8!"
   },
   "LocaleSwitcher": {
-    "label": "Select your language",
-    "locale": {
-      "en": "English",
-      "zh": "中文"
-    }
+    "locale": "{locale, select, zh {中文} en {English} other {Unknown}}"
   },
   "NavBar": {
     "home": "Home",

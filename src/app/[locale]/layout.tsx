@@ -52,7 +52,7 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   // Fetch translations for the current locale
-  const messages = await getMessages(locale);
+  const messages = await getMessages(locale as any);
 
   return (
     <html lang={locale} className={`${kanit.variable}`}>

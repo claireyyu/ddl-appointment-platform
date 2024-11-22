@@ -4,7 +4,7 @@ import { useTranslations, useLocale } from 'next-intl';
 
 export function BaziPaipan({ yearStem, yearBranch, monthStem, monthBranch, dayStem, dayBranch, hourStem, hourBranch }: BaziPaipanProps) {
   const t = useTranslations('ResultPaipan');
-  const { locale } = useLocale();
+  const locale = useLocale();
 
   const colorMap = {
     // 10 Heavenly Stems

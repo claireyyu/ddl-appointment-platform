@@ -1,18 +1,101 @@
-import {useLocale, useTranslations} from 'next-intl';
-import {routing} from '../../i18n/routing';
-import LocaleSwitcherSelect from './LocaleSwitcherSelect';
+'use client';
 
-export default function LocaleSwitcher() {
+import { useParams } from 'next/navigation';
+import { ChangeEvent, ReactNode, useTransition, useState } from 'react';
+import { Locale, usePathname, useRouter, routing } from '../../i18n/routing';
+import { useTranslations } from 'next-intl';
+import { Globe } from 'react-feather';
+
+export function LocaleSwitcher() {
+  const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const params = useParams();
+
   const t = useTranslations('LocaleSwitcher');
-  const locale = useLocale();
+
+  // Function to toggle dropdown visibility
+  function onToggle() {
+    setIsOpen((prev) => !prev);
+  }
+
+  function onLocaleChange(locale: string) {
+    router.replace(
+      { pathname, query: params },
+      { locale }
+    );
+    setIsOpen(false); // Close the dropdown after selection
+  }
 
   return (
-    <LocaleSwitcherSelect defaultValue={locale} label={t('label')}>
-      {routing.locales.map((cur) => (
-        <option key={cur} value={cur}>
-          {t('locale', {locale: cur})}
-        </option>
-      ))}
-    </LocaleSwitcherSelect>
+    <div className="hidden xl:block">
+      {/* Button to toggle dropdown */}
+      <button
+        className="cursor-pointer items-center text-foreground border-none focus:bg-transparent"
+        onClick={onToggle}
+      >
+        <Globe className="m-1" />
+      </button>
+
+      {/* Dropdown for selecting locales */}
+      {isOpen && (
+        <ul className="absolute bg-foreground text-background border rounded mt-2 shadow-lg">
+          {routing.locales.slice(0, 2).map((locale: string) => (
+            <li
+              key={locale}
+              onClick={() => onLocaleChange(locale)}
+              className="cursor-pointer p-2 text-center text-base hover:opacity-50"
+            >
+              {t('locale', { locale })}
+            </li>))}
+        </ul>)}
+    </div>
+  );
+}
+
+export function LocaleSwitcherMobile() {
+  const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const params = useParams();
+
+  const t = useTranslations('LocaleSwitcher');
+
+  // Function to toggle dropdown visibility
+  function onToggle() {
+    setIsOpen((prev) => !prev);
+  }
+
+  function onLocaleChange(locale: string) {
+    router.replace(
+      { pathname, query: params },
+      { locale }
+    );
+    setIsOpen(false); // Close the dropdown after selection
+  }
+
+  return (
+    <div className="relative">
+      {/* Button to toggle dropdown */}
+      <button
+        className="cursor-pointer items-center text-foreground border-none focus:bg-transparent"
+        onClick={onToggle}
+      >
+        <Globe className="m-1" />
+      </button>
+
+      {/* Dropdown for selecting locales */}
+      {isOpen && (
+        <ul className="absolute bg-foreground text-background border rounded mt-2 shadow-lg">
+          {routing.locales.slice(0, 2).map((locale: string) => (
+            <li
+              key={locale}
+              onClick={() => onLocaleChange(locale)}
+              className="cursor-pointer p-2 text-center hover:opacity-50"
+            >
+              {t('locale', { locale })}
+            </li>))}
+        </ul>)}
+    </div>
   );
 }

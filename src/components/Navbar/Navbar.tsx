@@ -1,23 +1,19 @@
 "use client";
 import Link from 'next/link';
 import { useState } from 'react';
-import { Globe, Menu, X } from 'react-feather';
+import { Menu, X } from 'react-feather';
 import Image from 'next/image';
 import logo from '../../../public/logo.png';
 import { useAuth } from '../../contexts/AuthContext';
 import AccountDropdownButton from '../AccountDropdown/AccountDropdown';
 import LoginModal from '../LoginModal/LoginModal';
-import {useLocale, useTranslations} from 'next-intl';
-import LocaleSwitcher from '../LocaleSwitcher/LocaleSwitcher';
-import { useRouter } from 'next/navigation';
+import {useTranslations} from 'next-intl';
+import {LocaleSwitcher, LocaleSwitcherMobile} from '../LocaleSwitcher/LocaleSwitcher';
 
 export default function Navbar() {
   const t = useTranslations('NavBar');
-  const locale = useLocale();
-  const router = useRouter();
 
   const { token, logout } = useAuth();
-  const [position, setPosition] = useState("english");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -60,43 +56,7 @@ export default function Navbar() {
             </button>
           )}
 
-          {/* <LocaleSwitcher /> */}
-
-          {/* <button className="hidden xl:flex sticky cursor-pointer items-center text-foreground border-none focus bg-transparent">
-            <Globe className="m-1" />
-          </button> */}
-
-          <div className="hidden xl:block relative">
-            <button
-              className="hidden xl:flex sticky cursor-pointer items-center text-foreground border-none focus bg-transparent"
-              onClick={() => setIsMenuOpen(!isMenuOpen)} // Toggle dropdown
-            >
-              <Globe className="m-1" />
-            </button>
-            {isMenuOpen && (
-              <div className="absolute right-0 mt-2 w-32 bg-background border border-gray-300 rounded-lg shadow-lg z-50">
-                <button
-                  className="block w-full px-4 py-2 text-left hover:opacity-75"
-                  onClick={() => {
-                    router.push('/en'); // Always navigate to home page in English
-                    setIsMenuOpen(false); // Close the dropdown
-                  }}
-                >
-                  English
-                </button>
-                <button
-                  className="block w-full px-4 py-2 text-left hover:opacity-75"
-                  onClick={() => {
-                    router.replace('/zh'); // Switch to Chinese
-                    setIsMenuOpen(false); // Close the dropdown
-                  }}
-                >
-                  中文
-                </button>
-              </div>
-            )}
-          </div>
-
+          <LocaleSwitcher/>
         </div>
 
         {/* Hamburger menu for smaller screens */}
@@ -124,22 +84,7 @@ export default function Navbar() {
 
           {token && <button onClick={logout}>Logout</button>}
 
-          {/* Language Switch (In Mobile Menu) */}
-          <div className="flex flex-col items-center">
-            <div className="flex gap-4">
-              <button onClick={() => {
-              setPosition('english')
-              router.replace('/en'); // Switch to English
-              }} className={`${position === 'english' ? 'border-white border-2' : 'border-transparent'} p-2 rounded-xl`}>
-                English
-              </button>
-              <button onClick={() => {setPosition('chinese')
-                router.replace('/zh'); // Switch to Chinese
-              }} className={`${position === 'chinese' ? 'border-white border-2' : 'border-transparent'} p-2 rounded-xl`}>
-                中文
-              </button>
-            </div>
-          </div>
+          <LocaleSwitcherMobile/>
         </div>
       )}
 

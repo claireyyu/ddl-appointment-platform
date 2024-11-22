@@ -37,7 +37,7 @@ function AccountDropdownButton() {
         className="hidden xl:flex bg-gradient-to-r from-bpStart to-bpEnd border-none text-foreground text-base px-4 py-2 rounded-custom hover:opacity-90 cursor-pointer focus:outline-none"
         onClick={handleToggleMenu}
       >
-        {t('myAccount')} {/* Translated: "My Account" */}
+        {t('myAccount')}
       </button>
 
       {/* Dropdown Menu */}
@@ -48,7 +48,7 @@ function AccountDropdownButton() {
             className="w-full text-bEnd text-base px-4 py-2 hover:bg-gray-100 rounded-t-custom cursor-pointer focus:outline-none flex justify-center items-center whitespace-nowrap"
           >
             <Link href="/profile">
-              <span className="cursor-pointer">{t('savedProfiles')}</span> {/* Translated: "Saved Profiles" */}
+              <span className="cursor-pointer">{t('savedProfiles')}</span>
             </Link>
           </button>
 
@@ -64,7 +64,7 @@ function AccountDropdownButton() {
             className="w-full text-bEnd text-base px-4 py-2 hover:bg-gray-100 rounded-b-custom cursor-pointer focus:outline-none"
             onClick={logout}
           >
-            {t('logout')} {/* Translated: "Logout" */}
+            {t('logout')}
           </button>
         </div>
       )}

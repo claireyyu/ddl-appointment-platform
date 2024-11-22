@@ -4,11 +4,7 @@
     "description": "欢迎使用八字工具"
   },
   "LocaleSwitcher": {
-    "label": "选择语言",
-    "locale": {
-      "en": "英语",
-      "zh": "中文"
-    }
+    "locale": "{locale, select, zh {中文} en {English} other {Unknown}}"
   },
   "NavBar": {
     "home": "主页",
