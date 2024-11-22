@@ -40,7 +40,7 @@ export function BaziPaipan({ yearStem, yearBranch, monthStem, monthBranch, daySt
   return (
     <div className={`flex flex-col ${locale !== 'zh' ? 'mx-16' : 'items-center'}`}>
         {/* Bazi Content */}
-      <div className={"hidden xl:grid grid-cols-1 xl:grid-cols-5 gap-4 p-2 bg-foreground rounded-custom-lg shadow-card"}>
+      <div className={"grid grid-cols-5 gap-4 p-2 bg-foreground rounded-custom-lg shadow-card"}>
         <div className={styles.pillarText}></div>
         <div className={styles.pillarText}>{t('yearPillar')}</div>
         <div className={styles.pillarText}>{t('monthPillar')}</div>
@@ -77,7 +77,7 @@ export function BaziPaipan({ yearStem, yearBranch, monthStem, monthBranch, daySt
       </div>
 
       {/* Mobile View */}
-      <div className="xl:hidden flex flex-col justify-center items-center flex-1">
+      {/* <div className="xl:hidden flex flex-col justify-center items-center flex-1">
         <p className={styles.mobilePillarText}>{t('yearPillar')}</p>
         <p>{t('topStem')} - {yearStem}<br />{t('bottomBranch')} - {yearBranch}</p>
         <p className={styles.mobilePillarText}>{t('monthPillar')} </p>
@@ -86,7 +86,29 @@ export function BaziPaipan({ yearStem, yearBranch, monthStem, monthBranch, daySt
         <p>{t('topStem')} - {dayStem}<br />{t('bottomBranch')} - {dayBranch}</p>
         <p className={styles.mobilePillarText}>{t('hourPillar')} </p>
         <p>{t('topStem')} - {hourStem}<br />{t('bottomBranch')} - {hourBranch}</p>
-      </div>
+      </div> */}
+      {/* <div className="xl:hidden grid grid-cols-2 gap-4 p-2 bg-foreground rounded-custom-lg shadow-card w-full">
+        <div className={styles.mobilePillarText}>{t('yearPillar')}</div>
+        <div>
+          <p>{t('topStem')} - {yearStem}</p>
+          <p>{t('bottomBranch')} - {yearBranch}</p>
+        </div>
+        <div className={styles.mobilePillarText}>{t('monthPillar')}</div>
+        <div>
+          <p>{t('topStem')} - {monthStem}</p>
+          <p>{t('bottomBranch')} - {monthBranch}</p>
+        </div>
+        <div className={styles.mobilePillarText}>{t('dayPillar')}</div>
+        <div>
+          <p>{t('topStem')} - {dayStem}</p>
+          <p>{t('bottomBranch')} - {dayBranch}</p>
+        </div>
+        <div className={styles.mobilePillarText}>{t('hourPillar')}</div>
+        <div>
+          <p>{t('topStem')} - {hourStem}</p>
+          <p>{t('bottomBranch')} - {hourBranch}</p>
+        </div>
+      </div> */}
     </div>
   );
 }
