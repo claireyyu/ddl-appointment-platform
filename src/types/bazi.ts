@@ -35,6 +35,7 @@ export type BaziRequestData = {
   day: number;
   hours: number;
   minute: number;
+  locale?: string;
 }
 
 export type BaziResultData = {

@@ -115,7 +115,8 @@ export default function BaziCalculator() {
       month: beijingTime.month() + 1, // getMonth is zero-based, so add 1
       day: beijingTime.date(),
       hours: beijingTime.hours(),
-      minute: beijingTime.minutes()
+      minute: beijingTime.minutes(),
+      locale: locale === 'en' ? 'en' : 'zh'
     };
 
     try {
