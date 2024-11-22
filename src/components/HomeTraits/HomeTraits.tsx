@@ -1,9 +1,12 @@
 import Link from 'next/link';
 import styles from './HomeTraits.module.css';
 import { useTranslations } from 'next-intl';
+import generateLocalizedPath from '../../utils/PathHelper';
+import { useLocale } from 'next-intl';
 
 export default function HomeTraits() {
     const t = useTranslations('HomeTraits');
+    const locale = useLocale();
 
     return (
         <div>
@@ -17,7 +20,7 @@ export default function HomeTraits() {
             <div className="h-8"></div>
             <p className={styles.listText}>
                 {t('findOut')}{' '}
-                <Link href="/" className="font-semibold text-sm md:text-base xl:text-lg underline">
+                <Link href={generateLocalizedPath('/', locale)} className="font-semibold text-sm md:text-base xl:text-lg underline">
                     {t('baziCalculator')}
                 </Link>
                 .

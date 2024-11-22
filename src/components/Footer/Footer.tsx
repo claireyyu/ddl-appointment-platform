@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Facebook, Instagram, Twitter, Youtube } from 'react-feather';
 import {useLocale, useTranslations} from 'next-intl';
 

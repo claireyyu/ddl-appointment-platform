@@ -118,7 +118,7 @@ export function BaziLiupan({ yearStem, yearBranch, monthStem, monthBranch, daySt
 export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNianzhu, baziLiuyue }) {
 
   const t = useTranslations('ResultLiupan');
-  const { locale } = useLocale();
+  const locale = useLocale();
 
   const [selectedDayun, setSelectedDayun] = useState(0);
   const [selectedLiunian, setSelectedLiunian] = useState(0);
@@ -141,7 +141,7 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
 
   const liunianDates = [
     'Feb.', 'Mar.', 'Apr.', 'May', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.', 'Jan.'
-  ]
+  ];
 
   const handleClickDayun = (index: number) => {
     console.log('clicked dayun', index);

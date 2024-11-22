@@ -22,6 +22,7 @@ export function LocaleSwitcher() {
 
   function onLocaleChange(locale: string) {
     // Navigate to the new locale-specific route
+    console.log('locale', locale);
     router.replace('/', { locale });
   }
 
