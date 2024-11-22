@@ -38,7 +38,7 @@ export function BaziPaipan({ yearStem, yearBranch, monthStem, monthBranch, daySt
   
   
   return (
-    <div className={`flex flex-col ${locale !== 'zh' ? 'mx-16' : 'items-center'}`}>
+    <div className={`flex flex-col ${locale === 'zh' ? 'mx-16' : 'items-center'}`}>
         {/* Bazi Content */}
       <div className={"grid grid-cols-5 gap-4 p-2 bg-foreground rounded-custom-lg shadow-card"}>
         <div className={styles.pillarText}></div>
