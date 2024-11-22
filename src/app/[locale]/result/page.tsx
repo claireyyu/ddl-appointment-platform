@@ -10,10 +10,16 @@ import ResultButtons from '../../../components/ResultButtons/ResultButtons';
 import { useAuth } from '../../../contexts/AuthContext';
 import { AuthContextType } from '../../../types/auth';
 import { getBaziResult } from '../../../services/resultService';
+import WuxingCard from '../../../components/WuxingCard/WuxingCard';
 
 export default function ResultPage() {
   const { token } = useAuth() as AuthContextType;
   const [activeTab, setActiveTab] = useState('bazi'); // New state to manage active tab
+  const [isModalOpen, setIsModalOpen] = useState(true);
+  function handleCloseModal() {
+    setIsModalOpen(false);
+  }
+
 
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -127,6 +133,7 @@ export default function ResultPage() {
           </div>
         )}
       </div>
+      <WuxingCard isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
   );
 }
