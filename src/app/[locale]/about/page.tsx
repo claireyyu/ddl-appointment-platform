@@ -28,22 +28,22 @@ export default function AboutPage() {
       <div>
         <p className={styles.title}>{t('fourPillarsTitle')}</p>
         <p className={styles.paragraph}>
-          {t('yearPillar.title')}:
+          {t('yearPillar.title')}
           <br />
           {t('yearPillar.description')}
         </p>
         <p className={styles.paragraph}>
-          {t('monthPillar.title')}:
+          {t('monthPillar.title')}
           <br />
           {t('monthPillar.description')}
         </p>
         <p className={styles.paragraph}>
-          {t('dayPillar.title')}:
+          {t('dayPillar.title')}
           <br />
           {t('dayPillar.description')}
         </p>
         <p className={styles.paragraph}>
-          {t('hourPillar.title')}:
+          {t('hourPillar.title')}
           <br />
           {t('hourPillar.description')}
         </p>
@@ -51,6 +51,7 @@ export default function AboutPage() {
         <p className={styles.title}>{t('missionTitle')}</p>
         <p className={`${styles.paragraph} mb-4`}>{t('missionDescription1')}</p>
         <p className={`${styles.paragraph} mb-4`}>{t('missionDescription2')}</p>
+        <p className={`${styles.paragraph} mb-4`}>{t('missionDescription3')}</p>
       </div>
     </div>
   );

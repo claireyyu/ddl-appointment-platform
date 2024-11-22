@@ -38,7 +38,7 @@ export function LocaleSwitcher() {
 
       {/* Dropdown for selecting locales */}
       {isOpen && (
-        <ul className="absolute bg-foreground text-background border rounded mt-2 shadow-lg">
+        <ul className="absolute bg-foreground text-bEnd rounded-custom flex flex-col mt-2">
           {routing.locales.slice(0, 2).map((locale: string) => (
             <li
               key={locale}
