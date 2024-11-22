@@ -84,7 +84,7 @@ export default function Navbar() {
             {token ? t('myAccount') : t('login')}
           </button>
 
-          {token && <button onClick={logout}>Logout</button>}
+          {token && <button onClick={logout}>{t('logout')}</button>}
 
           <LocaleSwitcherMobile/>
         </div>

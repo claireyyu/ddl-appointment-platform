@@ -8,8 +8,11 @@ import HomeTraits from '../../components/HomeTraits/HomeTraits';
 import homeTraitsPic from "../../public/home-traits.png";
 import Image from 'next/image'
 import HomeTraitsButtons from '../../components/HomeTraitsButtons/HomeTraitsButtons';
+import { useTranslations } from 'next-intl';
 
 export default function HomePage() {
+  const t = useTranslations('homeTraitClick');
+
   return (
     <div>
       {/* <Navbar/> */}
@@ -36,8 +39,9 @@ export default function HomePage() {
           <div className="flex-1 flex flex-col justify-center items-center mx-4 md:mx-8 xl:ml-24 my-8 lg:my-24">
             <HomeTraits />
           </div>
-          <div className="flex-1 flex justify-center items-center mx-4 md:mx-8">
+          <div className="flex-1 flex flex-col justify-center items-center mx-4 md:mx-8">
             <HomeTraitsButtons />
+            <p>{t('click')}</p>
           </div>
         </section>
       </div>

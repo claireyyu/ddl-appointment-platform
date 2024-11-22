@@ -29,15 +29,15 @@ type Props = {
 //   return routing.locales.map((locale) => ({locale}));
 // }
 
-// export async function generateMetadata({
-//   params: {locale}
-// }: Omit<Props, 'children'>) {
-//   const t = await getTranslations({locale, namespace: 'LocaleLayout'});
+export async function generateMetadata({
+  params: {locale}
+}: Omit<Props, 'children'>) {
+  const t = await getTranslations({locale, namespace: 'LocaleLayout'});
 
-//   return {
-//     title: t('title')
-//   };
-// }
+  return {
+    title: t('title')
+  };
+}
 
 export default async function LocaleLayout({
   children,

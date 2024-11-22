@@ -30,7 +30,7 @@ export function LocaleSwitcher() {
     <div className="hidden xl:block">
       {/* Button to toggle dropdown */}
       <button
-        className="cursor-pointer items-center text-foreground border-none focus:bg-transparent"
+        className="cursor-pointer flex items-center text-foreground border-none focus:bg-transparent"
         onClick={onToggle}
       >
         <Globe className="m-1" />

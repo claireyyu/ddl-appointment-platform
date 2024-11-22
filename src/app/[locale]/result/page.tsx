@@ -31,7 +31,7 @@ export default function ResultPage() {
       try {
         getBaziResult(isAuthenticated, token, resultId).then((data) => {
           setFetchedResult(data);
-          router.replace(window.location.pathname);
+          // router.replace(window.location.pathname);
         }
         );
         

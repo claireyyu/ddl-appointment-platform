@@ -12,7 +12,8 @@
     "about": "About",
     "contact": "Contact",
     "login": "Login",
-    "myAccount": "My Account"
+    "myAccount": "My Account",
+    "logout": "Logout"
   },
   "Footer": {
     "description": "Ⓒ 2024 Lab 8. All rights reserved."
@@ -166,6 +167,9 @@
     },
     "invalidTrait": "Invalid trait selected.",
     "personalityCharacteristics": "Personality Characteristics"
+  },
+  "homeTraitClick": {
+    "click": "Click on the elements to learn more!"
   },
 
 

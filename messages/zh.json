@@ -12,7 +12,8 @@
     "about": "关于我们",
     "contact": "联系我们",
     "login": "登录",
-    "myAccount": "账号"
+    "myAccount": "账号",
+    "logout": "退出"
   },
   "Footer": {
     "description": "Ⓒ 2024 Lab 8 版权所有"
@@ -165,6 +166,9 @@
     },
     "invalidTrait": "选择的特质无效。",
     "personalityCharacteristics": "性格特征"
+  },
+  "homeTraitClick": {
+    "click": "点击元素查看更多！"
   },
 
 

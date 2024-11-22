@@ -38,7 +38,7 @@ const getColor = (char) => colorMap[char] || '#000';
 export function BaziLiupan({ yearStem, yearBranch, monthStem, monthBranch, dayStem, dayBranch, hourStem, hourBranch }: { yearStem: string, yearBranch: string, monthStem: string, monthBranch: string, dayStem: string, dayBranch: string, hourStem: string, hourBranch: string }) {
   const { selectedDayunGanzhi, selectedLiunianGanzhi, selectedLiuyueGanzhi, dayunNianzhuArray } = useContext(BaziContext);
   const t = useTranslations('ResultLiupan');
-  const { locale } = useLocale();
+  const locale = useLocale();
 
   return (
     <div className={`flex flex-col ${locale !== 'zh' ? 'mx-16' : 'items-center'}`}>
@@ -143,6 +143,10 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
     'Feb.', 'Mar.', 'Apr.', 'May', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.', 'Jan.'
   ];
 
+  const zhLiunianDates = [  
+    '立春', '惊蛰', '清明', '立夏', '芒种', '小暑', '立秋', '白露', '寒露', '立冬', '大雪', '小寒'
+  ];
+
   const handleClickDayun = (index: number) => {
     console.log('clicked dayun', index);
     setSelectedDayun(index);
@@ -237,7 +241,7 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
               >
                 {/* Header Section */}
                 <div className="w-full bg-tbHeader text-center mx-6 py-2">
-                  <p>{liunianDates[index]}</p>
+                  <p>{locale === 'en' ? liunianDates[index] : zhLiunianDates[index]}</p>
                 </div>
 
                 {/* Data Section */}
