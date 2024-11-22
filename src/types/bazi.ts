@@ -1,5 +1,5 @@
 // BaziCalculator.tsx
-export interface FormData {
+export type FormData = {
   name: string;
   sex: string;
   birthDate: string;
@@ -8,13 +8,25 @@ export interface FormData {
 }
 
 // Baziformfields.tsx
-export interface BaziFormFieldsProps {
+// Define the structure of a single timezone entry
+export type TimezoneEntry = {
+  label: string;
+  value: string;
+}
+
+// Define the structure of the timezone data for a specific language
+export type TimezoneData = {
+  language: string;
+  data: TimezoneEntry[];
+}
+
+export type BaziFormFieldsProps = {
   formData: FormData;
-  timezones: { value: string; label: string }[];
+  timezones: TimezoneData[];
   handleChange: (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
 }
 
-export interface BaziRequestData {
+export type BaziRequestData = {
   name: string;
   sex: string;
   type?: number;
@@ -25,14 +37,14 @@ export interface BaziRequestData {
   minute: number;
 }
 
-export interface BaziResultData {
+export type BaziResultData = {
   baziSizhu: { "nianzhu": string, "yuezhu": string, "rizhu": string, "shizhu": string };
   baziDayun: { "jiaoyun": string, "dayunGanZhi": string[], "dayunAge": number[], "dayunStart": number[], "dayunNianzhu": {"year_char": string}[][] };
   baziCesuan: { "personality_detail": string, "rizhu_detail": string };
   baziLiuyue: { "baziLiuyue": string[][]};
 }
 
-export interface BaziPublicResultData { 
+export type BaziPublicResultData = { 
   name: string;
   sex: string;
   birth_year: number;
@@ -43,7 +55,7 @@ export interface BaziPublicResultData {
   result: BaziResultData;
 }
 
-export interface BaziUserResultData { 
+export type BaziUserResultData = { 
   id: number;
   name: string;
   sex: string;

@@ -78,7 +78,7 @@ export default function Navbar() {
                 <button
                   className="block w-full px-4 py-2 text-left hover:opacity-75"
                   onClick={() => {
-                    router.push('/en', '/en', { locale: 'en' }); // Always navigate to home page in English
+                    router.push('/en'); // Always navigate to home page in English
                     setIsMenuOpen(false); // Close the dropdown
                   }}
                 >
@@ -87,8 +87,7 @@ export default function Navbar() {
                 <button
                   className="block w-full px-4 py-2 text-left hover:opacity-75"
                   onClick={() => {
-                    console.log('Current pathname:', pathname);
-                    router.replace('/zh', '/zh', { locale: 'zh' }); // Switch to Chinese
+                    router.replace('/zh'); // Switch to Chinese
                     setIsMenuOpen(false); // Close the dropdown
                   }}
                 >
@@ -130,12 +129,12 @@ export default function Navbar() {
             <div className="flex gap-4">
               <button onClick={() => {
               setPosition('english')
-              router.replace('/en', '/en', { locale: 'en' }); // Switch to English
+              router.replace('/en'); // Switch to English
               }} className={`${position === 'english' ? 'border-white border-2' : 'border-transparent'} p-2 rounded-xl`}>
                 English
               </button>
               <button onClick={() => {setPosition('chinese')
-                router.replace('/zh', '/zh', { locale: 'zh' }); // Switch to Chinese
+                router.replace('/zh'); // Switch to Chinese
               }} className={`${position === 'chinese' ? 'border-white border-2' : 'border-transparent'} p-2 rounded-xl`}>
                 中文
               </button>
