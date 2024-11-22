@@ -5,10 +5,13 @@ import { useRouter } from 'next/navigation';
 import { type AuthContextType } from '../types/auth';
 import { getUser } from '../services/userService';
 import { signup as signupService, login as loginService } from '../services/accountService';
+import { useLocale } from 'next-intl';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }) => {
+  const {locale} = useLocale();
+
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -85,7 +88,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('token', data.authorisation.token); // Store token
       setToken(data.authorisation.token);
       setUser(data.user);
-      router.push('/'); // Redirect to homepage or desired page
+      router.push(`/${locale}`); // Redirect to homepage or desired page
     } catch (error) {
       console.error('Signup failed:', error);
       throw error;
