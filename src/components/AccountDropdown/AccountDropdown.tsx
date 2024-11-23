@@ -7,10 +7,11 @@ import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import CreateProfileBtn from '../CreateProfileBtn/CreateProfileBtn';
 import { useTranslations } from 'next-intl';
+import generateLocalizedPath from '../../utils/PathHelper';
+import {useLocale} from 'next-intl';
 
 function AccountDropdownButton() {
-  const pathname = usePathname();
-  const router = useRouter();
+  const locale = useLocale();
   const t = useTranslations('AccountDropdown'); // Localization namespace
 
   const { logout } = useAuth() as AuthContextType;
@@ -24,9 +25,6 @@ function AccountDropdownButton() {
 
   // Handles profile creation redirection and modal opening
   function handleClickCreateProfile() {
-    if (pathname !== '/profile') {
-      router.push('/profile');
-    }
     openModal();
   }
 
@@ -47,7 +45,7 @@ function AccountDropdownButton() {
           <button
             className="w-full text-bEnd text-base px-4 py-2 hover:bg-gray-100 rounded-t-custom cursor-pointer focus:outline-none flex justify-center items-center whitespace-nowrap"
           >
-            <Link href="/profile">
+            <Link href={generateLocalizedPath('/profile', locale)}>
               <span className="cursor-pointer">{t('savedProfiles')}</span>
             </Link>
           </button>

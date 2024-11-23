@@ -35,7 +35,7 @@ export default function Navbar() {
   return (
     <div className="w-full sticky top-0 z-50">
       <div className="grid grid-cols-5 2xl:grid-cols-6 justify-between items-center p-4 text-foreground text-lg bg-background">
-        <Link href="/" className="col-span-2 2xl:col-span-3 flex items-center ml-8 md:ml-16">
+        <Link href={generateLocalizedPath('/', locale)} className="col-span-2 2xl:col-span-3 flex items-center ml-8 md:ml-16">
           <Image src={logo} alt="Lab 8" width={100} height={100} />
         </Link>
 

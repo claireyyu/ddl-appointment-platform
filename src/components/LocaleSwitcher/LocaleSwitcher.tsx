@@ -5,12 +5,14 @@ import { ChangeEvent, ReactNode, useTransition, useState } from 'react';
 import { Locale, usePathname, routing, useRouter } from '../../i18n/routing';
 import { useTranslations } from 'next-intl';
 import { Globe } from 'react-feather';
+import generateLocalizedPath from '../../utils/PathHelper';
+import Link from 'next/link';
 // import { useRouter } from 'next/navigation';
 
 export function LocaleSwitcher() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const currentPath = usePathname();
+  const pathname = usePathname();
   const params = useParams();
 
   const t = useTranslations('LocaleSwitcher');
@@ -18,12 +20,6 @@ export function LocaleSwitcher() {
   // Function to toggle dropdown visibility
   function onToggle() {
     setIsOpen((prev) => !prev);
-  }
-
-  function onLocaleChange(locale: string) {
-    // Navigate to the new locale-specific route
-    console.log('locale', locale);
-    router.replace('/', { locale });
   }
 
   return (
@@ -40,13 +36,15 @@ export function LocaleSwitcher() {
       {isOpen && (
         <ul className="absolute bg-foreground text-bEnd rounded-custom flex flex-col mt-2">
           {routing.locales.slice(0, 2).map((locale: string) => (
+            <Link href={generateLocalizedPath(pathname, locale)}>
             <li
               key={locale}
-              onClick={() => onLocaleChange(locale)}
+              // onClick={() => onLocaleChange(locale)}
               className="cursor-pointer p-2 text-center text-base hover:opacity-50"
             >
               {t('locale', { locale })}
-            </li>))}
+              </li>
+            </Link>))}
         </ul>)}
     </div>
   );
