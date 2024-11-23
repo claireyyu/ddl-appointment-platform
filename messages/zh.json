@@ -23,7 +23,7 @@
     "title": "登录",
     "noAccount": "还没有账户？",
     "signUp": "注册",
-    "emailPlaceholder": "电子邮件",
+    "emailPlaceholder": "电子邮箱",
     "passwordPlaceholder": "密码",
     "forgotPassword": "忘记密码？",
     "signInButton": "登录",
@@ -37,7 +37,7 @@
     "signIn": "登录",
     "placeholders": {
       "username": "用户名",
-      "email": "电子邮件",
+      "email": "电子邮箱",
       "password": "密码"
     },
     "createAccountButton": "创建账户",
@@ -47,7 +47,7 @@
   },
   "ResetPasswordForm": {
     "resetPassword": "重置密码",
-    "emailPlaceholder": "电子邮件",
+    "emailPlaceholder": "电子邮箱",
     "sendVerificationCode": "发送验证码",
     "sending": "发送中...",
     "verifyCode": "验证验证码",
@@ -66,7 +66,7 @@
       "passwordTooShort": "密码必须至少6个字符。",
       "signupFailed": "注册失败。请再试一次。",
       "loginFailed": "登录失败。请检查您的凭据。",
-      "enterEmail": "请输入您的电子邮件。",
+      "enterEmail": "请输入您的电子邮箱。",
       "verificationFailed": "验证码发送失败。请再试一次。",
       "enterVerificationCode": "请输入验证码。",
       "passwordMismatch": "密码不匹配。",
@@ -74,7 +74,7 @@
     },
     "success": {
       "accountCreated": "账户创建成功！",
-      "verificationSent": "验证码已发送到您的电子邮件。",
+      "verificationSent": "验证码已发送到您的电子邮箱。",
       "passwordReset": "密码重置成功！"
     }
   }, 
@@ -176,7 +176,7 @@
     "title": "联系我们",
     "description": "有任何问题、需要更多信息，或有合作意向？请在下方填写您的信息，我们会尽快回复您！",
     "name": "姓名",
-    "email": "电子邮件",
+    "email": "电子邮箱",
     "subject": "主题",
     "message": "消息",
     "send": "发送",
@@ -251,10 +251,10 @@
         "email": "发送邮件：将付款参考号或交易截图发送到 xxx@gmail.com。",
         "prepareQuestion": "准备您的问题：冥想您的问题 3 分钟。提供三个整数（介于 1-999）以及您的问题。可选：您还可以提供背景信息，以便我们更全面地解读。",
         "restrictions": "限制：我们不解答与医疗健康、死亡或法律事务相关的问题。",
-        "receiveAnswer": "接收您的答案：您的解读将在一个工作日内通过电子邮件发送给您。如果您未在收件箱中看到，请检查垃圾邮件文件夹。"
+        "receiveAnswer": "接收您的答案：您的解读将在一个工作日内通过电子邮箱发送给您。如果您未在收件箱中看到，请检查垃圾邮件文件夹。"
       }
     },
-    "note": "注意：这是一项仅通过电子邮件进行的书面服务。您的隐私是我们的首要任务——所有解读均在完全保密的情况下进行。"
+    "note": "注意：这是一项仅通过电子邮箱进行的书面服务。您的隐私是我们的首要任务——所有解读均在完全保密的情况下进行。"
   },
 
   "AboutPage": {

@@ -178,7 +178,7 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
             >
               {/* Header Section */}
               <div className="w-full bg-tbHeader text-center mx-4 py-2">
-                <p>{t('age')} {age}</p>
+                { locale == 'en' ? <p>{t('age')} {age}</p> : <p>{age}岁</p> }
                 <p>{dayunStart[index]}</p>
               </div>
             
@@ -210,8 +210,8 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
             >
               {/* Header Section */}
               <div className="w-full bg-tbHeader text-center mx-6 py-2">
-                <p>{t('age')}</p>
-                <p>{dayunAge[selectedDayun] + index}</p>
+                {locale == 'en' ? <div><p>{t('age')}</p>
+                <p>{dayunAge[selectedDayun] + index}</p></div> : <p>{dayunAge[selectedDayun] + index}岁</p>}
               </div>
 
               {/* Data Section */}
