@@ -7,13 +7,20 @@ import { useTranslations } from 'next-intl';
 import { Globe } from 'react-feather';
 import generateLocalizedPath from '../../utils/PathHelper';
 import Link from 'next/link';
-// import { useRouter } from 'next/navigation';
+import {useSearchParams} from 'next/navigation';
 
 export function LocaleSwitcher() {
-  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  const params = useParams();
+  const searchParams = useSearchParams(); // Query parameters
+  const params = useParams(); // Path parameters
+
+  // Combine path and query parameters
+  const queryParams = Object.fromEntries(searchParams.entries());
+  const pageParams: Record<string, string> = Object.fromEntries(
+    Object.entries({ ...params, ...queryParams }).map(([key, value]) => [key, Array.isArray(value) ? value.join(',') : value])
+  );
+
 
   const t = useTranslations('LocaleSwitcher');
 
@@ -36,7 +43,7 @@ export function LocaleSwitcher() {
       {isOpen && (
         <ul className="absolute bg-foreground text-bEnd rounded-custom flex flex-col mt-2">
           {routing.locales.slice(0, 2).map((locale: string) => (
-            <Link href={generateLocalizedPath(pathname, locale)}>
+            <Link href={generateLocalizedPath(pathname, locale, pageParams)}>
             <li
               key={locale}
               // onClick={() => onLocaleChange(locale)}
