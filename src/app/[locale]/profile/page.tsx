@@ -9,12 +9,15 @@ import CreateProfileModal from '../../../components/CreateProfileModal/CreatePro
 import CreateProfileBtn from '../../../components/CreateProfileBtn/CreateProfileBtn';
 import CreateProfileMobile from '../../../components/CreateProfileMobile/CreateProfileMobile';
 import LoadingAnimation from '../../../components/LoadingAnimation/LoadingAnimation';
+import { useTranslations } from 'next-intl';
 
 export default function ProfilePage() {
   const { openModal } = useModal();
   const { user, loading } = useAuth() as AuthContextType;
   const { isModalOpen, closeModal } = useModal();
   const [openMobileForm, setOpenMobileForm] = useState(false);
+  const t = useTranslations('ProfilePage');
+
 
   function toggleMobileForm() {
     setOpenMobileForm(!openMobileForm);
@@ -38,9 +41,9 @@ export default function ProfilePage() {
           <div className="flex flex-col ">
             {/* mobile */}
             <div className="xl:hidden border-bEnd border-2 rounded-custom mb-8 inline-flex self-center mt-8">
-              <CreateProfileBtn onClick={toggleMobileForm} />
+              <CreateProfileBtn onClick={openModal} />
             </div>
-            {openMobileForm && <CreateProfileMobile openMobileForm={openMobileForm} toggleMobileForm={toggleMobileForm} />}
+            {/* {openMobileForm && <CreateProfileMobile openMobileForm={openMobileForm} toggleMobileForm={toggleMobileForm} />} */}
 
             {/* desktop */}
             <ProfileList />      
@@ -48,7 +51,7 @@ export default function ProfilePage() {
         </div>
           
       ) : (
-        <p className="text-center">You're not logged in.</p>
+            <p className="text-center">{t('logoutMessage')}</p>
       )}
     </div>
   );

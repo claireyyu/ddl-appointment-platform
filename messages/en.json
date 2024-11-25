@@ -292,6 +292,9 @@
   "ProfileLayout": {
     "myAccount": "My Account"
   },
+  "ProfilePage": {
+    "logoutMessage": "Your credential is expired, please log in again."
+  },
   "ProfileList": {
     "birthDate": "Birth Date"
   },

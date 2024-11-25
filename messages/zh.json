@@ -290,6 +290,9 @@
   "ProfileLayout": {
     "myAccount": "我的账户"
   },
+  "ProfilePage": {
+    "logoutMessage": "您的登录已过期，请重新登录。"
+  },
   "ProfileList": {
     "birthDate": "出生日期"
   },

@@ -12,10 +12,12 @@ import { useAuth } from '../../contexts/AuthContext';
 import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
 import { getPaipan, getCesuan, getJingpan } from '../../services/baziService';
 import { createUserBaziResult } from '../../services/resultService';
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 function CreateProfileModal() {
   const t = useTranslations("CreateProfileMobile");
+  const locale = useLocale();
+
 
   const { isModalOpen, closeModal } = useModal();
   const { token } = useAuth();
@@ -81,7 +83,8 @@ function CreateProfileModal() {
       month: beijingTime.month() + 1, // getMonth is zero-based, so add 1
       day: beijingTime.date(),
       hours: beijingTime.hours(),
-      minute: beijingTime.minutes()
+      minute: beijingTime.minutes(),
+      locale: locale === 'en' ? 'en' : 'zh'
     };
   
     try {

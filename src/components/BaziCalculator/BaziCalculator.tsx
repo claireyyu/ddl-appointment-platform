@@ -132,6 +132,7 @@ export default function BaziCalculator() {
         baziCesuan: cesuanData.original.baziCesuan,
         baziLiuyue: jingsuanData.original.baziLiuyue
       };
+      console.log("result data from backend: ", combinedData);
       setResult(JSON.stringify(combinedData));
     } catch (error) {
       setResult(`Error: ${error.message || 'Failed to fetch'}`);

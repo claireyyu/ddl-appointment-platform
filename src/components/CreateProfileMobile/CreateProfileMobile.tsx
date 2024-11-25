@@ -7,10 +7,11 @@ import { createUserBaziResult } from "../../services/resultService";
 import BaziFormFields from "../BaziFormFields/BaziFormFields";
 import { timezones } from "../../utils/TimezoneData";
 import LoadingAnimation from "../LoadingAnimation/LoadingAnimation";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 function CreateProfileMobile({ openMobileForm, toggleMobileForm }) {
   const t = useTranslations("CreateProfileMobile");
+  const locale = useLocale();
   const { token } = useAuth();
 
   const [formData, setFormData] = useState({
@@ -60,6 +61,7 @@ function CreateProfileMobile({ openMobileForm, toggleMobileForm }) {
       day: beijingTime.date(),
       hours: beijingTime.hours(),
       minute: beijingTime.minutes(),
+      locale: locale === 'en' ? 'en' : 'zh'
     };
 
     try {
