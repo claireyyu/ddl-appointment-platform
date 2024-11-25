@@ -273,27 +273,38 @@
     "note": "Note: This is a written service conducted exclusively via email. Your privacy is our priority—all readings are conducted with complete confidentiality."
   },
   "YearInterpretation": {
-    "imageAlt": "Service",
-    "title": "Detailed BaZi Interpretation for the Current Year",
+    "header": "Detailed Bazi Interpretation for the Current Year",
+    "title": "Detailed BaZi Interpretation for the Year",
     "intro": "Gain deep insights into what the year ahead holds for you with a comprehensive BaZi (Chinese Astrology) interpretation. This service provides a detailed analysis of your BaZi chart, focusing on the opportunities, challenges, and trends you'll experience throughout the year. Our professional reader, with years of experience in BaZi, will help you understand the unique energies influencing your career, relationships, health, and personal growth.",
     "price": {
-      "standard": "Standard Price: USD 60",
-      "promo": ""
+      "standard": "Standard Price: USD 60"
     },
     "paymentMethod": {
-      "title": "Payment Method",
-      "paypal": "PayPal",
-      "wechat": "WeChat",
-      "alipay": "AliPay"
+      "title": "Payment Methods",
+      "methods": ["PayPal", "WeChat", "AliPay"]
     },
     "howItWorks": {
       "title": "How It Works",
       "steps": {
-        "purchase": "Purchase: Make your payment via PayPal, WeChat, or Alipay.",
-        "email": "Email Us: Send an email to xxx@gmail.com with your payment reference number or a screenshot of the transaction.",
-        "prepareQuestion": "Provide Your Details: Include your gender, birth date, time, and place for an accurate BaZi chart.",
-        "optional": "Optional: Share any specific areas of life you wish to focus on for a more tailored interpretation.",
-        "receiveAnswer": "Receive Your Interpretation: Your detailed BaZi reading will be delivered to your email within 3-5 business days. This reading will cover insights from the current month through to the same month next year. Please remember to check your spam or junk folder if you don't see it in your inbox. "
+        "step1": {
+          "title": "Purchase:",
+          "description": "Complete your payment using PayPal, WeChat, or Alipay."
+        },
+        "step2": {
+          "title": "Email Us:",
+          "description": "Send an email to xxx@gmail.com with your payment reference number or a screenshot of the transaction."
+        },
+        "step3": {
+          "title": "Provide Your Details:",
+          "description": [
+            "Include your gender, birth date, time, and place for an accurate BaZi chart.",
+            "Optional: Share any specific areas of life you wish to focus on for a more tailored interpretation."
+          ]
+        },
+        "step4": {
+          "title": "Receive Your Interpretation:",
+          "description": "Your detailed BaZi reading will be delivered to your email within 3-5 business days. This reading will cover insights from the current month through to the same month next year. Please remember to check your spam or junk folder if you don't see it in your inbox."
+        }
       }
     },
     "note": "Note: This is a written service conducted exclusively via email. Your privacy is our priority—all readings are conducted with complete confidentiality."
