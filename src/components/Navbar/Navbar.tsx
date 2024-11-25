@@ -40,10 +40,10 @@ export default function Navbar() {
         </Link>
 
         <div className="col-span-2 2xl:col-span-2 hidden xl:flex items-center justify-evenly gap-12">
-          <Link href={generateLocalizedPath('/', locale)} className="hover:-translate-y-0.5 transition-transform duration-200">{t('home')}</Link>
-          <Link href={generateLocalizedPath('/services', locale)} className="hover:-translate-y-0.5 transition-transform duration-200">{t('services')}</Link>
-          <Link href={generateLocalizedPath('/about', locale)} className="hover:-translate-y-0.5 transition-transform duration-200">{t('about')}</Link>
-          <Link href={generateLocalizedPath('/#contact', locale)} className="hover:-translate-y-0.5 transition-transform duration-200">{t('contact')}</Link>
+          <Link href={generateLocalizedPath('/', locale)} className="hover-gradient-text transition-transform duration-200">{t('home')}</Link>
+          <Link href={generateLocalizedPath('/services', locale)} className="hover-gradient-text  transition-transform duration-200">{t('services')}</Link>
+          <Link href={generateLocalizedPath('/about', locale)} className="hover-gradient-text  transition-transform duration-200">{t('about')}</Link>
+          <Link href={generateLocalizedPath('/#contact', locale)} className="hover-gradient-text  transition-transform duration-200">{t('contact')}</Link>
         </div>
 
         <div className="col-span-1 flex justify-center items-center gap-12">

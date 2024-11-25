@@ -149,3 +149,9 @@ footer {
 .dot-flashing:nth-child(3) {
   animation-delay: 0.4s;
 }
+
+.hover-gradient-text:hover {
+  background: linear-gradient(to right, #B0D5E5, #10A8EA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
