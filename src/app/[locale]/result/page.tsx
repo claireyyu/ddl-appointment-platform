@@ -91,11 +91,11 @@ export default function ResultPage() {
     <div className="flex flex-col text-center rounded-3xl bg-foreground text-background">
       <ResultHeader name={name} birthYear={birthYear} birthMonth={birthMonth} birthDay={birthDay} birthHour={birthHour} birthMinute={birthMinute} lunarYear={lunarYear} lunarMonth={lunarMonth} lunarDay={lunarDay} />
 
-      <div className="flex items-center justify-center md:grid grid-cols-6">
-        <div className="col-span-1 my-8 flex flex-col items-stretch space-y-4 ml-8">
+      <div className="flex flex-col xl:flex-row ustify-center xl:grid grid-cols-6">
+        <div className="col-span-1 my-8 flex self-center xl:flex-col items-stretch space-y-4 xl:ml-8">
           <ResultButtons activeTab={activeTab} setActiveTab={setActiveTab} />
         </div>
-        <div className="col-span-6 xl:col-span-5 my-8 mr-4">
+        <div className="col-span-6 xl:col-span-5 my-8 xl:mr-4">
           {activeTab === 'bazi' ? (
             <BaziPaipan
               yearStem={yearStem}
