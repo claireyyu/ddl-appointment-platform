@@ -19,32 +19,31 @@ export default function Page() {
           <p>
             <s>{t('price.standard')}</s>
             <br />
-            {t('price.promo')}
-            <br />
             <br />
             {t('paymentMethod.title')}:
             <br />
             <br />
-            {t('paymentMethod.paypal')}
+            {t('paymentMethod.methods.0')}
             <br />
-            {t('paymentMethod.wechat')}
+            {t('paymentMethod.methods.1')}
             <br />
-            {t('paymentMethod.alipay')}
+            {t('paymentMethod.methods.2')}
           </p>
           <br />
           <p>
             {t('howItWorks.title')}:
             <br />
             <br />
-            1. {t('howItWorks.steps.purchase')}
+            1. {t('howItWorks.steps.step1.title')}<br />
+            {t('howItWorks.steps.step1.description')}<br />
+            2. {t('howItWorks.steps.step2.title')}<br />
+            {t('howItWorks.steps.step2.description')}<br />
+            3. {t('howItWorks.steps.step3.title')}<br />
+            {t('howItWorks.steps.step3.description.0')}<br />
+            {t('howItWorks.steps.step3.description.1')}
             <br />
-            2. {t('howItWorks.steps.email')}
-            <br />
-            3. {t('howItWorks.steps.prepareQuestion')}
-            <br/>
-            {t('howItWorks.steps.optional')}
-            <br />
-            4. {t('howItWorks.steps.receiveAnswer')}
+            4. {t('howItWorks.steps.step4.title')}<br />
+            {t('howItWorks.steps.step4.description')}
           </p>
           <br />
           <p>{t('note')}</p>

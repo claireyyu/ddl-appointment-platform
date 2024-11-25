@@ -3,7 +3,7 @@ import PageBar from "../../../../components/PageBar/PageBar";
 import { useTranslations } from "next-intl";
 
 export default function ServicesLayout({ children }: { children: ReactNode }) {
-  const t = useTranslations('PersonalReading'); // Specify translation namespace
+  const t = useTranslations('LifeInterpretation'); // Specify translation namespace
 
   return (
     <div>

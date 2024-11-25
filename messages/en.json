@@ -272,6 +272,7 @@
     },
     "note": "Note: This is a written service conducted exclusively via email. Your privacy is our priority—all readings are conducted with complete confidentiality."
   },
+
   "YearInterpretation": {
     "header": "Detailed Bazi Interpretation for the Current Year",
     "title": "Detailed BaZi Interpretation for the Year",
@@ -309,32 +310,46 @@
     },
     "note": "Note: This is a written service conducted exclusively via email. Your privacy is our priority—all readings are conducted with complete confidentiality."
   },
-  "LifeInterpretation": {
-    "imageAlt": "Service",
-    "title": "Single Question Reading (Email Reply Within 1 business day)",
-    "intro": "Are you seeking guidance on your career, relationships, or other life challenges? Receive a personalized reading delivered straight to your inbox within one business day. Our service offers quick and insightful answers to your pressing questions, using time-honored Chinese methods.",
-    "price": {
-      "standard": "Standard Price: USD 45",
-      "promo": "Promo Price: USD 9.9"
-    },
-    "paymentMethod": {
-      "title": "Payment Method",
-      "paypal": "PayPal",
-      "wechat": "WeChat",
-      "alipay": "AliPay"
-    },
-    "howItWorks": {
-      "title": "How It Works",
-      "steps": {
-        "purchase": "Purchase: Make your payment via PayPal, WeChat, or Alipay.",
-        "email": "Email Us: Send an email to xxx@gmail.com with your payment reference number or a screenshot of the transaction.",
-        "prepareQuestion": "Prepare Your Question: Meditate on your question for 3 minutes. Provide three integer numbers (between 1-999) along with your question. Optional: You can also include background information for a more thorough interpretation.",
-        "restrictions": "Restrictions: We do not address questions related to medical health, death, or legal matters.",
-        "receiveAnswer": "Receive Your Answer: Your reading will be emailed to you within one business day. Please check your spam or junk folder if you don't see it in your inbox."
-      }
-    },
-    "note": "Note: This is a written service conducted exclusively via email. Your privacy is our priority—all readings are conducted with complete confidentiality."
+
+"LifeInterpretation": {
+  "header": "Comprehensive BaZi Interpretation for a Lifetime",
+  "title": "Comprehensive BaZi Interpretation for a Lifetime",
+  "intro": "Unlock the wisdom of your entire life path with a Comprehensive BaZi Interpretation for a Lifetime. This service offers an in-depth analysis of your BaZi chart, revealing the major life phases, significant patterns, and core personality traits that shape your destiny. Understand your strengths, challenges, and the key milestones in your journey, helping you make informed decisions about your career, relationships, health, and overall life direction.",
+  "price": {
+    "standard": "Standard Price: USD 110"
   },
+  "paymentMethod": {
+    "title": "Payment Methods",
+    "methods": ["PayPal", "WeChat", "AliPay"]
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "steps": {
+      "step1": {
+        "title": "Purchase:",
+        "description": "Complete your payment using PayPal, WeChat, or Alipay."
+      },
+      "step2": {
+        "title": "Email Us:",
+        "description": "Send an email to xxx@gmail.com with your payment reference number or a screenshot of the transaction."
+      },
+      "step3": {
+        "title": "Provide Your Details:",
+        "description": [
+          "Include your birth date, time, and place for an accurate BaZi chart.",
+          "Optional: Specify areas of life you wish to focus on for a more personalized interpretation."
+        ]
+      },
+      "step4": {
+        "title": "Receive Your Interpretation:",
+        "description": "Your comprehensive BaZi reading will be delivered to your email within 3-5 days. Please check your spam or junk folder if you don't see it in your inbox."
+      }
+    }
+  },
+  "note": "Note: This service is conducted exclusively via email. Your privacy is our priority—all readings are conducted with complete confidentiality."
+},
+
+
   "PsychicReading": {
     "imageAlt": "Service",
     "title": "Single Question Reading (Email Reply Within 1 business day)",
