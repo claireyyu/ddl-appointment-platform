@@ -51,7 +51,7 @@ export default function ProfilePage() {
         </div>
           
       ) : (
-            <p className="text-center">{t('logoutMessage')}</p>
+        <p className="text-center">{t('logoutMessage')}</p>
       )}
     </div>
   );

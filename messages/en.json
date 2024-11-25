@@ -293,7 +293,7 @@
     "myAccount": "My Account"
   },
   "ProfilePage": {
-    "logoutMessage": "Your credential is expired, please log in again."
+    "logoutMessage": "Your credentials are expired. Please log in again."
   },
   "ProfileList": {
     "birthDate": "Birth Date"
