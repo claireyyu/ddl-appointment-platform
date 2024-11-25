@@ -75,40 +75,6 @@ export function BaziPaipan({ yearStem, yearBranch, monthStem, monthBranch, daySt
             style={{ color: getColor(hourBranch) }}
         >{hourBranch}</div>
       </div>
-
-      {/* Mobile View */}
-      {/* <div className="xl:hidden flex flex-col justify-center items-center flex-1">
-        <p className={styles.mobilePillarText}>{t('yearPillar')}</p>
-        <p>{t('topStem')} - {yearStem}<br />{t('bottomBranch')} - {yearBranch}</p>
-        <p className={styles.mobilePillarText}>{t('monthPillar')} </p>
-        <p>{t('topStem')} - {monthStem}<br />{t('bottomBranch')} - {monthBranch}</p>
-        <p className={styles.mobilePillarText}>{t('dayPillar')} </p>
-        <p>{t('topStem')} - {dayStem}<br />{t('bottomBranch')} - {dayBranch}</p>
-        <p className={styles.mobilePillarText}>{t('hourPillar')} </p>
-        <p>{t('topStem')} - {hourStem}<br />{t('bottomBranch')} - {hourBranch}</p>
-      </div> */}
-      {/* <div className="xl:hidden grid grid-cols-2 gap-4 p-2 bg-foreground rounded-custom-lg shadow-card w-full">
-        <div className={styles.mobilePillarText}>{t('yearPillar')}</div>
-        <div>
-          <p>{t('topStem')} - {yearStem}</p>
-          <p>{t('bottomBranch')} - {yearBranch}</p>
-        </div>
-        <div className={styles.mobilePillarText}>{t('monthPillar')}</div>
-        <div>
-          <p>{t('topStem')} - {monthStem}</p>
-          <p>{t('bottomBranch')} - {monthBranch}</p>
-        </div>
-        <div className={styles.mobilePillarText}>{t('dayPillar')}</div>
-        <div>
-          <p>{t('topStem')} - {dayStem}</p>
-          <p>{t('bottomBranch')} - {dayBranch}</p>
-        </div>
-        <div className={styles.mobilePillarText}>{t('hourPillar')}</div>
-        <div>
-          <p>{t('topStem')} - {hourStem}</p>
-          <p>{t('bottomBranch')} - {hourBranch}</p>
-        </div>
-      </div> */}
     </div>
   );
 }

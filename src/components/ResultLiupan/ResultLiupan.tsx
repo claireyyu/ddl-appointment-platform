@@ -43,7 +43,7 @@ export function BaziLiupan({ yearStem, yearBranch, monthStem, monthBranch, daySt
   return (
     <div className={`flex flex-col ${locale !== 'zh' ? 'mx-16' : 'items-center'}`}>
       {/* Bazi Content */}
-      <div className="hidden md:grid grid-cols-1 md:grid-cols-8 p-2 mx-4 bg-foreground">
+      <div className="grid grid-cols-8 p-2 mx-4 bg-foreground">
         <div className={styles.pillarHeaderText}></div>
         <div className={styles.pillarHeaderText}>{t('yearPillar')}</div>
         <div className={styles.pillarHeaderText}>{t('monthPillar')}</div>
@@ -100,17 +100,6 @@ export function BaziLiupan({ yearStem, yearBranch, monthStem, monthBranch, daySt
         >{selectedLiuyueGanzhi[1]}</div>
       </div>
 
-      {/* Mobile View */}
-      <div className="md:hidden flex flex-col">
-        <p className={styles.mobilePillarText}>{t('yearPillar')}</p>
-        <p>{t('topStem')} - {yearStem}<br />{t('bottomBranch')} - {yearBranch}</p>
-        <p className={styles.mobilePillarText}>{t('monthPillar')}</p>
-        <p>{t('topStem')} - {monthStem}<br />{t('bottomBranch')} - {monthBranch}</p>
-        <p className={styles.mobilePillarText}>{t('dayPillar')}</p>
-        <p>{t('topStem')} - {dayStem}<br />{t('bottomBranch')} - {dayBranch}</p>
-        <p className={styles.mobilePillarText}>{t('hourPillar')}</p>
-        <p>{t('topStem')} - {hourStem}<br />{t('bottomBranch')} - {hourBranch}</p>
-      </div>
     </div>
   );
 }
@@ -165,11 +154,11 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
   return (
     <div className="grid grid-cols-6 gap-4">
 
-        <div className="col-span-1 flex items-center justify-center">
+        <div className="col-span-1 text-sm xl:text-base flex items-center justify-center">
           <p>{t('startsOn')} {jiaoyunYear}-{jiaoyunMonth}-{jiaoyunDay}</p>
         </div>
         <div className="col-span-5 flex items-center justify-start">
-          <div className="hidden md:grid grid-cols-1 md:grid-cols-8 p-2 bg-foreground rounded-custom-lg">
+          <div className="grid grid-cols-8 p-2 bg-foreground rounded-custom-lg">
           {dayunAge.map((age: number, index: number) => (
             <button
               key={index}
@@ -178,8 +167,10 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
             >
               {/* Header Section */}
               <div className="w-full bg-tbHeader text-center mx-4 py-2">
-                { locale == 'en' ? <p>{t('age')} {age}</p> : <p>{age}岁</p> }
-                <p>{dayunStart[index]}</p>
+                { locale == 'en' ? <p>{t('age')} {age}</p> : <p className="hidden xl:block">{age}岁</p> }
+                <p className="hidden xl:block">{dayunStart[index]}</p>
+                <p className="xl:hidden">{dayunStart[index].toString().slice(0, 2)}</p>
+                <p className="xl:hidden">{dayunStart[index].toString().slice(2, 4)}</p>
               </div>
             
               {/* Data Section */}
@@ -201,7 +192,7 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
         <p>{t('yearly')}</p>
       </div>
       <div className="col-span-5 flex items-center justify-start">
-        <div className="hidden md:grid grid-cols-1 md:grid-cols-10 p-2 bg-foreground rounded-custom-lg">
+        <div className="grid grid-cols-10 p-2 bg-foreground rounded-custom-lg">
           {dayunNianzhuArr[selectedDayun].map((group: string[], index: number) => (
             <button
             key={index}
@@ -211,7 +202,7 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
               {/* Header Section */}
               <div className="w-full bg-tbHeader text-center mx-6 py-2">
                 {locale == 'en' ? <div><p>{t('age')}</p>
-                <p>{dayunAge[selectedDayun] + index}</p></div> : <p>{dayunAge[selectedDayun] + index}岁</p>}
+                <p>{dayunAge[selectedDayun] + index}</p></div> : <><p>{dayunAge[selectedDayun] + index}</p><p className="hidden xl:block">岁</p></>}
               </div>
 
               {/* Data Section */}
@@ -232,7 +223,7 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
           <p>{t('monthly')}</p>
         </div>
         <div className="col-span-5 flex items-center justify-start">
-          <div className="hidden md:grid grid-cols-1 md:grid-cols-12 p-2 bg-foreground rounded-custom-lg">
+          <div className="grid grid-cols-12 p-2 bg-foreground rounded-custom-lg">
             {baziLiuyue[selectedDayun][selectedLiunian].map((group: string[], index: number) => (
               <button
               key={index}
