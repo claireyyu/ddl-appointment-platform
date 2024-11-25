@@ -41,7 +41,7 @@ export function BaziLiupan({ yearStem, yearBranch, monthStem, monthBranch, daySt
   const locale = useLocale();
 
   return (
-    <div className={`flex flex-col ${locale !== 'zh' ? 'mx-16' : 'items-center'}`}>
+    <div className={`flex flex-col ${locale !== 'zh' ? 'mx-2 text-xs lg:text-base' : 'items-center'}`}>
       {/* Bazi Content */}
       <div className="grid grid-cols-8 p-2 mx-4 bg-foreground">
         <div className={styles.pillarHeaderText}></div>
@@ -154,7 +154,7 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
   return (
     <div className="grid grid-cols-6 gap-4">
 
-        <div className="col-span-1 text-sm xl:text-base flex items-center justify-center">
+        <div className="col-span-1 text-sm lg:text-base flex items-center justify-center">
           <p>{t('startsOn')} {jiaoyunYear}-{jiaoyunMonth}-{jiaoyunDay}</p>
         </div>
         <div className="col-span-5 flex items-center justify-start">
@@ -167,7 +167,7 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
             >
               {/* Header Section */}
               <div className="w-full bg-tbHeader text-center mx-4 py-2">
-                { locale == 'en' ? <p>{t('age')} {age}</p> : <p className="hidden xl:block">{age}岁</p> }
+                { locale == 'en' ? <p className="hidden xl:block">{t('age')} {age}</p> : <p className="hidden xl:block">{age}岁</p> }
                 <p className="hidden xl:block">{dayunStart[index]}</p>
                 <p className="xl:hidden">{dayunStart[index].toString().slice(0, 2)}</p>
                 <p className="xl:hidden">{dayunStart[index].toString().slice(2, 4)}</p>
@@ -201,7 +201,7 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
             >
               {/* Header Section */}
               <div className="w-full bg-tbHeader text-center mx-6 py-2">
-                {locale == 'en' ? <div><p>{t('age')}</p>
+                {locale == 'en' ? <div><p className="hidden xl:block">{t('age')}</p>
                 <p>{dayunAge[selectedDayun] + index}</p></div> : <><p>{dayunAge[selectedDayun] + index}</p><p className="hidden xl:block">岁</p></>}
               </div>
 
@@ -232,7 +232,7 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
               >
                 {/* Header Section */}
                 <div className="w-full bg-tbHeader text-center mx-6 py-2">
-                  <p>{locale === 'en' ? liunianDates[index] : zhLiunianDates[index]}</p>
+                  <p className="text-xs lg:text-base">{locale === 'en' ? liunianDates[index] : zhLiunianDates[index]}</p>
                 </div>
 
                 {/* Data Section */}
