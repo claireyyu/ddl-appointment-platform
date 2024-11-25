@@ -12,12 +12,12 @@ export default function ServicesPage() {
   const t = useTranslations('ServicesPage'); // Specify translation namespace
 
   return (
-    <div>
+    <div className="mx-4 md:mx-8 lg:mx-24">
       <PageBar>
         <h1 className="text-2xl md:text-3xl font-bold">{t('title')}</h1>
       </PageBar>
       {/* Services Content */}
-      <div className="flex flex-col">
+      <div className="flex flex-col my-8 lg:my-16">
         <p className="text-justify md:text-lg mb-10">
         {t('description')}
         </p>

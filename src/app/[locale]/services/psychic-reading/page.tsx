@@ -1,10 +1,13 @@
 import psychic1 from "../../../../../public/psychic-1.png";
 import psychic2 from "../../../../../public/psychic-2.png";
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import Link from 'next/link';
+import generateLocalizedPath from '../../../../utils/PathHelper';
 
 export default function Page() {
   const t = useTranslations('PsychicReading'); // Namespace for translations
+  const locale = useLocale();
 
   return (
     <div className="grid grid-cols-1 mt-12 text-foreground">
@@ -39,7 +42,8 @@ export default function Page() {
       <div className="bg-serviceBg flex flex-col justify-center items-center px-4 md:px-16 py-8 md:py:16">
         <h1 className="text-xl mb-8">{t('footer.header')}</h1>
         <p className="text-center mb-8">{t('footer.description')}</p>
-        <button className="bg-purpleBtn rounded-custom px-8 py-1">{t('footer.buttonText')}</button>
+        <Link href={generateLocalizedPath('/#contact', locale)} className="bg-purpleBtn rounded-custom px-8 py-1">{t('footer.buttonText')}</Link>
+        {/* <p className="bg-purpleBtn rounded-custom px-8 py-1">{t('footer.buttonText')}</p> */}
       </div>
     </div>
   );

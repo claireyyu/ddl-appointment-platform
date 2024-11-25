@@ -4,7 +4,7 @@ export default function ServicesLayout({ children }: { children: ReactNode }) {
 
   return (
     <div>
-      <div className="my-8 lg:my-16">
+      <div>
         {children}
       </div>
     </div>
