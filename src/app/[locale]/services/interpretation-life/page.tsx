@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
 export default function Page() {
-  const t = useTranslations('PersonalReading'); // Namespace for translations
+  const t = useTranslations('LifeInterpretation'); // Namespace for translations
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 mx-4 md:mx-16 mt-12 text-foreground">
@@ -41,10 +41,10 @@ export default function Page() {
             2. {t('howItWorks.steps.email')}
             <br />
             3. {t('howItWorks.steps.prepareQuestion')}
+            <br/>
+            {t('howItWorks.steps.optional')}
             <br />
-            4. {t('howItWorks.steps.restrictions')}
-            <br />
-            5. {t('howItWorks.steps.receiveAnswer')}
+            4. {t('howItWorks.steps.receiveAnswer')}
           </p>
           <br />
           <p>{t('note')}</p>

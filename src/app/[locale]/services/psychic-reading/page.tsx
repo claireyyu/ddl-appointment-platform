@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
 export default function Page() {
-  const t = useTranslations('PersonalReading'); // Namespace for translations
+  const t = useTranslations('PsychicReading'); // Namespace for translations
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 mx-4 md:mx-16 mt-12 text-foreground">

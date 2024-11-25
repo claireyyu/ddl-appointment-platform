@@ -234,6 +234,72 @@
   },
   "PersonalReading": {
     "imageAlt": "Service",
+    "title": "Single Question Reading (Email Reply Within 1 Business Day)",
+    "intro": "Are you seeking guidance on your career, relationships, or other life challenges? Receive a personalized reading delivered straight to your inbox within one business day. Our service offers quick and insightful answers to your pressing questions, using Chinese methods.",
+    "price": {
+      "standard": "Standard Price: USD 45",
+      "promo": "Promo Price: USD 9.9"
+    },
+    "paymentMethod": {
+      "title": "Payment Methods",
+      "methods": ["PayPal", "WeChat", "AliPay"]
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "steps": {
+        "step1": {
+          "title": "Purchase:",
+          "description": "Make your payment via PayPal, WeChat, or Alipay."
+        },
+        "step2": {
+          "title": "Email Us:",
+          "description": "Send an email to xxx@gmail.com with your payment reference number or a screenshot of the transaction."
+        },
+        "step3": {
+          "title": "Prepare Your Question:",
+          "description": ["Meditate on your question for 3 minutes.", "Provide three integer numbers (between 1-999) along with your question.", "Optional: You can also include background information for a more thorough interpretation."]
+        },
+        "step4": {
+          "title": "Restrictions:",
+          "description": "We do not address questions related to medical health, death, or legal matters."
+        },
+        "step5": {
+          "title": "Receive Your Answer:",
+          "description": "Your reading will be emailed to you within one business day. Please check your spam or junk folder if you don't see it in your inbox."
+        }
+      }
+    },
+    "note": "Note: This is a written service conducted exclusively via email. Your privacy is our priority—all readings are conducted with complete confidentiality."
+  },
+  "YearInterpretation": {
+    "imageAlt": "Service",
+    "title": "Detailed BaZi Interpretation for the Current Year",
+    "intro": "Gain deep insights into what the year ahead holds for you with a comprehensive BaZi (Chinese Astrology) interpretation. This service provides a detailed analysis of your BaZi chart, focusing on the opportunities, challenges, and trends you'll experience throughout the year. Our professional reader, with years of experience in BaZi, will help you understand the unique energies influencing your career, relationships, health, and personal growth.",
+    "price": {
+      "standard": "Standard Price: USD 60",
+      "promo": ""
+    },
+    "paymentMethod": {
+      "title": "Payment Method",
+      "paypal": "PayPal",
+      "wechat": "WeChat",
+      "alipay": "AliPay"
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "steps": {
+        "purchase": "Purchase: Make your payment via PayPal, WeChat, or Alipay.",
+        "email": "Email Us: Send an email to xxx@gmail.com with your payment reference number or a screenshot of the transaction.",
+        "prepareQuestion": "Provide Your Details: Include your gender, birth date, time, and place for an accurate BaZi chart.",
+        "optional": "Optional: Share any specific areas of life you wish to focus on for a more tailored interpretation.",
+        "receiveAnswer": "Receive Your Interpretation: Your detailed BaZi reading will be delivered to your email within 3-5 business days. This reading will cover insights from the current month through to the same month next year. Please remember to check your spam or junk folder if you don't see it in your inbox. "
+      }
+    },
+    "note": "Note: This is a written service conducted exclusively via email. Your privacy is our priority—all readings are conducted with complete confidentiality."
+  },
+  "LifeInterpretation": {
+    "imageAlt": "Service",
+    "title": "Single Question Reading (Email Reply Within 1 business day)",
     "intro": "Are you seeking guidance on your career, relationships, or other life challenges? Receive a personalized reading delivered straight to your inbox within one business day. Our service offers quick and insightful answers to your pressing questions, using time-honored Chinese methods.",
     "price": {
       "standard": "Standard Price: USD 45",
@@ -257,6 +323,33 @@
     },
     "note": "Note: This is a written service conducted exclusively via email. Your privacy is our priority—all readings are conducted with complete confidentiality."
   },
+  "PsychicReading": {
+    "imageAlt": "Service",
+    "title": "Single Question Reading (Email Reply Within 1 business day)",
+    "intro": "Are you seeking guidance on your career, relationships, or other life challenges? Receive a personalized reading delivered straight to your inbox within one business day. Our service offers quick and insightful answers to your pressing questions, using time-honored Chinese methods.",
+    "price": {
+      "standard": "Standard Price: USD 45",
+      "promo": "Promo Price: USD 9.9"
+    },
+    "paymentMethod": {
+      "title": "Payment Method",
+      "paypal": "PayPal",
+      "wechat": "WeChat",
+      "alipay": "AliPay"
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "steps": {
+        "purchase": "Purchase: Make your payment via PayPal, WeChat, or Alipay.",
+        "email": "Email Us: Send an email to xxx@gmail.com with your payment reference number or a screenshot of the transaction.",
+        "prepareQuestion": "Prepare Your Question: Meditate on your question for 3 minutes. Provide three integer numbers (between 1-999) along with your question. Optional: You can also include background information for a more thorough interpretation.",
+        "restrictions": "Restrictions: We do not address questions related to medical health, death, or legal matters.",
+        "receiveAnswer": "Receive Your Answer: Your reading will be emailed to you within one business day. Please check your spam or junk folder if you don't see it in your inbox."
+      }
+    },
+    "note": "Note: This is a written service conducted exclusively via email. Your privacy is our priority—all readings are conducted with complete confidentiality."
+  },
+
 
   "AboutPage": {
     "title": "About",
