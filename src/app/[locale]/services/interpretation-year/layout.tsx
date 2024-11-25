@@ -11,7 +11,9 @@ export default function ServicesLayout({ children }: { children: ReactNode }) {
         <PageBar>
           <h1 className="text-2xl md:text-3xl font-bold">{t('header')}</h1>
         </PageBar>
-        {children}
+        <div className="mx-4 md:mx-8 lg:mx-24">
+          {children}
+        </div>
       </div>
     </div>
   );

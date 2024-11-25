@@ -351,32 +351,25 @@
 
 
   "PsychicReading": {
-    "imageAlt": "Service",
-    "title": "Single Question Reading (Email Reply Within 1 business day)",
-    "intro": "Are you seeking guidance on your career, relationships, or other life challenges? Receive a personalized reading delivered straight to your inbox within one business day. Our service offers quick and insightful answers to your pressing questions, using time-honored Chinese methods.",
-    "price": {
-      "standard": "Standard Price: USD 45",
-      "promo": "Promo Price: USD 9.9"
-    },
-    "paymentMethod": {
-      "title": "Payment Method",
-      "paypal": "PayPal",
-      "wechat": "WeChat",
-      "alipay": "AliPay"
-    },
-    "howItWorks": {
-      "title": "How It Works",
-      "steps": {
-        "purchase": "Purchase: Make your payment via PayPal, WeChat, or Alipay.",
-        "email": "Email Us: Send an email to xxx@gmail.com with your payment reference number or a screenshot of the transaction.",
-        "prepareQuestion": "Prepare Your Question: Meditate on your question for 3 minutes. Provide three integer numbers (between 1-999) along with your question. Optional: You can also include background information for a more thorough interpretation.",
-        "restrictions": "Restrictions: We do not address questions related to medical health, death, or legal matters.",
-        "receiveAnswer": "Receive Your Answer: Your reading will be emailed to you within one business day. Please check your spam or junk folder if you don't see it in your inbox."
+    "header": "Psychic Reading (Non-BaZi Service)",
+    "intro": "Looking for intuitive guidance on specific life questions or challenges? Our Psychic Reading service offers a non-BaZi, intuitive approach to gain clarity on your current situation. Whether you're struggling with relationships, career decisions, or personal challenges, this reading taps into psychic insights to provide you with meaningful answers and direction. With years of experience, our reader offers compassionate and accurate readings that are tailored to your needs.",
+    "callToAction": "Choose a Psychic for Live Chat & Video Readings.",
+    "psychics": [
+      {
+        "name": "Maple",
+        "rate": "$1.99/min"
+      },
+      {
+        "name": "Jade",
+        "rate": "$1.99/min"
       }
-    },
-    "note": "Note: This is a written service conducted exclusively via email. Your privacy is our priority—all readings are conducted with complete confidentiality."
+    ],
+    "footer": {
+      "header": "Unlock Your Psychic Potential with Lab 8!",
+      "description": "Partner with Lab 8 to amplify your spiritual impact. We provide a cutting-edge platform for intuitive practitioners to connect with seekers worldwide. With seamless tools, vibrant marketing support, and a growing community of like-minded professionals, Lab 8 is where your gift meets its greatest potential. Let's collaborate to bring clarity and healing to those who need it most!",
+      "buttonText": "Join Us"
+    }
   },
-
 
   "AboutPage": {
     "title": "About",

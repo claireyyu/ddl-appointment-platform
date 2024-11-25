@@ -15,6 +15,7 @@ module.exports = {
 				'contact-bg': '#4164dd',
 				'bpStart': '#10A8EA',
 				'bpEnd': '#B21BF9',
+				"purpleBtn": "#7201E6",
 				'bStart': '#80EBF2',
 				'bEnd': '#10A8EA',
 				'pStart': '#8316F0',
@@ -24,6 +25,7 @@ module.exports = {
 				'tbHeader': '#A564E814',
 				'tbSelected': '#F6F6F6',
 				'greyBg': '#202628',
+				'serviceBg': '#7C90C9',
 				border: 'hsl(var(--border))',
   		},
   		borderRadius: {
