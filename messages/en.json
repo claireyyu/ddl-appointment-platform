@@ -234,6 +234,7 @@
   },
   "PersonalReading": {
     "imageAlt": "Service",
+    "header": "Single Question Reading",
     "title": "Single Question Reading (Email Reply Within 1 Business Day)",
     "intro": "Are you seeking guidance on your career, relationships, or other life challenges? Receive a personalized reading delivered straight to your inbox within one business day. Our service offers quick and insightful answers to your pressing questions, using Chinese methods.",
     "price": {

@@ -5,6 +5,7 @@ import service3 from '../../../../public/service-3.png';
 import service4 from '../../../../public/service-4.png';
 import styles from './ServicesPage.module.css';
 import { useTranslations } from 'next-intl'; // Import translations
+import PageBar from '../../../components/PageBar/PageBar';
 
 
 export default function ServicesPage() {
@@ -12,6 +13,9 @@ export default function ServicesPage() {
 
   return (
     <div>
+      <PageBar>
+        <h1 className="text-2xl md:text-3xl font-bold">{t('title')}</h1>
+      </PageBar>
       {/* Services Content */}
       <div className="flex flex-col">
         <p className="text-justify md:text-lg mb-10">
