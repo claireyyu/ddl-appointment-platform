@@ -143,7 +143,7 @@ export default function BaziCalculator() {
 
   return (
     <div>
-      <h1 className="text-sm md:text-base xl:text-lg text-center p-2 font-bold">{t('title')}</h1>
+      {/* <h1 className="text-sm md:text-base xl:text-lg text-center p-2 font-bold">{t('title')}</h1> */}
       <form className="flex flex-col p-4 sm:p-6 md:p-8" onSubmit={handleSubmit}>
         <BaziFormFields formData={formData} handleChange={handleChange} timezones={timezones} />
 
