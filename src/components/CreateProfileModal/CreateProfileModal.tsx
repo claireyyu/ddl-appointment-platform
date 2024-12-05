@@ -129,7 +129,7 @@ function CreateProfileModal() {
     return (
       <Modal isOpen={isModalOpen} onClose={closeModal} bgColor={'bg-greyBg'}>
         <form className="flex flex-col w-full p-8" onSubmit={handleSaveUserProfile}>
-          <BaziFormFields formData={formData} handleChange={handleChange} timezones={timezones} />
+          <BaziFormFields formData={formData} handleChange={handleChange} timezones={timezones} hasTitle={false}/>
           <div className="flex justify-center mt-4">
             <button
               type="submit"

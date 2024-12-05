@@ -2,20 +2,20 @@ import React, { ChangeEvent } from 'react';
 import { type BaziFormFieldsProps } from '../../types/bazi';
 import {useLocale, useTranslations} from 'next-intl';
 
-const BaziFormFields: React.FC<BaziFormFieldsProps> = ({ formData, timezones, handleChange }) => {
+const BaziFormFields: React.FC<BaziFormFieldsProps> = ({ formData, timezones, handleChange, hasTitle }) => {
   const t = useTranslations('BaziCalculator');
   const locale = useLocale();
 
   return (
     <div className="flex flex-col justify-between">
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 mb-4">
-        <div className="p-2 text-sm md:text-base xl:text-lg"/>
+      {hasTitle && <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 mb-4">
+        <div className="p-2 text-sm md:text-base xl:text-lg" />
         <h1
           className="p-2 col-span-1 sm:col-span-2 text-sm md:text-base xl:text-lg text-center font-bold"
         >
           {t('title')}
         </h1>
-      </div>
+      </div>}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 mb-4">
         <label htmlFor="name" className="p-2 text-sm md:text-base xl:text-lg">{t('name')}</label>
         <input

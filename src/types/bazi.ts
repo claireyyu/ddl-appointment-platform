@@ -24,6 +24,7 @@ export type BaziFormFieldsProps = {
   formData: FormData;
   timezones: TimezoneData[];
   handleChange: (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
+  hasTitle?: boolean;
 }
 
 export type BaziRequestData = {
