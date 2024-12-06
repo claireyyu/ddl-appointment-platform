@@ -33,14 +33,14 @@ export default function ServiceCard({ link, content, pic, imgPosition }) {
           </div>
           <div className="flex flex-[2] ">
             <div className={`${pickBackgroundColor(link)} flex flex-1 justify-center px-8 py-2 rounded-custom-lg`}>
-              <p className="text-center text-2xl xl:text-3xl">{t(content)}</p>
+              <p className="text-center text-2xl">{t(content)}</p>
             </div>
           </div>
         </div> : 
         <div className="flex flex-1 items-center">
           <div className="flex flex-[2] justify-end">
             <div className={`${pickBackgroundColor(link)} flex flex-1 justify-center px-8 py-2 rounded-custom-lg justify-self-end`}>
-              <p className="text-center text-2xl xl:text-3xl">{t(content)}</p>
+              <p className="text-center text-2xl">{t(content)}</p>
             </div>
           </div>
           <div className="flex flex-[1]">
