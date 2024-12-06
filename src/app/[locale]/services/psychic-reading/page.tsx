@@ -1,5 +1,6 @@
 import psychic1 from "../../../../../public/psychic-1.png";
 import psychic2 from "../../../../../public/psychic-2.png";
+import psychic3 from "../../../../../public/psychic-3.png";
 import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
@@ -22,20 +23,30 @@ export default function Page() {
             <Image
               src={psychic1}
               alt={t('imageAlt')}
-              className="col-span-1 md:w-2/3 md:h-auto justify-self-center py-4 md:py-16"
+              className="w-full object-contain h-[50vh] xl:h-[75vh]"
             />
-            <p>{t('psychics.0.name')}</p>
-            <p>{t('psychics.0.rate')}</p>
+            {/* <p>{t('psychics.0.name')}</p>
+            <p>{t('psychics.0.rate')}</p> */}
 
           </div>
           <div className="flex flex-1 flex-col justify-center items-center">
             <Image
                 src={psychic2}
                 alt={t('imageAlt')}
-                className="col-span-1 md:w-2/3 md:h-auto justify-self-center py-4 md:py-16"
+                className="w-full object-contain h-[50vh] xl:h-[75vh]"
             />
-            <p>{t('psychics.1.name')}</p>
-            <p>{t('psychics.1.rate')}</p>
+            {/* <p>{t('psychics.1.name')}</p>
+            <p>{t('psychics.1.rate')}</p> */}
+          </div>
+
+          <div className="flex flex-1 flex-col justify-center items-center">
+            <Image
+                src={psychic3}
+                alt={t('imageAlt')}
+                className="w-full object-contain h-[50vh] xl:h-[75vh]"
+            />
+            {/* <p>{t('psychics.1.name')}</p>
+            <p>{t('psychics.1.rate')}</p> */}
           </div>
         </div>
       </div>
