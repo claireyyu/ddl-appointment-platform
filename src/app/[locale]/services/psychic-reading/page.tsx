@@ -23,7 +23,7 @@ export default function Page() {
             <Image
               src={psychic1}
               alt={t('imageAlt')}
-              className="w-full object-contain h-[50vh] xl:h-[75vh]"
+              className="w-full object-contain h-[50vh]"
             />
             {/* <p>{t('psychics.0.name')}</p>
             <p>{t('psychics.0.rate')}</p> */}
@@ -33,7 +33,7 @@ export default function Page() {
             <Image
                 src={psychic2}
                 alt={t('imageAlt')}
-                className="w-full object-contain h-[50vh] xl:h-[75vh]"
+                className="w-full object-contain h-[50vh]"
             />
             {/* <p>{t('psychics.1.name')}</p>
             <p>{t('psychics.1.rate')}</p> */}
@@ -43,7 +43,7 @@ export default function Page() {
             <Image
                 src={psychic3}
                 alt={t('imageAlt')}
-                className="w-full object-contain h-[50vh] xl:h-[75vh]"
+                className="w-full object-contain h-[50vh]"
             />
             {/* <p>{t('psychics.1.name')}</p>
             <p>{t('psychics.1.rate')}</p> */}

@@ -35,7 +35,7 @@ export default function HomePage() {
             <Image
               src={aboutLeftPic}
               alt="About Left"
-              className="w-full object-contain h-[50vh] xl:h-[75vh]"
+              className="w-full object-contain h-[50vh]"
             />
           </div>
 
@@ -49,7 +49,7 @@ export default function HomePage() {
             <Image
               src={aboutRightPic}
               alt="About Right"
-              className="w-full object-contain h-[50vh] xl:h-[75vh]"
+              className="w-full object-contain h-[50vh]"
             />
           </div>
         </section>
