@@ -67,16 +67,7 @@ export default function HomePage() {
         </section>
       </div>
 
-      {/* <div id="contact" className="min-h-screen bg-cover bg-center bg-contact-bg md:bg-[url(/home-bg-3.png)]">
-        <section className="min-h-screen flex">
-          <div className="max-w-4xl md:w-1/2 flex items-center mx-4 md:mx-8 lg:mx-24">
-            <ContactForm />
-          </div>
-          <div className="hidden md:block md:w-1/2" />
-        </section>
-      </div> */}
-
-      <div className="min-h-screen bg-background">
+      <div id="contact" className="min-h-screen bg-background">
         <section className="min-h-screen flex flex-col xl:flex-row">
           <div className="flex-1 flex flex-col justify-center items-center mx-4 md:mx-8 xl:ml-24 my-8 lg:my-24">
             <ContactForm />
