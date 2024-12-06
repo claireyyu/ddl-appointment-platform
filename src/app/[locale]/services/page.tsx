@@ -25,33 +25,11 @@ export default function ServicesPage() {
         </p>
 
         {/* Service Cards Grid */}
-        <section className="flex flex-col gap-8 lg:gap-24 px-4 lg:px-24 py-8 lg:py-16 text-foreground">
+        <section className="flex flex-col px-4 lg:px-24 text-foreground">
           <ServiceCard link="personal-reading" content="services.singleQuestion" pic={service1} imgPosition="left" />
           <ServiceCard link="psychic-reading" content="services.psychic" pic={service2} imgPosition="right" />
           <ServiceCard link="interpretation-life" content="services.lifetime" pic={service3} imgPosition="left" />
-          <ServiceCard link="interpretation-year" content="services.currentYear" pic={service2} imgPosition="right" />
-            {/* <div className={`absolute ${locale === 'zh' ? 'bottom-4' : 'bottom-0'} right-8 xl:p-4`}>
-              {locale === 'en' ? <h1 className={styles.cardText}>{t('services.singleQuestion').split("\n")[0]}<br/>{t('services.singleQuestion').split("\n")[1]}</h1> : <h1 className={styles.cardTextZh}>{t('services.singleQuestion')}</h1>}
-            </div> */}
-          {/* </ServiceCard> */}
-
-          {/* <ServiceCard link="interpretation-year" pic={service2} imgPosition="right">
-            <div className={`absolute ${locale === 'zh' ? 'bottom-4' : 'bottom-0'} left-8 xl:p-4`}>
-              {locale === 'en' ? <h1 className={styles.cardText}>{t('services.currentYear').split("\n")[0]}<br/>{t('services.currentYear').split("\n")[1]}</h1> : <h1 className={styles.cardTextZh}>{t('services.currentYear')}</h1>}
-            </div>
-          </ServiceCard> */}
-          {/* <ServiceCard link="interpretation-year" pic={service3} imgPosition="left">
-            <div className={`absolute ${locale === 'zh' ? 'bottom-4' : 'bottom-0'} left-8 xl:p-4`}>
-              {locale === 'en' ? <h1 className={styles.cardText}>{t('services.lifetime').split("\n")[0]}<br/>{t('services.lifetime').split("\n")[1]}</h1> : <h1 className={styles.cardTextZh}>{t('services.lifetime')}</h1>}
-            </div>
-          </ServiceCard> */}
-
-          {/* <ServiceCard link="psychic-reading" pic={service4} imgPosition="right">
-            <div className="absolute bottom-4 left-8 xl:p-4">
-              <h1 className={styles.cardText}>{t('services.psychic')}</h1>
-            </div>
-          </ServiceCard> */}
-
+          <ServiceCard link="interpretation-year" content="services.currentYear" pic={service4} imgPosition="right" />
         </section>
       </div>
     </div>

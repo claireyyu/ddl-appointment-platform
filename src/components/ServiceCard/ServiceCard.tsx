@@ -25,18 +25,28 @@ export default function ServiceCard({ link, content, pic, imgPosition }) {
   }
 
   return (
-    <div className="relative hover:-translate-y-2 transition-transform duration-200">
+    <div>
       <Link href={generateLocalizedPath(`/services/${link}`, locale)}>
-        <div className="flex flex-1 items-center">
+        {imgPosition === 'left' ? <div className="flex flex-1 items-center">
           <div className="flex flex-[1]">
-            <Image src={pic} alt="Service" className="w-full object-contain h-[50vh]" />
+            <Image src={pic} alt="Service" className="w-full object-contain h-[40vh]" />
           </div>
-          <div className="flex flex-[2]">
-            <div className={`${pickBackgroundColor(link)} px-8 py-2 rounded-custom-lg`}>
-              <p className="text-center text-3xl">{t(content)}</p>
+          <div className="flex flex-[2] ">
+            <div className={`${pickBackgroundColor(link)} flex flex-1 justify-center px-8 py-2 rounded-custom-lg`}>
+              <p className="text-center text-2xl xl:text-3xl">{t(content)}</p>
             </div>
           </div>
-        </div>
+        </div> : 
+        <div className="flex flex-1 items-center">
+          <div className="flex flex-[2] justify-end">
+            <div className={`${pickBackgroundColor(link)} flex flex-1 justify-center px-8 py-2 rounded-custom-lg justify-self-end`}>
+              <p className="text-center text-2xl xl:text-3xl">{t(content)}</p>
+            </div>
+          </div>
+          <div className="flex flex-[1]">
+            <Image src={pic} alt="Service" className="w-full object-contain h-[40vh]" />
+            </div>
+          </div>}
       </Link>
     </div>
   )
