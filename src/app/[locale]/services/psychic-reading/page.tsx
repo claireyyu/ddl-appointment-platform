@@ -14,7 +14,7 @@ export default function Page() {
     <div className="grid grid-cols-1 mt-12 text-foreground">
       <div className="flex flex-col col-span-2 px-4 md:px-16 pb-4 md:pb-16 mx-4 md:mx-8 lg:mx-24">
         <div className="text-justify md:text-lg">
-          <p>{t('header')}</p><br/>
+          {locale === 'en' && <><p>{t('header')}</p><br/></>}
           <p>{t('intro')}</p><br/><br/>
           <p>{t('callToAction')}</p><br/>
         </div>

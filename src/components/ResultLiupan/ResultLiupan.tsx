@@ -155,7 +155,7 @@ export function BaziDayun({ jiaoyun, dayunGanZhi, dayunAge, dayunStart, dayunNia
     <div className="grid grid-cols-6 gap-4">
 
         <div className="col-span-1 text-sm lg:text-base flex items-center justify-center">
-          <p>{t('startsOn')} {jiaoyunYear}-{jiaoyunMonth}-{jiaoyunDay}</p>
+          {locale === 'en' ? <p>{t('startsOn')} {jiaoyunYear}-{jiaoyunMonth}-{jiaoyunDay}</p> : <p>大运</p>}
         </div>
         <div className="col-span-5 flex items-center justify-start">
           <div className="grid grid-cols-8 p-2 bg-foreground rounded-custom-lg">
