@@ -19,7 +19,8 @@ export default function ServicesPage() {
       {/* Services Content */}
       <div className="flex flex-col my-8 lg:my-16">
         <p className="text-justify md:text-lg mb-10">
-        {t('description')}
+          {t('description')}
+          {t('description2')}
         </p>
 
         {/* Service Cards Grid */}

@@ -224,7 +224,8 @@
 
   "ServicesPage": {
     "title": "Services",
-    "description": "At Lab 8, we offer a variety of services designed to help you gain deep insights into your life's path using the ancient wisdom of BaZi (Chinese Astrology) and psychic guidance. Whether you're seeking clarity, personal growth, or a fresh perspective on your future, our services are tailored to empower you in achieving success and fulfillment.\n\nExplore our services below.",
+    "description": "At Lab 8, we offer a variety of services designed to help you gain deep insights into your life's path using the ancient wisdom of BaZi (Chinese Astrology) and psychic guidance. Whether you're seeking clarity, personal growth, or a fresh perspective on your future, our services are tailored to empower you in achieving success and fulfillment.",
+    "description2": "Explore our services below.",
     "services": {
       "singleQuestion": "Single Question\nReading",
       "currentYear": "Current Year\nBaZi Interpretation",
