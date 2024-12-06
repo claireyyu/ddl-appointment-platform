@@ -9,6 +9,8 @@ import homeTraitsPic from "../../public/home-traits.png";
 import Image from 'next/image'
 import HomeTraitsButtons from '../../components/HomeTraitsButtons/HomeTraitsButtons';
 import { useTranslations } from 'next-intl';
+import aboutLeftPic from "../../../public/about-left.png";
+import aboutRightPic from "../../../public/about-right.png";
 
 export default function HomePage() {
   const t = useTranslations('homeTraitClick');
@@ -25,14 +27,42 @@ export default function HomePage() {
         </section>
       </div>
 
-      <div className="min-h-screen bg-cover bg-center xl:bg-[url(/home-bg-2.png)]">
+      {/* <div className="min-h-screen bg-cover bg-center xl:bg-[url(/home-bg-2.png)]">
         <section className="min-h-screen grid grid-cols-2 gap-4">
           <div className="col-span-2 xl:col-span-1 flex flex-col justify-center mx-4 md:mx-8 lg:ml-24 my-8 lg:my-24">
             <HomeAbout />
           </div>
           <span className="hidden xl:block xl:col-span-1" />
         </section>
-      </div>
+      </div> */}
+<div className="min-h-screen bg-background max-w-screen w-full mx-auto overflow-hidden flex flex-col justify-center">
+  <section className="flex flex-col xl:flex-row w-full gap-4 px-4">
+    {/* Left Section */}
+    <div className="flex-[1] flex flex-col justify-center items-center px-4 py-2">
+      <Image
+        src={aboutLeftPic}
+        alt="About Left"
+        className="w-full object-contain h-[50vh] xl:h-[75vh]"
+      />
+    </div>
+
+    {/* Middle Section */}
+    <div className="flex-[2] flex flex-col justify-center items-center px-4">
+      <HomeAbout />
+    </div>
+
+    {/* Right Section */}
+    <div className="flex-[1] flex flex-col justify-center items-center px-4 py-2">
+      <Image
+        src={aboutRightPic}
+        alt="About Right"
+        className="w-full object-contain h-[50vh] xl:h-[75vh]"
+      />
+    </div>
+  </section>
+</div>
+
+
 
       <div className="min-h-screen bg-trait-bg">
         <section className="min-h-screen flex flex-col xl:flex-row">

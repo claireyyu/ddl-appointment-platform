@@ -16,7 +16,7 @@ export default function HomeAbout() {
       <p className="text-sm md:text-base xl:text-lg text-justify mb-4 lg:mb-8">
         {t('paragraph2')}
       </p>
-      <Link href={generateLocalizedPath('/services', locale)} className="font-semibold text-sm md:text-base xl:text-lg underline">
+      <Link href={generateLocalizedPath('/services', locale)} className="font-semibold text-sm md:text-base xl:text-lg underline flex justify-end">
         {t('learnMore')}
       </Link>
     </div>
