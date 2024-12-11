@@ -15,7 +15,7 @@ import WuxingCard from '../../../components/WuxingCard/WuxingCard';
 export default function ResultPage() {
   const { token } = useAuth() as AuthContextType;
   const [activeTab, setActiveTab] = useState('bazi'); // New state to manage active tab
-  const [isModalOpen, setIsModalOpen] = useState(false);  //!!!
+  const [isModalOpen, setIsModalOpen] = useState(true);
   function handleCloseModal() {
     setIsModalOpen(false);
   }
@@ -133,7 +133,7 @@ export default function ResultPage() {
           </div>
         )}
       </div>
-      <WuxingCard isOpen={isModalOpen} onClose={handleCloseModal} />
+      <WuxingCard isOpen={isModalOpen} onClose={handleCloseModal} dayStem={dayStem} />
     </div>
   );
 }
